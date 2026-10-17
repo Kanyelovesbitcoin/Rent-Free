@@ -1,0 +1,28 @@
+{
+  "id": "activepieces",
+  "name": "Activepieces",
+  "website": "https://www.activepieces.com",
+  "repo": "https://github.com/activepieces/activepieces",
+  "license": "MIT (community edition)",
+  "hosting": "self-host",
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Open-source, beginner-friendly Zapier alternative.",
+  "gains": [
+    "Truly open source (MIT)",
+    "Interface feels close to Zapier",
+    "Unlimited runs when self-hosted"
+  ],
+  "tradeoffs": [
+    "Fewer integrations than Zapier",
+    "Self-hosting needs a server"
+  ],
+  "setupSteps": [
+    "Rent a small server or use the one you already have",
+    "Install with the official Docker command",
+    "Recreate your flows, starting with the one that saves you the most time"
+  ]
+}

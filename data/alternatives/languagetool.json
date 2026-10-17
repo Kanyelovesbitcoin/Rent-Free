@@ -1,0 +1,33 @@
+{
+  "id": "languagetool",
+  "name": "LanguageTool",
+  "website": "https://languagetool.org",
+  "repo": "https://github.com/languagetool-org/languagetool",
+  "license": "LGPL-2.1",
+  "hosting": "browser",
+  "platforms": [
+    "Browser extension",
+    "Windows",
+    "Mac",
+    "Google Docs",
+    "Word"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Open-source grammar and spell checker with a free browser extension.",
+  "gains": [
+    "Free tier covers spelling and grammar everywhere you type",
+    "Supports 25+ languages",
+    "Can be self-hosted for full privacy"
+  ],
+  "tradeoffs": [
+    "Fewer style/tone rewrites on the free tier",
+    "Pair it with your local AI for rewrites"
+  ],
+  "setupSteps": [
+    "Install the LanguageTool browser extension",
+    "Turn on the Google Docs integration",
+    "Cancel Grammarly once you're happy (export any custom dictionary first)"
+  ],
+  "freeTierLimits": "Free tier focuses on spelling and grammar; advanced style suggestions are paid."
+}

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "llama3-2-3b",
+    "name": "Llama 3.2 3B",
+    "ollamaTag": "llama3.2:3b",
+    "paramsB": 3,
+    "sizeGB": 2,
+    "bestFor": [
+      "chat",
+      "writing"
+    ],
+    "notes": "Tiny and quick. Fine for drafts, summaries and simple questions."
+  },
+  {
+    "id": "qwen3-4b",
+    "name": "Qwen3 4B",
+    "ollamaTag": "qwen3:4b",
+    "paramsB": 4,
+    "sizeGB": 2.6,
+    "bestFor": [
+      "chat",
+      "reasoning"
+    ],
+    "notes": "Best reasoning for its size; a good first model on 8 GB machines."
+  },
+  {
+    "id": "gemma3-4b",
+    "name": "Gemma 3 4B",
+    "ollamaTag": "gemma3:4b",
+    "paramsB": 4,
+    "sizeGB": 3.3,
+    "bestFor": [
+      "chat",
+      "writing"
+    ],
+    "notes": "Friendly writing style and can look at images."
+  },
+  {
+    "id": "qwen3-8b",
+    "name": "Qwen3 8B",
+    "ollamaTag": "qwen3:8b",
+    "paramsB": 8,
+    "sizeGB": 5.2,
+    "bestFor": [
+      "chat",
+      "writing",
+      "coding",
+      "reasoning"
+    ],
+    "notes": "The sweet spot for 16 GB computers: a solid everyday assistant."
+  },
+  {
+    "id": "llama3-1-8b",
+    "name": "Llama 3.1 8B",
+    "ollamaTag": "llama3.1:8b",
+    "paramsB": 8,
+    "sizeGB": 4.9,
+    "bestFor": [
+      "chat",
+      "writing"
+    ],
+    "notes": "Reliable all-rounder with a natural writing voice."
+  },
+  {
+    "id": "gemma3-12b",
+    "name": "Gemma 3 12B",
+    "ollamaTag": "gemma3:12b",
+    "paramsB": 12,
+    "sizeGB": 8.1,
+    "bestFor": [
+      "chat",
+      "writing"
+    ],
+    "notes": "Noticeably better writing than 8B models; understands images."
+  },
+  {
+    "id": "qwen3-14b",
+    "name": "Qwen3 14B",
+    "ollamaTag": "qwen3:14b",
+    "paramsB": 14,
+    "sizeGB": 9.3,
+    "bestFor": [
+      "chat",
+      "coding",
+      "reasoning"
+    ],
+    "notes": "Strong reasoning and coding for mid-range machines."
+  },
+  {
+    "id": "gpt-oss-20b",
+    "name": "gpt-oss 20B",
+    "ollamaTag": "gpt-oss:20b",
+    "paramsB": 21,
+    "activeParamsB": 3.6,
+    "sizeGB": 14,
+    "bestFor": [
+      "chat",
+      "reasoning",
+      "coding"
+    ],
+    "notes": "OpenAI's open-weight model. Mixture-of-experts, so it runs faster than its size suggests."
+  },
+  {
+    "id": "gemma3-27b",
+    "name": "Gemma 3 27B",
+    "ollamaTag": "gemma3:27b",
+    "paramsB": 27,
+    "sizeGB": 17,
+    "bestFor": [
+      "chat",
+      "writing"
+    ],
+    "notes": "Excellent writer for 32 GB machines."
+  },
+  {
+    "id": "qwen3-30b-a3b",
+    "name": "Qwen3 30B (MoE)",
+    "ollamaTag": "qwen3:30b",
+    "paramsB": 30,
+    "activeParamsB": 3,
+    "sizeGB": 19,
+    "bestFor": [
+      "chat",
+      "coding",
+      "reasoning"
+    ],
+    "notes": "Mixture-of-experts: big-model quality at small-model speed. Great daily driver on 32 GB."
+  },
+  {
+    "id": "llama3-3-70b",
+    "name": "Llama 3.3 70B",
+    "ollamaTag": "llama3.3:70b",
+    "paramsB": 70,
+    "sizeGB": 43,
+    "bestFor": [
+      "chat",
+      "writing",
+      "reasoning"
+    ],
+    "notes": "Close to older frontier-model quality. Needs 64 GB+ and is slower."
+  },
+  {
+    "id": "gpt-oss-120b",
+    "name": "gpt-oss 120B",
+    "ollamaTag": "gpt-oss:120b",
+    "paramsB": 117,
+    "activeParamsB": 5.1,
+    "sizeGB": 65,
+    "bestFor": [
+      "chat",
+      "reasoning",
+      "coding"
+    ],
+    "notes": "Top open-weight reasoning; needs ~96 GB+ of memory."
+  }
+]

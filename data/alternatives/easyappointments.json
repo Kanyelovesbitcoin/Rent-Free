@@ -1,0 +1,30 @@
+{
+  "id": "easyappointments",
+  "name": "Easy!Appointments",
+  "website": "https://easyappointments.org",
+  "repo": "https://github.com/alextselegidis/easyappointments",
+  "license": "GPL-3.0",
+  "hosting": "self-host",
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 3,
+  "summary": "Simple self-hosted booking system. Good for service businesses (coaches, salons, consultants).",
+  "gains": [
+    "Completely free, no plan limits",
+    "Google Calendar sync",
+    "You own all your customer data"
+  ],
+  "tradeoffs": [
+    "Looks more old-school than Calendly",
+    "You need a small server and must keep it updated"
+  ],
+  "setupSteps": [
+    "Rent a small server (e.g. a $5–6/mo VPS) or use one you already have",
+    "Install with Docker using the official docker-compose file",
+    "Open the setup page in your browser and create the admin account",
+    "Add your services, working hours and connect Google Calendar",
+    "Share your booking page link"
+  ]
+}

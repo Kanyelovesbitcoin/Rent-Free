@@ -1,0 +1,32 @@
+{
+  "id": "syncthing",
+  "name": "Syncthing",
+  "website": "https://syncthing.net",
+  "repo": "https://github.com/syncthing/syncthing",
+  "license": "MPL-2.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "Android"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "Syncs folders directly between your own devices. No cloud, no storage limits.",
+  "gains": [
+    "No storage limit except your own drives",
+    "Private and encrypted device-to-device",
+    "Totally free"
+  ],
+  "tradeoffs": [
+    "Not a backup by itself, and no web access or share links",
+    "Devices need to be on at the same time to sync"
+  ],
+  "setupSteps": [
+    "Install Syncthing on each device",
+    "Open the web interface and add your other device by its ID",
+    "Choose a folder to share between them",
+    "Keep a separate backup (e.g. an external drive)"
+  ]
+}

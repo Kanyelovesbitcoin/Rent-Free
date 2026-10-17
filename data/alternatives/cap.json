@@ -1,0 +1,29 @@
+{
+  "id": "cap",
+  "name": "Cap",
+  "website": "https://cap.so",
+  "repo": "https://github.com/CapSoftware/Cap",
+  "license": "AGPL-3.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Mac",
+    "Windows"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Open-source Loom alternative: record screen + camera and share.",
+  "gains": [
+    "Free local recording with no time limits",
+    "Looks and feels like Loom",
+    "Can use your own storage for share links"
+  ],
+  "tradeoffs": [
+    "Hosted sharing features have paid tiers",
+    "Newer project"
+  ],
+  "setupSteps": [
+    "Download Cap from cap.so",
+    "Allow screen and camera permissions",
+    "Record, then export the MP4 or share a link"
+  ]
+}

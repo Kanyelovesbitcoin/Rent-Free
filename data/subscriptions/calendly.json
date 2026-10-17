@@ -1,0 +1,38 @@
+{
+  "id": "calendly",
+  "name": "Calendly",
+  "category": "scheduling",
+  "website": "https://calendly.com",
+  "description": "Lets people book time on your calendar without the back-and-forth emails.",
+  "coreFeatures": [
+    "Public booking page with your available time slots",
+    "Syncs with Google/Outlook calendars so you never get double-booked",
+    "Multiple event types (15-min call, 1-hour consult…)",
+    "Automatic email confirmations and reminders",
+    "Video call links (Zoom/Google Meet) added to each booking",
+    "Time-zone detection for the person booking"
+  ],
+  "plans": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "monthlyPrice": 12,
+      "annualPrice": 120,
+      "perSeat": true
+    },
+    {
+      "id": "teams",
+      "name": "Teams",
+      "monthlyPrice": 20,
+      "annualPrice": 192,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "standard",
+  "sourceUrl": "https://calendly.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "calcom",
+    "easyappointments"
+  ]
+}

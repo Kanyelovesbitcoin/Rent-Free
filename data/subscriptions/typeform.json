@@ -1,0 +1,34 @@
+{
+  "id": "typeform",
+  "name": "Typeform",
+  "category": "forms",
+  "website": "https://www.typeform.com",
+  "description": "Good-looking forms and surveys, one question at a time.",
+  "coreFeatures": [
+    "One-question-at-a-time form experience",
+    "Logic jumps (skip questions based on answers)",
+    "Many question types (multiple choice, rating, file upload)",
+    "Embed forms on your site",
+    "Response dashboard and CSV export"
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "monthlyPrice": 39,
+      "annualPrice": 336
+    },
+    {
+      "id": "plus",
+      "name": "Plus",
+      "monthlyPrice": 79,
+      "annualPrice": 672
+    }
+  ],
+  "defaultPlan": "basic",
+  "sourceUrl": "https://www.typeform.com/pricing/",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "formbricks"
+  ]
+}

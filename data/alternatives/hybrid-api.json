@@ -1,0 +1,33 @@
+{
+  "id": "hybrid-api",
+  "name": "Hybrid: local + pay-as-you-go API",
+  "website": "https://openwebui.com",
+  "repo": "https://github.com/open-webui/open-webui",
+  "license": "Open WebUI License (interface); API billed by usage",
+  "hosting": "pay-as-you-go",
+  "monthlyCost": 8,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "Use a free local model for everyday stuff, and plug in a top-tier model by API key for the hard tasks. You only pay for what you actually use.",
+  "gains": [
+    "Access to frontier-quality models when you need them",
+    "Most light/medium users spend less than a $20 subscription",
+    "One interface for local and cloud models"
+  ],
+  "tradeoffs": [
+    "Heavy users can end up paying more than a flat subscription",
+    "You manage an API key and a spending limit",
+    "The $8/mo figure is a rough estimate for medium use"
+  ],
+  "setupSteps": [
+    "Set up Ollama + Open WebUI (see that guide)",
+    "Create an API account with a model provider and set a monthly spending limit",
+    "In Open WebUI go to Settings → Connections and paste your API key",
+    "Use the local model by default; switch to the API model for hard questions"
+  ]
+}

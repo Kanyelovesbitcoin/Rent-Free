@@ -1,0 +1,34 @@
+{
+  "id": "ollama-openwebui",
+  "name": "Ollama + Open WebUI",
+  "website": "https://ollama.com",
+  "repo": "https://github.com/open-webui/open-webui",
+  "license": "MIT (Ollama) + Open WebUI License",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "Run open AI models on your own computer with a ChatGPT-style interface. Use the Local AI advisor to pick a model that fits your RAM.",
+  "gains": [
+    "$0 per month, unlimited messages",
+    "Private: chats stay on your computer",
+    "Upload documents and chat with them",
+    "Can also plug in a pay-as-you-go API for hard tasks"
+  ],
+  "tradeoffs": [
+    "Local models are a step below the newest paid models",
+    "Speed and quality depend on your RAM/GPU",
+    "Open WebUI install uses Docker or Python"
+  ],
+  "setupSteps": [
+    "Install Ollama from ollama.com",
+    "Open a terminal and run the model the Local AI advisor recommends, e.g. `ollama run qwen3:8b`",
+    "Install Open WebUI (`pip install open-webui` then `open-webui serve`, or the Docker one-liner from their README)",
+    "Open http://localhost:8080 in your browser and create your local account",
+    "Pick your model in the dropdown and start chatting"
+  ]
+}

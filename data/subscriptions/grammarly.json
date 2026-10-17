@@ -1,0 +1,28 @@
+{
+  "id": "grammarly",
+  "name": "Grammarly",
+  "category": "writing",
+  "website": "https://www.grammarly.com",
+  "description": "Checks spelling, grammar and tone everywhere you type.",
+  "coreFeatures": [
+    "Spelling and grammar checking as you type",
+    "Browser extension that works on any website",
+    "Tone and clarity suggestions",
+    "Rewrite a sentence",
+    "Works in Google Docs, email and Word"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 30,
+      "annualPrice": 144
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://www.grammarly.com/plans",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "languagetool"
+  ]
+}

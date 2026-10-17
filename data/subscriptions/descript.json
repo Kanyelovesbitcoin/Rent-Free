@@ -1,0 +1,47 @@
+{
+  "id": "descript",
+  "name": "Descript",
+  "category": "video-editing",
+  "website": "https://www.descript.com",
+  "description": "Edit videos and podcasts by editing the transcript like a document.",
+  "coreFeatures": [
+    "Automatic transcription of audio and video",
+    "Edit the video by deleting words in the transcript",
+    "Remove filler words (\"um\", \"uh\") automatically",
+    "Multitrack timeline for clips, music and B-roll",
+    "Captions/subtitles export",
+    "Screen and webcam recording"
+  ],
+  "plans": [
+    {
+      "id": "hobbyist",
+      "name": "Hobbyist",
+      "monthlyPrice": 24,
+      "annualPrice": 192,
+      "perSeat": true
+    },
+    {
+      "id": "creator",
+      "name": "Creator",
+      "monthlyPrice": 35,
+      "annualPrice": 288,
+      "perSeat": true
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "monthlyPrice": 65,
+      "annualPrice": 600,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "creator",
+  "sourceUrl": "https://www.descript.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "kdenlive",
+    "buzz",
+    "shotcut"
+  ],
+  "priceNote": "Plans also cap media hours and AI credits per month."
+}

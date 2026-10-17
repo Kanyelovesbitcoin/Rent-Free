@@ -1,0 +1,34 @@
+{
+  "id": "nextcloud",
+  "name": "Nextcloud",
+  "website": "https://nextcloud.com",
+  "repo": "https://github.com/nextcloud/server",
+  "license": "AGPL-3.0",
+  "hosting": "self-host",
+  "platforms": [
+    "Web (self-hosted)",
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 4,
+  "summary": "Your own Dropbox/Google Drive: file sync, share links, photos, calendar and more.",
+  "gains": [
+    "Share links, web access and phone photo uploads like Dropbox",
+    "Huge app ecosystem (calendar, contacts, office docs)",
+    "You control the data"
+  ],
+  "tradeoffs": [
+    "Server storage costs extra for large libraries",
+    "Needs maintenance and backups"
+  ],
+  "setupSteps": [
+    "Rent a server with enough disk (or use a home mini PC)",
+    "Install the Nextcloud All-in-One Docker image",
+    "Install the desktop and phone apps and log in",
+    "Move your Dropbox folder over"
+  ]
+}

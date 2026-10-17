@@ -1,0 +1,38 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "category": "notes",
+  "website": "https://www.notion.so",
+  "description": "All-in-one workspace for notes, docs, wikis and simple databases.",
+  "coreFeatures": [
+    "Pages with rich text, headings, checklists and embeds",
+    "Nested pages and a sidebar to organize them",
+    "Databases with table, board (kanban) and calendar views",
+    "Templates",
+    "Share pages with others or publish to the web"
+  ],
+  "plans": [
+    {
+      "id": "plus",
+      "name": "Plus",
+      "monthlyPrice": 12,
+      "annualPrice": 120,
+      "perSeat": true
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "monthlyPrice": 24,
+      "annualPrice": 240,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "plus",
+  "sourceUrl": "https://www.notion.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "appflowy",
+    "affine",
+    "obsidian"
+  ]
+}

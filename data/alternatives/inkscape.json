@@ -1,0 +1,30 @@
+{
+  "id": "inkscape",
+  "name": "Inkscape",
+  "website": "https://inkscape.org",
+  "repo": "https://gitlab.com/inkscape/inkscape",
+  "license": "GPL-2.0+",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Professional vector graphics editor for logos, flyers and print.",
+  "gains": [
+    "Powerful vector tools",
+    "Works offline",
+    "Great for logos and print"
+  ],
+  "tradeoffs": [
+    "Steeper learning curve than Canva",
+    "No built-in templates"
+  ],
+  "setupSteps": [
+    "Download Inkscape from inkscape.org",
+    "Start from a free template from openclipart.org or a community pack",
+    "Export to PNG or PDF"
+  ]
+}

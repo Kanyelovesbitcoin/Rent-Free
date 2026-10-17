@@ -1,0 +1,30 @@
+{
+  "id": "listmonk",
+  "name": "listmonk",
+  "website": "https://listmonk.app",
+  "repo": "https://github.com/knadh/listmonk",
+  "license": "AGPL-3.0",
+  "hosting": "self-host",
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 4,
+  "summary": "Fast self-hosted newsletter and mailing list manager.",
+  "gains": [
+    "No per-contact pricing: 500 or 500,000 subscribers costs the same",
+    "Templates, campaigns, analytics",
+    "Your list stays yours"
+  ],
+  "tradeoffs": [
+    "You also need an email-sending service (e.g. Amazon SES, roughly $0.10 per 1,000 emails)",
+    "Deliverability setup (SPF/DKIM) is on you"
+  ],
+  "setupSteps": [
+    "Rent a small server (shared with your other apps)",
+    "Install listmonk with Docker",
+    "Connect an email-sending service via SMTP and set up SPF/DKIM on your domain",
+    "Import your Mailchimp contacts CSV",
+    "Send a test campaign to yourself first"
+  ]
+}

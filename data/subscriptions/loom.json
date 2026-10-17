@@ -1,0 +1,37 @@
+{
+  "id": "loom",
+  "name": "Loom",
+  "category": "screen-recording",
+  "website": "https://www.loom.com",
+  "description": "Record your screen and camera, then share a link to the video.",
+  "coreFeatures": [
+    "Record screen + webcam bubble",
+    "Instant shareable link after recording",
+    "Viewers can comment and react",
+    "Trim and edit recordings",
+    "Auto transcripts and titles"
+  ],
+  "plans": [
+    {
+      "id": "business",
+      "name": "Business",
+      "monthlyPrice": 18,
+      "annualPrice": 180,
+      "perSeat": true
+    },
+    {
+      "id": "business-ai",
+      "name": "Business + AI",
+      "monthlyPrice": 24,
+      "annualPrice": 240,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "business",
+  "sourceUrl": "https://www.loom.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "cap",
+    "obs"
+  ]
+}

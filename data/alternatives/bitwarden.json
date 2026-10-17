@@ -1,0 +1,36 @@
+{
+  "id": "bitwarden",
+  "name": "Bitwarden",
+  "website": "https://bitwarden.com",
+  "repo": "https://github.com/bitwarden/clients",
+  "license": "GPL-3.0",
+  "hosting": "browser",
+  "platforms": [
+    "Browser extension",
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source password manager with a genuinely useful free plan.",
+  "gains": [
+    "Unlimited passwords on unlimited devices for free",
+    "Audited and open source",
+    "Imports directly from 1Password"
+  ],
+  "tradeoffs": [
+    "Interface is a bit plainer than 1Password",
+    "Some extras (file attachments, 2FA codes) need the cheap premium tier"
+  ],
+  "setupSteps": [
+    "Create a free Bitwarden account with a strong master password",
+    "In 1Password, export your vault",
+    "In Bitwarden go to Tools → Import and choose 1Password",
+    "Install the browser extension and phone app",
+    "Delete the export file once imported"
+  ],
+  "freeTierLimits": "Free plan: unlimited passwords and devices."
+}

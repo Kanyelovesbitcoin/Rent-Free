@@ -1,0 +1,29 @@
+{
+  "id": "otter",
+  "name": "Otter.ai",
+  "category": "transcription",
+  "website": "https://otter.ai",
+  "description": "Transcribes meetings and recordings into searchable text.",
+  "coreFeatures": [
+    "Transcribe recordings and live meetings",
+    "Speaker labels",
+    "Searchable transcript library",
+    "AI summary and action items",
+    "Export to text/PDF"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 16.99,
+      "annualPrice": 99.99
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://otter.ai/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "buzz",
+    "ollama-openwebui"
+  ]
+}

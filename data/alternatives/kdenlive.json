@@ -1,0 +1,32 @@
+{
+  "id": "kdenlive",
+  "name": "Kdenlive",
+  "website": "https://kdenlive.org",
+  "repo": "https://invent.kde.org/multimedia/kdenlive",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Full multitrack video editor with built-in speech-to-text for subtitles.",
+  "gains": [
+    "No watermark, no export limits, no media-hour caps",
+    "Built-in Whisper speech-to-text for automatic subtitles",
+    "Proper multitrack timeline, effects and color tools"
+  ],
+  "tradeoffs": [
+    "No \"edit by deleting words in the transcript\" like Descript",
+    "Takes an afternoon to learn the interface"
+  ],
+  "setupSteps": [
+    "Download Kdenlive from kdenlive.org and install it",
+    "Open Settings → Configure Kdenlive → Speech to Text and install the Whisper model",
+    "Import your clips and drag them onto the timeline",
+    "Use Project → Subtitles → Speech recognition to auto-generate captions",
+    "Export with Render → choose a YouTube/MP4 preset"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "jan",
+  "name": "Jan",
+  "website": "https://jan.ai",
+  "repo": "https://github.com/janhq/jan",
+  "license": "Apache-2.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source, offline ChatGPT-style desktop app for local models.",
+  "gains": [
+    "Fully open source",
+    "Simple installer, no terminal",
+    "Can also connect to cloud APIs when you need a stronger model"
+  ],
+  "tradeoffs": [
+    "Fewer document/RAG features than Open WebUI",
+    "Same quality limits as any local model"
+  ],
+  "setupSteps": [
+    "Download Jan from jan.ai",
+    "Open the Hub and download a recommended model",
+    "Start a new chat and select the model"
+  ]
+}

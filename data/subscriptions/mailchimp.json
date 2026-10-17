@@ -1,0 +1,35 @@
+{
+  "id": "mailchimp",
+  "name": "Mailchimp",
+  "category": "email-marketing",
+  "website": "https://mailchimp.com",
+  "description": "Send newsletters and email campaigns to your list.",
+  "coreFeatures": [
+    "Subscriber list with signup forms",
+    "Drag-and-drop email designer",
+    "Scheduled campaigns and newsletters",
+    "Automations (welcome emails, sequences)",
+    "Open and click reports"
+  ],
+  "plans": [
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "monthlyPrice": 13,
+      "annualPrice": null
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "monthlyPrice": 20,
+      "annualPrice": null
+    }
+  ],
+  "defaultPlan": "standard",
+  "sourceUrl": "https://mailchimp.com/pricing/marketing/",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "listmonk"
+  ],
+  "priceNote": "Starting price for 500 contacts. Mailchimp charges more as your list grows."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "dropbox",
+  "name": "Dropbox",
+  "category": "file-storage",
+  "website": "https://www.dropbox.com",
+  "description": "Keeps your files backed up and in sync across devices.",
+  "coreFeatures": [
+    "Folder that syncs across all your devices",
+    "Access files from the web and phone",
+    "Share files and folders with a link",
+    "Version history and file recovery",
+    "Automatic camera uploads"
+  ],
+  "plans": [
+    {
+      "id": "plus",
+      "name": "Plus",
+      "monthlyPrice": 11.99,
+      "annualPrice": 119.88
+    },
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "monthlyPrice": 19.99,
+      "annualPrice": null
+    }
+  ],
+  "defaultPlan": "plus",
+  "sourceUrl": "https://www.dropbox.com/plans",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "syncthing",
+    "nextcloud"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "vaultwarden",
+  "name": "Vaultwarden",
+  "website": "https://github.com/dani-garcia/vaultwarden",
+  "repo": "https://github.com/dani-garcia/vaultwarden",
+  "license": "AGPL-3.0",
+  "hosting": "self-host",
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 3,
+  "summary": "Lightweight self-hosted server that works with all the official Bitwarden apps.",
+  "gains": [
+    "All premium features for free",
+    "Your vault lives on your own server",
+    "Uses the polished Bitwarden apps"
+  ],
+  "tradeoffs": [
+    "You are responsible for backups and security updates",
+    "Needs HTTPS set up correctly"
+  ],
+  "setupSteps": [
+    "Rent a small server and point a domain at it",
+    "Run Vaultwarden with Docker behind a reverse proxy with HTTPS (e.g. Caddy)",
+    "Point the Bitwarden apps at your server URL",
+    "Set up automatic backups of the data folder"
+  ]
+}

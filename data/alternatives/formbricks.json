@@ -1,0 +1,30 @@
+{
+  "id": "formbricks",
+  "name": "Formbricks",
+  "website": "https://formbricks.com",
+  "repo": "https://github.com/formbricks/formbricks",
+  "license": "AGPL-3.0",
+  "hosting": "browser",
+  "platforms": [
+    "Web"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source forms and surveys with logic, a generous free cloud tier, and self-hosting.",
+  "gains": [
+    "Free cloud plan for small volumes",
+    "Logic, many question types, embeds",
+    "Self-host for unlimited responses"
+  ],
+  "tradeoffs": [
+    "Fewer design themes than Typeform",
+    "Free cloud tier has response limits"
+  ],
+  "setupSteps": [
+    "Sign up free at formbricks.com",
+    "Create a link survey from a template",
+    "Add logic and your branding",
+    "Share the link or embed it on your site"
+  ],
+  "freeTierLimits": "Free cloud plan has monthly response limits; self-hosting is unlimited."
+}

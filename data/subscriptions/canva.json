@@ -1,0 +1,38 @@
+{
+  "id": "canva",
+  "name": "Canva",
+  "category": "design",
+  "website": "https://www.canva.com",
+  "description": "Drag-and-drop design for social posts, thumbnails, slides and flyers.",
+  "coreFeatures": [
+    "Drag-and-drop canvas editor",
+    "Templates for social posts, thumbnails and slides",
+    "Brand kit (logos, colors, fonts)",
+    "Background remover",
+    "Resize a design for different platforms",
+    "Export to PNG/PDF/MP4"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 18,
+      "annualPrice": 180
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "monthlyPrice": 25,
+      "annualPrice": 250,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://www.canva.com/pricing/",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "penpot",
+    "inkscape"
+  ],
+  "priceNote": "Some 2026 guides list Pro annual at $144; we use the higher $180 figure until confirmed."
+}

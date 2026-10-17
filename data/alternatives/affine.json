@@ -1,0 +1,31 @@
+{
+  "id": "affine",
+  "name": "AFFiNE",
+  "website": "https://affine.pro",
+  "repo": "https://github.com/toeverything/AFFiNE",
+  "license": "MIT (community edition)",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "Web"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Docs, whiteboards and databases in one open-source app.",
+  "gains": [
+    "Docs + infinite whiteboard in the same page",
+    "Local-first, works offline",
+    "Clean, modern design"
+  ],
+  "tradeoffs": [
+    "Databases are less mature than Notion's",
+    "Some features still in beta"
+  ],
+  "setupSteps": [
+    "Download AFFiNE or open it in the browser",
+    "Create a local workspace",
+    "Import your Notion Markdown export"
+  ]
+}

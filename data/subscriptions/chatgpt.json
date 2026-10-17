@@ -1,0 +1,51 @@
+{
+  "id": "chatgpt",
+  "name": "ChatGPT",
+  "category": "ai-chat",
+  "website": "https://chatgpt.com",
+  "description": "AI assistant for writing, research, brainstorming and coding.",
+  "coreFeatures": [
+    "Chat with an AI model in a clean thread interface",
+    "Conversation history you can search and revisit",
+    "Upload files/PDFs and ask questions about them",
+    "Custom instructions / saved personas",
+    "Image understanding"
+  ],
+  "plans": [
+    {
+      "id": "go",
+      "name": "Go",
+      "monthlyPrice": 8,
+      "annualPrice": null
+    },
+    {
+      "id": "plus",
+      "name": "Plus",
+      "monthlyPrice": 20,
+      "annualPrice": null
+    },
+    {
+      "id": "pro-100",
+      "name": "Pro ($100 tier)",
+      "monthlyPrice": 100,
+      "annualPrice": null
+    },
+    {
+      "id": "pro-200",
+      "name": "Pro ($200 tier)",
+      "monthlyPrice": 200,
+      "annualPrice": null
+    }
+  ],
+  "defaultPlan": "plus",
+  "sourceUrl": "https://chatgpt.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "ollama-openwebui",
+    "lm-studio",
+    "jan",
+    "hybrid-api"
+  ],
+  "localAI": true,
+  "priceNote": "US prices. Go tier availability varies by region."
+}

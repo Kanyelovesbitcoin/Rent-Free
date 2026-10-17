@@ -1,0 +1,32 @@
+{
+  "id": "buzz",
+  "name": "Buzz",
+  "website": "https://buzzcaptions.com",
+  "repo": "https://github.com/chidiwilliams/buzz",
+  "license": "MIT",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Free desktop app that transcribes audio and video on your own computer using OpenAI's open Whisper model.",
+  "gains": [
+    "Unlimited transcription, no minute caps",
+    "Private: audio never leaves your computer",
+    "Exports subtitles (SRT/VTT) and plain text"
+  ],
+  "tradeoffs": [
+    "Slower on older laptops without a good GPU",
+    "No live meeting bot or AI summaries built in (pair it with a local AI model for summaries)"
+  ],
+  "setupSteps": [
+    "Download Buzz from its GitHub releases page and install it",
+    "Drop in an audio or video file",
+    "Pick a Whisper model (\"small\" is a good start; \"medium\" is more accurate but slower)",
+    "Click Run, then export as TXT or SRT",
+    "Optional: paste the transcript into your local AI to get a summary"
+  ]
+}

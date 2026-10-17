@@ -1,0 +1,31 @@
+{
+  "id": "shotcut",
+  "name": "Shotcut",
+  "website": "https://shotcut.org",
+  "repo": "https://github.com/mltframework/shotcut",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 1,
+  "summary": "Lightweight, beginner-friendly video editor with a speech-to-text subtitle feature.",
+  "gains": [
+    "Very simple to start with",
+    "Runs well on modest computers",
+    "No watermark or limits"
+  ],
+  "tradeoffs": [
+    "Fewer advanced features than Kdenlive",
+    "Still no transcript-based editing"
+  ],
+  "setupSteps": [
+    "Download Shotcut from shotcut.org",
+    "Drag your clips into the playlist and onto the timeline",
+    "Use the Subtitles panel → Speech to Text for captions",
+    "Export with the YouTube preset"
+  ]
+}

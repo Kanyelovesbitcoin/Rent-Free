@@ -1,0 +1,29 @@
+{
+  "id": "littlelink",
+  "name": "LittleLink",
+  "website": "https://littlelink.io",
+  "repo": "https://github.com/sethcottle/littlelink",
+  "license": "MIT",
+  "hosting": "browser",
+  "platforms": [
+    "Web (free static hosting)"
+  ],
+  "difficulty": "easy",
+  "setupHours": 1,
+  "summary": "A simple open-source link-in-bio page you host for free on GitHub Pages, Netlify or Vercel.",
+  "gains": [
+    "$0 forever, and it works with your own domain",
+    "100+ pre-made brand buttons",
+    "Super fast and lightweight"
+  ],
+  "tradeoffs": [
+    "You edit a file instead of a drag-and-drop editor",
+    "Add free analytics yourself (e.g. Umami or GoatCounter)"
+  ],
+  "setupSteps": [
+    "Click \"Use this template\" on the LittleLink GitHub repo",
+    "Edit index.html: your name, photo and links",
+    "Turn on GitHub Pages in the repo settings (or import to Vercel)",
+    "Put the new URL in your bio"
+  ]
+}

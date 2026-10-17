@@ -1,0 +1,30 @@
+{
+  "id": "lm-studio",
+  "name": "LM Studio",
+  "website": "https://lmstudio.ai",
+  "license": "Free app (closed source), runs open models",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "The easiest way to try local AI: download one app, click a model, start chatting.",
+  "gains": [
+    "No terminal needed",
+    "Shows which models fit your computer",
+    "Chat with your documents offline"
+  ],
+  "tradeoffs": [
+    "The app itself isn't open source (the models are)",
+    "Same quality limits as any local model"
+  ],
+  "setupSteps": [
+    "Download LM Studio from lmstudio.ai",
+    "Open the Discover tab and search for the model the Local AI advisor recommends",
+    "Download it (LM Studio warns you if it is too big for your computer)",
+    "Go to the Chat tab, load the model and start chatting"
+  ]
+}

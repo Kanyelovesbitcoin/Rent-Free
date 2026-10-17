@@ -1,0 +1,36 @@
+{
+  "id": "zapier",
+  "name": "Zapier",
+  "category": "automation",
+  "website": "https://zapier.com",
+  "description": "Connects your apps so work happens automatically (\"when X happens, do Y\").",
+  "coreFeatures": [
+    "Triggers from apps (new form entry, new email, new payment…)",
+    "Actions in other apps (add a row, send a message…)",
+    "Multi-step workflows with filters and conditions",
+    "Hundreds of app integrations",
+    "Run history and error alerts"
+  ],
+  "plans": [
+    {
+      "id": "professional",
+      "name": "Professional",
+      "monthlyPrice": 29.99,
+      "annualPrice": 239.88
+    },
+    {
+      "id": "team",
+      "name": "Team",
+      "monthlyPrice": 103.5,
+      "annualPrice": 828
+    }
+  ],
+  "defaultPlan": "professional",
+  "sourceUrl": "https://zapier.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "n8n",
+    "activepieces"
+  ],
+  "priceNote": "Entry-tier prices; Zapier charges more as your monthly task count grows."
+}

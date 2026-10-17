@@ -1,0 +1,29 @@
+{
+  "id": "penpot",
+  "name": "Penpot",
+  "website": "https://penpot.app",
+  "repo": "https://github.com/penpot/penpot",
+  "license": "MPL-2.0",
+  "hosting": "browser",
+  "platforms": [
+    "Web"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "Open-source design tool in the browser. Closer to Figma than Canva, but great for thumbnails and social graphics once you set up your own templates.",
+  "gains": [
+    "Free hosted version, or self-host",
+    "Reusable components = your own template system",
+    "Exports PNG, SVG and PDF"
+  ],
+  "tradeoffs": [
+    "No giant template library or stock photo library like Canva",
+    "No one-click background remover"
+  ],
+  "setupSteps": [
+    "Sign up free at penpot.app",
+    "Create a board at your size (e.g. 1280×720 for YouTube thumbnails)",
+    "Build 2–3 layouts you reuse and save them as components",
+    "Grab free photos from Unsplash/Pexels and export to PNG"
+  ]
+}

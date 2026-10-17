@@ -1,0 +1,44 @@
+{
+  "id": "claude",
+  "name": "Claude",
+  "category": "ai-chat",
+  "website": "https://claude.ai",
+  "description": "AI assistant for writing, analysis and coding.",
+  "coreFeatures": [
+    "Chat with an AI model in a clean thread interface",
+    "Projects that keep files and instructions together",
+    "Upload documents and ask questions about them",
+    "Long conversations with large context",
+    "Artifacts / generated documents you can edit"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 20,
+      "annualPrice": 204
+    },
+    {
+      "id": "max-5x",
+      "name": "Max 5x",
+      "monthlyPrice": 100,
+      "annualPrice": null
+    },
+    {
+      "id": "max-20x",
+      "name": "Max 20x",
+      "monthlyPrice": 200,
+      "annualPrice": null
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://claude.com/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "ollama-openwebui",
+    "lm-studio",
+    "jan",
+    "hybrid-api"
+  ],
+  "localAI": true
+}

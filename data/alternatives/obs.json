@@ -1,0 +1,31 @@
+{
+  "id": "obs",
+  "name": "OBS Studio",
+  "website": "https://obsproject.com",
+  "repo": "https://github.com/obsproject/obs-studio",
+  "license": "GPL-2.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "The standard free tool for screen recording and live streaming.",
+  "gains": [
+    "Unlimited, high-quality recording",
+    "Scenes, overlays and webcam layouts",
+    "Also does live streaming"
+  ],
+  "tradeoffs": [
+    "No instant share link: upload the file yourself (e.g. YouTube unlisted)",
+    "More settings to learn"
+  ],
+  "setupSteps": [
+    "Download OBS from obsproject.com",
+    "Run the auto-configuration wizard",
+    "Add a Display Capture and a Video Capture (webcam) source",
+    "Hit Start Recording; upload as an unlisted YouTube video to share"
+  ]
+}

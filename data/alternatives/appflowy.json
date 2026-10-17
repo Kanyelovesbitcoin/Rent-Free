@@ -1,0 +1,33 @@
+{
+  "id": "appflowy",
+  "name": "AppFlowy",
+  "website": "https://appflowy.com",
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy",
+  "license": "AGPL-3.0",
+  "hosting": "desktop",
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source Notion alternative with pages, databases and kanban boards.",
+  "gains": [
+    "Feels a lot like Notion",
+    "Works offline; your data stays local",
+    "Board, grid and calendar database views"
+  ],
+  "tradeoffs": [
+    "Smaller template gallery",
+    "Real-time team collaboration needs their cloud or self-hosting"
+  ],
+  "setupSteps": [
+    "Download AppFlowy from appflowy.com",
+    "Export your Notion workspace (Settings → Export → Markdown & CSV)",
+    "Import the export into AppFlowy",
+    "Recreate your key database views (board/calendar)"
+  ]
+}

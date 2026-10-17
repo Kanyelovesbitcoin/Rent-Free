@@ -1,0 +1,31 @@
+{
+  "id": "calcom",
+  "name": "Cal.com",
+  "website": "https://cal.com",
+  "repo": "https://github.com/calcom/cal.com",
+  "license": "AGPL-3.0",
+  "hosting": "browser",
+  "platforms": [
+    "Web"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source scheduling. The free plan covers most solo creators; self-host it if you want full control.",
+  "gains": [
+    "Free plan for individuals with unlimited event types",
+    "Connects to Google/Outlook calendars and Zoom/Meet",
+    "Open source, so you can self-host later and own your data"
+  ],
+  "tradeoffs": [
+    "Team features are paid on the hosted version",
+    "Self-hosting is a real project (database + email setup)"
+  ],
+  "setupSteps": [
+    "Go to cal.com and sign up for the free plan",
+    "Connect your Google or Outlook calendar",
+    "Create your event types (e.g. \"15-min intro call\")",
+    "Connect Zoom or Google Meet for automatic video links",
+    "Replace your Calendly link everywhere (bio, email signature, website)"
+  ],
+  "freeTierLimits": "Free for individuals; team scheduling features are paid."
+}

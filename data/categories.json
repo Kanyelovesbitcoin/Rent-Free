@@ -1,0 +1,92 @@
+[
+  {
+    "id": "scheduling",
+    "name": "Scheduling",
+    "emoji": "📅",
+    "wireframe": "scheduling"
+  },
+  {
+    "id": "video-editing",
+    "name": "Video & podcast editing",
+    "emoji": "🎬",
+    "wireframe": "video-editing"
+  },
+  {
+    "id": "ai-chat",
+    "name": "AI assistants",
+    "emoji": "🤖",
+    "wireframe": "ai-chat"
+  },
+  {
+    "id": "notes",
+    "name": "Notes & docs",
+    "emoji": "📝",
+    "wireframe": "notes"
+  },
+  {
+    "id": "design",
+    "name": "Design & graphics",
+    "emoji": "🎨",
+    "wireframe": "generic"
+  },
+  {
+    "id": "automation",
+    "name": "Automation",
+    "emoji": "⚡",
+    "wireframe": "generic"
+  },
+  {
+    "id": "writing",
+    "name": "Writing help",
+    "emoji": "✍️",
+    "wireframe": "notes"
+  },
+  {
+    "id": "passwords",
+    "name": "Passwords",
+    "emoji": "🔐",
+    "wireframe": "generic"
+  },
+  {
+    "id": "screen-recording",
+    "name": "Screen recording",
+    "emoji": "🎥",
+    "wireframe": "video-editing"
+  },
+  {
+    "id": "email-marketing",
+    "name": "Email marketing",
+    "emoji": "📧",
+    "wireframe": "email"
+  },
+  {
+    "id": "file-storage",
+    "name": "File storage & sync",
+    "emoji": "🗂️",
+    "wireframe": "generic"
+  },
+  {
+    "id": "link-in-bio",
+    "name": "Link in bio",
+    "emoji": "🔗",
+    "wireframe": "link-in-bio"
+  },
+  {
+    "id": "forms",
+    "name": "Forms & surveys",
+    "emoji": "📋",
+    "wireframe": "forms"
+  },
+  {
+    "id": "transcription",
+    "name": "Transcription & meeting notes",
+    "emoji": "🎙️",
+    "wireframe": "generic"
+  },
+  {
+    "id": "other",
+    "name": "Something else",
+    "emoji": "🧩",
+    "wireframe": "generic"
+  }
+]

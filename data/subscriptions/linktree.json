@@ -1,0 +1,28 @@
+{
+  "id": "linktree",
+  "name": "Linktree",
+  "category": "link-in-bio",
+  "website": "https://linktr.ee",
+  "description": "One link in your bio that lists all your other links.",
+  "coreFeatures": [
+    "Single page with all your links as buttons",
+    "Profile photo, bio and social icons",
+    "Custom colors and themes",
+    "Click analytics",
+    "Custom domain"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 15,
+      "annualPrice": 144
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://linktr.ee/s/pricing",
+  "lastVerified": "2026-10-17",
+  "alternatives": [
+    "littlelink"
+  ]
+}
