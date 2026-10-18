@@ -26,5 +26,6 @@
     "Run n8n with Docker using the official docker-compose guide",
     "Open n8n, create your owner account",
     "Rebuild your most important Zap first, test it, then move the rest"
-  ]
+  ],
+  "commercialNote": "Sustainable Use License: free for your own business and internal use. You may not sell n8n as a hosted service or a white-labeled product without a commercial license from n8n."
 }

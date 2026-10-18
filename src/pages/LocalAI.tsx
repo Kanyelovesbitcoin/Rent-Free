@@ -156,14 +156,16 @@ export default function LocalAI() {
 
       <section>
         <h2 className="font-display text-xl font-extrabold">Every model we track</h2>
-        <p className="mt-1 text-sm text-stone-500">Sizes are approximate for the default 4-bit download. New models come out all the time, so check the Ollama library for the latest.</p>
+        <p className="mt-1 text-sm text-stone-500">Sizes are approximate for the default 4-bit download. New models come out all the time, so check the Ollama library for the latest. Running
+          any of these privately is fine; if you build a product on one, read its license (Llama and Gemma have their own usage rules).</p>
         <div className="card mt-4 overflow-x-auto">
-          <table className="w-full min-w-[560px] text-sm">
+          <table className="w-full min-w-[680px] text-sm">
             <thead className="text-left text-stone-500">
               <tr className="border-b border-stone-100 dark:border-stone-800">
                 <th className="p-3">Model</th>
                 <th className="p-3">Needs</th>
                 <th className="p-3">Good for</th>
+                <th className="p-3">License</th>
                 <th className="p-3">On your machine</th>
               </tr>
             </thead>
@@ -176,6 +178,7 @@ export default function LocalAI() {
                   </td>
                   <td className="p-3 tabular-nums">~{memoryNeededGB(model).toFixed(0)} GB</td>
                   <td className="p-3 text-stone-600 dark:text-stone-400">{model.bestFor.join(', ')}</td>
+                  <td className="p-3 text-xs text-stone-500">{model.license}</td>
                   <td className="p-3">
                     <Badge className={FIT_BADGE[fit].cls}>{FIT_BADGE[fit].label}</Badge>
                   </td>
@@ -300,7 +303,7 @@ function ModelCard({ model, title }: { model: LocalModel; title: string }) {
       <h3 className="text-xl font-bold">{model.name}</h3>
       <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">{model.notes}</p>
       <p className="mt-2 text-xs text-stone-500">
-        {model.paramsB}B parameters{model.activeParamsB ? ` (${model.activeParamsB}B active)` : ''} · ~{model.sizeGB} GB download · good for {model.bestFor.join(', ')}
+        {model.paramsB}B parameters{model.activeParamsB ? ` (${model.activeParamsB}B active)` : ''} · ~{model.sizeGB} GB download · good for {model.bestFor.join(', ')} · license: {model.license}
       </p>
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <code className="rounded-lg bg-stone-100 px-3 py-2 text-sm dark:bg-stone-800">{cmd}</code>

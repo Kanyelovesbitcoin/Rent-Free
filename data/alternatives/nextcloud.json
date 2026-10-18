@@ -30,5 +30,6 @@
     "Install the Nextcloud All-in-One Docker image",
     "Install the desktop and phone apps and log in",
     "Move your Dropbox folder over"
-  ]
+  ],
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
 }

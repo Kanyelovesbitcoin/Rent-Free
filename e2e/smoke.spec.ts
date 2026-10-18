@@ -75,9 +75,27 @@ test('local AI advisor: 16 GB Mac', async ({ page }) => {
 })
 
 test('no horizontal scroll on any page', async ({ page }) => {
-  for (const path of ['/', '/#/start', '/#/results', '/#/tool/descript', '/#/local-ai', '/#/contribute', '/#/build?name=X&category=forms']) {
+  for (const path of ['/', '/#/start', '/#/results', '/#/tool/descript', '/#/local-ai', '/#/contribute', '/#/about', '/#/build?name=X&category=forms']) {
     await page.goto(path)
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
     expect(overflow, path).toBeLessThanOrEqual(0)
   }
+})
+
+test('legal: disclaimer, license notes, and no third-party requests', async ({ page }) => {
+  const thirdParty: string[] = []
+  page.on('request', (r) => {
+    const host = new URL(r.url()).hostname
+    if (host !== 'localhost' && !r.url().startsWith('data:')) thirdParty.push(r.url())
+  })
+  await page.goto('/')
+  await expect(page.getByTestId('disclaimer')).toContainText('not affiliated')
+  await page.goto('/#/tool/zapier')
+  await expect(page.getByTestId('before-cancel')).toContainText('Export your data')
+  await expect(page.getByTestId('alt-n8n').getByTestId('commercial-note')).toContainText('hosted service')
+  await page.goto('/#/local-ai')
+  await expect(page.getByText('Apache-2.0').first()).toBeVisible()
+  await page.goto('/#/about')
+  await expect(page.getByRole('heading', { name: 'Independent, not affiliated' })).toBeVisible()
+  expect(thirdParty).toEqual([])
 })

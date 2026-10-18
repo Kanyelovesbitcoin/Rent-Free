@@ -29,5 +29,6 @@
     "Export your Notion workspace (Settings → Export → Markdown & CSV)",
     "Import the export into AppFlowy",
     "Recreate your key database views (board/calendar)"
-  ]
+  ],
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
 }

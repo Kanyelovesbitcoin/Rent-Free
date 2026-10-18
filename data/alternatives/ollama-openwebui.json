@@ -30,5 +30,6 @@
     "Install Open WebUI (`pip install open-webui` then `open-webui serve`, or the Docker one-liner from their README)",
     "Open http://localhost:8080 in your browser and create your local account",
     "Pick your model in the dropdown and start chatting"
-  ]
+  ],
+  "commercialNote": "Ollama is MIT. Open WebUI's license asks you to keep its branding; removing it for a larger deployment requires an enterprise license."
 }

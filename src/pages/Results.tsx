@@ -45,13 +45,13 @@ export default function Results() {
         </p>
       )}
       <PageHeader eyebrow="Step 2" title="Here's what you could keep">
-        Switch an alternative or choose "keep paying" for any tool, and the totals update live.
+        Switch an alternative or choose "keep paying" for any tool, and the totals update live. These are estimates from list prices; your actual bill may differ.
       </PageHeader>
 
       <section className="grid gap-4 sm:grid-cols-3">
         <Stat label="You pay now" value={summary.currentYearly} sub={`${monthly(summary.currentYearly)}/mo`} tone="rose" />
         <Stat label="Rent-Free route" value={summary.rentFreeYearly} sub={summary.needsServer ? `incl. ${formatMoney(summary.serverYearly)}/yr server` : 'no server needed'} tone="stone" />
-        <Stat label="You keep" value={summary.savingsYearly} sub={`${monthly(summary.savingsYearly)}/mo · ~${formatHours(summary.setupHours)} total setup`} tone="emerald" />
+        <Stat label="You could keep" value={summary.savingsYearly} sub={`${monthly(summary.savingsYearly)}/mo · ~${formatHours(summary.setupHours)} total setup`} tone="emerald" />
       </section>
 
       <section className="mt-10 grid gap-8 lg:grid-cols-[1fr_minmax(0,520px)]">
@@ -161,7 +161,7 @@ function SwapRow({ r, savings, onAlt }: { r: ResolvedItem; savings: number; onAl
           </p>
         </div>
         <p className="text-right">
-          <span className="label">You keep</span>
+          <span className="label">Could keep</span>
           <Money value={savings} className="font-display text-2xl font-extrabold text-emerald-600 dark:text-emerald-400" />
         </p>
       </div>

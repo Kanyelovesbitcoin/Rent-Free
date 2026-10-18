@@ -106,6 +106,15 @@ export default function ToolDetail() {
         </p>
       </section>
 
+      <section className="rounded-2xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-900 dark:bg-amber-950/40" data-testid="before-cancel">
+        <h2 className="font-semibold">✋ Before you cancel {sub.name}</h2>
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-700 dark:text-stone-300">
+          <li>Export your data first (files, contacts, notes, templates, anything you'd miss).</li>
+          <li>Check your plan: annual contracts may not refund, and some cancel at the end of the billing period.</li>
+          <li>Run the new tool alongside the old one for a week before you switch over completely.</li>
+        </ul>
+      </section>
+
       <section>
         <h2 className="font-display text-xl font-extrabold">Open-source alternatives</h2>
         <div className="mt-4 space-y-4">
@@ -182,6 +191,11 @@ function AlternativeCard({ alt, recommended, replacing }: { alt: Alternative; re
           {alt.freeTierLimits && <> · {alt.freeTierLimits}</>}
         </p>
       </details>
+      {alt.commercialNote && (
+        <p className="mt-3 text-xs text-stone-500" data-testid="commercial-note">
+          <strong className="text-stone-700 dark:text-stone-300">⚖️ License note:</strong> {alt.commercialNote}
+        </p>
+      )}
     </article>
   )
 }

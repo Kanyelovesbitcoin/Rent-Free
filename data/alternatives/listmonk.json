@@ -26,5 +26,6 @@
     "Connect an email-sending service via SMTP and set up SPF/DKIM on your domain",
     "Import your Mailchimp contacts CSV",
     "Send a test campaign to yourself first"
-  ]
+  ],
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
 }

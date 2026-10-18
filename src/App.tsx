@@ -8,6 +8,7 @@ import ToolDetail from './pages/ToolDetail'
 import Build from './pages/Build'
 import LocalAI from './pages/LocalAI'
 import Contribute from './pages/Contribute'
+import About from './pages/About'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/build" element={<Build />} />
         <Route path="/local-ai" element={<LocalAI />} />
         <Route path="/contribute" element={<Contribute />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

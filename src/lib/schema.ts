@@ -71,6 +71,8 @@ export const AlternativeSchema = z.object({
   tradeoffs: z.array(z.string()).min(1),
   setupSteps: z.array(z.string()).min(2),
   freeTierLimits: z.string().optional(),
+  // License rules that matter once money is involved (reselling, hosting for clients, modifying).
+  commercialNote: z.string().optional(),
 })
 
 export const LocalModelSchema = z.object({
@@ -83,6 +85,8 @@ export const LocalModelSchema = z.object({
   // Approx. download / memory size at the default 4-bit quantization.
   sizeGB: z.number().positive(),
   bestFor: z.array(z.enum(['chat', 'writing', 'coding', 'reasoning'])).min(1),
+  // Model license, e.g. "Apache-2.0" or "Meta Llama Community License".
+  license: z.string(),
   notes: z.string(),
 })
 

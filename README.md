@@ -56,6 +56,10 @@ The schemas live in [`src/lib/schema.ts`](src/lib/schema.ts). See [CONTRIBUTING.
 
 Prices were last checked on the date shown on each tool page. Prices change, so please [report a wrong one](../../issues/new).
 
+## Legal notes
+
+Rent-Free is independent and not affiliated with any company it lists. Product names are used only to identify the products being compared (no logos). Prices are hand-checked estimates with a source and date. Each alternative shows its license, plus a note when that license limits commercial use. The site makes no third-party requests (fonts are bundled), uses no cookies and collects no data. See the in-app **About & disclaimer** page for the full text.
+
 ## License
 
 MIT

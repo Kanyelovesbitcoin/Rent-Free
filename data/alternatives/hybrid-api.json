@@ -29,5 +29,6 @@
     "Create an API account with a model provider and set a monthly spending limit",
     "In Open WebUI go to Settings → Connections and paste your API key",
     "Use the local model by default; switch to the API model for hard questions"
-  ]
+  ],
+  "commercialNote": "Open WebUI's license asks you to keep its branding. Your API provider's terms also apply to what you send and generate."
 }

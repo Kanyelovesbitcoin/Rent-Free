@@ -26,5 +26,6 @@
     "Open the Discover tab and search for the model the Local AI advisor recommends",
     "Download it (LM Studio warns you if it is too big for your computer)",
     "Go to the Chat tab, load the model and start chatting"
-  ]
+  ],
+  "commercialNote": "Closed-source app. Check LM Studio's terms for workplace use; the models you run have their own licenses (see the Local AI page)."
 }

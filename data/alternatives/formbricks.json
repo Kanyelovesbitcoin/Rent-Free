@@ -26,5 +26,6 @@
     "Add logic and your branding",
     "Share the link or embed it on your site"
   ],
-  "freeTierLimits": "Free cloud plan has monthly response limits; self-hosting is unlimited."
+  "freeTierLimits": "Free cloud plan has monthly response limits; self-hosting is unlimited.",
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license. Some enterprise features are under a separate license."
 }

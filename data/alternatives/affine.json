@@ -27,5 +27,6 @@
     "Download AFFiNE or open it in the browser",
     "Create a local workspace",
     "Import your Notion Markdown export"
-  ]
+  ],
+  "commercialNote": "The community edition is MIT; some cloud and enterprise features are under separate terms."
 }

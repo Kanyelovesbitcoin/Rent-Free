@@ -29,5 +29,6 @@
     "Create a vault (a folder on your computer)",
     "Use the official Importer plugin to bring in your Notion export",
     "Optional: sync the vault folder with Syncthing for free"
-  ]
+  ],
+  "commercialNote": "Closed-source app, free for personal and commercial use. Your notes are plain Markdown files you fully own."
 }

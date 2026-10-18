@@ -25,5 +25,6 @@
     "Download Cap from cap.so",
     "Allow screen and camera permissions",
     "Record, then export the MP4 or share a link"
-  ]
+  ],
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
 }

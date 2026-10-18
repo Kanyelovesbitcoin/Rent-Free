@@ -27,5 +27,6 @@
     "Connect Zoom or Google Meet for automatic video links",
     "Replace your Calendly link everywhere (bio, email signature, website)"
   ],
-  "freeTierLimits": "Free for individuals; team scheduling features are paid."
+  "freeTierLimits": "Free for individuals; team scheduling features are paid.",
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license. Some enterprise features are under a separate commercial license."
 }

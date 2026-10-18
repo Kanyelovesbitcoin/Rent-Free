@@ -10,6 +10,13 @@ Thanks for helping people stop renting their software! Most contributions are ju
 4. **No affiliate links, logos or copied branding.**
 5. **Write for beginners.** Setup steps should make sense to someone who has never opened a terminal.
 
+## Legal basics for contributors
+
+- By contributing, you agree your contribution is released under the project's MIT License.
+- Enter prices **by hand** from the company's official pricing page. Don't scrape sites, and don't copy text from other comparison sites or blogs; write descriptions in your own words.
+- Refer to products by name only. No logos, screenshots of their branding, or claims that a company endorses Rent-Free.
+- If an alternative's license limits commercial use (e.g. no reselling as a hosted service), add a `commercialNote`.
+
 ## Fix a wrong price (2 minutes)
 
 Edit the file in `data/subscriptions/`, update the price and `lastVerified`, and open a pull request. Or [open an issue](../../issues/new) with a link to the pricing page.
@@ -63,7 +70,8 @@ Create `data/alternatives/<id>.json`:
   "gains": ["What you get"],
   "tradeoffs": ["What you give up. Be honest!"],
   "setupSteps": ["Step 1", "Step 2"],
-  "freeTierLimits": "Optional"
+  "freeTierLimits": "Optional",
+  "commercialNote": "Optional: license rules for business use, reselling or hosting for others"
 }
 ```
 

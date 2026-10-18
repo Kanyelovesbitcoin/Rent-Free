@@ -13,7 +13,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
   const linkCls = ({ isActive }: { isActive: boolean }) =>
     `rounded-lg px-3 py-2 text-sm font-medium transition ${
-      isActive ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' : 'text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100'
+      isActive
+        ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+        : 'text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100'
     }`
 
   return (
@@ -54,20 +56,29 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10">{children}</main>
 
       <footer className="border-t border-stone-200 dark:border-stone-800">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between dark:text-stone-400">
-          <p>
-            <strong className="text-stone-700 dark:text-stone-300">Rent-Free</strong> is free and open source (MIT). Your picks never leave your browser.
-          </p>
-          <p className="flex gap-4">
-            <Link to="/contribute" className="hover:text-stone-900 dark:hover:text-stone-100">
-              Add a tool
-            </Link>
-            <a href={REPO_URL} className="hover:text-stone-900 dark:hover:text-stone-100" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            <a href={`${REPO_URL}/issues/new`} className="hover:text-stone-900 dark:hover:text-stone-100" target="_blank" rel="noreferrer">
-              Report a wrong price
-            </a>
+        <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-stone-500 dark:text-stone-400">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              <strong className="text-stone-700 dark:text-stone-300">Rent-Free</strong> is free and open source (MIT). Your picks never leave your browser.
+            </p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1">
+              <Link to="/about" className="hover:text-stone-900 dark:hover:text-stone-100">
+                About & disclaimer
+              </Link>
+              <Link to="/contribute" className="hover:text-stone-900 dark:hover:text-stone-100">
+                Add a tool
+              </Link>
+              <a href={REPO_URL} className="hover:text-stone-900 dark:hover:text-stone-100" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a href={`${REPO_URL}/issues/new`} className="hover:text-stone-900 dark:hover:text-stone-100" target="_blank" rel="noreferrer">
+                Report a wrong price
+              </a>
+            </p>
+          </div>
+          <p className="mt-4 text-xs" data-testid="disclaimer">
+            Rent-Free is independent and not affiliated with any company listed. Product names are trademarks of their owners and are used only to identify
+            them. Prices are estimates; check official pricing pages before deciding.
           </p>
         </div>
       </footer>
