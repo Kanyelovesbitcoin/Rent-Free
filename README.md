@@ -4,9 +4,10 @@
 
 Rent-Free is a free, open-source web app that shows you what your subscriptions really cost per year, and how to replace them with free, open-source or local tools.
 
-- **Savings calculator**: pick what you pay for (Calendly, Descript, ChatGPT, Notion, Canva…) or add anything custom. See what you pay now vs. the open-source route, including any server costs and setup time.
+- **Savings calculator**: tap what you pay for from the 50 subscriptions people pay for most (Netflix, Spotify, Amazon Prime, iCloud, ChatGPT, Microsoft 365, Adobe, Canva, Notion…), load a starter stack, or add anything custom. See what you pay now vs. the free route, including server costs and setup time.
 - **Honest swap guides**: for every tool, see what you gain, what you give up, a difficulty level, and plain-English steps to switch.
-- **Build kit**: no good alternative? Get a copy-paste build prompt and a wireframe mockup to hand to Claude, ChatGPT, Lovable or Bolt so you can build your own.
+- **Remake with AI**: pick a subscription (or describe your own), tick the features you actually use, and get a ready-to-paste prompt for **Claude Code, Codex, OpenCode, Cursor** or a chat assistant, plus a wireframe. The prompt scales with the job: quick builds get a one-shot MVP; big builds get a SPEC.md, a PLAN.md with milestones, tests and a review stop after each milestone.
+- **Honest content swaps**: you can't open-source Netflix's movies, so streaming and memberships get real options instead: rotate services, free plans, your library card (Libby, Kanopy, Hoopla), and media servers (Jellyfin, Navidrome, Audiobookshelf) for what you own.
 - **Local AI advisor**: enter your RAM/GPU and see which open models your computer can actually run, which app to use, and whether local, hybrid (local + pay-as-you-go) or keeping your subscription makes the most sense.
 - **Shareable receipt**: download a "Rent-Free receipt" image or share a link to your results.
 
@@ -52,6 +53,7 @@ The schemas live in [`src/lib/schema.ts`](src/lib/schema.ts). See [CONTRIBUTING.
 - Desktop apps and free web tiers cost **$0**.
 - Self-hosted apps share **one small server** (default $6/month, editable), counted once no matter how many apps run on it.
 - Pay-as-you-go options (e.g. an AI API) use a stated monthly estimate.
+- "Rotate it" (subscribe ~3 months a year) keeps 25% of that bill.
 - If you choose "keep paying," that tool counts **zero** savings. We never count savings we can't back up.
 
 Prices were last checked on the date shown on each tool page. Prices change, so please [report a wrong one](../../issues/new).

@@ -1,0 +1,46 @@
+{
+  "id": "google-one",
+  "name": "Google One",
+  "category": "file-storage",
+  "website": "https://one.google.com",
+  "description": "Extra storage for Google Photos, Drive and Gmail.",
+  "coreFeatures": [
+    "Automatic photo backup from your phone",
+    "File storage with share links",
+    "Search photos by date and place"
+  ],
+  "plans": [
+    {
+      "id": "200gb",
+      "name": "200 GB",
+      "monthlyPrice": 2.99,
+      "annualPrice": 29.99,
+      "perSeat": false
+    },
+    {
+      "id": "2tb",
+      "name": "2 TB",
+      "monthlyPrice": 9.99,
+      "annualPrice": 99.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "2tb",
+  "sourceUrl": "https://one.google.com/about/plans",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "immich",
+    "nextcloud",
+    "syncthing"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 12,
+  "extraFeatures": [
+    "Face recognition",
+    "Shared albums",
+    "Family sharing"
+  ],
+  "priceNote": "Google AI Pro bundles 5 TB of storage at $19.99/month; see Gemini.",
+  "remakeNote": "Use Google Takeout to export everything before you downgrade."
+}

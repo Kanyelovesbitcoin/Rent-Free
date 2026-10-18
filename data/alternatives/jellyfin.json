@@ -1,0 +1,35 @@
+{
+  "id": "jellyfin",
+  "name": "Jellyfin",
+  "website": "https://jellyfin.org",
+  "license": "GPL-2.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "TV apps",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Free media server: turn movies and shows you own into your own Netflix-style app on every screen.",
+  "gains": [
+    "No subscription, no ads, no tracking",
+    "Beautiful library with posters and resume",
+    "Apps for TVs and phones"
+  ],
+  "tradeoffs": [
+    "Only plays content you already own",
+    "A computer has to stay on to stream"
+  ],
+  "setupSteps": [
+    "Install Jellyfin Server on a computer that stays on",
+    "Point it at your movies/shows folders",
+    "Install the Jellyfin app on your TV and phone",
+    "Sign in and start watching"
+  ],
+  "repo": "https://github.com/jellyfin/jellyfin"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "hulu",
+  "name": "Hulu",
+  "category": "streaming-video",
+  "website": "https://www.hulu.com",
+  "description": "Current TV episodes, series and movies.",
+  "coreFeatures": [
+    "Library of movies and shows with posters and descriptions",
+    "Stream to TV, phone and browser",
+    "Resume where you left off",
+    "Multiple profiles for family members"
+  ],
+  "plans": [
+    {
+      "id": "ads",
+      "name": "With ads",
+      "monthlyPrice": 12.49,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "no-ads",
+      "name": "No ads",
+      "monthlyPrice": 21.49,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "ads",
+  "sourceUrl": "https://www.hulu.com/start",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-streaming",
+    "library-streaming",
+    "jellyfin"
+  ],
+  "kind": "content",
+  "complexity": 4,
+  "popularity": 8,
+  "extraFeatures": [
+    "Subtitles download",
+    "Offline downloads to your phone",
+    "Live TV / DVR with a tuner",
+    "Parental controls"
+  ],
+  "priceNote": "Some 2026 sources list Hulu with ads at $11.99 or $12.99.",
+  "remakeNote": "You can rebuild the app, not the catalog. Only stream content you own or have the rights to. Extending Jellyfin is far easier than starting from scratch.",
+  "remakeTarget": "a personal media server that streams movies and shows you own (ripped DVDs/Blu-rays, home videos, downloads you have the rights to) to your TV and phone"
+}

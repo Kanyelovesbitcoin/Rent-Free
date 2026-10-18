@@ -31,5 +31,13 @@
   "alternatives": [
     "syncthing",
     "nextcloud"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 26,
+  "extraFeatures": [
+    "Photo backup from your phone",
+    "Share links with passwords and expiry dates",
+    "Selective sync"
   ]
 }

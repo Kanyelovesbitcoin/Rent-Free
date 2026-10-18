@@ -122,6 +122,34 @@ const templates: Record<WireframeId, (name: string) => string> = {
           <div class="box col"><div class="h">Editor</div><div class="row"><div class="col" style="width:120px"><span class="chip">Text</span><span class="chip">Image</span><span class="chip">Button</span></div><div class="box grow">${lines(5)}</div></div></div></div>
       </div>`,
     ),
+  'media-library': (name) =>
+    shell(
+      name,
+      `<div class="col pad grow">
+        <div class="box" style="height:150px;display:flex;align-items:flex-end;padding:16px;background:#a1a1aa;color:#fff"><div><div class="h" style="font-size:20px">Featured title</div><span class="btn" style="margin-top:8px">▶ Play</span> <span class="btn ghost">+ My list</span></div></div>
+        ${['Continue watching', 'Recently added', 'Your collection'].map((row) => `<div class="h">${row}</div><div class="row" style="overflow:hidden">${[1, 2, 3, 4, 5, 6].map((i) => `<div class="col" style="min-width:96px"><div style="height:130px;border-radius:8px;background:#d4d4d8;position:relative">${row === 'Continue watching' ? `<div style="position:absolute;bottom:6px;left:6px;right:6px;height:4px;background:#e4e4e7;border-radius:2px"><div style="width:${i * 14}%;height:4px;background:#52525b;border-radius:2px"></div></div>` : ''}</div><div class="line w80"></div></div>`).join('')}</div>`).join('')}
+      </div>`,
+      '<span class="btn ghost">🔍 Search</span><span class="btn ghost">👤 Profiles</span>',
+    ),
+  website: (name) =>
+    shell(
+      name,
+      `<div class="col grow">
+        <div class="col pad" style="align-items:center;text-align:center;padding:40px 16px;background:#e4e4e7"><div class="h" style="font-size:26px">Your headline goes here</div><div class="muted">One sentence about what you do and who it's for.</div><div><span class="btn">Get in touch</span> <span class="btn ghost">See my work</span></div></div>
+        <div class="row pad">${['Service one', 'Service two', 'Service three'].map((s) => `<div class="box grow"><div style="height:80px;border-radius:8px;background:#d4d4d8"></div><div class="h" style="margin-top:8px">${s}</div>${lines(2)}</div>`).join('')}</div>
+        <div class="row pad" style="padding-top:0"><div class="box grow"><div class="h">Latest posts</div>${lines(4)}</div><div class="box col" style="width:260px"><div class="h">Contact</div><div class="input">Name</div><div class="input">Email</div><div class="input">Message</div><span class="btn">Send</span></div></div>
+      </div>`,
+      '<span class="btn ghost">About</span><span class="btn ghost">Blog</span><span class="btn ghost">Contact</span>',
+    ),
+  tracker: (name) =>
+    shell(
+      name,
+      `<div class="row pad grow" style="flex-wrap:wrap">
+        <div class="col grow" style="min-width:260px"><div class="row">${['🔥 Streak 12 days', '✅ 4 of 6 today', '📈 This month +18%'].map((s) => `<div class="box grow"><div class="muted">${s.split(' ').slice(1, -2).join(' ') || s}</div><div class="h">${s}</div></div>`).join('')}</div>
+          <div class="box col"><div class="row" style="justify-content:space-between"><div class="h">Today</div><span class="btn">+ Add</span></div>${['Morning session', 'Review 20 cards', 'Log expenses', 'Evening wind-down'].map((t, i) => `<div class="row" style="align-items:center;border-bottom:1px solid #e4e4e7;padding:6px 0"><span class="chip" style="${i < 2 ? 'background:#52525b;color:#fff' : ''}">${i < 2 ? '✓' : '○'}</span><span class="grow">${t}</span><span class="muted">${['7:00', '12:00', '18:00', '21:30'][i]}</span></div>`).join('')}</div></div>
+        <div class="box col" style="width:240px"><div class="h">History</div><div class="grid7">${Array.from({ length: 28 }, (_, i) => `<div class="day ${i % 5 === 0 ? '' : 'on'}" style="padding:10px 0"></div>`).join('')}</div><div class="muted">Each square is a day</div></div>
+      </div>`,
+    ),
   generic: (name) =>
     shell(
       name,

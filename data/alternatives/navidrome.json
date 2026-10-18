@@ -1,0 +1,34 @@
+{
+  "id": "navidrome",
+  "name": "Navidrome",
+  "website": "https://www.navidrome.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "Web",
+    "Phone apps via Subsonic"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1.5,
+  "summary": "Your own music streaming server for the music files you own.",
+  "gains": [
+    "Stream your collection anywhere",
+    "Works with many free phone apps",
+    "Lightweight"
+  ],
+  "tradeoffs": [
+    "You need your own music files",
+    "No discovery of new music"
+  ],
+  "setupSteps": [
+    "Install Navidrome (one download or Docker)",
+    "Point it at your music folder",
+    "Install a Subsonic-compatible app on your phone",
+    "Log in and play"
+  ],
+  "repo": "https://github.com/navidrome/navidrome"
+}

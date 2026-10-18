@@ -8,67 +8,70 @@ interface Props {
   items: ResolvedItem[]
 }
 
-// The shareable "receipt". Uses inline hex colors (not theme classes) so the exported PNG
-// looks the same no matter if the viewer is in light or dark mode.
+// The shareable "receipt". Uses inline hex colors (not theme tokens) so the exported PNG
+// looks the same whether the viewer is in light or dark mode.
+const INK = '#1b1915'
+const PAPER = '#fffdf7'
+const MONO = "'JetBrains Mono Variable', ui-monospace, monospace"
+const DISPLAY = "'Bricolage Grotesque Variable', 'Inter Variable', sans-serif"
+
 const SavingsCard = forwardRef<HTMLDivElement, Props>(function SavingsCard({ summary, items }, ref) {
-  const replaced = items.filter((i) => i.alternative).slice(0, 5)
-  const more = items.filter((i) => i.alternative).length - replaced.length
+  const swapped = items.filter((i) => i.alternative)
+  const shown = swapped.slice(0, 6)
+  const more = swapped.length - shown.length
   const checked = items.map((i) => i.sub?.lastVerified).filter(Boolean).sort()[0]
+  const dashed = { borderTop: `2px dashed ${INK}33` }
   return (
     <div
       ref={ref}
       data-testid="savings-card"
-      style={{ background: 'linear-gradient(135deg,#064e3b 0%,#065f46 55%,#047857 100%)', color: '#ecfdf5', fontFamily: "'Inter Variable', system-ui, sans-serif" }}
-      className="w-full max-w-[520px] overflow-hidden rounded-3xl p-7 shadow-xl"
+      className="w-full max-w-[460px] rounded-2xl p-6"
+      style={{ background: PAPER, color: INK, border: `3px solid ${INK}`, boxShadow: `6px 6px 0 0 ${INK}`, fontFamily: "'Inter Variable', system-ui, sans-serif" }}
     >
-      <p style={{ color: '#6ee7b7' }} className="text-xs font-bold tracking-[0.2em] uppercase">
-        🔑 Rent-Free receipt
-      </p>
-      <p className="mt-4 text-sm" style={{ color: '#a7f3d0' }}>
-        I'm paying
-      </p>
-      <p className="text-3xl font-extrabold" style={{ color: '#fecaca', textDecoration: 'line-through', textDecorationThickness: 3 }}>
-        {formatMoney(summary.currentYearly)}/yr
-      </p>
-      <p className="mt-1 text-sm" style={{ color: '#a7f3d0' }}>
-        in software rent. With open-source tools, that could drop to
-      </p>
-      <p className="text-5xl leading-tight font-extrabold" style={{ fontFamily: "'Bricolage Grotesque Variable', 'Inter Variable', sans-serif" }}>
-        {formatMoney(summary.rentFreeYearly)}/yr
-      </p>
-      <div className="mt-5 rounded-2xl p-4" style={{ background: 'rgba(255,255,255,0.08)' }}>
-        {replaced.map((i) => (
-          <p key={i.key} className="flex justify-between gap-3 py-0.5 text-sm">
-            <span>
-              {i.name} <span style={{ color: '#6ee7b7' }}>→ {i.alternative!.name}</span>
+      <div className="flex items-center justify-between">
+        <span className="rounded-md px-2 py-0.5 text-xs font-extrabold" style={{ background: '#fde047', border: `2px solid ${INK}`, transform: 'rotate(-3deg)', display: 'inline-block' }}>
+          🔑 RENT-FREE
+        </span>
+        <span className="text-[10px] tracking-[0.25em] uppercase" style={{ fontFamily: MONO, opacity: 0.6 }}>
+          Receipt
+        </span>
+      </div>
+
+      <div className="mt-4 space-y-1.5 py-3 text-sm" style={{ ...dashed, fontFamily: MONO }}>
+        {shown.map((i) => (
+          <p key={i.key} className="flex justify-between gap-3">
+            <span className="truncate">
+              {i.name} <span style={{ color: '#059669' }}>→ {i.alternative!.name}</span>
             </span>
-            <span className="tabular-nums" style={{ color: '#a7f3d0' }}>
-              {formatMoney(i.currentYearly)}
-            </span>
+            <span style={{ color: '#e11d48', textDecoration: 'line-through' }}>{formatMoney(i.currentYearly)}</span>
           </p>
         ))}
-        {more > 0 && (
-          <p className="pt-1 text-xs" style={{ color: '#a7f3d0' }}>
-            + {more} more
-          </p>
-        )}
+        {more > 0 && <p style={{ opacity: 0.6 }}>+ {more} more swaps</p>}
       </div>
-      <div className="mt-5 flex items-end justify-between">
-        <p>
-          <span className="block text-xs" style={{ color: '#a7f3d0' }}>
-            I could keep
-          </span>
-          <span className="text-2xl font-extrabold" style={{ color: '#fef08a' }}>
-            {formatMoney(summary.savingsYearly)} a year
-          </span>
+
+      <div className="space-y-1 py-3 text-sm" style={{ ...dashed, fontFamily: MONO }}>
+        <p className="flex justify-between">
+          <span>I PAY NOW</span>
+          <span style={{ color: '#e11d48' }}>{formatMoney(summary.currentYearly)}/yr</span>
         </p>
-        <p className="text-right text-xs" style={{ color: '#6ee7b7' }}>
-          Calculate yours
-          <br />
-          <strong>Rent-Free</strong> · open source
+        <p className="flex justify-between">
+          <span>RENT-FREE ROUTE</span>
+          <span>{formatMoney(summary.rentFreeYearly)}/yr</span>
         </p>
       </div>
-      <p className="mt-4 text-[10px]" style={{ color: '#6ee7b7', opacity: 0.8 }}>
+
+      <div className="rounded-xl p-4 text-center" style={{ background: '#d1fae5', border: `2px solid ${INK}` }}>
+        <p className="text-xs font-bold" style={{ color: '#065f46' }}>
+          I COULD KEEP
+        </p>
+        <p className="text-5xl leading-tight font-extrabold" style={{ fontFamily: DISPLAY, color: '#059669' }}>
+          {formatMoney(summary.savingsYearly)}
+          <span className="text-xl">/yr</span>
+        </p>
+      </div>
+
+      <p className="mt-4 text-center text-xs font-bold">Calculate yours · Rent-Free · free & open source</p>
+      <p className="mt-1 text-center text-[10px]" style={{ opacity: 0.55 }}>
         Estimate based on list prices{checked ? ` checked ${checked}` : ''}. Not affiliated with any company named.
       </p>
     </div>

@@ -1,0 +1,43 @@
+{
+  "id": "apple-tv",
+  "name": "Apple TV",
+  "category": "streaming-video",
+  "website": "https://tv.apple.com",
+  "description": "Apple's original series and movies.",
+  "coreFeatures": [
+    "Library of movies and shows with posters and descriptions",
+    "Stream to TV, phone and browser",
+    "Resume where you left off",
+    "Multiple profiles for family members"
+  ],
+  "plans": [
+    {
+      "id": "monthly",
+      "name": "Apple TV",
+      "monthlyPrice": 14.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "monthly",
+  "sourceUrl": "https://www.apple.com/apple-tv-plus/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-streaming",
+    "library-streaming",
+    "jellyfin"
+  ],
+  "kind": "content",
+  "complexity": 4,
+  "popularity": 15,
+  "extraFeatures": [
+    "Subtitles download",
+    "Offline downloads to your phone",
+    "Live TV / DVR with a tuner",
+    "Parental controls"
+  ],
+  "priceNote": "Raised to $14.99 in August 2026; older guides still say $12.99.",
+  "remakeNote": "You can rebuild the app, not the catalog. Only stream content you own or have the rights to. Extending Jellyfin is far easier than starting from scratch.",
+  "remakeTarget": "a personal media server that streams movies and shows you own (ripped DVDs/Blu-rays, home videos, downloads you have the rights to) to your TV and phone"
+}

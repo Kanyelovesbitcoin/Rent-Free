@@ -34,5 +34,14 @@
     "appflowy",
     "affine",
     "obsidian"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 32,
+  "extraFeatures": [
+    "Real-time collaboration with others",
+    "Publish pages as a public website",
+    "AI writing assistant",
+    "API for integrations"
   ]
 }

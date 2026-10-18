@@ -1,0 +1,46 @@
+{
+  "id": "squarespace",
+  "name": "Squarespace",
+  "category": "website",
+  "website": "https://www.squarespace.com",
+  "description": "Website builder with hosting, templates and a domain.",
+  "coreFeatures": [
+    "Pages built from templates",
+    "Blog",
+    "Contact form",
+    "Custom domain"
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "monthlyPrice": null,
+      "annualPrice": 192,
+      "perSeat": false
+    },
+    {
+      "id": "core",
+      "name": "Core",
+      "monthlyPrice": null,
+      "annualPrice": 276,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "basic",
+  "sourceUrl": "https://www.squarespace.com/pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "ghost",
+    "wordpress",
+    "littlelink"
+  ],
+  "kind": "software",
+  "complexity": 2,
+  "popularity": 41,
+  "extraFeatures": [
+    "Online store",
+    "Email newsletter signups",
+    "Member-only pages"
+  ],
+  "priceNote": "Annual billing ($16 and $23 a month); monthly billing costs more."
+}

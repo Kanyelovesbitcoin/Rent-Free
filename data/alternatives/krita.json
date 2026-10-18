@@ -1,0 +1,29 @@
+{
+  "id": "krita",
+  "name": "Krita",
+  "website": "https://krita.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 1,
+  "summary": "Professional free painting and illustration app.",
+  "gains": [
+    "Excellent brushes for digital art",
+    "Animation tools",
+    "Free"
+  ],
+  "tradeoffs": [
+    "Made for painting, not photo editing"
+  ],
+  "setupSteps": [
+    "Download Krita",
+    "Pick a brush preset and start drawing"
+  ],
+  "repo": "https://invent.kde.org/graphics/krita"
+}

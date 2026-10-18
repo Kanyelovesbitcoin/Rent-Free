@@ -1,0 +1,55 @@
+{
+  "id": "spotify",
+  "name": "Spotify",
+  "category": "music-audio",
+  "website": "https://www.spotify.com",
+  "description": "Music and podcast streaming.",
+  "coreFeatures": [
+    "Library of albums, artists and playlists",
+    "Stream to phone, browser and speakers",
+    "Create and share playlists",
+    "Search and recently played"
+  ],
+  "plans": [
+    {
+      "id": "individual",
+      "name": "Premium Individual",
+      "monthlyPrice": 12.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "duo",
+      "name": "Premium Duo",
+      "monthlyPrice": 18.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "family",
+      "name": "Premium Family",
+      "monthlyPrice": 21.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "individual",
+  "sourceUrl": "https://www.spotify.com/us/premium/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "navidrome",
+    "antennapod"
+  ],
+  "kind": "content",
+  "complexity": 3,
+  "popularity": 3,
+  "extraFeatures": [
+    "Offline downloads",
+    "Lyrics",
+    "Smart shuffle / recommendations"
+  ],
+  "priceNote": "Sources round these to $13 / $19 / $22.",
+  "remakeNote": "You can rebuild the player and library, not the music catalog. Only stream music you own.",
+  "remakeTarget": "a personal music streaming server for songs and albums you own"
+}

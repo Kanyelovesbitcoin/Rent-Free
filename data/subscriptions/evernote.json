@@ -1,0 +1,39 @@
+{
+  "id": "evernote",
+  "name": "Evernote",
+  "category": "notes",
+  "website": "https://evernote.com",
+  "description": "Notes, web clipping and document scanning.",
+  "coreFeatures": [
+    "Notes with notebooks and tags",
+    "Web clipper",
+    "Search across all notes",
+    "Sync across devices"
+  ],
+  "plans": [
+    {
+      "id": "personal",
+      "name": "Personal",
+      "monthlyPrice": 14.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "personal",
+  "sourceUrl": "https://evernote.com/compare-plans",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "joplin",
+    "obsidian",
+    "appflowy"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 37,
+  "extraFeatures": [
+    "Scan documents with your phone",
+    "Reminders",
+    "Search text inside images"
+  ],
+  "priceNote": "Annual price not confirmed for 2026."
+}

@@ -33,5 +33,13 @@
   "alternatives": [
     "cap",
     "obs"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 45,
+  "extraFeatures": [
+    "Viewer analytics (who watched)",
+    "Auto-generated chapters and summaries",
+    "Password-protected links"
   ]
 }

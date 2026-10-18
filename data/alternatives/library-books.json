@@ -1,0 +1,31 @@
+{
+  "id": "library-books",
+  "name": "Libby (your public library)",
+  "website": "https://libbyapp.com",
+  "license": "Free with a library card (closed source)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "iOS",
+    "Android",
+    "Web",
+    "Kindle (US)"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Borrow ebooks and audiobooks free from your public library, on your phone or Kindle.",
+  "gains": [
+    "Free bestsellers and audiobooks",
+    "Sends ebooks to Kindle in the US",
+    "No ads"
+  ],
+  "tradeoffs": [
+    "Popular titles have waitlists",
+    "Loans expire"
+  ],
+  "setupSteps": [
+    "Get a library card (many libraries let you apply online)",
+    "Install Libby and add your library",
+    "Borrow, or place holds on popular titles"
+  ]
+}

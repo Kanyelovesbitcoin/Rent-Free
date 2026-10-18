@@ -30,5 +30,13 @@
   "lastVerified": "2026-10-17",
   "alternatives": [
     "formbricks"
+  ],
+  "kind": "software",
+  "complexity": 2,
+  "popularity": 47,
+  "extraFeatures": [
+    "File uploads",
+    "Payments in the form",
+    "Send responses to a spreadsheet or webhook"
   ]
 }

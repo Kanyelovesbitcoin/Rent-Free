@@ -1,0 +1,43 @@
+{
+  "id": "duolingo",
+  "name": "Duolingo Super",
+  "category": "learning",
+  "website": "https://www.duolingo.com",
+  "description": "Language lessons without ads or limits.",
+  "coreFeatures": [
+    "Short daily lessons",
+    "Streaks and progress",
+    "Spaced repetition review"
+  ],
+  "plans": [
+    {
+      "id": "super",
+      "name": "Super",
+      "monthlyPrice": 12.99,
+      "annualPrice": 83.99,
+      "perSeat": false
+    },
+    {
+      "id": "family",
+      "name": "Super Family",
+      "monthlyPrice": null,
+      "annualPrice": 119.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "super",
+  "sourceUrl": "https://www.duolingo.com/super",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "anki"
+  ],
+  "kind": "software",
+  "complexity": 2,
+  "popularity": 21,
+  "extraFeatures": [
+    "Speaking practice with speech recognition",
+    "Leaderboards with friends",
+    "AI conversation practice"
+  ]
+}

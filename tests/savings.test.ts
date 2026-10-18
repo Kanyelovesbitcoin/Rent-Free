@@ -3,7 +3,7 @@ import { alternativeYearly, effectiveBilling, summarize, yearlyCost, formatMoney
 import type { Plan } from '../src/lib/schema'
 
 const plan = (p: Partial<Plan>): Plan => ({ id: 'p', name: 'P', monthlyPrice: 12, annualPrice: 120, perSeat: false, ...p })
-const alt = (hosting: 'desktop' | 'browser' | 'self-host' | 'pay-as-you-go', monthlyCost = 0) => ({ hosting, monthlyCost, setupHours: 1 })
+const alt = (hosting: 'desktop' | 'browser' | 'self-host' | 'pay-as-you-go' | 'partial', monthlyCost = 0) => ({ hosting, monthlyCost, setupHours: 1 })
 
 describe('yearlyCost', () => {
   it('multiplies monthly price by 12', () => expect(yearlyCost(plan({}), 'monthly')).toBe(144))
@@ -31,6 +31,13 @@ describe('summarize', () => {
   })
 
   it('pay-as-you-go costs its monthly estimate', () => expect(alternativeYearly(alt('pay-as-you-go', 8))).toBe(96))
+
+  it('partial keeps a share of the current bill (rotating streaming)', () => {
+    expect(alternativeYearly({ hosting: 'partial', monthlyCost: 0, keepFraction: 0.25 }, 240)).toBe(60)
+    const s = summarize([{ key: 'netflix', currentYearly: 240, alternative: { hosting: 'partial', monthlyCost: 0, keepFraction: 0.25, setupHours: 0.25 } }])
+    expect(s.savingsYearly).toBe(180)
+    expect(s.needsServer).toBe(false)
+  })
 
   it('counts the shared server once, no matter how many self-hosted apps', () => {
     const s = summarize(

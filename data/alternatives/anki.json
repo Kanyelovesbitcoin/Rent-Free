@@ -1,0 +1,33 @@
+{
+  "id": "anki",
+  "name": "Anki",
+  "website": "https://apps.ankiweb.net",
+  "license": "AGPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "Android",
+    "Web"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1,
+  "summary": "Powerful free flashcards with spaced repetition. Thousands of shared language decks.",
+  "gains": [
+    "Very effective for vocabulary",
+    "Huge library of free shared decks",
+    "Free on desktop and Android"
+  ],
+  "tradeoffs": [
+    "Less game-like than Duolingo",
+    "The official iPhone app is paid"
+  ],
+  "setupSteps": [
+    "Install Anki",
+    "Download a shared deck for your language",
+    "Do your reviews every day (10–15 minutes)"
+  ],
+  "repo": "https://github.com/ankitects/anki"
+}

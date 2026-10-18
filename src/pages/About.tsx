@@ -56,7 +56,7 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   return (
     <section className="card p-5">
       <h2 className="font-semibold">{title}</h2>
-      <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">{children}</p>
+      <p className="mt-1 text-sm text-ink-soft">{children}</p>
     </section>
   )
 }

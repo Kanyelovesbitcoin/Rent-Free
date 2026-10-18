@@ -1,0 +1,29 @@
+{
+  "id": "medito",
+  "name": "Medito",
+  "website": "https://meditofoundation.org",
+  "license": "AGPL-3.0 (non-profit)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.1,
+  "summary": "Completely free meditation app from a non-profit: guided sessions, sleep content, no ads.",
+  "gains": [
+    "100% free, no ads, no upsells",
+    "Guided meditations and sleep sounds",
+    "Open source"
+  ],
+  "tradeoffs": [
+    "Smaller library than Calm or Headspace",
+    "Fewer celebrity sleep stories"
+  ],
+  "setupSteps": [
+    "Install Medito",
+    "Pick a course and set a daily reminder"
+  ],
+  "repo": "https://github.com/meditohq/medito-app"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "amazon-prime",
+  "name": "Amazon Prime",
+  "category": "memberships",
+  "website": "https://www.amazon.com/prime",
+  "description": "Free fast shipping plus Prime Video, music and other perks.",
+  "coreFeatures": [
+    "Track what you order and how often",
+    "Compare shipping costs with and without the membership",
+    "Reminders before renewal"
+  ],
+  "plans": [
+    {
+      "id": "prime",
+      "name": "Prime",
+      "monthlyPrice": 14.99,
+      "annualPrice": 139,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "prime",
+  "sourceUrl": "https://www.amazon.com/prime",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-tier"
+  ],
+  "kind": "membership",
+  "complexity": 1,
+  "popularity": 2,
+  "extraFeatures": [],
+  "remakeNote": "There's no open-source Amazon. The honest move: track whether you actually save more than $139 a year, and subscribe only in the months you shop the most.",
+  "remakeTarget": "a simple \"is my membership worth it?\" tracker that logs orders, shipping savings and renewal dates"
+}

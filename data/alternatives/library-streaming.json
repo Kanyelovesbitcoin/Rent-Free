@@ -1,0 +1,31 @@
+{
+  "id": "library-streaming",
+  "name": "Library card (Kanopy, Hoopla)",
+  "website": "https://www.kanopy.com",
+  "license": "Free with a library card (closed source)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web",
+    "TV apps",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Many US public libraries give free access to Kanopy and Hoopla: films, documentaries and TV, ad-free.",
+  "gains": [
+    "Free and ad-free",
+    "Great films, documentaries and kids content",
+    "Supports your local library"
+  ],
+  "tradeoffs": [
+    "Monthly borrow limits set by your library",
+    "Not every library offers both"
+  ],
+  "setupSteps": [
+    "Get a free library card (often online)",
+    "Sign in to Kanopy or Hoopla with it",
+    "Check your monthly borrowing limit"
+  ]
+}

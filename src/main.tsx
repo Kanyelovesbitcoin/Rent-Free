@@ -6,6 +6,7 @@ import { SelectionProvider } from './state'
 // Fonts are bundled with the site (no Google Fonts request), so visitors' IPs never go to a third party.
 import '@fontsource-variable/inter'
 import '@fontsource-variable/bricolage-grotesque/opsz.css'
+import '@fontsource-variable/jetbrains-mono'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(

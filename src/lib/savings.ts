@@ -21,16 +21,21 @@ export function effectiveBilling(plan: Plan, billing: Billing): Billing {
   return billing
 }
 
+type AltCost = Pick<Alternative, 'hosting' | 'monthlyCost'> & { keepFraction?: number }
+
 // Yearly cost of the alternative itself. Self-hosted apps are $0 here because the server
-// is shared across all of them and counted once in `summarize`.
-export function alternativeYearly(alt: Pick<Alternative, 'hosting' | 'monthlyCost'>): number {
-  return alt.hosting === 'pay-as-you-go' ? alt.monthlyCost * 12 : 0
+// is shared across all of them and counted once in `summarize`. 'partial' (e.g. rotating
+// streaming services) keeps a share of the current bill.
+export function alternativeYearly(alt: AltCost, currentYearly = 0): number {
+  if (alt.hosting === 'pay-as-you-go') return alt.monthlyCost * 12
+  if (alt.hosting === 'partial') return currentYearly * (alt.keepFraction ?? 1)
+  return 0
 }
 
 export interface Line {
   key: string
   currentYearly: number
-  alternative: Pick<Alternative, 'hosting' | 'monthlyCost' | 'setupHours'> | null
+  alternative: (AltCost & Pick<Alternative, 'setupHours'>) | null
 }
 
 export interface LineResult {
@@ -54,7 +59,7 @@ export interface Summary {
 export function summarize(lines: Line[], serverMonthly = DEFAULT_SERVER_MONTHLY): Summary {
   const results = lines.map<LineResult>((l) => {
     // No alternative chosen → you keep paying for it. We never count savings we can't back up.
-    const rentFreeYearly = l.alternative ? alternativeYearly(l.alternative) : l.currentYearly
+    const rentFreeYearly = l.alternative ? alternativeYearly(l.alternative, l.currentYearly) : l.currentYearly
     return {
       key: l.key,
       currentYearly: l.currentYearly,

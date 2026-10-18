@@ -1,0 +1,44 @@
+{
+  "id": "midjourney",
+  "name": "Midjourney",
+  "category": "photo-design",
+  "website": "https://www.midjourney.com",
+  "description": "AI image generation from text prompts.",
+  "coreFeatures": [
+    "Generate images from a text prompt",
+    "Variations and upscaling",
+    "Gallery of past generations"
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "monthlyPrice": 10,
+      "annualPrice": 96,
+      "perSeat": false
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "monthlyPrice": 30,
+      "annualPrice": 288,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "basic",
+  "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "comfyui"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 36,
+  "extraFeatures": [
+    "Image-to-image",
+    "Style references",
+    "Batch generation"
+  ],
+  "remakeNote": "Local image models need a decent GPU (8 GB+ VRAM) or a Mac with 16 GB+.",
+  "localAI": true
+}

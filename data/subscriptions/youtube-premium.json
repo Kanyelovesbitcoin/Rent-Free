@@ -1,0 +1,42 @@
+{
+  "id": "youtube-premium",
+  "name": "YouTube Premium",
+  "category": "streaming-video",
+  "website": "https://www.youtube.com/premium",
+  "description": "Ad-free YouTube, background play and YouTube Music.",
+  "coreFeatures": [
+    "Watch videos without ads",
+    "Background play on your phone",
+    "Download videos for offline"
+  ],
+  "plans": [
+    {
+      "id": "lite",
+      "name": "Premium Lite",
+      "monthlyPrice": 8.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "individual",
+      "name": "Individual",
+      "monthlyPrice": 15.99,
+      "annualPrice": 159.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "individual",
+  "sourceUrl": "https://www.youtube.com/premium",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "rotate-subscriptions"
+  ],
+  "kind": "content",
+  "complexity": 3,
+  "popularity": 4,
+  "extraFeatures": [],
+  "priceNote": "Individual plan rose to $15.99 in April 2026.",
+  "remakeNote": "You can't legally remove YouTube's ads or download their videos with your own app; that breaks YouTube's terms. Build an organizer for your watch list instead.",
+  "remakeTarget": "a personal \"watch later\" app that saves and organizes videos and channels you follow"
+}

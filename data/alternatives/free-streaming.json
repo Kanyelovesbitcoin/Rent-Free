@@ -1,0 +1,31 @@
+{
+  "id": "free-streaming",
+  "name": "Free streaming (Tubi, Pluto TV)",
+  "website": "https://tubitv.com",
+  "license": "Free, ad-supported (closed source)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web",
+    "TV apps",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Ad-supported services like Tubi and Pluto TV stream thousands of movies and shows legally for free.",
+  "gains": [
+    "$0, no account needed for most",
+    "Big catalogs of movies and older series",
+    "Works on smart TVs"
+  ],
+  "tradeoffs": [
+    "Ads",
+    "Fewer new releases and originals"
+  ],
+  "setupSteps": [
+    "Install Tubi or Pluto TV on your TV or phone",
+    "Search for what you were going to watch",
+    "Use a paid service only for the shows you can't find"
+  ]
+}

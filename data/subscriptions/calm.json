@@ -1,0 +1,37 @@
+{
+  "id": "calm",
+  "name": "Calm",
+  "category": "wellness",
+  "website": "https://www.calm.com",
+  "description": "Meditation, sleep stories and relaxing music.",
+  "coreFeatures": [
+    "Guided meditation audio library",
+    "Sleep sounds and timers",
+    "Daily streak and reminders"
+  ],
+  "plans": [
+    {
+      "id": "premium",
+      "name": "Calm Premium",
+      "monthlyPrice": 14.99,
+      "annualPrice": 69.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "premium",
+  "sourceUrl": "https://www.calm.com/subscribe",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "medito",
+    "free-tier"
+  ],
+  "kind": "content",
+  "complexity": 2,
+  "popularity": 29,
+  "extraFeatures": [
+    "Breathing exercises",
+    "Mood journal",
+    "Offline downloads"
+  ],
+  "remakeTarget": "a personal meditation and sleep-sound player with timers, streaks and your own audio files"
+}

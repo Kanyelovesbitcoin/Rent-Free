@@ -1,0 +1,31 @@
+{
+  "id": "jitsi",
+  "name": "Jitsi Meet",
+  "website": "https://meet.jit.si",
+  "license": "Apache-2.0",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Free open-source video meetings: share a link, no account needed for guests.",
+  "gains": [
+    "Free, no time limit on meet.jit.si",
+    "Screen sharing and chat",
+    "Can be self-hosted"
+  ],
+  "tradeoffs": [
+    "Large meetings work best self-hosted",
+    "Fewer webinar features"
+  ],
+  "setupSteps": [
+    "Go to meet.jit.si and create a room name",
+    "Share the link",
+    "Optional: self-host for full control"
+  ],
+  "repo": "https://github.com/jitsi/jitsi-meet"
+}

@@ -31,5 +31,14 @@
   "alternatives": [
     "listmonk"
   ],
-  "priceNote": "Starting price for 500 contacts. Mailchimp charges more as your list grows."
+  "priceNote": "Starting price for 500 contacts. Mailchimp charges more as your list grows.",
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 42,
+  "extraFeatures": [
+    "Landing pages",
+    "A/B testing subject lines",
+    "Audience tags and segments"
+  ],
+  "remakeNote": "Sending email reliably (deliverability) is the hard part: use an email-sending service like Amazon SES rather than your own mail server."
 }

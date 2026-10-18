@@ -1,0 +1,29 @@
+{
+  "id": "wordpress",
+  "name": "WordPress",
+  "website": "https://wordpress.org",
+  "license": "GPL-2.0",
+  "hosting": "self-host",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 3,
+  "summary": "Powers a huge share of the web. Thousands of free themes and plugins.",
+  "gains": [
+    "Endless themes and plugins",
+    "Full control",
+    "Huge community"
+  ],
+  "tradeoffs": [
+    "You keep plugins updated for security",
+    "Can get slow if overloaded with plugins"
+  ],
+  "setupSteps": [
+    "Rent a small server (or use a host with one-click WordPress)",
+    "Install WordPress and a block theme",
+    "Move your pages over and point your domain"
+  ],
+  "repo": "https://github.com/WordPress/WordPress"
+}

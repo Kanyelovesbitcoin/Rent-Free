@@ -84,6 +84,102 @@
     "wireframe": "generic"
   },
   {
+    "id": "streaming-video",
+    "name": "Streaming TV & movies",
+    "emoji": "📺",
+    "wireframe": "media-library"
+  },
+  {
+    "id": "music-audio",
+    "name": "Music, audio & radio",
+    "emoji": "🎧",
+    "wireframe": "media-library"
+  },
+  {
+    "id": "books",
+    "name": "Books & audiobooks",
+    "emoji": "📚",
+    "wireframe": "media-library"
+  },
+  {
+    "id": "memberships",
+    "name": "Shopping memberships",
+    "emoji": "📦",
+    "wireframe": "generic"
+  },
+  {
+    "id": "gaming",
+    "name": "Gaming",
+    "emoji": "🎮",
+    "wireframe": "generic"
+  },
+  {
+    "id": "office",
+    "name": "Office & documents",
+    "emoji": "🗂️",
+    "wireframe": "notes"
+  },
+  {
+    "id": "photo-design",
+    "name": "Photo & design suites",
+    "emoji": "🖼️",
+    "wireframe": "generic"
+  },
+  {
+    "id": "meetings",
+    "name": "Video meetings",
+    "emoji": "💬",
+    "wireframe": "video-editing"
+  },
+  {
+    "id": "tasks",
+    "name": "To-dos & tasks",
+    "emoji": "✅",
+    "wireframe": "tracker"
+  },
+  {
+    "id": "website",
+    "name": "Websites & blogs",
+    "emoji": "🌐",
+    "wireframe": "website"
+  },
+  {
+    "id": "finance",
+    "name": "Accounting & invoices",
+    "emoji": "💵",
+    "wireframe": "tracker"
+  },
+  {
+    "id": "e-signature",
+    "name": "E-signatures",
+    "emoji": "✒️",
+    "wireframe": "forms"
+  },
+  {
+    "id": "social",
+    "name": "Social media scheduling",
+    "emoji": "📣",
+    "wireframe": "generic"
+  },
+  {
+    "id": "vpn",
+    "name": "VPN & privacy",
+    "emoji": "🛡️",
+    "wireframe": "generic"
+  },
+  {
+    "id": "learning",
+    "name": "Learning",
+    "emoji": "🧠",
+    "wireframe": "tracker"
+  },
+  {
+    "id": "wellness",
+    "name": "Meditation & wellness",
+    "emoji": "🧘",
+    "wireframe": "tracker"
+  },
+  {
     "id": "other",
     "name": "Something else",
     "emoji": "🧩",

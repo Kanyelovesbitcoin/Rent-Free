@@ -1,0 +1,45 @@
+{
+  "id": "quickbooks",
+  "name": "QuickBooks Online",
+  "category": "finance",
+  "website": "https://quickbooks.intuit.com",
+  "description": "Bookkeeping, invoices and expense tracking.",
+  "coreFeatures": [
+    "Track income and expenses by category",
+    "Send invoices",
+    "Profit and loss report",
+    "Import bank transactions (CSV/OFX)"
+  ],
+  "plans": [
+    {
+      "id": "simple-start",
+      "name": "Simple Start",
+      "monthlyPrice": 30,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "monthlyPrice": 60,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "simple-start",
+  "sourceUrl": "https://quickbooks.intuit.com/pricing/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "gnucash"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 40,
+  "extraFeatures": [
+    "Receipt photo capture",
+    "Mileage tracking",
+    "Sales tax reports"
+  ],
+  "priceNote": "Intuit often discounts the first months.",
+  "remakeNote": "Have your accountant agree on the switch first: they may need QuickBooks access at tax time."
+}

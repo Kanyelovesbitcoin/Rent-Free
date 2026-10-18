@@ -1,0 +1,33 @@
+{
+  "id": "proton-vpn-free",
+  "name": "Proton VPN (free plan)",
+  "website": "https://protonvpn.com/free-vpn",
+  "license": "Open-source apps (GPL-3.0); free plan by Proton",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Free VPN with no data cap from a privacy-focused Swiss company. Apps are open source and audited.",
+  "gains": [
+    "No data limit, no ads",
+    "Open-source, audited apps",
+    "Good for public Wi-Fi"
+  ],
+  "tradeoffs": [
+    "Free plan has fewer server locations and can be slower",
+    "No streaming-unblocking on free"
+  ],
+  "setupSteps": [
+    "Download the Proton VPN app",
+    "Create a free account",
+    "Turn it on when using public Wi-Fi"
+  ],
+  "repo": "https://github.com/ProtonVPN"
+}

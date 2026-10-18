@@ -1,0 +1,31 @@
+{
+  "id": "davinci-resolve",
+  "name": "DaVinci Resolve (free version)",
+  "website": "https://www.blackmagicdesign.com/products/davinciresolve",
+  "license": "Free (closed source)",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 3,
+  "summary": "Hollywood-grade video editor with a very generous free version.",
+  "gains": [
+    "Pro editing, color and audio tools for free",
+    "Used by professionals",
+    "Auto subtitles in recent versions"
+  ],
+  "tradeoffs": [
+    "Not open source",
+    "Needs a decent computer",
+    "Lots to learn"
+  ],
+  "setupSteps": [
+    "Download DaVinci Resolve (free)",
+    "Start with the \"Cut\" page for quick edits",
+    "Export with the YouTube/TikTok presets"
+  ]
+}

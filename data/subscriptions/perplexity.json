@@ -1,0 +1,37 @@
+{
+  "id": "perplexity",
+  "name": "Perplexity Pro",
+  "category": "ai-chat",
+  "website": "https://www.perplexity.ai",
+  "description": "AI search engine that answers with sources.",
+  "coreFeatures": [
+    "Ask a question, get an answer with cited sources",
+    "Follow-up questions",
+    "Save research threads"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 20,
+      "annualPrice": 200,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://www.perplexity.ai/pro",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "perplexica",
+    "hybrid-api"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 35,
+  "extraFeatures": [
+    "Upload PDFs",
+    "Focus on academic sources",
+    "Shareable research pages"
+  ],
+  "localAI": true
+}

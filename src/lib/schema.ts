@@ -11,7 +11,7 @@ export const CategorySchema = z.object({
   name: z.string(),
   emoji: z.string(),
   // Which wireframe template the build kit shows (see src/lib/wireframes).
-  wireframe: z.enum(['scheduling', 'video-editing', 'ai-chat', 'notes', 'forms', 'link-in-bio', 'email', 'generic']),
+  wireframe: z.enum(['scheduling', 'video-editing', 'ai-chat', 'notes', 'forms', 'link-in-bio', 'email', 'media-library', 'website', 'tracker', 'generic']),
 })
 
 export const PlanSchema = z
@@ -23,6 +23,8 @@ export const PlanSchema = z
     // Total price per YEAR when billed annually. null if there's no annual option.
     annualPrice: z.number().nonnegative().nullable(),
     perSeat: z.boolean().default(false),
+    // What a "seat" is for this plan, e.g. "channel" for Buffer. Defaults to "seat".
+    unitLabel: z.string().optional(),
   })
   .refine((p) => p.monthlyPrice !== null || p.annualPrice !== null, 'a plan needs a monthly or annual price')
 
@@ -45,6 +47,19 @@ export const SubscriptionSchema = z.object({
   alternatives: z.array(id).min(1),
   // Show the Local AI advisor on this tool's page.
   localAI: z.boolean().default(false),
+  // software = you can replace or rebuild it; content = you pay for movies/music/books;
+  // membership = perks (shipping, game libraries). Content and memberships can't be "open-sourced".
+  kind: z.enum(['software', 'content', 'membership']).default('software'),
+  // How hard it is to remake: 1 simple, 2 standard, 3 complex, 4 platform. Drives the Remake prompt's depth.
+  complexity: z.number().int().min(1).max(4),
+  // Optional features people can switch on in the Remake studio (core features are on by default).
+  extraFeatures: z.array(z.string()).default([]),
+  // What you'd actually build when remaking it, e.g. "a personal media server for movies you own".
+  remakeTarget: z.string().optional(),
+  // An honest warning shown in the Remake studio and included in the prompt.
+  remakeNote: z.string().optional(),
+  // Rough "most people pay for this" order (1 = most common). Editorial, not a survey rank.
+  popularity: z.number().int().positive(),
 })
 
 export const HostingSchema = z.enum([
@@ -52,6 +67,7 @@ export const HostingSchema = z.enum([
   'browser', // free web app / free hosted tier, $0
   'self-host', // runs on a small server you rent (shared across all your self-hosted apps)
   'pay-as-you-go', // you pay only for what you use
+  'partial', // keep paying for part of the year (e.g. rotate streaming services); see keepFraction
 ])
 
 export const AlternativeSchema = z.object({
@@ -63,6 +79,8 @@ export const AlternativeSchema = z.object({
   hosting: HostingSchema,
   // Typical monthly cost for pay-as-you-go tools. Everything else is $0 (self-host server is counted once, separately).
   monthlyCost: z.number().nonnegative().default(0),
+  // For 'partial' hosting: the share of the current bill you still pay (0.25 = 3 months a year).
+  keepFraction: z.number().min(0).max(1).optional(),
   platforms: z.array(z.string()).min(1),
   difficulty: z.enum(['easy', 'medium', 'weekend']),
   setupHours: z.number().positive(),

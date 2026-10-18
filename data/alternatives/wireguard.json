@@ -1,0 +1,29 @@
+{
+  "id": "wireguard",
+  "name": "Your own WireGuard VPN",
+  "website": "https://www.wireguard.com",
+  "license": "GPL-2.0",
+  "hosting": "self-host",
+  "monthlyCost": 0,
+  "platforms": [
+    "Server + all devices"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 2,
+  "summary": "Run your own VPN on a small server: safe public Wi-Fi, or access your home network from anywhere.",
+  "gains": [
+    "Fast and modern",
+    "You control the server",
+    "Great for reaching your home server remotely"
+  ],
+  "tradeoffs": [
+    "Your VPN server host can still see traffic",
+    "Won't hide you like a big shared VPN does"
+  ],
+  "setupSteps": [
+    "Rent a small server",
+    "Install WireGuard with a helper like wg-easy (Docker)",
+    "Scan the QR code with the WireGuard phone app"
+  ],
+  "repo": "https://github.com/WireGuard"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "gimp",
+  "name": "GIMP",
+  "website": "https://www.gimp.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "The classic free Photoshop alternative: layers, masks, retouching.",
+  "gains": [
+    "Free forever",
+    "Layers, masks, filters, plugins",
+    "Opens PSD files (basic)"
+  ],
+  "tradeoffs": [
+    "Different shortcuts and interface from Photoshop",
+    "No generative AI fill built in"
+  ],
+  "setupSteps": [
+    "Download GIMP 3",
+    "Try a \"GIMP for Photoshop users\" tutorial",
+    "Rebuild your most-used actions as GIMP presets"
+  ],
+  "repo": "https://gitlab.gnome.org/GNOME/gimp"
+}

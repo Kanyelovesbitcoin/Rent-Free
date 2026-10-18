@@ -25,5 +25,13 @@
   "alternatives": [
     "buzz",
     "ollama-openwebui"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 50,
+  "extraFeatures": [
+    "Join live meetings automatically",
+    "Speaker identification",
+    "Searchable library of all transcripts"
   ]
 }

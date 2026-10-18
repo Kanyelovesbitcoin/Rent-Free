@@ -1,0 +1,37 @@
+{
+  "id": "docusign",
+  "name": "DocuSign",
+  "category": "e-signature",
+  "website": "https://www.docusign.com",
+  "description": "Send documents for electronic signature.",
+  "coreFeatures": [
+    "Upload a PDF and place signature fields",
+    "Send a signing link by email",
+    "Signed copy with an audit trail"
+  ],
+  "plans": [
+    {
+      "id": "personal",
+      "name": "Personal",
+      "monthlyPrice": 15,
+      "annualPrice": 120,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "personal",
+  "sourceUrl": "https://www.docusign.com/products-and-pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "documenso"
+  ],
+  "kind": "software",
+  "complexity": 2,
+  "popularity": 48,
+  "extraFeatures": [
+    "Templates",
+    "Reminders for unsigned documents",
+    "Multiple signers in order"
+  ],
+  "priceNote": "2026 Personal price unconfirmed; it has been $15/mo or $10/mo billed yearly.",
+  "remakeNote": "E-signatures are legally valid in most places, but regulated documents may need a provider with compliance certifications."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "mixpost",
+  "name": "Mixpost",
+  "website": "https://mixpost.app",
+  "license": "MIT (Lite edition)",
+  "hosting": "self-host",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 3,
+  "summary": "Self-hosted social media scheduler: queue posts across accounts with a calendar.",
+  "gains": [
+    "No per-channel pricing",
+    "Calendar and queue",
+    "Your data stays yours"
+  ],
+  "tradeoffs": [
+    "You need developer apps/API keys for each network",
+    "Lite edition has fewer features than Pro"
+  ],
+  "setupSteps": [
+    "Install Mixpost Lite with Docker",
+    "Create API apps for each social network",
+    "Connect accounts and schedule posts"
+  ],
+  "repo": "https://github.com/inovector/mixpost",
+  "commercialNote": "Lite is MIT; the Pro edition is a paid license."
+}

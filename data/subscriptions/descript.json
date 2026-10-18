@@ -43,5 +43,14 @@
     "buzz",
     "shotcut"
   ],
-  "priceNote": "Plans also cap media hours and AI credits per month."
+  "priceNote": "Plans also cap media hours and AI credits per month.",
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 46,
+  "extraFeatures": [
+    "AI voice clone to fix misspoken words",
+    "Studio-quality noise removal",
+    "Auto-generate short social clips"
+  ],
+  "remakeNote": "Transcript-based video editing is genuinely hard to build. Start from an existing open-source editor or Whisper-based tools rather than from scratch."
 }

@@ -34,5 +34,14 @@
   "alternatives": [
     "calcom",
     "easyappointments"
+  ],
+  "kind": "software",
+  "complexity": 2,
+  "popularity": 39,
+  "extraFeatures": [
+    "Group events and round-robin booking for teams",
+    "Collect payments when people book",
+    "Routing form that sends people to the right event",
+    "SMS reminders and follow-up emails"
   ]
 }

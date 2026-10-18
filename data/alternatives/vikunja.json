@@ -1,0 +1,30 @@
+{
+  "id": "vikunja",
+  "name": "Vikunja",
+  "website": "https://vikunja.io",
+  "license": "AGPL-3.0",
+  "hosting": "self-host",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Self-hosted to-do app with lists, kanban, Gantt and sharing.",
+  "gains": [
+    "Unlimited projects and sharing",
+    "Kanban and calendar views",
+    "Imports from Todoist"
+  ],
+  "tradeoffs": [
+    "Needs a server",
+    "Phone experience is web-based"
+  ],
+  "setupSteps": [
+    "Install Vikunja with Docker on your server",
+    "Use the Todoist importer",
+    "Add it to your phone home screen"
+  ],
+  "repo": "https://github.com/go-vikunja/vikunja",
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
+}

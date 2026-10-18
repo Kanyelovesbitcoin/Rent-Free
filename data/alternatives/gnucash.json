@@ -1,0 +1,32 @@
+{
+  "id": "gnucash",
+  "name": "GnuCash",
+  "website": "https://www.gnucash.org",
+  "license": "GPL-2.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 4,
+  "summary": "Free double-entry accounting for small businesses: invoices, reports and bank imports.",
+  "gains": [
+    "Free and private",
+    "Invoices, customers, vendors",
+    "Real accounting reports"
+  ],
+  "tradeoffs": [
+    "Old-school interface",
+    "No automatic bank feeds (import files instead)",
+    "Your accountant may prefer QuickBooks"
+  ],
+  "setupSteps": [
+    "Talk to your accountant first",
+    "Install GnuCash and create a business account tree",
+    "Import bank CSV/OFX files monthly"
+  ],
+  "repo": "https://github.com/Gnucash/gnucash"
+}

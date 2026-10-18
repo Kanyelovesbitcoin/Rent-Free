@@ -1,0 +1,28 @@
+{
+  "id": "standard-ebooks",
+  "name": "Standard Ebooks & Project Gutenberg",
+  "website": "https://standardebooks.org",
+  "license": "Public domain (free forever)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web",
+    "Any e-reader"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.1,
+  "summary": "Beautifully formatted public-domain classics you can download and keep, legally and free.",
+  "gains": [
+    "Free forever, no DRM",
+    "Works on Kindle and every e-reader"
+  ],
+  "tradeoffs": [
+    "Classics only, no new releases"
+  ],
+  "setupSteps": [
+    "Browse standardebooks.org or gutenberg.org",
+    "Download the format for your device",
+    "Send it to your e-reader"
+  ],
+  "repo": "https://github.com/standardebooks"
+}

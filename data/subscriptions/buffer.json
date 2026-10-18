@@ -1,0 +1,38 @@
+{
+  "id": "buffer",
+  "name": "Buffer",
+  "category": "social",
+  "website": "https://buffer.com",
+  "description": "Schedule posts to social media channels.",
+  "coreFeatures": [
+    "Queue posts for multiple social accounts",
+    "Calendar of scheduled posts",
+    "Best-time-to-post suggestions"
+  ],
+  "plans": [
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "monthlyPrice": 6,
+      "annualPrice": 60,
+      "perSeat": true,
+      "unitLabel": "channel"
+    }
+  ],
+  "defaultPlan": "essentials",
+  "sourceUrl": "https://buffer.com/pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "mixpost"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 49,
+  "extraFeatures": [
+    "Analytics per post",
+    "First comment scheduling",
+    "Approval flow for teams"
+  ],
+  "remakeNote": "Each social network's API has its own rules and approval process; budget time for that."
+}

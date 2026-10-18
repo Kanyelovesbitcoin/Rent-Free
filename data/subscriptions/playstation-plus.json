@@ -1,0 +1,35 @@
+{
+  "id": "playstation-plus",
+  "name": "PlayStation Plus",
+  "category": "gaming",
+  "website": "https://www.playstation.com/ps-plus/",
+  "description": "Online multiplayer, monthly games and a game catalog.",
+  "coreFeatures": [
+    "Track games you own and want to play",
+    "Log hours played",
+    "Alerts when games leave or join the catalog"
+  ],
+  "plans": [
+    {
+      "id": "essential",
+      "name": "Essential",
+      "monthlyPrice": 10.99,
+      "annualPrice": 79.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "essential",
+  "sourceUrl": "https://www.playstation.com/ps-plus/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-tier"
+  ],
+  "kind": "membership",
+  "complexity": 1,
+  "popularity": 17,
+  "extraFeatures": [],
+  "priceNote": "Essential rose to $10.99/month in May 2026; annual-plan pricing may differ.",
+  "remakeNote": "There's no open-source PlayStation Plus. Many free-to-play games don't need it for online play.",
+  "remakeTarget": "a game backlog tracker that tells you when a subscription month is worth it"
+}

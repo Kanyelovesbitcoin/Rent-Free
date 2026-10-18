@@ -1,0 +1,49 @@
+{
+  "id": "adobe-cc",
+  "name": "Adobe Creative Cloud",
+  "category": "photo-design",
+  "website": "https://www.adobe.com/creativecloud.html",
+  "description": "Photoshop, Lightroom, Premiere, Illustrator and more.",
+  "coreFeatures": [
+    "Photo editing with layers",
+    "Photo library and raw editing",
+    "Video editing timeline",
+    "Vector graphics"
+  ],
+  "plans": [
+    {
+      "id": "photography",
+      "name": "Photography (1 TB)",
+      "monthlyPrice": null,
+      "annualPrice": 239.88,
+      "perSeat": false
+    },
+    {
+      "id": "pro",
+      "name": "Creative Cloud Pro",
+      "monthlyPrice": null,
+      "annualPrice": 839.88,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "photography",
+  "sourceUrl": "https://www.adobe.com/creativecloud/plans.html",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "gimp",
+    "darktable",
+    "krita",
+    "davinci-resolve",
+    "inkscape"
+  ],
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 22,
+  "extraFeatures": [
+    "Generative AI fill",
+    "Cloud libraries",
+    "Fonts library"
+  ],
+  "priceNote": "Prices shown are annual plans billed monthly ($19.99 and $69.99/mo). Month-to-month plans cost more.",
+  "remakeNote": "Adobe is many professional apps. Replace each app with its open-source equivalent; only build small helper tools yourself."
+}

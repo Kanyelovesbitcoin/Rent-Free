@@ -66,9 +66,11 @@ export function loadCatalog(input: {
       if (!altIds.has(a)) errors.push(`${p}: alternative "${a}" has no file in data/alternatives/`)
     }
     if (s.lastVerified > new Date().toISOString().slice(0, 10)) errors.push(`${p}: lastVerified is in the future`)
+    if (s.kind !== 'software' && !s.remakeTarget) errors.push(`${p}: ${s.kind} subscriptions need a remakeTarget (what you'd build instead)`)
   }
   for (const a of alternatives) {
     if (!used.has(a.id)) errors.push(`alternatives/${a.id}.json: not used by any subscription`)
+    if (a.hosting === 'partial' && a.keepFraction == null) errors.push(`alternatives/${a.id}.json: 'partial' hosting needs keepFraction`)
   }
 
   const dupes = (ids: string[]) => ids.filter((x, i) => ids.indexOf(x) !== i)

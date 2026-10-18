@@ -1,0 +1,46 @@
+{
+  "id": "gemini",
+  "name": "Gemini (Google AI Pro)",
+  "category": "ai-chat",
+  "website": "https://gemini.google.com",
+  "description": "Google's AI assistant, bundled with Google One storage.",
+  "coreFeatures": [
+    "Chat with an AI model",
+    "Upload files and ask questions about them",
+    "Conversation history"
+  ],
+  "plans": [
+    {
+      "id": "ai-plus",
+      "name": "Google AI Plus",
+      "monthlyPrice": 7.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "ai-pro",
+      "name": "Google AI Pro",
+      "monthlyPrice": 19.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "ai-pro",
+  "sourceUrl": "https://one.google.com/about/ai-premium",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "ollama-openwebui",
+    "lm-studio",
+    "hybrid-api"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 25,
+  "extraFeatures": [
+    "Image generation",
+    "Deep research reports",
+    "Google Docs/Gmail integration"
+  ],
+  "priceNote": "AI Pro includes 5 TB of storage since April 2026, so count it once if you also listed Google One.",
+  "localAI": true
+}

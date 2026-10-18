@@ -1,0 +1,47 @@
+{
+  "id": "apple-music",
+  "name": "Apple Music",
+  "category": "music-audio",
+  "website": "https://www.apple.com/apple-music/",
+  "description": "Music streaming for Apple devices and beyond.",
+  "coreFeatures": [
+    "Library of albums, artists and playlists",
+    "Stream to phone, browser and speakers",
+    "Create and share playlists",
+    "Search and recently played"
+  ],
+  "plans": [
+    {
+      "id": "individual",
+      "name": "Individual",
+      "monthlyPrice": 11.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "monthlyPrice": 19.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "individual",
+  "sourceUrl": "https://www.apple.com/apple-music/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "navidrome"
+  ],
+  "kind": "content",
+  "complexity": 3,
+  "popularity": 10,
+  "extraFeatures": [
+    "Offline downloads",
+    "Lyrics",
+    "Spatial audio"
+  ],
+  "priceNote": "Reported as \"$12\" / \"$20\" after a July 2026 increase; confirm on the official page.",
+  "remakeNote": "You can rebuild the player and library, not the music catalog.",
+  "remakeTarget": "a personal music streaming server for songs and albums you own"
+}

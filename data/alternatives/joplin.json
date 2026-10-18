@@ -1,0 +1,34 @@
+{
+  "id": "joplin",
+  "name": "Joplin",
+  "website": "https://joplinapp.org",
+  "license": "AGPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Open-source Evernote alternative with notebooks, tags, web clipper and sync.",
+  "gains": [
+    "Imports Evernote .enex exports",
+    "Web clipper",
+    "End-to-end encrypted sync options"
+  ],
+  "tradeoffs": [
+    "Sync needs a service (free options: your own Nextcloud, Dropbox, or OneDrive)",
+    "Plainer look than Evernote"
+  ],
+  "setupSteps": [
+    "Export your notebooks from Evernote as .enex",
+    "Install Joplin and import them",
+    "Set up sync and install the web clipper"
+  ],
+  "repo": "https://github.com/laurent22/joplin",
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
+}

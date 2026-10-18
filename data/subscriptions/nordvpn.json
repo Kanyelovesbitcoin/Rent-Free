@@ -1,0 +1,38 @@
+{
+  "id": "nordvpn",
+  "name": "NordVPN",
+  "category": "vpn",
+  "website": "https://nordvpn.com",
+  "description": "VPN that hides your traffic on public Wi-Fi and changes your apparent location.",
+  "coreFeatures": [
+    "Encrypted connection on public Wi-Fi",
+    "Choose a server country",
+    "Apps for phone and computer"
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "monthlyPrice": 12.99,
+      "annualPrice": 59.88,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "basic",
+  "sourceUrl": "https://nordvpn.com/pricing/",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "proton-vpn-free",
+    "wireguard"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 27,
+  "extraFeatures": [
+    "Kill switch",
+    "Ad and tracker blocking",
+    "Multiple devices"
+  ],
+  "priceNote": "Intro price; renewal is higher. Multi-year plans cost less per month.",
+  "remakeNote": "A VPN you build yourself only hides traffic from your local network, not from your server host. Use Proton VPN free if you need privacy from your ISP."
+}

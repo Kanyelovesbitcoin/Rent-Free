@@ -1,0 +1,29 @@
+{
+  "id": "ghost",
+  "name": "Ghost",
+  "website": "https://ghost.org",
+  "license": "MIT",
+  "hosting": "self-host",
+  "monthlyCost": 0,
+  "platforms": [
+    "Web (self-hosted)"
+  ],
+  "difficulty": "medium",
+  "setupHours": 3,
+  "summary": "Open-source publishing platform for websites, blogs and newsletters.",
+  "gains": [
+    "Beautiful themes, built-in newsletter and memberships",
+    "Fast and SEO-friendly",
+    "No platform fees when self-hosted"
+  ],
+  "tradeoffs": [
+    "Needs a server and an email-sending service",
+    "Fewer drag-and-drop layouts than Squarespace"
+  ],
+  "setupSteps": [
+    "Rent a small server and point your domain at it",
+    "Install Ghost (official Docker or Ghost-CLI guide)",
+    "Pick a theme and import your posts"
+  ],
+  "repo": "https://github.com/TryGhost/Ghost"
+}

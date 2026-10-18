@@ -1,0 +1,28 @@
+{
+  "id": "free-tier",
+  "name": "Free plan",
+  "website": "https://github.com/kanyelovesbitcoin/rent-free",
+  "license": "Varies (the free plan of the same service)",
+  "hosting": "browser",
+  "monthlyCost": 0,
+  "platforms": [
+    "Same as today"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.1,
+  "summary": "Most of these services have a free plan with ads or limits. For many people it covers what they actually use.",
+  "gains": [
+    "$0 and nothing to learn",
+    "Keep your history and playlists",
+    "Upgrade again anytime"
+  ],
+  "tradeoffs": [
+    "Ads and limits (skips, downloads, features)",
+    "Some features disappear"
+  ],
+  "setupSteps": [
+    "Open account settings and find \"Plan\" or \"Subscription\"",
+    "Choose cancel / downgrade to free",
+    "Use it for a month and see if you miss anything"
+  ]
+}

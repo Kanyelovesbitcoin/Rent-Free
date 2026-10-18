@@ -14,7 +14,11 @@ const EXAMPLE_SUB = `{
   "defaultPlan": "standard",
   "sourceUrl": "https://calendly.com/pricing",
   "lastVerified": "2026-10-17",
-  "alternatives": ["calcom", "easyappointments"]
+  "alternatives": ["calcom", "easyappointments"],
+  "kind": "software",
+  "complexity": 2,
+  "extraFeatures": ["Collect payments when people book"],
+  "popularity": 39
 }`
 
 export default function Contribute() {
@@ -27,7 +31,7 @@ export default function Contribute() {
       <div className="space-y-6">
         <Section n="1" title="Fix a wrong price (2 minutes)">
           Prices change constantly. Spotted an outdated one?{' '}
-          <a className="font-semibold text-emerald-700 underline dark:text-emerald-400" href={`${REPO_URL}/issues/new?title=Wrong%20price%3A%20`} target="_blank" rel="noreferrer">
+          <a className="font-semibold text-money underline" href={`${REPO_URL}/issues/new?title=Wrong%20price%3A%20`} target="_blank" rel="noreferrer">
             Open an issue
           </a>{' '}
           with the tool name and a link to its pricing page, or edit the file in <code>data/subscriptions/</code> directly on GitHub.
@@ -37,7 +41,7 @@ export default function Contribute() {
           <p>
             Create <code>data/subscriptions/your-tool.json</code>. Copy an existing file as a starting point:
           </p>
-          <pre className="mt-3 overflow-x-auto rounded-xl bg-stone-900 p-4 text-xs text-stone-100">{EXAMPLE_SUB}</pre>
+          <pre className="mt-3 overflow-x-auto rounded-xl bg-ink p-4 text-xs text-paper">{EXAMPLE_SUB}</pre>
           <p className="mt-3">
             <code>annualPrice</code> is the <em>total per year</em>. Always include <code>sourceUrl</code> and today's date in <code>lastVerified</code>.
           </p>
@@ -55,7 +59,7 @@ export default function Contribute() {
 
         <div className="card p-5">
           <h3 className="font-semibold">Our ground rules</h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-stone-600 dark:text-stone-400">
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-soft">
             <li>Be honest about trade-offs. Trust is the whole point.</li>
             <li>Prefer open-source tools. If something is free but closed source, say so in the license field.</li>
             <li>No affiliate links, no logos, no copying anyone's branding.</li>
@@ -74,10 +78,10 @@ function Section({ n, title, children }: { n: string; title: string; children: R
   return (
     <section className="card p-5">
       <h2 className="flex items-center gap-3 font-semibold">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-600 text-sm font-bold text-white">{n}</span>
+        <span className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink bg-hilite text-sm font-bold text-ink">{n}</span>
         {title}
       </h2>
-      <div className="mt-2 text-sm text-stone-600 dark:text-stone-400">{children}</div>
+      <div className="mt-2 text-sm text-ink-soft">{children}</div>
     </section>
   )
 }

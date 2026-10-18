@@ -1,0 +1,31 @@
+{
+  "id": "darktable",
+  "name": "darktable",
+  "website": "https://www.darktable.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "medium",
+  "setupHours": 2,
+  "summary": "Lightroom alternative: photo library and non-destructive raw editing.",
+  "gains": [
+    "Professional raw processing",
+    "Photo library with tags and ratings",
+    "Free"
+  ],
+  "tradeoffs": [
+    "Steeper learning curve than Lightroom",
+    "Can't import Lightroom edits"
+  ],
+  "setupSteps": [
+    "Download darktable",
+    "Import your photo folders",
+    "Learn the \"scene-referred\" basics with a starter tutorial"
+  ],
+  "repo": "https://github.com/darktable-org/darktable"
+}

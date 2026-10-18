@@ -1,36 +1,146 @@
 @import 'tailwindcss';
 
-@theme {
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Bricolage Grotesque Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+/* Rent-Free design tokens: a bold, playful "rent receipt".
+   Paper + ink, money green for what you keep, rent-due red for what you pay, highlighter yellow for emphasis. */
+:root {
+  color-scheme: light;
+  --paper: #fbf6ea;
+  --paper-2: #f3ecdb;
+  --card: #fffdf7;
+  --ink: #1b1915;
+  --ink-soft: #57534e;
+  --line: #e6dcc6;
+  --money: #059669;
+  --money-ink: #065f46;
+  --money-soft: #d1fae5;
+  --rent: #e11d48;
+  --rent-soft: #ffe4e6;
+  --hilite: #fde047;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #12110e;
+    --paper-2: #1a1814;
+    --card: #1e1b17;
+    --ink: #f5f0e6;
+    --ink-soft: #b5ada0;
+    --line: #34302a;
+    --money: #34d399;
+    --money-ink: #a7f3d0;
+    --money-soft: #06352a;
+    --rent: #fb7185;
+    --rent-soft: #3b0d18;
+    --hilite: #facc15;
+  }
 }
 
-:root {
-  color-scheme: light dark;
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-money: var(--money);
+  --color-money-ink: var(--money-ink);
+  --color-money-soft: var(--money-soft);
+  --color-rent: var(--rent);
+  --color-rent-soft: var(--rent-soft);
+  --color-hilite: var(--hilite);
 }
 
 body {
-  @apply bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
+  @apply bg-paper text-ink antialiased;
+}
+
+::selection {
+  background: var(--hilite);
+  color: #1b1915;
 }
 
 @utility card {
-  @apply rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900;
+  @apply rounded-2xl border-2 border-line bg-card;
+}
+
+/* Chunky "sticker" shadow for things you can press. */
+@utility pop {
+  box-shadow: 4px 4px 0 0 var(--ink);
+  @apply border-2 border-ink;
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-50;
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition focus:outline-none focus-visible:ring-4 focus-visible:ring-hilite disabled:opacity-50 active:translate-x-px active:translate-y-px;
 }
 @utility btn-primary {
-  @apply btn bg-emerald-600 text-white hover:bg-emerald-700;
+  @apply btn border-2 border-ink bg-money text-white hover:brightness-110;
+  box-shadow: 3px 3px 0 0 var(--ink);
 }
 @utility btn-ghost {
-  @apply btn border border-stone-300 bg-white text-stone-800 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:hover:bg-stone-800;
+  @apply btn border-2 border-line bg-card text-ink hover:border-ink;
+}
+@utility btn-dark {
+  @apply btn border-2 border-ink bg-ink text-paper hover:opacity-90;
 }
 
 @utility field {
-  @apply w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100;
+  @apply w-full rounded-xl border-2 border-line bg-card px-3 py-2 text-sm text-ink placeholder:text-ink-soft/60 focus:border-ink focus:outline-none;
 }
 
 @utility label {
-  @apply mb-1 block text-xs font-semibold tracking-wide text-stone-500 uppercase dark:text-stone-400;
+  @apply mb-1 block text-xs font-bold tracking-wide text-ink-soft uppercase;
+}
+
+@utility money {
+  @apply font-mono tabular-nums;
+}
+
+/* Highlighter-pen underline for key words. */
+@utility hl {
+  background: linear-gradient(transparent 12%, var(--hilite) 12%, var(--hilite) 94%, transparent 94%);
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: #1b1915; /* ink on yellow, readable in dark mode too */
+}
+
+/* Zig-zag torn edges, like a till receipt. */
+@utility receipt {
+  --zz: 10px;
+  @apply bg-card;
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--zz)) 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(2 * var(--zz)) 51% repeat-x;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--zz)) 51% repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(2 * var(--zz)) 51% repeat-x;
+  padding-block: calc(var(--zz) + 1rem);
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.92); }
+  60% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@utility animate-pop {
+  animation: pop-in 0.28s ease-out;
+}
+@utility animate-rise {
+  animation: rise 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

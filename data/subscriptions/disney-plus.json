@@ -1,0 +1,50 @@
+{
+  "id": "disney-plus",
+  "name": "Disney+",
+  "category": "streaming-video",
+  "website": "https://www.disneyplus.com",
+  "description": "Disney, Pixar, Marvel, Star Wars and National Geographic.",
+  "coreFeatures": [
+    "Library of movies and shows with posters and descriptions",
+    "Stream to TV, phone and browser",
+    "Resume where you left off",
+    "Multiple profiles for family members"
+  ],
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic (with ads)",
+      "monthlyPrice": 12.49,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "premium",
+      "name": "Premium (no ads)",
+      "monthlyPrice": 21.49,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "basic",
+  "sourceUrl": "https://www.disneyplus.com",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-streaming",
+    "library-streaming",
+    "jellyfin"
+  ],
+  "kind": "content",
+  "complexity": 4,
+  "popularity": 5,
+  "extraFeatures": [
+    "Subtitles download",
+    "Offline downloads to your phone",
+    "Live TV / DVR with a tuner",
+    "Parental controls"
+  ],
+  "priceNote": "Sources disagreed after the September 2026 increase; confirm on the official page.",
+  "remakeNote": "You can rebuild the app, not the catalog. Only stream content you own or have the rights to. Extending Jellyfin is far easier than starting from scratch.",
+  "remakeTarget": "a personal media server that streams movies and shows you own (ripped DVDs/Blu-rays, home videos, downloads you have the rights to) to your TV and phone"
+}

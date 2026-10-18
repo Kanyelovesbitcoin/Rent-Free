@@ -1,0 +1,29 @@
+{
+  "id": "antennapod",
+  "name": "AntennaPod",
+  "website": "https://antennapod.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Android"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Open-source podcast player: every free podcast, no account, no tracking.",
+  "gains": [
+    "Free, no ads",
+    "Huge podcast directory",
+    "Private: no account needed"
+  ],
+  "tradeoffs": [
+    "Android only (iPhone users: try the free Apple Podcasts app)",
+    "Podcasts, not music"
+  ],
+  "setupSteps": [
+    "Install AntennaPod from F-Droid or Google Play",
+    "Search and subscribe to podcasts",
+    "Turn on auto-download over Wi-Fi"
+  ],
+  "repo": "https://github.com/AntennaPod/AntennaPod"
+}

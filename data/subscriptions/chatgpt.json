@@ -47,5 +47,14 @@
     "hybrid-api"
   ],
   "localAI": true,
-  "priceNote": "US prices. Go tier availability varies by region."
+  "priceNote": "US prices. Go tier availability varies by region.",
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 7,
+  "extraFeatures": [
+    "Voice conversations",
+    "Image generation",
+    "Web search with sources",
+    "Shareable custom assistants"
+  ]
 }

@@ -1,0 +1,38 @@
+{
+  "id": "audible",
+  "name": "Audible",
+  "category": "books",
+  "website": "https://www.audible.com",
+  "description": "Audiobooks with a monthly credit, plus a listen-included catalog.",
+  "coreFeatures": [
+    "Audiobook library with covers and chapters",
+    "Remember playback position",
+    "Sleep timer and playback speed"
+  ],
+  "plans": [
+    {
+      "id": "premium-plus",
+      "name": "Premium Plus",
+      "monthlyPrice": 14.95,
+      "annualPrice": 149.5,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "premium-plus",
+  "sourceUrl": "https://www.audible.com/ep/memberbenefits",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "library-books",
+    "audiobookshelf"
+  ],
+  "kind": "content",
+  "complexity": 3,
+  "popularity": 18,
+  "extraFeatures": [
+    "Bookmarks and notes",
+    "Sync progress across devices",
+    "Listening stats"
+  ],
+  "remakeNote": "Audiobooks you bought with credits usually stay yours; check what is DRM-protected before you cancel.",
+  "remakeTarget": "a personal audiobook server for audiobooks you own"
+}

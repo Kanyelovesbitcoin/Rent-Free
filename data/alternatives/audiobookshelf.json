@@ -1,0 +1,33 @@
+{
+  "id": "audiobookshelf",
+  "name": "Audiobookshelf",
+  "website": "https://www.audiobookshelf.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux",
+    "iOS",
+    "Android"
+  ],
+  "difficulty": "medium",
+  "setupHours": 1.5,
+  "summary": "Self-hosted server for your audiobooks and podcasts, with phone apps and progress sync.",
+  "gains": [
+    "Your library everywhere",
+    "Progress sync, sleep timer, speed control",
+    "No subscription"
+  ],
+  "tradeoffs": [
+    "Only for audiobooks you own (DRM-free files)",
+    "A computer has to stay on"
+  ],
+  "setupSteps": [
+    "Install Audiobookshelf (Docker or desktop)",
+    "Add your audiobook folder",
+    "Install the app on your phone and sign in"
+  ],
+  "repo": "https://github.com/advplyr/audiobookshelf"
+}

@@ -1,0 +1,56 @@
+{
+  "id": "netflix",
+  "name": "Netflix",
+  "category": "streaming-video",
+  "website": "https://www.netflix.com",
+  "description": "Movies, series and originals on demand.",
+  "coreFeatures": [
+    "Library of movies and shows with posters and descriptions",
+    "Stream to TV, phone and browser",
+    "Resume where you left off",
+    "Multiple profiles for family members"
+  ],
+  "plans": [
+    {
+      "id": "standard-ads",
+      "name": "Standard with ads",
+      "monthlyPrice": 8.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "monthlyPrice": 19.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "monthlyPrice": 26.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "standard",
+  "sourceUrl": "https://help.netflix.com/en/node/24926",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-streaming",
+    "library-streaming",
+    "jellyfin"
+  ],
+  "kind": "content",
+  "complexity": 4,
+  "popularity": 1,
+  "extraFeatures": [
+    "Subtitles download",
+    "Offline downloads to your phone",
+    "Live TV / DVR with a tuner",
+    "Parental controls"
+  ],
+  "remakeNote": "You can rebuild the app, not the catalog. Only stream content you own or have the rights to. Extending Jellyfin is far easier than starting from scratch.",
+  "remakeTarget": "a personal media server that streams movies and shows you own (ripped DVDs/Blu-rays, home videos, downloads you have the rights to) to your TV and phone"
+}

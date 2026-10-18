@@ -41,7 +41,12 @@ Create `data/subscriptions/<id>.json`. The file name must match `id` (lowercase-
   "lastVerified": "2026-10-17",
   "priceNote": "Optional caveat, e.g. 'price grows with contacts'",
   "alternatives": ["calcom", "easyappointments"],
-  "localAI": false
+  "localAI": false,
+  "kind": "software",
+  "complexity": 2,
+  "extraFeatures": ["Optional features people can switch on in the Remake studio"],
+  "remakeNote": "Optional honest warning shown in the Remake studio",
+  "popularity": 39
 }
 ```
 
@@ -49,6 +54,9 @@ Create `data/subscriptions/<id>.json`. The file name must match `id` (lowercase-
 - `annualPrice`: the **total per year** when billed yearly (`null` if not offered).
 - `alternatives`: best first. The first one is the "Pick for me" recommendation.
 - `category`: must exist in `data/categories.json`.
+- `kind`: `software`, `content` (movies, music, books) or `membership` (shipping, game libraries). Content and memberships also need a `remakeTarget`: what you'd honestly build instead (e.g. "a personal media server for movies you own").
+- `complexity`: 1 simple (link page), 2 standard (to-do app), 3 complex (notes with databases), 4 platform (Netflix, Adobe, Zoom). It decides how much structure the Remake prompt asks for.
+- `popularity`: rough order of how many people pay for it (1 = most). Editorial, not a survey rank.
 
 ## Add an alternative
 
@@ -77,6 +85,7 @@ Create `data/alternatives/<id>.json`:
 
 - `hosting`: `desktop` (install an app), `browser` (free web app / free tier), `self-host` (needs a server; the server is counted once across all apps), or `pay-as-you-go` (set `monthlyCost` to a typical estimate).
 - `difficulty`: `easy`, `medium` or `weekend`.
+- `partial` hosting (e.g. "Rotate it") needs `keepFraction`: the share of the bill you still pay (0.25 = 3 months a year).
 
 Then add its id to the `alternatives` list of the subscription(s) it replaces.
 

@@ -1,0 +1,35 @@
+{
+  "id": "siriusxm",
+  "name": "SiriusXM",
+  "category": "music-audio",
+  "website": "https://www.siriusxm.com",
+  "description": "Satellite and streaming radio, talk shows and sports.",
+  "coreFeatures": [
+    "Live radio-style channels by genre",
+    "Talk and sports shows",
+    "Listen in the car and on your phone"
+  ],
+  "plans": [
+    {
+      "id": "app-only",
+      "name": "All Access (app only)",
+      "monthlyPrice": 11.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "app-only",
+  "sourceUrl": "https://www.siriusxm.com/plans",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "antennapod"
+  ],
+  "kind": "content",
+  "complexity": 2,
+  "popularity": 20,
+  "extraFeatures": [],
+  "priceNote": "App-only plan rose from $9.99 to $11.99 in February 2026.",
+  "remakeNote": "You can't rebuild SiriusXM's exclusive shows, but free internet radio and podcasts cover a lot.",
+  "remakeTarget": "a personal \"radio\" app that plays podcasts and free internet radio stations you choose"
+}

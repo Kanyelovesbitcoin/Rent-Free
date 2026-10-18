@@ -1,0 +1,46 @@
+{
+  "id": "microsoft-365",
+  "name": "Microsoft 365",
+  "category": "office",
+  "website": "https://www.microsoft.com/microsoft-365",
+  "description": "Word, Excel, PowerPoint, Outlook and 1 TB of OneDrive.",
+  "coreFeatures": [
+    "Word processor",
+    "Spreadsheets with formulas",
+    "Slide presentations",
+    "Open and save Microsoft Office files"
+  ],
+  "plans": [
+    {
+      "id": "personal",
+      "name": "Personal",
+      "monthlyPrice": 9.99,
+      "annualPrice": 99.99,
+      "perSeat": false
+    },
+    {
+      "id": "family",
+      "name": "Family",
+      "monthlyPrice": 12.99,
+      "annualPrice": 129.99,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "personal",
+  "sourceUrl": "https://www.microsoft.com/microsoft-365/buy/compare-all-microsoft-365-products",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "libreoffice",
+    "onlyoffice",
+    "nextcloud"
+  ],
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 11,
+  "extraFeatures": [
+    "Real-time co-editing",
+    "Cloud storage",
+    "Email and calendar"
+  ],
+  "remakeNote": "Don't rebuild an office suite. Use LibreOffice or OnlyOffice, and only build small custom tools (like a template generator) around them."
+}

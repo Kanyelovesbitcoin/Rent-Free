@@ -1,0 +1,40 @@
+{
+  "id": "capcut",
+  "name": "CapCut Pro",
+  "category": "video-editing",
+  "website": "https://www.capcut.com",
+  "description": "Easy short-form video editing with templates and auto-captions.",
+  "coreFeatures": [
+    "Trim and arrange clips on a timeline",
+    "Auto captions",
+    "Templates for short-form video",
+    "Export vertical video"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 9.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://www.capcut.com/pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "shotcut",
+    "kdenlive",
+    "davinci-resolve"
+  ],
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 34,
+  "extraFeatures": [
+    "Background removal",
+    "Text-to-speech voiceover",
+    "Beat sync"
+  ],
+  "priceNote": "Price unconfirmed on an official page for 2026; check in the app.",
+  "remakeNote": "A full video editor is a big build. A focused \"auto-caption my clips\" tool is very doable with Whisper."
+}

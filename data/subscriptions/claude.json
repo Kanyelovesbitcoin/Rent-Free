@@ -40,5 +40,14 @@
     "jan",
     "hybrid-api"
   ],
-  "localAI": true
+  "localAI": true,
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 24,
+  "extraFeatures": [
+    "Voice conversations",
+    "Web search with sources",
+    "Connect to Google Drive / GitHub",
+    "Shareable projects"
+  ]
 }

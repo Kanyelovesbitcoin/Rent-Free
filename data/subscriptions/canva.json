@@ -34,5 +34,15 @@
     "penpot",
     "inkscape"
   ],
-  "priceNote": "Some 2026 guides list Pro annual at $144; we use the higher $180 figure until confirmed."
+  "priceNote": "Some 2026 guides list Pro annual at $144; we use the higher $180 figure until confirmed.",
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 23,
+  "extraFeatures": [
+    "Stock photo and icon library",
+    "Team brand templates with locked layouts",
+    "Animated video exports",
+    "AI image generation"
+  ],
+  "remakeNote": "A full Canva clone is a huge project. A focused \"my templates + resize + export\" tool is very doable."
 }

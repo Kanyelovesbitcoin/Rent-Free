@@ -1,0 +1,39 @@
+{
+  "id": "zoom",
+  "name": "Zoom",
+  "category": "meetings",
+  "website": "https://zoom.us",
+  "description": "Video meetings and webinars.",
+  "coreFeatures": [
+    "Video meetings with a link",
+    "Screen sharing",
+    "Chat during the meeting",
+    "Recording"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Workplace Pro",
+      "monthlyPrice": 14.99,
+      "annualPrice": null,
+      "perSeat": true
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://zoom.us/pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "jitsi",
+    "free-tier"
+  ],
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 30,
+  "extraFeatures": [
+    "Breakout rooms",
+    "Waiting room",
+    "Transcripts"
+  ],
+  "priceNote": "In-app (App Store) pricing is higher.",
+  "remakeNote": "Real-time video at scale is hard. Self-host Jitsi rather than building video calling from scratch."
+}

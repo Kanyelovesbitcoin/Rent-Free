@@ -1,0 +1,49 @@
+{
+  "id": "xbox-game-pass",
+  "name": "Xbox Game Pass",
+  "category": "gaming",
+  "website": "https://www.xbox.com/xbox-game-pass",
+  "description": "A rotating library of games for Xbox and PC.",
+  "coreFeatures": [
+    "Track games you own and want to play",
+    "Log hours played",
+    "Alerts when games leave or join the catalog"
+  ],
+  "plans": [
+    {
+      "id": "essential",
+      "name": "Essential",
+      "monthlyPrice": 9.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "monthlyPrice": 14.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "ultimate",
+      "name": "Ultimate",
+      "monthlyPrice": 22.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "ultimate",
+  "sourceUrl": "https://www.xbox.com/xbox-game-pass",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "rotate-subscriptions",
+    "free-tier"
+  ],
+  "kind": "membership",
+  "complexity": 1,
+  "popularity": 16,
+  "extraFeatures": [],
+  "priceNote": "Ultimate was cut back to $22.99 in April 2026.",
+  "remakeNote": "There's no open-source Game Pass. Rotating (subscribe, finish the games you want, cancel) is the real saving.",
+  "remakeTarget": "a game backlog tracker that tells you when a subscription month is worth it"
+}

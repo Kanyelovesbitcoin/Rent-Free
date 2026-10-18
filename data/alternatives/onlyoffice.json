@@ -1,0 +1,30 @@
+{
+  "id": "onlyoffice",
+  "name": "ONLYOFFICE Desktop",
+  "website": "https://www.onlyoffice.com/desktop.aspx",
+  "license": "AGPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Free office suite that looks and behaves a lot like Microsoft Office.",
+  "gains": [
+    "Familiar Office-style interface",
+    "Strong compatibility with Office files",
+    "Free desktop apps"
+  ],
+  "tradeoffs": [
+    "Collaboration features need a server or their cloud"
+  ],
+  "setupSteps": [
+    "Download ONLYOFFICE Desktop Editors",
+    "Open your Word/Excel/PowerPoint files"
+  ],
+  "repo": "https://github.com/ONLYOFFICE/DesktopEditors",
+  "commercialNote": "AGPL: free to use, including for business. If you modify it and let other people use it over the internet, you must publish your changes under the same license."
+}

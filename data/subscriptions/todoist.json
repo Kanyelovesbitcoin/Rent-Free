@@ -1,0 +1,37 @@
+{
+  "id": "todoist",
+  "name": "Todoist",
+  "category": "tasks",
+  "website": "https://todoist.com",
+  "description": "To-do lists, reminders and recurring tasks.",
+  "coreFeatures": [
+    "Tasks with due dates and priorities",
+    "Projects and labels",
+    "Recurring tasks",
+    "Reminders"
+  ],
+  "plans": [
+    {
+      "id": "pro",
+      "name": "Pro",
+      "monthlyPrice": 5,
+      "annualPrice": 48,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "pro",
+  "sourceUrl": "https://todoist.com/pricing",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "free-tier",
+    "vikunja"
+  ],
+  "kind": "software",
+  "complexity": 1,
+  "popularity": 38,
+  "extraFeatures": [
+    "Natural-language dates (\"every Monday\")",
+    "Shared projects",
+    "Calendar view"
+  ]
+}

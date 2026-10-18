@@ -1,0 +1,31 @@
+{
+  "id": "libreoffice",
+  "name": "LibreOffice",
+  "website": "https://www.libreoffice.org",
+  "license": "MPL-2.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.5,
+  "summary": "Full free office suite: documents, spreadsheets, presentations. Opens and saves Office files.",
+  "gains": [
+    "Completely free",
+    "Works offline",
+    "Opens .docx, .xlsx, .pptx"
+  ],
+  "tradeoffs": [
+    "Complex Office files may look slightly different",
+    "No built-in real-time co-editing"
+  ],
+  "setupSteps": [
+    "Download LibreOffice",
+    "Set it to save in Microsoft formats if you share with Office users (Tools → Options → Load/Save)",
+    "Open your existing files"
+  ],
+  "repo": "https://github.com/LibreOffice/core"
+}

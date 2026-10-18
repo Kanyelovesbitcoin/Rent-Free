@@ -1,115 +1,134 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { allCategories, getCategory, subscriptions } from '../lib/data'
-import { newCatalogItem, resolveItem, type CatalogItem } from '../lib/selection'
+import { allCategories, byPopularity, fromMonthly, getCategory, getSubscription } from '../lib/data'
+import { newCatalogItem, resolveItem, type CatalogItem, type ResolvedItem } from '../lib/selection'
 import { formatMoney } from '../lib/savings'
 import { useSelection } from '../state'
 import ItemEditor from '../components/ItemEditor'
 import CustomEntryForm from '../components/CustomEntryForm'
-import { Money, PageHeader } from '../components/ui'
+import { CountUp, PageHeader, Stepper, ToolTile } from '../components/ui'
 
 export default function Picker() {
-  const { selection, upsertItem, removeItem } = useSelection()
+  const { selection, upsertItem, removeItem, clear } = useSelection()
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState<string | null>(null)
+  const [tab, setTab] = useState<string>('popular')
 
   const selected = new Map(selection.items.filter((i): i is CatalogItem => i.t === 'c').map((i) => [i.id, i]))
-  const customs = selection.items.filter((i) => i.t === 'u')
-  const usedCategories = allCategories.filter((c) => subscriptions.some((s) => s.category === c.id))
+  const resolved = selection.items.map(resolveItem).filter((r): r is ResolvedItem => r !== null)
+  const total = resolved.reduce((t, r) => t + r.currentYearly, 0)
+  const tabs = [
+    { id: 'popular', label: '🔥 Popular' },
+    { id: 'all', label: 'All' },
+    ...allCategories.filter((c) => byPopularity.some((s) => s.category === c.id)).map((c) => ({ id: c.id, label: `${c.emoji} ${c.name}` })),
+  ]
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return subscriptions.filter(
-      (s) =>
-        (!category || s.category === category) &&
-        (!q || s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q) || getCategory(s.category).name.toLowerCase().includes(q)),
-    )
-  }, [query, category])
-
-  const total = selection.items.map(resolveItem).reduce((t, r) => t + (r?.currentYearly ?? 0), 0)
+    if (q) return byPopularity.filter((s) => s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q) || getCategory(s.category).name.toLowerCase().includes(q))
+    if (tab === 'popular') return byPopularity.slice(0, 20)
+    if (tab === 'all') return byPopularity
+    return byPopularity.filter((s) => s.category === tab)
+  }, [query, tab])
 
   return (
-    <div className="pb-28">
-      <PageHeader eyebrow="Step 1" title="What are you paying for?">
-        Check off every subscription you pay for. Prices are pre-filled from each tool's pricing page; change them if you pay something different.
-      </PageHeader>
+    <div className="pb-28 lg:pb-0">
+      <Stepper current={1} />
+      <PageHeader title={<>What are you <span className="hl">paying for</span>?</>}>Tap everything you subscribe to. Prices are pre-filled from each pricing page, and you can change them on the receipt.</PageHeader>
 
-      <div className="mb-5 flex flex-col gap-3">
-        <input className="field max-w-md py-3" type="search" placeholder="Search tools… (e.g. Calendly, notes, AI)" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search tools" />
-        <div className="flex flex-wrap gap-2">
-          <Chip active={!category} onClick={() => setCategory(null)}>
-            All
-          </Chip>
-          {usedCategories.map((c) => (
-            <Chip key={c.id} active={category === c.id} onClick={() => setCategory(category === c.id ? null : c.id)}>
-              {c.emoji} {c.name}
-            </Chip>
-          ))}
-        </div>
-      </div>
+      <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
+        <div className="min-w-0">
+          <input className="field mb-4 max-w-md py-3 text-base" type="search" placeholder="Search 50 subscriptions… (Netflix, notes, AI)" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search tools" />
+          {!query && (
+            <div className="-mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-1" role="tablist" aria-label="Categories">
+              {tabs.map((t) => (
+                <button
+                  key={t.id}
+                  role="tab"
+                  aria-selected={tab === t.id}
+                  type="button"
+                  onClick={() => setTab(t.id)}
+                  className={`shrink-0 rounded-full border-2 px-3.5 py-1.5 text-sm font-bold whitespace-nowrap transition ${tab === t.id ? 'border-ink bg-ink text-paper' : 'border-line bg-card hover:border-ink'}`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          )}
 
-      <div className="grid gap-3 md:grid-cols-2">
-        {visible.map((s) => {
-          const item = selected.get(s.id)
-          return (
-            <div key={s.id} className={`card p-4 transition ${item ? 'border-emerald-500 ring-1 ring-emerald-500 dark:border-emerald-600' : ''}`}>
-              <label className="flex cursor-pointer items-start gap-3">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-5 w-5 accent-emerald-600"
-                  checked={!!item}
-                  onChange={() => (item ? removeItem(s.id) : upsertItem(newCatalogItem(s)))}
-                  aria-label={`I pay for ${s.name}`}
-                />
-                <span className="min-w-0 flex-1">
-                  <span className="flex items-center justify-between gap-2">
-                    <span className="font-semibold">
-                      {getCategory(s.category).emoji} {s.name}
-                    </span>
-                    {item && <Money value={resolveItem(item)!.currentYearly} className="text-sm font-semibold text-rose-600 dark:text-rose-400" />}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
+            {visible.map((s) => {
+              const on = selected.has(s.id)
+              return (
+                <label
+                  key={s.id}
+                  className={`relative flex cursor-pointer flex-col items-start gap-2 rounded-2xl border-2 p-3.5 transition select-none focus-within:ring-4 focus-within:ring-hilite ${
+                    on ? 'pop animate-pop bg-money-soft' : 'border-line bg-card hover:-translate-y-0.5 hover:border-ink'
+                  }`}
+                >
+                  <input type="checkbox" className="absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0" checked={on} onChange={() => (on ? removeItem(s.id) : upsertItem(newCatalogItem(s)))} aria-label={`I pay for ${s.name}`} />
+                  <span className={`absolute top-2.5 right-2.5 flex h-6 w-6 items-center justify-center rounded-full border-2 text-xs font-extrabold ${on ? 'border-ink bg-money text-white' : 'border-line text-transparent'}`} aria-hidden>
+                    ✓
                   </span>
-                  <span className="mt-0.5 block text-sm text-stone-500">{s.description}</span>
-                </span>
-              </label>
-              {item && <ItemEditor sub={s} item={item} />}
-            </div>
-          )
-        })}
-        {visible.length === 0 && <p className="text-stone-500">No tools match. Add it as a custom subscription below. 👇</p>}
-      </div>
+                  <ToolTile name={s.name} size={40} />
+                  <span className="min-w-0">
+                    <span className="block truncate font-bold">{s.name}</span>
+                    <span className="block text-xs text-ink-soft">
+                      from <span className="money">{formatMoney(fromMonthly(s))}</span>/mo
+                    </span>
+                  </span>
+                </label>
+              )
+            })}
+          </div>
+          {visible.length === 0 && <p className="text-ink-soft">No match. Add it as your own on the receipt. 👉</p>}
+        </div>
 
-      <div className="mt-8 space-y-3">
-        <CustomEntryForm />
-        {customs.map((c) => {
-          const r = resolveItem(c)!
-          return (
-            <div key={c.id} className="card flex items-center justify-between gap-3 p-4">
-              <div>
-                <p className="font-semibold">
-                  {getCategory(r.category).emoji} {r.name} <span className="text-xs font-normal text-stone-500">(custom)</span>
-                </p>
-                <p className="text-sm text-stone-500">
-                  {formatMoney(c.price)} {c.billing === 'monthly' ? 'per month' : 'per year'} · <Money value={r.currentYearly} />
-                  /yr
-                </p>
+        {/* running receipt */}
+        <aside className="lg:sticky lg:top-24 lg:self-start" id="receipt" aria-label="Your receipt">
+          <div className="receipt pop rounded-sm px-5">
+            <div className="flex items-baseline justify-between">
+              <p className="font-mono text-xs tracking-[0.25em] text-ink-soft uppercase">Your rent receipt</p>
+              {selection.items.length > 0 && (
+                <button type="button" onClick={clear} className="text-xs font-bold text-ink-soft underline hover:text-rent">
+                  Clear
+                </button>
+              )}
+            </div>
+            {resolved.length === 0 ? (
+              <p className="py-8 text-center text-sm text-ink-soft">Nothing yet. Tap a tool to add it. 🧾</p>
+            ) : (
+              <ul className="mt-3 divide-y-2 divide-dashed divide-line border-y-2 border-dashed border-line">
+                {resolved.map((r) => (
+                  <ReceiptLine key={r.key} r={r} onRemove={() => removeItem(r.key)} />
+                ))}
+              </ul>
+            )}
+            <div className="mt-3 flex items-end justify-between">
+              <span className="font-mono text-sm font-bold">TOTAL / YEAR</span>
+              <CountUp value={total} className="font-display text-3xl font-extrabold text-rent" />
+            </div>
+            <Link to="/results" className={`btn-primary mt-4 w-full py-3 text-base ${resolved.length ? '' : 'pointer-events-none opacity-50'}`} aria-disabled={!resolved.length}>
+              See what I could keep →
+            </Link>
+            <details className="mt-4">
+              <summary className="cursor-pointer text-sm font-bold">+ Add something not listed</summary>
+              <div className="mt-3">
+                <CustomEntryForm compact />
               </div>
-              <button className="btn-ghost px-3 py-1.5" onClick={() => removeItem(c.id)} aria-label={`Remove ${c.name}`}>
-                Remove
-              </button>
-            </div>
-          )
-        })}
+            </details>
+          </div>
+        </aside>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-10 border-t border-stone-200 bg-white/95 backdrop-blur dark:border-stone-800 dark:bg-stone-900/95">
+      {/* phone bottom bar */}
+      <div className="fixed inset-x-0 bottom-0 z-20 border-t-2 border-ink bg-card lg:hidden">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-          <p className="text-sm">
-            <strong>{selection.items.length}</strong> selected ·{' '}
-            <Money value={total} className="font-semibold text-rose-600 dark:text-rose-400" />
-            <span className="text-stone-500">/yr in software rent</span>
-          </p>
+          <a href="#receipt" className="text-sm">
+            <strong>{selection.items.length}</strong> picked · <span className="money font-bold text-rent">{formatMoney(total)}</span>
+            <span className="text-ink-soft">/yr</span>
+          </a>
           <Link to="/results" className={`btn-primary ${selection.items.length ? '' : 'pointer-events-none opacity-50'}`} aria-disabled={!selection.items.length}>
-            See my savings →
+            See savings →
           </Link>
         </div>
       </div>
@@ -117,18 +136,25 @@ export default function Picker() {
   )
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function ReceiptLine({ r, onRemove }: { r: ResolvedItem; onRemove: () => void }) {
+  const [open, setOpen] = useState(false)
+  const sub = r.sub ?? (r.item.t === 'c' ? getSubscription(r.item.id) : undefined)
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full border px-3 py-1.5 text-sm font-medium transition ${
-        active
-          ? 'border-emerald-600 bg-emerald-600 text-white'
-          : 'border-stone-300 bg-white text-stone-700 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300'
-      }`}
-    >
-      {children}
-    </button>
+    <li className="py-2.5 animate-rise">
+      <div className="flex items-center gap-2.5">
+        <ToolTile name={r.name} size={28} />
+        <button type="button" className="min-w-0 flex-1 text-left" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={`Edit ${r.name}`}>
+          <span className="block truncate text-sm font-bold">{r.name}</span>
+          <span className="block truncate text-xs text-ink-soft">
+            {r.plan ? r.plan.name : 'custom'} · {open ? 'done' : 'edit'} ✎
+          </span>
+        </button>
+        <span className="money text-sm text-rent">{formatMoney(r.currentYearly)}</span>
+        <button type="button" onClick={onRemove} aria-label={`Remove ${r.name}`} className="text-ink-soft hover:text-rent">
+          ✕
+        </button>
+      </div>
+      {open && sub && r.item.t === 'c' && <ItemEditor sub={sub} item={r.item} />}
+    </li>
   )
 }

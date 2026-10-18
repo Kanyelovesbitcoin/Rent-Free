@@ -22,6 +22,8 @@ const CustomItemSchema = z.object({
   price: z.number().nonnegative(),
   billing: BillingSchema,
   alt: z.string().nullable(),
+  // What the service does, in the user's words. Feeds the Remake prompt.
+  description: z.string().max(1000).optional(),
 })
 const ItemSchema = z.discriminatedUnion('t', [CatalogItemSchema, CustomItemSchema])
 export const SelectionSchema = z.object({

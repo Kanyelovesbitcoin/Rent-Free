@@ -32,5 +32,15 @@
     "n8n",
     "activepieces"
   ],
-  "priceNote": "Entry-tier prices; Zapier charges more as your monthly task count grows."
+  "priceNote": "Entry-tier prices; Zapier charges more as your monthly task count grows.",
+  "kind": "software",
+  "complexity": 4,
+  "popularity": 43,
+  "extraFeatures": [
+    "Schedules (run every hour/day)",
+    "AI steps that summarize or classify data",
+    "Webhooks to connect any app",
+    "Team sharing of workflows"
+  ],
+  "remakeNote": "Integrations are the hard part. Consider building on n8n and only creating the custom steps you need."
 }

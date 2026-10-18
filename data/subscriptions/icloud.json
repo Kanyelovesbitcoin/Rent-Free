@@ -1,0 +1,46 @@
+{
+  "id": "icloud",
+  "name": "iCloud+",
+  "category": "file-storage",
+  "website": "https://www.apple.com/icloud/",
+  "description": "Extra iCloud storage for photos, backups and files.",
+  "coreFeatures": [
+    "Automatic photo backup from your phone",
+    "Browse photos by date and album",
+    "File storage and sharing links",
+    "Family sharing"
+  ],
+  "plans": [
+    {
+      "id": "200gb",
+      "name": "200 GB",
+      "monthlyPrice": 2.99,
+      "annualPrice": null,
+      "perSeat": false
+    },
+    {
+      "id": "2tb",
+      "name": "2 TB",
+      "monthlyPrice": 9.99,
+      "annualPrice": null,
+      "perSeat": false
+    }
+  ],
+  "defaultPlan": "200gb",
+  "sourceUrl": "https://support.apple.com/en-us/108047",
+  "lastVerified": "2026-10-18",
+  "alternatives": [
+    "immich",
+    "nextcloud",
+    "syncthing"
+  ],
+  "kind": "software",
+  "complexity": 3,
+  "popularity": 6,
+  "extraFeatures": [
+    "Face recognition and search",
+    "Shared albums",
+    "Device backups"
+  ],
+  "remakeNote": "Don't cancel until every photo is safely copied in two places (e.g. your new server + an external drive)."
+}

@@ -30,3 +30,17 @@ export function alternativesForCategory(categoryId: string) {
   const ids = subscriptions.filter((s) => s.category === categoryId).flatMap((s) => s.alternatives)
   return [...new Set(ids)].map((id) => altById.get(id)!).filter(Boolean)
 }
+
+export const byPopularity = [...subscriptions].sort((a, b) => a.popularity - b.popularity)
+
+// Cheapest way to pay for a subscription, as a monthly figure ("from $X/mo").
+export function fromMonthly(sub: (typeof subscriptions)[number]) {
+  return Math.min(...sub.plans.map((p) => p.monthlyPrice ?? (p.annualPrice ?? Infinity) / 12))
+}
+
+// One-click starter stacks for the home page.
+export const STARTER_STACKS = [
+  { id: 'household', name: 'Typical household', emoji: '🏠', blurb: 'Streaming, music, shopping, cloud photos and AI.', ids: ['netflix', 'spotify', 'amazon-prime', 'disney-plus', 'icloud', 'chatgpt'] },
+  { id: 'creator', name: 'Creator', emoji: '🎥', blurb: 'Design, editing, AI, notes, links and bookings.', ids: ['canva', 'capcut', 'chatgpt', 'notion', 'linktree', 'calendly', 'descript'] },
+  { id: 'business', name: 'Small business', emoji: '💼', blurb: 'Office, books, meetings, email, website and signatures.', ids: ['microsoft-365', 'quickbooks', 'zoom', 'mailchimp', 'squarespace', 'docusign', '1password'] },
+].map((s) => ({ ...s, ids: s.ids.filter((id) => subById.has(id)) }))

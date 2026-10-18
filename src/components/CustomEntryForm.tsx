@@ -3,13 +3,17 @@ import { allCategories } from '../lib/data'
 import { newCustomItem } from '../lib/selection'
 import type { Billing } from '../lib/savings'
 import { useSelection } from '../state'
+import { useToast } from './ui'
 
-export default function CustomEntryForm() {
+// Add any subscription that isn't in the catalog, including a short description for the Remake prompt.
+export default function CustomEntryForm({ compact = false }: { compact?: boolean }) {
   const { upsertItem } = useSelection()
+  const notify = useToast()
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [billing, setBilling] = useState<Billing>('monthly')
   const [category, setCategory] = useState('other')
+  const [description, setDescription] = useState('')
   const [error, setError] = useState('')
 
   const submit = (e: FormEvent) => {
@@ -17,21 +21,22 @@ export default function CustomEntryForm() {
     const p = Number(price)
     if (!name.trim()) return setError('Give it a name')
     if (!price || !Number.isFinite(p) || p < 0) return setError('Enter what you pay')
-    upsertItem(newCustomItem({ name: name.trim().slice(0, 80), price: p, billing, category }))
+    upsertItem(newCustomItem({ name: name.trim().slice(0, 80), price: p, billing, category, description: description.trim().slice(0, 1000) || undefined }))
+    notify(`Added ${name.trim()}`)
     setName('')
     setPrice('')
+    setDescription('')
     setError('')
   }
 
   return (
-    <form onSubmit={submit} className="card p-5" aria-label="Add a custom subscription">
-      <h3 className="font-semibold">Pay for something that's not listed?</h3>
-      <p className="mt-1 text-sm text-stone-500">Add it here. We'll suggest alternatives from the same category, or give you a build kit to make your own.</p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-[2fr_1fr_1fr_1.5fr_auto] sm:items-end">
-        <label>
-          <span className="label">Name</span>
-          <input className="field" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Later, Kajabi, Skool" />
-        </label>
+    <form onSubmit={submit} className={compact ? 'space-y-3' : 'card space-y-3 p-5'} aria-label="Add a custom subscription">
+      {!compact && <h3 className="font-display text-lg font-extrabold">Pay for something not listed?</h3>}
+      <label className="block">
+        <span className="label">Name</span>
+        <input className="field" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Kajabi, Later, MyFitnessPal" />
+      </label>
+      <div className="grid grid-cols-2 gap-3">
         <label>
           <span className="label">Price</span>
           <input className="field" type="number" min={0} step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="29" />
@@ -43,21 +48,25 @@ export default function CustomEntryForm() {
             <option value="annual">Yearly</option>
           </select>
         </label>
-        <label>
-          <span className="label">Category</span>
-          <select className="field" value={category} onChange={(e) => setCategory(e.target.value)}>
-            {allCategories.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.emoji} {c.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button type="submit" className="btn-primary">
-          + Add
-        </button>
       </div>
-      {error && <p className="mt-2 text-sm text-rose-600">{error}</p>}
+      <label className="block">
+        <span className="label">Category</span>
+        <select className="field" value={category} onChange={(e) => setCategory(e.target.value)}>
+          {allCategories.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.emoji} {c.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="block">
+        <span className="label">What does it do? (optional)</span>
+        <textarea className="field h-16" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="In your own words. Used for your Remake prompt." />
+      </label>
+      {error && <p className="text-sm font-bold text-rent">{error}</p>}
+      <button type="submit" className="btn-dark w-full">
+        + Add to receipt
+      </button>
     </form>
   )
 }

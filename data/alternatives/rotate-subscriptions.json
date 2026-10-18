@@ -1,0 +1,30 @@
+{
+  "id": "rotate-subscriptions",
+  "name": "Rotate it (3 mo/yr)",
+  "website": "https://github.com/kanyelovesbitcoin/rent-free",
+  "license": "A strategy, not software",
+  "hosting": "partial",
+  "monthlyCost": 0,
+  "platforms": [
+    "Any"
+  ],
+  "difficulty": "easy",
+  "setupHours": 0.25,
+  "summary": "Don't stack: subscribe for the months you'll actually use it, binge or shop what you want, then cancel. Here we assume 3 months a year.",
+  "gains": [
+    "Cuts the bill by about 75%",
+    "You keep access to the same content",
+    "No setup at all"
+  ],
+  "tradeoffs": [
+    "You'll wait for new seasons or deals",
+    "You have to remember to cancel (set a calendar reminder)"
+  ],
+  "setupSteps": [
+    "Pick the one service you'll keep this month",
+    "Cancel the others now (access usually lasts until the end of the billing period)",
+    "Put a reminder in your calendar for the day before renewal",
+    "Next month, swap to another service if you want"
+  ],
+  "keepFraction": 0.25
+}

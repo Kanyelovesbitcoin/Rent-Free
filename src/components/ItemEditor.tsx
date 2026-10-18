@@ -12,7 +12,7 @@ export default function ItemEditor({ sub, item }: { sub: Subscription; item: Cat
   const priceFor = (b: typeof billing) => (b === 'monthly' ? plan.monthlyPrice : plan.annualPrice)
 
   return (
-    <div className="mt-3 grid gap-3 border-t border-stone-100 pt-3 sm:grid-cols-2 dark:border-stone-800">
+    <div className="mt-3 grid grid-cols-2 gap-3 rounded-xl bg-paper-2 p-3">
       <label>
         <span className="label">Plan</span>
         <select className="field" value={plan.id} onChange={(e) => update({ plan: e.target.value, price: null })}>
@@ -25,7 +25,7 @@ export default function ItemEditor({ sub, item }: { sub: Subscription; item: Cat
       </label>
       <div>
         <span className="label">Billing</span>
-        <div className="flex rounded-xl border border-stone-300 p-0.5 dark:border-stone-700">
+        <div className="flex rounded-xl border-2 border-line bg-card p-0.5">
           {(['monthly', 'annual'] as const).map((b) => {
             const available = priceFor(b) != null
             return (
@@ -34,8 +34,8 @@ export default function ItemEditor({ sub, item }: { sub: Subscription; item: Cat
                 type="button"
                 disabled={!available}
                 onClick={() => update({ billing: b, price: null })}
-                className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold capitalize transition ${
-                  billing === b ? 'bg-emerald-600 text-white' : 'text-stone-600 dark:text-stone-300'
+                className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-bold capitalize transition ${
+                  billing === b ? 'bg-ink text-paper' : 'text-ink-soft'
                 } disabled:cursor-not-allowed disabled:opacity-40`}
                 title={available ? undefined : `${plan.name} has no ${b} option`}
               >
@@ -47,7 +47,7 @@ export default function ItemEditor({ sub, item }: { sub: Subscription; item: Cat
       </div>
       {plan.perSeat && (
         <label>
-          <span className="label">Seats</span>
+          <span className="label">{plan.unitLabel ? `${plan.unitLabel[0].toUpperCase()}${plan.unitLabel.slice(1)}s` : 'Seats'}</span>
           <input
             className="field"
             type="number"
@@ -58,7 +58,7 @@ export default function ItemEditor({ sub, item }: { sub: Subscription; item: Cat
         </label>
       )}
       <label>
-        <span className="label">I actually pay ({billing === 'monthly' ? 'per month' : 'per year'}{plan.perSeat ? ', per seat' : ''})</span>
+        <span className="label">I actually pay ({billing === 'monthly' ? 'per month' : 'per year'}{plan.perSeat ? `, per ${plan.unitLabel ?? 'seat'}` : ''})</span>
         <input
           className="field"
           type="number"

@@ -32,9 +32,9 @@ const USE_CASES: { id: UseCase; label: string }[] = [
   { id: 'reasoning', label: 'Planning & reasoning' },
 ]
 const FIT_BADGE: Record<Fit, { label: string; cls: string }> = {
-  comfortable: { label: 'Runs well', cls: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200' },
-  tight: { label: 'Tight fit', cls: 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200' },
-  'too-big': { label: 'Too big', cls: 'bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400' },
+  comfortable: { label: 'Runs well', cls: 'bg-money-soft text-money-ink' },
+  tight: { label: 'Tight fit', cls: 'bg-hilite/40 text-ink' },
+  'too-big': { label: 'Too big', cls: 'bg-paper-2 text-ink-soft' },
 }
 
 export default function LocalAI() {
@@ -62,11 +62,11 @@ export default function LocalAI() {
             <legend className="label">Your computer</legend>
             <div className="space-y-2">
               {MACHINES.map((m) => (
-                <label key={m.id} className={`flex cursor-pointer gap-3 rounded-xl border p-3 ${machine === m.id ? 'border-emerald-500 bg-emerald-50/60 dark:bg-emerald-950/40' : 'border-stone-200 dark:border-stone-700'}`}>
-                  <input type="radio" name="machine" className="mt-1 accent-emerald-600" checked={machine === m.id} onChange={() => setMachine(m.id)} />
+                <label key={m.id} className={`flex cursor-pointer gap-3 rounded-xl border p-3 ${machine === m.id ? 'border-ink bg-money-soft' : 'border-line'}`}>
+                  <input type="radio" name="machine" className="mt-1 accent-[var(--money)]" checked={machine === m.id} onChange={() => setMachine(m.id)} />
                   <span>
                     <span className="block text-sm font-semibold">{m.label}</span>
-                    <span className="block text-xs text-stone-500">{m.hint}</span>
+                    <span className="block text-xs text-ink-soft">{m.hint}</span>
                   </span>
                 </label>
               ))}
@@ -102,7 +102,7 @@ export default function LocalAI() {
               {USE_CASES.map((u) => {
                 const on = useCases.includes(u.id)
                 return (
-                  <label key={u.id} className={`cursor-pointer rounded-full border px-3 py-1.5 text-sm ${on ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-stone-300 dark:border-stone-700'}`}>
+                  <label key={u.id} className={`cursor-pointer rounded-full border px-3 py-1.5 text-sm ${on ? 'border-ink bg-ink text-paper' : 'border-line'}`}>
                     <input type="checkbox" className="sr-only" checked={on} onChange={() => setUseCases(on ? useCases.filter((x) => x !== u.id) : [...useCases, u.id])} />
                     {u.label}
                   </label>
@@ -118,9 +118,9 @@ export default function LocalAI() {
             <h2 className="font-display text-2xl font-extrabold" data-testid="ai-tier">
               {rec.tier.label}
             </h2>
-            <p className="mt-1 text-stone-600 dark:text-stone-400">{rec.tier.verdict}</p>
+            <p className="mt-1 text-ink-soft">{rec.tier.verdict}</p>
             {rec.slow && (
-              <p className="mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900 dark:bg-amber-950/50 dark:text-amber-200">
+              <p className="mt-3 rounded-xl border-2 border-hilite bg-hilite/15 p-3 text-sm">
                 🐢 Without a dedicated GPU, models run on your processor. They work, but expect a few words per second. "MoE" models like Qwen3 30B feel much faster
                 than their size suggests.
               </p>
@@ -132,7 +132,7 @@ export default function LocalAI() {
           ) : (
             <div className="card p-5">
               <h3 className="font-semibold">Your machine is below the smallest model we list</h3>
-              <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+              <p className="mt-1 text-sm text-ink-soft">
                 Try the pay-as-you-go option below instead: no hardware needed, and usually cheaper than a subscription for light use.
               </p>
             </div>
@@ -156,12 +156,12 @@ export default function LocalAI() {
 
       <section>
         <h2 className="font-display text-xl font-extrabold">Every model we track</h2>
-        <p className="mt-1 text-sm text-stone-500">Sizes are approximate for the default 4-bit download. New models come out all the time, so check the Ollama library for the latest. Running
+        <p className="mt-1 text-sm text-ink-soft">Sizes are approximate for the default 4-bit download. New models come out all the time, so check the Ollama library for the latest. Running
           any of these privately is fine; if you build a product on one, read its license (Llama and Gemma have their own usage rules).</p>
         <div className="card mt-4 overflow-x-auto">
           <table className="w-full min-w-[680px] text-sm">
-            <thead className="text-left text-stone-500">
-              <tr className="border-b border-stone-100 dark:border-stone-800">
+            <thead className="text-left text-ink-soft">
+              <tr className="border-b-2 border-line">
                 <th className="p-3">Model</th>
                 <th className="p-3">Needs</th>
                 <th className="p-3">Good for</th>
@@ -171,14 +171,14 @@ export default function LocalAI() {
             </thead>
             <tbody>
               {rec.fits.map(({ model, fit }) => (
-                <tr key={model.id} className={`border-b border-stone-100 last:border-0 dark:border-stone-800 ${fit === 'too-big' ? 'opacity-50' : ''}`}>
+                <tr key={model.id} className={`border-b border-line last:border-0 ${fit === 'too-big' ? 'opacity-50' : ''}`}>
                   <td className="p-3">
                     <span className="font-medium">{model.name}</span>
-                    <code className="ml-2 text-xs text-stone-500">{model.ollamaTag}</code>
+                    <code className="ml-2 text-xs text-ink-soft">{model.ollamaTag}</code>
                   </td>
                   <td className="p-3 tabular-nums">~{memoryNeededGB(model).toFixed(0)} GB</td>
-                  <td className="p-3 text-stone-600 dark:text-stone-400">{model.bestFor.join(', ')}</td>
-                  <td className="p-3 text-xs text-stone-500">{model.license}</td>
+                  <td className="p-3 text-ink-soft">{model.bestFor.join(', ')}</td>
+                  <td className="p-3 text-xs text-ink-soft">{model.license}</td>
                   <td className="p-3">
                     <Badge className={FIT_BADGE[fit].cls}>{FIT_BADGE[fit].label}</Badge>
                   </td>
@@ -195,9 +195,9 @@ export default function LocalAI() {
           {apps.map((a, i) => (
             <div key={a.id} className="card flex flex-col p-5">
               <h3 className="font-semibold">
-                {a.name} {i === 0 && <Badge className="ml-1 bg-emerald-600 text-white">Easiest</Badge>}
+                {a.name} {i === 0 && <Badge className="ml-1 border-2 border-ink bg-hilite text-ink">Easiest</Badge>}
               </h3>
-              <p className="mt-1 flex-1 text-sm text-stone-600 dark:text-stone-400">{a.summary}</p>
+              <p className="mt-1 flex-1 text-sm text-ink-soft">{a.summary}</p>
               <div className="mt-3">
                 <AltMeta alt={a} />
               </div>
@@ -244,13 +244,13 @@ export default function LocalAI() {
           <Option title="Local only" yearly={0} tone="emerald" note="Free and private. Quality depends on your machine." />
           <Option title="Hybrid: local + pay-as-you-go" yearly={apiMonthly * 12} tone="stone" note={`Local for everyday use, API for hard tasks. ~${formatMoney(apiMonthly)}/mo.`} />
         </div>
-        <p className="mt-3 text-xs text-stone-500">
+        <p className="mt-3 text-xs text-ink-soft">
           Pay-as-you-go estimate assumes ~{API_ASSUMPTIONS.inputTokensPerMessage.toLocaleString()} input + {API_ASSUMPTIONS.outputTokensPerMessage} output tokens per message at $
           {API_ASSUMPTIONS.inputPricePerMillion}/${API_ASSUMPTIONS.outputPricePerMillion} per million tokens (a typical mid-to-top-tier API price), or about{' '}
           {formatMoney(costPerMessage())} per message. Long documents cost more. Always set a monthly spending limit with your API provider.
         </p>
 
-        <div className="mt-6 border-t border-stone-100 pt-5 dark:border-stone-800">
+        <div className="mt-6 border-t-2 border-line pt-5">
           <h3 className="font-semibold">Thinking about buying more RAM or a new computer for this?</h3>
           <label className="mt-2 flex flex-wrap items-center gap-2 text-sm">
             Upgrade cost $
@@ -264,7 +264,7 @@ export default function LocalAI() {
               <li>
                 Going <strong>hybrid</strong>: pays for itself in <strong>{fmtMonths(breakEvenMonths(upgradeCost, subMonthly, apiMonthly))}</strong>.
               </li>
-              <li className="text-stone-500">Honest take: buy hardware for privacy or because you need it anyway. Saving money alone rarely justifies a $2,000+ machine for a $20/mo plan.</li>
+              <li className="text-ink-soft">Honest take: buy hardware for privacy or because you need it anyway. Saving money alone rarely justifies a $2,000+ machine for a $20/mo plan.</li>
             </ul>
           )}
         </div>
@@ -273,14 +273,14 @@ export default function LocalAI() {
       <section className="grid gap-4 md:grid-cols-2">
         <div className="card p-5">
           <h3 className="font-semibold">🙏 The honest part</h3>
-          <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+          <p className="mt-1 text-sm text-ink-soft">
             Local models are private and free to run, but expect them to be a step below the newest paid models, especially on 8–16 GB machines. Most
             people get the best deal with the hybrid setup: free local AI for the daily stuff, pay-per-use for the hard 10%.
           </p>
         </div>
         <div className="card p-5">
           <h3 className="font-semibold">🎨 Also paying for AI images?</h3>
-          <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+          <p className="mt-1 text-sm text-ink-soft">
             Open image models run locally with ComfyUI (Windows/Linux/Mac) or Draw Things (Mac). Plan on an NVIDIA card with 8 GB+ VRAM or a Mac with 16 GB+.{' '}
             <Link to="/contribute" className="underline">
               Help us add a full guide
@@ -301,29 +301,29 @@ function ModelCard({ model, title }: { model: LocalModel; title: string }) {
     <div className="card p-5" data-testid="model-card">
       <p className="label">{title}</p>
       <h3 className="text-xl font-bold">{model.name}</h3>
-      <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">{model.notes}</p>
-      <p className="mt-2 text-xs text-stone-500">
+      <p className="mt-1 text-sm text-ink-soft">{model.notes}</p>
+      <p className="mt-2 text-xs text-ink-soft">
         {model.paramsB}B parameters{model.activeParamsB ? ` (${model.activeParamsB}B active)` : ''} · ~{model.sizeGB} GB download · good for {model.bestFor.join(', ')} · license: {model.license}
       </p>
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        <code className="rounded-lg bg-stone-100 px-3 py-2 text-sm dark:bg-stone-800">{cmd}</code>
+        <code className="rounded-lg bg-paper-2 px-3 py-2 text-sm">{cmd}</code>
         <CopyButton text={cmd} label="Copy command" />
       </div>
-      <p className="mt-2 text-xs text-stone-500">In LM Studio or Jan, search for "{model.name}" instead.</p>
+      <p className="mt-2 text-xs text-ink-soft">In LM Studio or Jan, search for "{model.name}" instead.</p>
     </div>
   )
 }
 
 function Option({ title, yearly, note, tone }: { title: string; yearly: number; note: string; tone: 'rose' | 'emerald' | 'stone' }) {
-  const color = { rose: 'text-rose-600 dark:text-rose-400', emerald: 'text-emerald-600 dark:text-emerald-400', stone: 'text-stone-900 dark:text-stone-100' }[tone]
+  const color = { rose: 'text-rent', emerald: 'text-money', stone: 'text-ink' }[tone]
   return (
-    <div className="rounded-xl border border-stone-200 p-4 dark:border-stone-700">
+    <div className="rounded-xl border border-line p-4">
       <p className="text-sm font-semibold">{title}</p>
       <p className={`font-display text-3xl font-extrabold ${color}`}>
         <Money value={yearly} />
         <span className="text-sm font-semibold">/yr</span>
       </p>
-      <p className="mt-1 text-xs text-stone-500">{note}</p>
+      <p className="mt-1 text-xs text-ink-soft">{note}</p>
     </div>
   )
 }

@@ -1,0 +1,33 @@
+{
+  "id": "comfyui",
+  "name": "ComfyUI (local image generation)",
+  "website": "https://www.comfy.org",
+  "license": "GPL-3.0",
+  "hosting": "desktop",
+  "monthlyCost": 0,
+  "platforms": [
+    "Windows",
+    "Mac",
+    "Linux"
+  ],
+  "difficulty": "weekend",
+  "setupHours": 3,
+  "summary": "Generate images with open models (like Stable Diffusion and FLUX) on your own computer.",
+  "gains": [
+    "Unlimited images, no monthly fee",
+    "Huge community of models and styles",
+    "Private"
+  ],
+  "tradeoffs": [
+    "Needs an NVIDIA GPU with 8 GB+ VRAM or a Mac with 16 GB+",
+    "Node-based interface takes time to learn",
+    "Check each model's license for commercial use"
+  ],
+  "setupSteps": [
+    "Download the ComfyUI desktop app",
+    "Load a starter workflow and download a recommended model",
+    "Type a prompt and queue it"
+  ],
+  "repo": "https://github.com/comfyanonymous/ComfyUI",
+  "commercialNote": "Each image model has its own license; some don't allow commercial use without a paid license."
+}
