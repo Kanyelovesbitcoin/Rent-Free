@@ -3,7 +3,7 @@
   "name": "NordVPN",
   "category": "vpn",
   "website": "https://nordvpn.com",
-  "description": "VPN that hides your traffic on public Wi-Fi and changes your apparent location.",
+  "description": "Keeps your internet safer on public Wi-Fi and can make it look like you're in another country.",
   "coreFeatures": [
     "Encrypted connection on public Wi-Fi",
     "Choose a server country",

@@ -21,10 +21,10 @@ export const AGENTS: Record<AgentId, Agent> = {
     name: 'Claude Code',
     memoryFile: 'CLAUDE.md',
     howToRun: [
-      'Install Claude Code (claude.com/claude-code) if you haven\'t yet.',
-      'Make a new, empty folder for your app and open a terminal in it.',
-      'Run `claude`, then paste the prompt.',
-      'For bigger builds, press Shift+Tab to switch to plan mode so it plans before writing code.',
+      'Get Claude Code at claude.com/claude-code (it also comes as a desktop app).',
+      'Make a new, empty folder for your app and open it in Claude Code (or open a terminal there and type `claude`).',
+      'Paste the instructions and press Enter. Answer its questions as it works.',
+      'Big job? Press Shift+Tab first so it makes a plan before it writes code.',
     ],
   },
   codex: {
@@ -32,9 +32,9 @@ export const AGENTS: Record<AgentId, Agent> = {
     name: 'Codex',
     memoryFile: 'AGENTS.md',
     howToRun: [
-      'Install the Codex CLI (`npm install -g @openai/codex`) if you haven\'t yet.',
-      'Make a new, empty folder for your app and open a terminal in it.',
-      'Run `codex`, then paste the prompt.',
+      'Get Codex from OpenAI (in the ChatGPT app, or type `npm install -g @openai/codex` in a terminal).',
+      'Make a new, empty folder for your app and open a terminal there.',
+      'Type `codex`, paste the instructions and press Enter.',
     ],
   },
   opencode: {
@@ -42,24 +42,24 @@ export const AGENTS: Record<AgentId, Agent> = {
     name: 'OpenCode',
     memoryFile: 'AGENTS.md',
     howToRun: [
-      'Install OpenCode (see opencode.ai) and connect a model, including a local one via Ollama if you like.',
-      'Make a new, empty folder for your app and open a terminal in it.',
-      'Run `opencode`, then paste the prompt.',
+      'Get OpenCode at opencode.ai. It can even use a free AI on your own computer.',
+      'Make a new, empty folder for your app and open a terminal there.',
+      'Type `opencode`, paste the instructions and press Enter.',
     ],
   },
   cursor: {
     id: 'cursor',
     name: 'Cursor / other IDE',
     memoryFile: 'AGENTS.md',
-    howToRun: ['Open a new, empty folder in Cursor (or any AI code editor).', 'Open the Agent chat and paste the prompt.'],
+    howToRun: ['Open a new, empty folder in Cursor (or any AI code editor).', 'Open the AI chat, paste the instructions and press Enter.'],
   },
   chat: {
     id: 'chat',
     name: 'Chat (Claude.ai / ChatGPT)',
     memoryFile: null,
     howToRun: [
-      'Paste the prompt into Claude.ai or ChatGPT and attach the wireframe image.',
-      "It will give you files to copy. For anything bigger than a Quick build, a coding agent (Claude Code, Codex, OpenCode) is much easier: it creates the files and runs them for you.",
+      'Paste the instructions into Claude.ai or ChatGPT. Add the sketch picture if you have it.',
+      "It will give you code to copy into files. For anything bigger than a small build, Claude Code or Codex is easier: it makes the files and runs them for you.",
     ],
   },
 }

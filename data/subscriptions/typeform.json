@@ -3,7 +3,7 @@
   "name": "Typeform",
   "category": "forms",
   "website": "https://www.typeform.com",
-  "description": "Good-looking forms and surveys, one question at a time.",
+  "description": "Pretty forms and surveys that ask one question at a time.",
   "coreFeatures": [
     "One-question-at-a-time form experience",
     "Logic jumps (skip questions based on answers)",

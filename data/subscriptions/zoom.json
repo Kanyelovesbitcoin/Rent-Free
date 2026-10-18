@@ -3,7 +3,7 @@
   "name": "Zoom",
   "category": "meetings",
   "website": "https://zoom.us",
-  "description": "Video meetings and webinars.",
+  "description": "Video calls and online meetings.",
   "coreFeatures": [
     "Video meetings with a link",
     "Screen sharing",

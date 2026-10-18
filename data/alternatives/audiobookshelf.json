@@ -14,7 +14,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 1.5,
-  "summary": "Self-hosted server for your audiobooks and podcasts, with phone apps and progress sync.",
+  "summary": "Your own free audiobook app for the audiobooks you own. It remembers where you stopped.",
   "gains": [
     "Your library everywhere",
     "Progress sync, sleep timer, speed control",

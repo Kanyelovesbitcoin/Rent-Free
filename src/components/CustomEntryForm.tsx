@@ -61,7 +61,7 @@ export default function CustomEntryForm({ compact = false }: { compact?: boolean
       </label>
       <label className="block">
         <span className="label">What does it do? (optional)</span>
-        <textarea className="field h-16" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="In your own words. Used for your Remake prompt." />
+        <textarea className="field h-16" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="In your own words. Helps if you build your own later." />
       </label>
       {error && <p className="text-sm font-bold text-rent">{error}</p>}
       <button type="submit" className="btn-dark w-full">

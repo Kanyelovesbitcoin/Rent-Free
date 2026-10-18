@@ -11,7 +11,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 2,
-  "summary": "Open-source AI search engine: answers with sources, powered by a local model or your own API key.",
+  "summary": "A free AI search tool that answers questions and shows where it found the answer.",
   "gains": [
     "Answers with cited sources, like Perplexity",
     "Works with local models (Ollama)",

@@ -120,16 +120,16 @@ export function CopyButton({ text, label = 'Copy', toast = 'Copied!', className 
 
 // --- badges ---
 const DIFFICULTY: Record<Difficulty, { label: string; cls: string }> = {
-  easy: { label: 'Easy', cls: 'bg-money-soft text-money-ink' },
-  medium: { label: 'Medium', cls: 'bg-hilite/40 text-ink' },
-  weekend: { label: 'Weekend project', cls: 'bg-rent-soft text-rent' },
+  easy: { label: '🟢 Easy swap', cls: 'bg-money-soft text-money-ink' },
+  medium: { label: '🟡 Takes an afternoon', cls: 'bg-hilite/40 text-ink' },
+  weekend: { label: '🔴 Weekend project', cls: 'bg-rent-soft text-rent' },
 }
 export const HOSTING: Record<Hosting, { label: string; hint: string }> = {
-  desktop: { label: 'Desktop app', hint: 'Install it on your computer. $0.' },
-  browser: { label: 'Free web / free tier', hint: 'Use it in the browser on a free plan. $0.' },
-  'self-host': { label: 'Self-hosted', hint: 'Runs on a small server you rent. One server can run all your self-hosted apps.' },
-  'pay-as-you-go': { label: 'Pay as you go', hint: 'You only pay for what you use.' },
-  partial: { label: 'Part-time', hint: 'Keep paying only some months of the year.' },
+  desktop: { label: '💻 App on your computer', hint: 'Download it and use it on your computer. $0.' },
+  browser: { label: '🌐 Free app or website', hint: 'Use it for free in your browser or phone. $0.' },
+  'self-host': { label: '🖥 Needs a server', hint: 'Runs on a small rented computer (a server), about $6 a month. One server can run all of these apps.' },
+  'pay-as-you-go': { label: '🪙 Pay as you go', hint: 'You only pay for what you use.' },
+  partial: { label: '📅 Part of the year', hint: 'Keep paying only some months of the year.' },
 }
 
 export function Badge({ children, className = '' }: { children: ReactNode; className?: string }) {
@@ -148,7 +148,7 @@ export function AltMeta({ alt }: { alt: Alternative }) {
     <div className="flex flex-wrap items-center gap-1.5">
       <DifficultyBadge difficulty={alt.difficulty} />
       <HostingBadge hosting={alt.hosting} />
-      <Badge className={neutral}>~{formatHours(alt.setupHours)} setup</Badge>
+      <Badge className={neutral}>⏱ {formatHours(alt.setupHours)} to set up</Badge>
     </div>
   )
 }
@@ -186,7 +186,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
 const STEPS = [
   { n: 1, label: 'Pick', to: '/start' },
   { n: 2, label: 'See savings', to: '/results' },
-  { n: 3, label: 'Switch or remake', to: null },
+  { n: 3, label: 'Switch or build your own', to: null },
 ]
 export function Stepper({ current }: { current: 1 | 2 | 3 }) {
   return (

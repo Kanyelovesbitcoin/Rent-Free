@@ -19,9 +19,9 @@ import type { LocalModel } from '../lib/schema'
 import { AltMeta, Badge, CopyButton, Money, PageHeader } from '../components/ui'
 
 const MACHINES: { id: Machine; label: string; hint: string }[] = [
-  { id: 'mac', label: 'Mac with Apple Silicon', hint: 'M1, M2, M3, M4… Apple menu → About This Mac shows "Chip" and "Memory".' },
-  { id: 'nvidia', label: 'PC with an NVIDIA graphics card', hint: 'Windows: Task Manager → Performance → GPU shows "Dedicated GPU memory".' },
-  { id: 'cpu', label: 'PC / laptop without a gaming GPU', hint: 'Most office laptops and Intel/AMD integrated graphics. Task Manager → Performance → Memory.' },
+  { id: 'mac', label: 'A Mac from 2020 or newer', hint: 'Click the Apple menu → About This Mac. Look for "Chip" (M1, M2, M3…) and "Memory".' },
+  { id: 'nvidia', label: 'A gaming PC (NVIDIA graphics card)', hint: 'Open Task Manager → Performance → GPU. Look for "Dedicated GPU memory".' },
+  { id: 'cpu', label: 'A regular PC or laptop', hint: 'Most work and school laptops. Open Task Manager → Performance → Memory to see your RAM.' },
 ]
 const RAM = [8, 16, 18, 24, 32, 36, 48, 64, 96, 128]
 const VRAM = [4, 6, 8, 10, 12, 16, 20, 24, 32, 48]
@@ -32,9 +32,9 @@ const USE_CASES: { id: UseCase; label: string }[] = [
   { id: 'reasoning', label: 'Planning & reasoning' },
 ]
 const FIT_BADGE: Record<Fit, { label: string; cls: string }> = {
-  comfortable: { label: 'Runs well', cls: 'bg-money-soft text-money-ink' },
-  tight: { label: 'Tight fit', cls: 'bg-hilite/40 text-ink' },
-  'too-big': { label: 'Too big', cls: 'bg-paper-2 text-ink-soft' },
+  comfortable: { label: '✅ Runs well', cls: 'bg-money-soft text-money-ink' },
+  tight: { label: '😬 Just fits', cls: 'bg-hilite/40 text-ink' },
+  'too-big': { label: '❌ Too big', cls: 'bg-paper-2 text-ink-soft' },
 }
 
 export default function LocalAI() {
@@ -52,14 +52,14 @@ export default function LocalAI() {
 
   return (
     <div className="space-y-12">
-      <PageHeader eyebrow="Local AI advisor" title="Can your computer replace ChatGPT or Claude?">
-        Tell us what you're working with. We'll suggest models that actually fit, the easiest app to run them in, and whether it's worth it money-wise.
+      <PageHeader eyebrow="Free AI on your computer" title="Can your computer run its own ChatGPT?">
+        Many computers can run a free AI that never leaves your device. Answer 2 questions and we'll tell you which AI fits, how to set it up, and if it's worth it.
       </PageHeader>
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,420px)_1fr]">
         <div className="card space-y-5 p-5">
           <fieldset>
-            <legend className="label">Your computer</legend>
+            <legend className="label">What computer do you have?</legend>
             <div className="space-y-2">
               {MACHINES.map((m) => (
                 <label key={m.id} className={`flex cursor-pointer gap-3 rounded-xl border p-3 ${machine === m.id ? 'border-ink bg-money-soft' : 'border-line'}`}>
@@ -74,7 +74,7 @@ export default function LocalAI() {
           </fieldset>
           <div className="grid grid-cols-2 gap-3">
             <label>
-              <span className="label">{machine === 'mac' ? 'Memory (unified)' : 'System RAM'}</span>
+              <span className="label">{machine === 'mac' ? 'Memory' : 'Memory (RAM)'}</span>
               <select className="field" value={ramGB} onChange={(e) => setRam(Number(e.target.value))} aria-label="RAM in GB">
                 {RAM.map((r) => (
                   <option key={r} value={r}>
@@ -85,7 +85,7 @@ export default function LocalAI() {
             </label>
             {machine === 'nvidia' && (
               <label>
-                <span className="label">GPU memory (VRAM)</span>
+                <span className="label">Graphics card memory</span>
                 <select className="field" value={vramGB} onChange={(e) => setVram(Number(e.target.value))} aria-label="VRAM in GB">
                   {VRAM.map((r) => (
                     <option key={r} value={r}>
@@ -97,7 +97,7 @@ export default function LocalAI() {
             )}
           </div>
           <fieldset>
-            <legend className="label">What you use AI for</legend>
+            <legend className="label">What do you use AI for?</legend>
             <div className="flex flex-wrap gap-2">
               {USE_CASES.map((u) => {
                 const on = useCases.includes(u.id)
@@ -114,7 +114,7 @@ export default function LocalAI() {
 
         <div className="space-y-4" data-testid="ai-recommendation">
           <div className="card p-5">
-            <p className="label">Your tier · about {rec.usableGB.toFixed(0)} GB usable for AI</p>
+            <p className="label">Your computer can run · about {rec.usableGB.toFixed(0)} GB free for AI</p>
             <h2 className="font-display text-2xl font-extrabold" data-testid="ai-tier">
               {rec.tier.label}
             </h2>
@@ -131,7 +131,7 @@ export default function LocalAI() {
             <ModelCard model={rec.best} title="⭐ Start with this" />
           ) : (
             <div className="card p-5">
-              <h3 className="font-semibold">Your machine is below the smallest model we list</h3>
+              <h3 className="font-semibold">Your computer is a bit too small for free AI</h3>
               <p className="mt-1 text-sm text-ink-soft">
                 Try the pay-as-you-go option below instead: no hardware needed, and usually cheaper than a subscription for light use.
               </p>
@@ -141,7 +141,7 @@ export default function LocalAI() {
 
           {rec.byUseCase.filter((u) => u.model && u.model.id !== rec.best?.id).length > 0 && (
             <div className="card p-5">
-              <p className="label">Best fit by task</p>
+              <p className="label">Best pick for each job</p>
               <ul className="space-y-1 text-sm">
                 {rec.byUseCase.map((u) => (
                   <li key={u.useCase}>
@@ -155,7 +155,7 @@ export default function LocalAI() {
       </section>
 
       <section>
-        <h2 className="font-display text-xl font-extrabold">Every model we track</h2>
+        <h2 className="font-display text-xl font-extrabold">All the free AIs we know about</h2>
         <p className="mt-1 text-sm text-ink-soft">Sizes are approximate for the default 4-bit download. New models come out all the time, so check the Ollama library for the latest. Running
           any of these privately is fine; if you build a product on one, read its license (Llama and Gemma have their own usage rules).</p>
         <div className="card mt-4 overflow-x-auto">
@@ -190,7 +190,7 @@ export default function LocalAI() {
       </section>
 
       <section>
-        <h2 className="font-display text-xl font-extrabold">Pick an app to run it</h2>
+        <h2 className="font-display text-xl font-extrabold">Pick an app to run it (all free)</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {apps.map((a, i) => (
             <div key={a.id} className="card flex flex-col p-5">
@@ -215,10 +215,10 @@ export default function LocalAI() {
       </section>
 
       <section className="card p-5 sm:p-6">
-        <h2 className="font-display text-xl font-extrabold">Is it worth it? The money math</h2>
+        <h2 className="font-display text-xl font-extrabold">Is it worth it? Let's do the math</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <label>
-            <span className="label">Your AI subscription(s) per month</span>
+            <span className="label">What you pay for AI each month</span>
             <div className="flex flex-wrap gap-2">
               <input className="field w-28" type="number" min={0} value={subMonthly} onChange={(e) => setSubMonthly(Math.max(0, Number(e.target.value) || 0))} aria-label="Subscription per month" />
               {[20, 40, 100, 200].map((v) => (
@@ -229,7 +229,7 @@ export default function LocalAI() {
             </div>
           </label>
           <label>
-            <span className="label">How often you'd need a top-tier model</span>
+            <span className="label">How often you need a really smart AI</span>
             <select className="field" value={usage} onChange={(e) => setUsage(e.target.value as UsageLevel)}>
               {Object.entries(USAGE_LEVELS).map(([k, v]) => (
                 <option key={k} value={k}>
@@ -240,9 +240,9 @@ export default function LocalAI() {
           </label>
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          <Option title="Keep subscribing" yearly={subMonthly * 12} tone="rose" note="Best models, flat price." />
-          <Option title="Local only" yearly={0} tone="emerald" note="Free and private. Quality depends on your machine." />
-          <Option title="Hybrid: local + pay-as-you-go" yearly={apiMonthly * 12} tone="stone" note={`Local for everyday use, API for hard tasks. ~${formatMoney(apiMonthly)}/mo.`} />
+          <Option title="Keep paying" yearly={subMonthly * 12} tone="rose" note="The smartest AI, same price every month." />
+          <Option title="Free AI only" yearly={0} tone="emerald" note="Free and private. How smart it is depends on your computer." />
+          <Option title="Both: free + pay a little" yearly={apiMonthly * 12} tone="stone" note={`Free AI for everyday, pay a few cents for hard questions. About ${formatMoney(apiMonthly)}/mo.`} />
         </div>
         <p className="mt-3 text-xs text-ink-soft">
           Pay-as-you-go estimate assumes ~{API_ASSUMPTIONS.inputTokensPerMessage.toLocaleString()} input + {API_ASSUMPTIONS.outputTokensPerMessage} output tokens per message at $
@@ -251,7 +251,7 @@ export default function LocalAI() {
         </p>
 
         <div className="mt-6 border-t-2 border-line pt-5">
-          <h3 className="font-semibold">Thinking about buying more RAM or a new computer for this?</h3>
+          <h3 className="font-semibold">Thinking about buying a new computer for this?</h3>
           <label className="mt-2 flex flex-wrap items-center gap-2 text-sm">
             Upgrade cost $
             <input className="field w-28" type="number" min={0} value={upgradeCost || ''} placeholder="1200" onChange={(e) => setUpgradeCost(Math.max(0, Number(e.target.value) || 0))} aria-label="Upgrade cost" />
@@ -259,12 +259,12 @@ export default function LocalAI() {
           {upgradeCost > 0 && (
             <ul className="mt-3 space-y-1 text-sm" data-testid="break-even">
               <li>
-                Going <strong>local only</strong>: pays for itself in <strong>{fmtMonths(breakEvenMonths(upgradeCost, subMonthly, 0))}</strong>.
+                Going <strong>free AI only</strong>: pays for itself in <strong>{fmtMonths(breakEvenMonths(upgradeCost, subMonthly, 0))}</strong>.
               </li>
               <li>
-                Going <strong>hybrid</strong>: pays for itself in <strong>{fmtMonths(breakEvenMonths(upgradeCost, subMonthly, apiMonthly))}</strong>.
+                Going <strong>both</strong>: pays for itself in <strong>{fmtMonths(breakEvenMonths(upgradeCost, subMonthly, apiMonthly))}</strong>.
               </li>
-              <li className="text-ink-soft">Honest take: buy hardware for privacy or because you need it anyway. Saving money alone rarely justifies a $2,000+ machine for a $20/mo plan.</li>
+              <li className="text-ink-soft">Honest tip: only buy a new computer if you need one anyway. A $2,000 computer to save $20 a month takes years to pay off.</li>
             </ul>
           )}
         </div>
@@ -272,16 +272,16 @@ export default function LocalAI() {
 
       <section className="grid gap-4 md:grid-cols-2">
         <div className="card p-5">
-          <h3 className="font-semibold">🙏 The honest part</h3>
+          <h3 className="font-semibold">🙏 The truth</h3>
           <p className="mt-1 text-sm text-ink-soft">
-            Local models are private and free to run, but expect them to be a step below the newest paid models, especially on 8–16 GB machines. Most
-            people get the best deal with the hybrid setup: free local AI for the daily stuff, pay-per-use for the hard 10%.
+            Free AI on your computer is private and costs nothing. But it's not as smart as the newest paid AIs, especially on smaller computers. Many people
+            do best with both: free AI for everyday things, and paying a few cents only for the hard questions.
           </p>
         </div>
         <div className="card p-5">
           <h3 className="font-semibold">🎨 Also paying for AI images?</h3>
           <p className="mt-1 text-sm text-ink-soft">
-            Open image models run locally with ComfyUI (Windows/Linux/Mac) or Draw Things (Mac). Plan on an NVIDIA card with 8 GB+ VRAM or a Mac with 16 GB+.{' '}
+            Free picture-making AI can run on your computer with ComfyUI (Windows/Mac/Linux) or Draw Things (Mac). You need a gaming PC with 8 GB+ of graphics memory, or a Mac with 16 GB+.{' '}
             <Link to="/contribute" className="underline">
               Help us add a full guide
             </Link>

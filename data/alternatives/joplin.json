@@ -14,7 +14,7 @@
   ],
   "difficulty": "easy",
   "setupHours": 0.5,
-  "summary": "Open-source Evernote alternative with notebooks, tags, web clipper and sync.",
+  "summary": "A free notes app with notebooks and tags, like Evernote.",
   "gains": [
     "Imports Evernote .enex exports",
     "Web clipper",

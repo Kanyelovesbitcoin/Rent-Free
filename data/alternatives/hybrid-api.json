@@ -13,7 +13,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 1,
-  "summary": "Use a free local model for everyday stuff, and plug in a top-tier model by API key for the hard tasks. You only pay for what you actually use.",
+  "summary": "Use free AI on your computer for most things, and pay a few cents only when you need a smarter AI.",
   "gains": [
     "Access to frontier-quality models when you need them",
     "Most light/medium users spend less than a $20 subscription",

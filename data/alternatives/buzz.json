@@ -12,7 +12,7 @@
   ],
   "difficulty": "easy",
   "setupHours": 0.5,
-  "summary": "Free desktop app that transcribes audio and video on your own computer using OpenAI's open Whisper model.",
+  "summary": "A free app that turns speech in audio or video into text, right on your computer.",
   "gains": [
     "Unlimited transcription, no minute caps",
     "Private: audio never leaves your computer",

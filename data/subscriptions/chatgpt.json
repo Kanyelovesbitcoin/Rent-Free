@@ -3,7 +3,7 @@
   "name": "ChatGPT",
   "category": "ai-chat",
   "website": "https://chatgpt.com",
-  "description": "AI assistant for writing, research, brainstorming and coding.",
+  "description": "An AI helper for writing, questions, ideas and coding.",
   "coreFeatures": [
     "Chat with an AI model in a clean thread interface",
     "Conversation history you can search and revisit",

@@ -3,7 +3,7 @@
   "name": "QuickBooks Online",
   "category": "finance",
   "website": "https://quickbooks.intuit.com",
-  "description": "Bookkeeping, invoices and expense tracking.",
+  "description": "Tracks money for a business: money in, bills and invoices.",
   "coreFeatures": [
     "Track income and expenses by category",
     "Send invoices",

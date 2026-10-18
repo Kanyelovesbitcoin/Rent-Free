@@ -3,7 +3,7 @@
   "name": "Buffer",
   "category": "social",
   "website": "https://buffer.com",
-  "description": "Schedule posts to social media channels.",
+  "description": "Plan and schedule your social media posts ahead of time.",
   "coreFeatures": [
     "Queue posts for multiple social accounts",
     "Calendar of scheduled posts",

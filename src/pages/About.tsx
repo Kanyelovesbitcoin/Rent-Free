@@ -1,53 +1,65 @@
 import { Link } from 'react-router-dom'
+import { GLOSSARY } from '../lib/glossary'
 import { PageHeader, REPO_URL } from '../components/ui'
+
+// Show each meaning once (some words share a meaning, like "self-host" and "self-hosted").
+const WORDS = Object.entries(GLOSSARY).filter(([, v], i, all) => all.findIndex(([, w]) => w === v) === i)
 
 export default function About() {
   return (
     <div className="max-w-3xl">
-      <PageHeader eyebrow="About" title="About Rent-Free & the fine print">
-        Rent-Free is a free, open-source project that helps people stop paying monthly rent on software they could own, run themselves, or build.
+      <PageHeader eyebrow="About" title="About Rent-Free (the fine print, in plain words)">
+        Rent-Free is a free website that helps you stop paying every month for apps you could get for free, run yourself, or build.
       </PageHeader>
 
       <div className="space-y-4">
         <Block title="Independent, not affiliated">
-          Rent-Free is independent and is not affiliated with, endorsed by, or sponsored by any company or product listed. Product names are trademarks of
-          their respective owners and are used only to identify the products being compared. We don't use their logos.
+          We are not part of, paid by, or approved by any company on this site. App names belong to their companies. We only use them so you know which app we mean. We
+          don't use their logos.
         </Block>
-        <Block title="Prices are estimates">
-          Prices are entered by hand from each company's public pricing page and show the date they were last checked. Prices, plans, taxes and regional
-          pricing change, so check the official page before you make a decision. Savings shown are estimates, not guarantees. Spot a wrong price?{' '}
-          <a className="underline" href={`${REPO_URL}/issues/new`} target="_blank" rel="noreferrer">
+        <Block title="Prices are our best guess">
+          We copy prices by hand from each company's website and show the date we checked. Prices change often, so check the real website before you decide. Savings are
+          estimates, not promises. See a wrong price?{' '}
+          <a className="underline" href={`${REPO_URL}/issues/new?template=wrong-price.yml`} target="_blank" rel="noreferrer">
             Tell us
           </a>
           .
         </Block>
-        <Block title="Not professional advice">
-          Everything here is general information, not financial, legal or security advice. Setup steps and time estimates are best-effort guides.
+        <Block title="This is not expert advice">Everything here is general help, not money, legal or security advice. Setup steps and times are our best guess.</Block>
+        <Block title="Keep your stuff safe">
+          If you switch apps, save a copy of your data first. If you run an app yourself, you're in charge of backups. Be extra careful when moving passwords.
         </Block>
-        <Block title="You own your setup">
-          When you self-host or switch tools, you're responsible for your own data, backups and security. Always export your data before cancelling a
-          subscription, and be extra careful when moving passwords.
-        </Block>
-        <Block title="Open-source licenses">
-          Each alternative lists its license. Most are fine for personal and business use. Some have extra rules if you modify the software and offer it to
-          others, or if you resell it as a hosted service; we flag these on each tool page. Read the license before building a business on top of a tool.
+        <Block title="The rules for free apps (licenses)">
+          Every free app shows its license, which is its rulebook. Most say "use it however you want." A few have extra rules if you change the app and share it, or sell
+          it as a service. We point those out.
         </Block>
         <Block title="Building your own">
-          The build kit helps you make an <em>original</em> app with the features you need. Don't copy another product's name, logo, design, text or code.
-          Ideas and features are fair game; branding and copyrighted material aren't.
+          The build helper makes your own, new app with the features you need. Don't copy another app's name, logo, look, words or code. Ideas are free to use; logos
+          and copied work are not.
         </Block>
         <Block title="Privacy">
-          No accounts, no cookies, no analytics, no tracking. Your selections are stored only in your own browser. Share links contain your picks encoded in
-          the URL itself, and nothing is sent to a server. Fonts are bundled with the site, so loading a page doesn't contact any third party.
+          No accounts, no cookies, no tracking. What you pick stays in your own web browser. A share link stores your picks inside the link itself, so we never see them.
+          Even our fonts are part of the site, so nothing gets sent to anyone else.
         </Block>
-        <Block title="The software">
-          Rent-Free's code is released under the MIT License and provided "as is", without warranty of any kind.{' '}
-          <Link to="/contribute" className="underline">
-            Contributions welcome
-          </Link>
-          .
+        <Block title="The code">
+          Rent-Free's code is free to use under the MIT license, as is. <Link to="/contribute" className="underline">Want to help?</Link>
         </Block>
       </div>
+
+      <section className="mt-10" aria-labelledby="words">
+        <h2 id="words" className="font-display text-2xl font-extrabold">
+          Words we use
+        </h2>
+        <p className="mt-1 text-ink-soft">Tech words are underlined across the site. Tap one to see what it means. Here they all are:</p>
+        <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+          {WORDS.map(([word, meaning]) => (
+            <div key={word} className="card p-4">
+              <dt className="font-bold">{word}</dt>
+              <dd className="mt-1 text-sm text-ink-soft">{meaning}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
     </div>
   )
 }
@@ -55,7 +67,7 @@ export default function About() {
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="card p-5">
-      <h2 className="font-semibold">{title}</h2>
+      <h2 className="font-display text-lg font-extrabold">{title}</h2>
       <p className="mt-1 text-sm text-ink-soft">{children}</p>
     </section>
   )

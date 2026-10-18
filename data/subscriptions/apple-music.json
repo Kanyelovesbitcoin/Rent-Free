@@ -3,7 +3,7 @@
   "name": "Apple Music",
   "category": "music-audio",
   "website": "https://www.apple.com/apple-music/",
-  "description": "Music streaming for Apple devices and beyond.",
+  "description": "Music streaming from Apple.",
   "coreFeatures": [
     "Library of albums, artists and playlists",
     "Stream to phone, browser and speakers",

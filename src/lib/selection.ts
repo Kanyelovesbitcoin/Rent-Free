@@ -1,5 +1,6 @@
 import { z } from 'zod'
-import { DEFAULT_SERVER_MONTHLY, yearlyCost, type Line } from './savings'
+import { alternativeYearly, DEFAULT_SERVER_MONTHLY, yearlyCost, type Line } from './savings'
+import { verdict } from './effort'
 import { alternativesForCategory, getAlternative, getSubscription } from './data'
 import type { Alternative, Plan, Subscription } from './schema'
 
@@ -38,16 +39,20 @@ export type Selection = z.infer<typeof SelectionSchema>
 
 export const emptySelection = (): Selection => ({ items: [], server: DEFAULT_SERVER_MONTHLY })
 
+// The first swap that's actually worth it at this price. null when none is (e.g. a cheap plan
+// vs. a weekend of setup), so we start on "keep paying" and never count savings we don't believe in.
+export function bestSwap(sub: Subscription, yearly: number): Alternative | null {
+  for (const id of sub.alternatives) {
+    const alt = getAlternative(id)
+    if (alt && verdict(alt, yearly - alternativeYearly(alt, yearly)).id !== 'keep') return alt
+  }
+  return null
+}
+
 export function newCatalogItem(sub: Subscription): CatalogItem {
   const plan = sub.plans.find((p) => p.id === sub.defaultPlan)!
-  return {
-    t: 'c',
-    id: sub.id,
-    plan: plan.id,
-    billing: plan.monthlyPrice != null ? 'monthly' : 'annual',
-    seats: 1,
-    alt: sub.alternatives[0],
-  }
+  const billing = plan.monthlyPrice != null ? 'monthly' : 'annual'
+  return { t: 'c', id: sub.id, plan: plan.id, billing, seats: 1, alt: bestSwap(sub, yearlyCost(plan, billing))?.id ?? null }
 }
 
 export function newCustomItem(fields: Omit<CustomItem, 't' | 'id' | 'alt'>): CustomItem {

@@ -3,7 +3,7 @@
   "name": "Zapier",
   "category": "automation",
   "website": "https://zapier.com",
-  "description": "Connects your apps so work happens automatically (\"when X happens, do Y\").",
+  "description": "Connects your apps so tasks happen on their own (\"when this happens, do that\").",
   "coreFeatures": [
     "Triggers from apps (new form entry, new email, new payment…)",
     "Actions in other apps (add a row, send a message…)",

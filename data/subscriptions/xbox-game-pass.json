@@ -3,7 +3,7 @@
   "name": "Xbox Game Pass",
   "category": "gaming",
   "website": "https://www.xbox.com/xbox-game-pass",
-  "description": "A rotating library of games for Xbox and PC.",
+  "description": "A big, changing library of games for Xbox and PC.",
   "coreFeatures": [
     "Track games you own and want to play",
     "Log hours played",

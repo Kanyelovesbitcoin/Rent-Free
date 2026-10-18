@@ -5,7 +5,10 @@ import { encodeSelection, resolveItem, toLines, type ResolvedItem } from '../lib
 import { effectiveBilling, formatMoney, summarize } from '../lib/savings'
 import { useSelection, useSharedSelection } from '../state'
 import SavingsCard, { downloadNodeAsPng } from '../components/SavingsCard'
-import { AltMeta, CopyButton, CountUp, HOSTING, Money, Stepper, ToolTile, formatHours, prefersReducedMotion, useToast } from '../components/ui'
+import { AltMeta, CopyButton, CountUp, Money, Stepper, ToolTile, formatHours, prefersReducedMotion, useToast } from '../components/ui'
+import { VerdictLine } from '../components/ReplaceMeter'
+import Plain from '../components/Plain'
+import { verdict } from '../lib/effort'
 
 export default function Results() {
   const [params] = useSearchParams()
@@ -21,7 +24,7 @@ export default function Results() {
   // Sorted by what you pay now, so rows don't jump around while you change alternatives.
   const rows = [...resolved].sort((a, b) => b.currentYearly - a.currentYearly)
   const quickWins = resolved
-    .filter((r) => r.alternative?.difficulty === 'easy' && (savingsByKey.get(r.key) ?? 0) > 0)
+    .filter((r) => verdict(r.alternative, savingsByKey.get(r.key) ?? 0).id === 'do-it')
     .sort((a, b) => (savingsByKey.get(b.key) ?? 0) - (savingsByKey.get(a.key) ?? 0))
     .slice(0, 3)
   const shareUrl = `${window.location.origin}${window.location.pathname}#/results?s=${encodeSelection(selection)}`
@@ -73,23 +76,23 @@ export default function Results() {
           <span className="text-2xl sm:text-3xl">/yr</span>
         </p>
         <p className="mt-2 text-ink-soft">
-          That's about <strong className="money text-ink">{formatMoney(summary.savingsYearly / 12)}</strong> every month, back in your pocket.
+          That's about <strong className="money text-ink">{formatMoney(summary.savingsYearly / 12)}</strong> every month, back in your pocket. Below, we show how hard each switch is.
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           <MiniStat label="You pay now" value={summary.currentYearly} cls="text-rent line-through decoration-2" testId="stat-pay" />
-          <MiniStat label="Rent-Free route" value={summary.rentFreeYearly} cls="text-ink" testId="stat-route" sub={summary.needsServer ? `incl. ${formatMoney(summary.serverYearly)}/yr server` : 'no server needed'} />
+          <MiniStat label="After switching" value={summary.rentFreeYearly} cls="text-ink" testId="stat-route" sub={summary.needsServer ? `includes a ${formatMoney(summary.serverYearly)}/yr server` : 'no server needed'} />
           <div className="rounded-2xl border-2 border-line p-4">
             <p className="label">Setup time</p>
             <p className="font-display text-3xl font-extrabold">~{formatHours(summary.setupHours)}</p>
-            <p className="text-xs text-ink-soft">for all swaps together</p>
+            <p className="text-xs text-ink-soft">to make all the switches</p>
           </div>
         </div>
-        <p className="mt-4 text-xs text-ink-soft">Estimates from list prices. Your actual bill may differ.</p>
+        <p className="mt-4 text-xs text-ink-soft">These are estimates. Your real bill may be a little different.</p>
       </section>
 
       {quickWins.length > 0 && (
         <section className="mt-10">
-          <h2 className="font-display text-2xl font-extrabold">⚡ Quick wins: easy, and they add up</h2>
+          <h2 className="font-display text-2xl font-extrabold">⚡ Do these first: easy and worth it</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {quickWins.map((r) => (
               <div key={r.key} className="card flex items-center gap-3 p-4">
@@ -109,7 +112,7 @@ export default function Results() {
 
       <section className="mt-10 grid gap-8 lg:grid-cols-[1fr_minmax(0,460px)]">
         <div className="min-w-0 space-y-3">
-          <h2 className="font-display text-2xl font-extrabold">Your swaps</h2>
+          <h2 className="font-display text-2xl font-extrabold">Your apps, one by one</h2>
           {rows.map((r) => (
             <SwapRow key={r.key} r={r} savings={savingsByKey.get(r.key) ?? 0} onAlt={(alt) => upsertItem({ ...r.item, alt })} />
           ))}
@@ -119,7 +122,7 @@ export default function Results() {
               <label className="flex flex-wrap items-center justify-between gap-3">
                 <span>
                   <span className="font-bold">🖥 Shared server</span>
-                  <span className="block text-sm text-ink-soft">{HOSTING['self-host'].hint} Counted once.</span>
+                  <span className="block text-sm text-ink-soft">Some of your picks run on a small rented computer (a server). One server runs all of them, so we count it once.</span>
                 </span>
                 <span className="flex items-center gap-2 text-sm">
                   $
@@ -201,7 +204,7 @@ function SwapRow({ r, savings, onAlt }: { r: ResolvedItem; savings: number; onAl
             </span>
           </p>
           <p className="text-sm text-ink-soft">
-            <Money value={r.currentYearly} className="text-rent" /> a year now
+            You pay <Money value={r.currentYearly} className="text-rent" /> a year
           </p>
         </div>
         <p className="text-right">
@@ -212,7 +215,7 @@ function SwapRow({ r, savings, onAlt }: { r: ResolvedItem; savings: number; onAl
 
       <div className="mt-3 flex flex-col gap-3 border-t-2 border-dashed border-line pt-3 sm:flex-row sm:items-center">
         <label className="sm:w-72">
-          <span className="sr-only">Alternative for {r.name}</span>
+          <span className="label">Switch to</span>
           <select className="field" value={alt?.id ?? ''} onChange={(e) => onAlt(e.target.value || null)}>
             {r.choices.map((c, i) => (
               <option key={c.id} value={c.id}>
@@ -225,8 +228,15 @@ function SwapRow({ r, savings, onAlt }: { r: ResolvedItem; savings: number; onAl
         </label>
         {alt && <AltMeta alt={alt} />}
       </div>
-      {alt && <p className="mt-2 text-sm text-ink-soft">{alt.summary}</p>}
-      {!r.choices.length && <p className="mt-2 text-sm text-ink-soft">No known swap in this category yet, but you can remake it with AI.</p>}
+      {alt && (
+        <p className="mt-2 text-sm text-ink-soft">
+          <Plain text={alt.summary} />
+        </p>
+      )}
+      {!r.choices.length && <p className="mt-2 text-sm text-ink-soft">We don't know a free swap for this yet, but you can build your own with AI.</p>}
+      <div className="mt-3">
+        <VerdictLine alt={alt} savings={savings} />
+      </div>
       <div className="mt-3 flex flex-wrap gap-2">
         {r.sub && (
           <Link to={`/tool/${r.sub.id}`} className="btn-ghost px-3 py-1.5">
@@ -234,11 +244,11 @@ function SwapRow({ r, savings, onAlt }: { r: ResolvedItem; savings: number; onAl
           </Link>
         )}
         <Link to={remakeHref} className="btn-dark px-3 py-1.5">
-          ✨ Remake with AI
+          ✨ Build your own
         </Link>
         {r.sub?.localAI && (
           <Link to="/local-ai" className="btn-ghost px-3 py-1.5">
-            🖥 Can my computer run it?
+            🖥 Can my computer run free AI?
           </Link>
         )}
       </div>

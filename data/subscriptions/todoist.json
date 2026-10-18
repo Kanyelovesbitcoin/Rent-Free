@@ -3,7 +3,7 @@
   "name": "Todoist",
   "category": "tasks",
   "website": "https://todoist.com",
-  "description": "To-do lists, reminders and recurring tasks.",
+  "description": "To-do lists with reminders, even for tasks that repeat.",
   "coreFeatures": [
     "Tasks with due dates and priorities",
     "Projects and labels",

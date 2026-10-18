@@ -1,12 +1,13 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { allCategories, byPopularity, fromMonthly, getCategory, getSubscription } from '../lib/data'
+import { allCategories, byPopularity, fromMonthly, getAlternative, getCategory, getSubscription } from '../lib/data'
 import { newCatalogItem, resolveItem, type CatalogItem, type ResolvedItem } from '../lib/selection'
 import { formatMoney } from '../lib/savings'
 import { useSelection } from '../state'
 import ItemEditor from '../components/ItemEditor'
 import CustomEntryForm from '../components/CustomEntryForm'
 import { CountUp, PageHeader, Stepper, ToolTile } from '../components/ui'
+import { LevelChip } from '../components/ReplaceMeter'
 
 export default function Picker() {
   const { selection, upsertItem, removeItem, clear } = useSelection()
@@ -33,11 +34,11 @@ export default function Picker() {
   return (
     <div className="pb-28 lg:pb-0">
       <Stepper current={1} />
-      <PageHeader title={<>What are you <span className="hl">paying for</span>?</>}>Tap everything you subscribe to. Prices are pre-filled from each pricing page, and you can change them on the receipt.</PageHeader>
+      <PageHeader title={<>What do you <span className="hl">pay for</span>?</>}>Tap every app you pay for. We fill in the price. If you pay a different price, tap it on your receipt to change it.</PageHeader>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
         <div className="min-w-0">
-          <input className="field mb-4 max-w-md py-3 text-base" type="search" placeholder="Search 50 subscriptions… (Netflix, notes, AI)" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search tools" />
+          <input className="field mb-4 max-w-md py-3 text-base" type="search" placeholder="Search… (Netflix, music, photos, AI)" value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search tools" />
           {!query && (
             <div className="-mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-1" role="tablist" aria-label="Categories">
               {tabs.map((t) => (
@@ -75,12 +76,13 @@ export default function Picker() {
                     <span className="block text-xs text-ink-soft">
                       from <span className="money">{formatMoney(fromMonthly(s))}</span>/mo
                     </span>
+                    <LevelChip alt={getAlternative(s.alternatives[0])} />
                   </span>
                 </label>
               )
             })}
           </div>
-          {visible.length === 0 && <p className="text-ink-soft">No match. Add it as your own on the receipt. 👉</p>}
+          {visible.length === 0 && <p className="text-ink-soft">Not on our list? Add it yourself on your receipt ("+ Add something not listed").</p>}
         </div>
 
         {/* running receipt */}
@@ -95,7 +97,7 @@ export default function Picker() {
               )}
             </div>
             {resolved.length === 0 ? (
-              <p className="py-8 text-center text-sm text-ink-soft">Nothing yet. Tap a tool to add it. 🧾</p>
+              <p className="py-8 text-center text-sm text-ink-soft">Nothing yet. Tap an app to add it. 🧾</p>
             ) : (
               <ul className="mt-3 divide-y-2 divide-dashed divide-line border-y-2 border-dashed border-line">
                 {resolved.map((r) => (

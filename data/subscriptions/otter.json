@@ -3,7 +3,7 @@
   "name": "Otter.ai",
   "category": "transcription",
   "website": "https://otter.ai",
-  "description": "Transcribes meetings and recordings into searchable text.",
+  "description": "Turns meetings and recordings into text you can search.",
   "coreFeatures": [
     "Transcribe recordings and live meetings",
     "Speaker labels",

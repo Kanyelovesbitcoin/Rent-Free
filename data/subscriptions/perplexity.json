@@ -3,7 +3,7 @@
   "name": "Perplexity Pro",
   "category": "ai-chat",
   "website": "https://www.perplexity.ai",
-  "description": "AI search engine that answers with sources.",
+  "description": "AI search that answers your question and shows where it found the answer.",
   "coreFeatures": [
     "Ask a question, get an answer with cited sources",
     "Follow-up questions",

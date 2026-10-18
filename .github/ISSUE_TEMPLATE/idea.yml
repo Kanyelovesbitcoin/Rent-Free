@@ -1,0 +1,12 @@
+name: "💡 Share an idea or a better free app"
+description: A better free swap, something confusing, or an idea to make Rent-Free easier.
+title: "Idea: "
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's your idea?
+      placeholder: Tell us like you'd tell a friend.
+    validations:
+      required: true

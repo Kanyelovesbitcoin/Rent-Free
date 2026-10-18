@@ -1,6 +1,18 @@
 # Contributing to Rent-Free
 
-Thanks for helping people stop renting their software! Most contributions are just editing JSON files. You can even do it right on GitHub without installing anything.
+Thanks for helping people stop paying rent on their software!
+
+## No coding? Use a form (2 minutes)
+
+- 🆕 [Add an app we're missing](../../issues/new?template=add-app.yml)
+- 💲 [Fix a wrong price](../../issues/new?template=wrong-price.yml)
+- 💡 [Share an idea or a better free app](../../issues/new?template=idea.yml)
+
+You just need a free GitHub account. We'll turn your form into a real update.
+
+## Do you code? Edit the files yourself
+
+Most changes are just editing small JSON files. You can even do it right on GitHub without installing anything.
 
 ## Ground rules
 
@@ -8,7 +20,7 @@ Thanks for helping people stop renting their software! Most contributions are ju
 2. **Cite prices.** Every subscription needs a `sourceUrl` (its official pricing page) and a `lastVerified` date.
 3. **Prefer open source.** If a tool is free but closed source (e.g. LM Studio, Obsidian), say so in `license`.
 4. **No affiliate links, logos or copied branding.**
-5. **Write for beginners.** Setup steps should make sense to someone who has never opened a terminal.
+5. **Write for a 5th grader.** Short sentences, simple words. Setup steps should make sense to someone who has never opened a terminal. `npm test` checks the reading level of every description.
 
 ## Legal basics for contributors
 

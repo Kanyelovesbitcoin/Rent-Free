@@ -17,26 +17,28 @@ export type TierId = 'quick' | 'standard' | 'big' | 'platform'
 
 export interface Tier {
   id: TierId
+  emoji: string
   label: string
+  likeA: string // a kid-friendly comparison
   effort: string
   summary: string
 }
 
 export const TIERS: Record<TierId, Tier> = {
-  quick: { id: 'quick', label: 'Quick build', effort: '1 session · about 1–2 hours', summary: 'Small enough to build in one go.' },
-  standard: { id: 'standard', label: 'Standard build', effort: '2–4 sessions · an afternoon or two', summary: 'Plan first, then build in 3 milestones with tests.' },
-  big: { id: 'big', label: 'Big build', effort: '1–2 weekends', summary: 'Spec and plan first, then milestones with tests and a review stop after each.' },
-  platform: { id: 'platform', label: 'Platform-sized', effort: 'An ongoing project', summary: 'Extend an open-source base and cut scope to your personal MVP.' },
+  quick: { id: 'quick', emoji: '🧩', label: 'Small build', likeA: 'like a puzzle', effort: 'about 1–2 hours', summary: 'The AI can build it all in one go.' },
+  standard: { id: 'standard', emoji: '🧱', label: 'Medium build', likeA: 'like a big LEGO set', effort: 'an afternoon or two', summary: 'The AI makes a plan first, then builds it in 3 steps.' },
+  big: { id: 'big', emoji: '🏠', label: 'Big build', likeA: 'like building a treehouse', effort: '1–2 weekends', summary: 'The AI writes a plan, builds one piece at a time, and checks in with you after each piece.' },
+  platform: { id: 'platform', emoji: '🏰', label: 'Huge build', likeA: 'like building a castle', effort: 'weeks, little by little', summary: 'Start with a free app that is close, then change it. Do not build it all from zero.' },
 }
 
 // Feature words that usually mean real engineering work.
 const HARD_PARTS: [RegExp, string][] = [
-  [/real.?time|collaborat|live |co-edit|sync/i, 'real-time sync'],
-  [/payment|stripe|invoice|checkout/i, 'payments'],
-  [/video|audio|transcri|stream|record/i, 'media processing'],
+  [/real.?time|collaborat|live |co-edit|sync/i, 'keeping devices in sync'],
+  [/payment|stripe|invoice|checkout/i, 'taking payments'],
+  [/video|audio|transcri|stream|record/i, 'video or audio'],
   [/\bAI\b|generat|summar|recogni|clone/i, 'AI features'],
-  [/email|sms|notification|reminder/i, 'notifications'],
-  [/integrat|api|webhook|connect to/i, 'integrations'],
+  [/email|sms|notification|reminder/i, 'sending emails or texts'],
+  [/integrat|api|webhook|connect to/i, 'connecting to other apps'],
 ]
 
 export function hardParts(features: string[]): string[] {

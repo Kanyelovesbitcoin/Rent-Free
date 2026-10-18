@@ -10,7 +10,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 1,
-  "summary": "Open-source design tool in the browser. Closer to Figma than Canva, but great for thumbnails and social graphics once you set up your own templates.",
+  "summary": "A free design tool in your web browser. Good for thumbnails and social posts once you make your own templates.",
   "gains": [
     "Free hosted version, or self-host",
     "Reusable components = your own template system",

@@ -3,7 +3,7 @@
   "name": "Audible",
   "category": "books",
   "website": "https://www.audible.com",
-  "description": "Audiobooks with a monthly credit, plus a listen-included catalog.",
+  "description": "Audiobooks. You get one credit a month to buy a book you keep.",
   "coreFeatures": [
     "Audiobook library with covers and chapters",
     "Remember playback position",

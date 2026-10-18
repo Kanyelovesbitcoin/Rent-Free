@@ -10,7 +10,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 3,
-  "summary": "Simple self-hosted booking system. Good for service businesses (coaches, salons, consultants).",
+  "summary": "A free booking system you run yourself. Good for coaches, salons and small shops.",
   "gains": [
     "Completely free, no plan limits",
     "Google Calendar sync",

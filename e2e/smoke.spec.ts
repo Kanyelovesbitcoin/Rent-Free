@@ -80,7 +80,7 @@ test('remake studio: customize features and pick a coding agent', async ({ page,
 
   // Big products get a bigger plan.
   await page.goto('/#/remake/netflix')
-  await expect(page.getByTestId('tier')).toHaveText(/Big build|Platform-sized/)
+  await expect(page.getByTestId('tier')).toHaveText(/Big build|Huge build/)
   await expect(page.getByTestId('agent-prompt')).toHaveValue(/SPEC\.md/)
 })
 
@@ -93,17 +93,17 @@ test('custom subscription with a description gets its own remake prompt', async 
   await form.getByLabel('What does it do? (optional)').fill('Hosts my online course and community')
   await form.getByRole('button', { name: '+ Add to receipt' }).click()
   await seeSavings(page)
-  await page.getByTestId(/swap-custom-/).getByRole('link', { name: '✨ Remake with AI' }).click()
-  await expect(page.getByRole('heading', { name: /Remake Kajabi/ })).toBeVisible()
+  await page.getByTestId(/swap-custom-/).getByRole('link', { name: '✨ Build your own' }).click()
+  await expect(page.getByRole('heading', { name: /Build your own Kajabi/ })).toBeVisible()
   await expect(page.getByTestId('agent-prompt')).toHaveValue(/Hosts my online course and community/)
 })
 
 test('tool page: switch tab, remake tab and wireframe', async ({ page }) => {
   await page.goto('/#/tool/calendly')
   await expect(page.getByTestId('alt-calcom')).toContainText('Pick for me')
-  await page.getByRole('tab', { name: '✨ Remake with AI' }).click()
+  await page.getByRole('tab', { name: '✨ Build your own' }).click()
   await expect(page.getByTestId('agent-prompt')).toHaveValue(/Do not copy any existing product/)
-  await page.getByText('4. Attach a wireframe (optional)').click()
+  await page.getByText('4. Add a sketch of the screen (optional)').click()
   const frame = page.frameLocator('iframe[title="Wireframe preview"]')
   await expect(frame.getByText('Select a date')).toBeVisible()
   const download = page.waitForEvent('download')
@@ -148,4 +148,24 @@ test('legal: disclaimer, license notes, and no third-party requests', async ({ p
   await page.goto('/#/about')
   await expect(page.getByRole('heading', { name: 'Independent, not affiliated' })).toBeVisible()
   expect(thirdParty).toEqual([])
+})
+
+test('honest verdicts: how hard is it to replace, and is it worth it?', async ({ page }) => {
+  // iCloud 200 GB: the best swap is a "maybe"; the big photo server (Immich) isn't worth a weekend for $36/yr.
+  await page.goto('/#/tool/icloud')
+  await expect(page.getByTestId('replace-meter')).toContainText('Takes an afternoon')
+  await expect(page.getByTestId('replace-meter').getByTestId('verdict')).toContainText('Maybe')
+  await page.getByRole('button', { name: '+ I pay for iCloud+' }).click()
+  await page.goto('/#/results')
+  await page.getByTestId('swap-icloud').getByRole('combobox').selectOption('immich')
+  await expect(page.getByTestId('swap-icloud').getByTestId('verdict')).toContainText('Probably keep paying')
+  await page.getByTestId('swap-icloud').getByRole('combobox').selectOption('')
+  await expect(page.getByTestId('swap-icloud').getByTestId('verdict')).toContainText('Keeping it')
+  // Netflix: rotating is easy → do it.
+  await page.goto('/#/tool/netflix')
+  await expect(page.getByTestId('replace-meter').getByTestId('verdict')).toContainText('Do it')
+  // Tap a tech word to see what it means.
+  await page.goto('/#/tool/zapier')
+  await page.getByRole('button', { name: 'self-host', exact: false }).first().click()
+  await expect(page.getByRole('tooltip')).toContainText('You run the app on a computer you control')
 })

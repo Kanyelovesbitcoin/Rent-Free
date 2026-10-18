@@ -3,11 +3,11 @@ import { Link, NavLink } from 'react-router-dom'
 import { REPO_URL, ToastProvider } from './ui'
 
 const NAV = [
-  { to: '/start', label: 'Calculator' },
+  { to: '/start', label: 'Start' },
   { to: '/results', label: 'My savings' },
-  { to: '/remake', label: 'Remake with AI' },
-  { to: '/local-ai', label: 'Local AI' },
-  { to: '/contribute', label: 'Contribute' },
+  { to: '/remake', label: 'Build your own' },
+  { to: '/local-ai', label: 'Free AI' },
+  { to: '/contribute', label: 'Help out' },
 ]
 
 export function Logo() {
@@ -74,7 +74,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <Logo />
-                <p className="mt-2">Free and open source (MIT). Your picks never leave your browser.</p>
+                <p className="mt-2">Free for everyone. What you pick stays on your device.</p>
               </div>
               <p className="flex flex-wrap gap-x-4 gap-y-1 font-semibold">
                 <Link to="/about" className="hover:text-ink">

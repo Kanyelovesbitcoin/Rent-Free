@@ -14,7 +14,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 1.5,
-  "summary": "Your own music streaming server for the music files you own.",
+  "summary": "Your own music app for the songs you own. Listen anywhere.",
   "gains": [
     "Stream your collection anywhere",
     "Works with many free phone apps",

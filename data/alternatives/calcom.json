@@ -10,7 +10,7 @@
   ],
   "difficulty": "easy",
   "setupHours": 0.5,
-  "summary": "Open-source scheduling. The free plan covers most solo creators; self-host it if you want full control.",
+  "summary": "A free booking page so people can pick a time on your calendar. Like Calendly.",
   "gains": [
     "Free plan for individuals with unlimited event types",
     "Connects to Google/Outlook calendars and Zoom/Meet",

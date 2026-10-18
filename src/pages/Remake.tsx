@@ -48,16 +48,16 @@ export function RemakeIndex() {
 
   return (
     <div>
-      <PageHeader eyebrow="✨ Remake with AI" title={<>Rebuild any app <span className="hl">your way</span>.</>}>
-        Pick a subscription (or describe your own), tick the features you actually use, and get a ready-to-paste prompt for Claude Code, Codex or OpenCode. The more
-        complex the app, the more structure the prompt asks for.
+      <PageHeader eyebrow="✨ Build your own" title={<>Make your own version of <span className="hl">any app</span>.</>}>
+        Pick an app you pay for. Tick the features you use. We write the instructions, and an AI helper (like Claude Code) builds it for you. We also show how big
+        the job is before you start.
       </PageHeader>
 
       <form onSubmit={submit} className="card pop mb-10 p-5" aria-label="Describe your own app">
-        <h2 className="font-display text-xl font-extrabold">Paying for something not on the list?</h2>
+        <h2 className="font-display text-xl font-extrabold">Is your app not on the list? Tell us about it</h2>
         <div className="mt-3 grid gap-3 md:grid-cols-[1fr_220px]">
           <label>
-            <span className="label">What's it called?</span>
+            <span className="label">What's the app called?</span>
             <input className="field" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Kajabi, Later, MyFitnessPal" />
           </label>
           <label>
@@ -73,15 +73,15 @@ export function RemakeIndex() {
         </div>
         <label className="mt-3 block">
           <span className="label">What does it do for you?</span>
-          <textarea className="field h-20" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Describe it in your own words: what you use it for, the features that matter, what bugs you." />
+          <textarea className="field h-20" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="In your own words: what you use it for, what you like, what bugs you." />
         </label>
         <button type="submit" className="btn-primary mt-3">
-          Build my remake prompt →
+          Next: pick features →
         </button>
       </form>
 
       <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
-        <h2 className="font-display text-2xl font-extrabold">Or pick one of the top {byPopularity.length}</h2>
+        <h2 className="font-display text-2xl font-extrabold">Or pick one of these {byPopularity.length} apps</h2>
         <input className="field max-w-xs" type="search" placeholder="Search…" aria-label="Search subscriptions" value={q} onChange={(e) => setQ(e.target.value)} />
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -90,7 +90,7 @@ export function RemakeIndex() {
             <ToolTile name={s.name} size={36} />
             <span className="min-w-0">
               <span className="block truncate text-sm font-bold">{s.name}</span>
-              <span className="block truncate text-xs text-ink-soft">{['', 'Quick', 'Standard', 'Big', 'Platform'][s.complexity]} build</span>
+              <span className="block truncate text-xs text-ink-soft">{['', '🧩 Small', '🧱 Medium', '🏠 Big', '🏰 Huge'][s.complexity]} build</span>
             </span>
           </Link>
         ))}
@@ -138,7 +138,7 @@ export function RemakeTool() {
     <div>
       <nav className="mb-4 text-sm font-semibold text-ink-soft">
         <Link to="/remake" className="hover:text-ink">
-          ✨ Remake with AI
+          ✨ Build your own
         </Link>{' '}
         / {subject.name}
       </nav>
@@ -146,21 +146,21 @@ export function RemakeTool() {
         <ToolTile name={subject.name} size={64} />
         <div className="min-w-0">
           <h1 className="font-display text-4xl font-extrabold tracking-tight">
-            Remake <span className="hl">{subject.name}</span>
+            Build your own <span className="hl">{subject.name}</span>
           </h1>
           <p className="mt-1 max-w-2xl text-ink-soft">
-            {subject.remakeTarget ? `What you'd build: ${subject.remakeTarget}.` : subject.description ?? `Build your own version of ${subject.name}, with only the features you use.`}
+            {subject.remakeTarget ? `What you'd build: ${subject.remakeTarget}.` : `Your own version of ${subject.name}, with only the features you use.`}
           </p>
         </div>
         {sub && (
           <Link to={`/tool/${sub.id}`} className="btn-ghost ml-auto">
-            See ready-made swaps
+            See free apps instead
           </Link>
         )}
       </header>
       {!sub && !subject.userDescription && (
         <p className="mb-6 rounded-xl border-2 border-hilite bg-hilite/15 p-3 text-sm">
-          Tip: describe what you use {subject.name} for and add 3–5 features below. The more specific you are, the better the AI builds.
+          Tip: tell the AI what you use {subject.name} for, and add 3 to 5 features. The more you tell it, the better it builds.
         </p>
       )}
       <RemakeStudio key={subject.key} subject={subject} />

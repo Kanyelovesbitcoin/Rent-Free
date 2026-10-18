@@ -4,6 +4,7 @@ import { newCatalogItem, resolveItem } from '../lib/selection'
 import { formatMoney, summarize } from '../lib/savings'
 import { useSelection } from '../state'
 import { CountUp, Money, ToolTile } from '../components/ui'
+import { LevelChip } from '../components/ReplaceMeter'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -30,17 +31,19 @@ export default function Home() {
             Stop paying <span className="hl">rent</span> on your software.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-ink-soft">
-            See what your subscriptions really cost per year, swap them for free and open-source tools, or remake them yourself with an AI coding agent.
+            See how much your apps really cost each year. Find free ones that do the same job. Or build your own with an AI helper.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/start" className="btn-primary px-6 py-3.5 text-base">
-              Calculate my savings →
+              Start: what do I pay for? →
             </Link>
             <Link to="/remake" className="btn-ghost px-6 py-3.5 text-base">
-              ✨ Remake an app with AI
+              ✨ Build my own app
             </Link>
           </div>
-          <p className="mt-4 text-sm text-ink-soft">Covers the {byPopularity.length} subscriptions people pay for most, plus anything you add yourself.</p>
+          <p className="mt-4 text-sm text-ink-soft">
+            Works for the {byPopularity.length} apps people pay for most, and anything else you add. No sign-up. Takes 2 minutes.
+          </p>
         </div>
 
         <div className="relative mx-auto w-full max-w-md">
@@ -67,15 +70,15 @@ export default function Home() {
                 <span className="text-lg">/yr</span>
               </p>
             </div>
-            <p className="mt-3 text-center font-mono text-[10px] text-ink-soft">Estimate · default plans · rotate streaming 3 mo/yr</p>
+            <p className="mt-3 text-center font-mono text-[10px] text-ink-soft">Estimate · basic plans · streaming kept 3 months a year</p>
           </div>
         </div>
       </section>
 
       {/* starter stacks */}
       <section>
-        <h2 className="font-display text-3xl font-extrabold">Start from a typical stack</h2>
-        <p className="mt-1 text-ink-soft">One click loads it. You can edit everything after.</p>
+        <h2 className="font-display text-3xl font-extrabold">Not sure where to start? Pick one</h2>
+        <p className="mt-1 text-ink-soft">One tap adds these apps. You can change anything after.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {STARTER_STACKS.map((s) => (
             <button key={s.id} type="button" onClick={() => loadStack(s.ids)} className="card group p-5 text-left transition hover:-translate-y-1 hover:border-ink" data-testid={`stack-${s.id}`}>
@@ -89,7 +92,7 @@ export default function Home() {
                   <ToolTile key={id} name={getSubscription(id)!.name} size={32} />
                 ))}
               </span>
-              <span className="mt-4 inline-block font-bold text-money group-hover:underline">Load this stack →</span>
+              <span className="mt-4 inline-block font-bold text-money group-hover:underline">Use this list →</span>
             </button>
           ))}
         </div>
@@ -100,9 +103,9 @@ export default function Home() {
         <h2 className="font-display text-3xl font-extrabold">How it works</h2>
         <ol className="mt-6 grid gap-4 md:grid-cols-3">
           {[
-            ['Pick what you pay for', 'Tap the tools you subscribe to. Prices are pre-filled and editable, or add anything custom.'],
-            ['See the real numbers', 'Yearly cost vs. the free route, including server costs and setup time. No fudging "free".'],
-            ['Switch or remake', 'Follow a step-by-step swap guide, or copy a prompt that lets an AI coding agent build your own version.'],
+            ['Tap what you pay for', 'Netflix, Spotify, iCloud, ChatGPT… We fill in the prices for you.'],
+            ['See what you could keep', 'We show how much you pay each year, and how much you could save.'],
+            ['Switch or build your own', 'Follow easy steps to switch to a free app. Or let an AI helper build your own version.'],
           ].map(([t, d], i) => (
             <li key={t} className="card relative overflow-hidden p-6">
               <span className="absolute -top-4 -right-1 font-display text-8xl font-extrabold text-paper-2" aria-hidden>
@@ -120,7 +123,7 @@ export default function Home() {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="font-display text-3xl font-extrabold">What most people pay for</h2>
-            <p className="mt-1 text-ink-soft">Tap any of them to see the swaps and the remake prompt.</p>
+            <p className="mt-1 text-ink-soft">Tap one to see how hard it is to replace.</p>
           </div>
           <Link to="/start" className="font-bold text-money hover:underline">
             See all {byPopularity.length} →
@@ -135,8 +138,9 @@ export default function Home() {
                 <span className="min-w-0">
                   <span className="block truncate font-bold">{s.name}</span>
                   <span className="block truncate text-xs text-ink-soft">
-                    from <span className="money text-rent">{formatMoney(fromMonthly(s))}/mo</span> → {alt?.name}
+                    from <span className="money text-rent">{formatMoney(fromMonthly(s))}/mo</span>
                   </span>
+                  <LevelChip alt={alt} />
                 </span>
               </Link>
             )
@@ -147,14 +151,14 @@ export default function Home() {
       {/* remake teaser */}
       <section className="pop grid gap-8 rounded-3xl bg-ink p-8 text-paper md:grid-cols-2 md:p-10">
         <div>
-          <p className="font-bold text-hilite">✨ New: Remake with AI</p>
-          <h2 className="mt-2 font-display text-3xl font-extrabold">No good swap? Build your own in an afternoon.</h2>
+          <p className="font-bold text-hilite">✨ Build your own with AI</p>
+          <h2 className="mt-2 font-display text-3xl font-extrabold">No free app that fits? Make your own.</h2>
           <p className="mt-3 text-paper/80">
-            Tick the features you actually use, then copy a prompt made for Claude Code, Codex or OpenCode. Simple apps get a one-shot build; bigger ones get a
-            spec, a milestone plan and tests.
+            Pick the features you use. We write the instructions for an AI helper (like Claude Code), and it builds the app for you. We also tell you how big the job
+            is, from a small puzzle to a whole castle.
           </p>
           <Link to="/remake" className="btn mt-6 border-2 border-paper bg-hilite text-ink">
-            Try the Remake studio →
+            Build my own app →
           </Link>
         </div>
         <pre className="overflow-hidden rounded-2xl border-2 border-paper/20 bg-black/40 p-4 font-mono text-xs leading-relaxed text-paper/90" aria-hidden>
@@ -173,20 +177,19 @@ export default function Home() {
 
       {/* honesty */}
       <section className="grid gap-6 md:grid-cols-3">
-        <h2 className="font-display text-3xl font-extrabold md:col-span-1">What "free" really means here</h2>
+        <h2 className="font-display text-3xl font-extrabold md:col-span-1">We tell you the truth</h2>
         <ul className="space-y-3 text-ink-soft md:col-span-2">
           <li>
-            <strong className="text-ink">Desktop apps and free tiers are $0.</strong> You trade a subscription for a download or a free account.
+            <strong className="text-ink">Free apps really cost $0.</strong> You download them or make a free account.
           </li>
           <li>
-            <strong className="text-ink">Self-hosted apps need a small server</strong> (around $5–6/month). One server runs all of them, so we count it once.
+            <strong className="text-ink">Some apps need a small rented computer</strong> (a "server"), about $6 a month. One is enough for all of them, so we only count it once.
           </li>
           <li>
-            <strong className="text-ink">You can't open-source Netflix's movies.</strong> For streaming and memberships we show honest moves: rotate services, use your library card, or
-            run a media server for what you own.
+            <strong className="text-ink">Sometimes you should keep paying.</strong> If you'd save very little for a lot of work, we say so.
           </li>
           <li>
-            <strong className="text-ink">Your time counts.</strong> Every swap shows difficulty and setup time, and every remake shows how big the build is.
+            <strong className="text-ink">You can't make free Netflix movies.</strong> Instead we show real ways to pay less: keep one service at a time, or use your library card.
           </li>
         </ul>
       </section>

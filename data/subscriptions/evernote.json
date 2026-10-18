@@ -3,7 +3,7 @@
   "name": "Evernote",
   "category": "notes",
   "website": "https://evernote.com",
-  "description": "Notes, web clipping and document scanning.",
+  "description": "Notes, saved web pages and scanned papers in one place.",
   "coreFeatures": [
     "Notes with notebooks and tags",
     "Web clipper",

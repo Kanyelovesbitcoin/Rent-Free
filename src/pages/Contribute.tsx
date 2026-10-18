@@ -21,67 +21,66 @@ const EXAMPLE_SUB = `{
   "popularity": 39
 }`
 
+const FORMS = [
+  { emoji: '🆕', title: "Add an app we're missing", text: 'Tell us the name, the price, and what you use it for.', template: 'add-app.yml' },
+  { emoji: '💲', title: 'Fix a wrong price', text: 'Prices change a lot. Tell us the new one.', template: 'wrong-price.yml' },
+  { emoji: '💡', title: 'Share an idea', text: 'A better free app, something confusing, or a new idea.', template: 'idea.yml' },
+]
+
 export default function Contribute() {
   return (
     <div className="max-w-3xl">
-      <PageHeader eyebrow="Community" title="Help everyone stop renting">
-        Rent-Free is built by its community. Every tool, price and guide is a plain JSON file, so you don't need to be a developer to help.
+      <PageHeader eyebrow="Help out" title={<>Help everyone <span className="hl">stop renting</span>.</>}>
+        Rent-Free is made by people like you. You don't need to know how to code. Pick one of these, fill in a short form, and you're done.
       </PageHeader>
 
-      <div className="space-y-6">
-        <Section n="1" title="Fix a wrong price (2 minutes)">
-          Prices change constantly. Spotted an outdated one?{' '}
-          <a className="font-semibold text-money underline" href={`${REPO_URL}/issues/new?title=Wrong%20price%3A%20`} target="_blank" rel="noreferrer">
-            Open an issue
-          </a>{' '}
-          with the tool name and a link to its pricing page, or edit the file in <code>data/subscriptions/</code> directly on GitHub.
-        </Section>
-
-        <Section n="2" title="Add a subscription (5 minutes)">
-          <p>
-            Create <code>data/subscriptions/your-tool.json</code>. Copy an existing file as a starting point:
-          </p>
-          <pre className="mt-3 overflow-x-auto rounded-xl bg-ink p-4 text-xs text-paper">{EXAMPLE_SUB}</pre>
-          <p className="mt-3">
-            <code>annualPrice</code> is the <em>total per year</em>. Always include <code>sourceUrl</code> and today's date in <code>lastVerified</code>.
-          </p>
-        </Section>
-
-        <Section n="3" title="Add an alternative">
-          Create <code>data/alternatives/the-tool.json</code> with honest <code>gains</code> <em>and</em> <code>tradeoffs</code>, plain-English{' '}
-          <code>setupSteps</code>, a difficulty (<code>easy</code> / <code>medium</code> / <code>weekend</code>) and a hosting type. Then list its id in the subscription's{' '}
-          <code>alternatives</code>.
-        </Section>
-
-        <Section n="4" title="Check your work">
-          Run <code>npm run validate</code>. It checks every file and tells you exactly what's wrong. CI runs the same check on every pull request.
-        </Section>
-
-        <div className="card p-5">
-          <h3 className="font-semibold">Our ground rules</h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-soft">
-            <li>Be honest about trade-offs. Trust is the whole point.</li>
-            <li>Prefer open-source tools. If something is free but closed source, say so in the license field.</li>
-            <li>No affiliate links, no logos, no copying anyone's branding.</li>
-            <li>Write for someone who has never opened a terminal.</li>
-          </ul>
-        </div>
-        <a href={REPO_URL} target="_blank" rel="noreferrer" className="btn-primary">
-          ★ Open the repo on GitHub
-        </a>
+      <div className="grid gap-4 sm:grid-cols-3">
+        {FORMS.map((f) => (
+          <a
+            key={f.template}
+            href={`${REPO_URL}/issues/new?template=${f.template}`}
+            target="_blank"
+            rel="noreferrer"
+            className="card flex flex-col p-5 transition hover:-translate-y-1 hover:border-ink"
+          >
+            <span className="text-3xl" aria-hidden>
+              {f.emoji}
+            </span>
+            <span className="mt-2 font-display text-lg font-extrabold">{f.title}</span>
+            <span className="mt-1 flex-1 text-sm text-ink-soft">{f.text}</span>
+            <span className="mt-3 font-bold text-money">Open the form →</span>
+          </a>
+        ))}
       </div>
-    </div>
-  )
-}
+      <p className="mt-3 text-sm text-ink-soft">The forms are on GitHub, a free website for sharing code. You'll need a free GitHub account to send one.</p>
 
-function Section({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
-  return (
-    <section className="card p-5">
-      <h2 className="flex items-center gap-3 font-semibold">
-        <span className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-ink bg-hilite text-sm font-bold text-ink">{n}</span>
-        {title}
-      </h2>
-      <div className="mt-2 text-sm text-ink-soft">{children}</div>
-    </section>
+      <div className="card mt-8 p-5">
+        <h2 className="font-display text-lg font-extrabold">Our rules</h2>
+        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-soft">
+          <li>Tell the truth: say what's not as good, too.</li>
+          <li>Prices come from the app's own website, typed in by hand.</li>
+          <li>No ads, no secret sales links, no copying other people's logos.</li>
+          <li>Write so a 10-year-old could understand it.</li>
+        </ul>
+      </div>
+
+      <details className="card mt-8 p-5">
+        <summary className="cursor-pointer font-display text-lg font-extrabold">For people who code: edit the files yourself</summary>
+        <div className="mt-3 space-y-3 text-sm text-ink-soft">
+          <p>
+            Every app is a small file in <code>data/subscriptions/</code>, and every free swap is a file in <code>data/alternatives/</code>. Copy one that exists, change it,
+            and open a pull request. Example:
+          </p>
+          <pre className="overflow-x-auto rounded-xl bg-ink p-4 text-xs text-paper">{EXAMPLE_SUB}</pre>
+          <p>
+            Then run <code>npm run validate</code>. It checks every file and tells you exactly what to fix. The full guide is in{' '}
+            <a className="font-bold text-money underline" href={`${REPO_URL}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noreferrer">
+              CONTRIBUTING.md
+            </a>
+            .
+          </p>
+        </div>
+      </details>
+    </div>
   )
 }

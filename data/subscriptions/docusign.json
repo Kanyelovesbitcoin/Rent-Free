@@ -3,7 +3,7 @@
   "name": "DocuSign",
   "category": "e-signature",
   "website": "https://www.docusign.com",
-  "description": "Send documents for electronic signature.",
+  "description": "Sign documents online and ask other people to sign them.",
   "coreFeatures": [
     "Upload a PDF and place signature fields",
     "Send a signing link by email",

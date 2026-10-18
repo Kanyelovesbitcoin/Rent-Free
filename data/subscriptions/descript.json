@@ -3,7 +3,7 @@
   "name": "Descript",
   "category": "video-editing",
   "website": "https://www.descript.com",
-  "description": "Edit videos and podcasts by editing the transcript like a document.",
+  "description": "Edit videos and podcasts by editing the words, like a document.",
   "coreFeatures": [
     "Automatic transcription of audio and video",
     "Edit the video by deleting words in the transcript",

@@ -13,7 +13,7 @@
   ],
   "difficulty": "easy",
   "setupHours": 1,
-  "summary": "Fast notes app that stores everything as plain text files on your computer.",
+  "summary": "A fast notes app. Your notes are simple files saved on your computer.",
   "gains": [
     "Your notes are plain files: no lock-in, ever",
     "Huge plugin ecosystem",

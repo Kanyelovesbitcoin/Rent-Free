@@ -13,7 +13,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 1,
-  "summary": "Syncs folders directly between your own devices. No cloud, no storage limits.",
+  "summary": "Keeps the same folders on all your devices, with no cloud and no storage limit.",
   "gains": [
     "No storage limit except your own drives",
     "Private and encrypted device-to-device",

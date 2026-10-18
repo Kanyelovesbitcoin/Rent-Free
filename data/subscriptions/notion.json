@@ -3,7 +3,7 @@
   "name": "Notion",
   "category": "notes",
   "website": "https://www.notion.so",
-  "description": "All-in-one workspace for notes, docs, wikis and simple databases.",
+  "description": "One app for notes, to-do lists, wikis and simple tables.",
   "coreFeatures": [
     "Pages with rich text, headings, checklists and embeds",
     "Nested pages and a sidebar to organize them",

@@ -3,7 +3,7 @@
   "name": "Netflix",
   "category": "streaming-video",
   "website": "https://www.netflix.com",
-  "description": "Movies, series and originals on demand.",
+  "description": "Movies and TV shows to watch any time.",
   "coreFeatures": [
     "Library of movies and shows with posters and descriptions",
     "Stream to TV, phone and browser",

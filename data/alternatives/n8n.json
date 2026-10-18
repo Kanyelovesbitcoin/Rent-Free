@@ -11,7 +11,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 3,
-  "summary": "Visual workflow automation you can self-host with unlimited runs. Strong AI/agent nodes.",
+  "summary": "A tool that connects your apps so tasks happen on their own. Free when you run it yourself.",
   "gains": [
     "Unlimited workflows and executions when self-hosted",
     "400+ integrations plus any API via HTTP node",

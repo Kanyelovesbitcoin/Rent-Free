@@ -3,7 +3,7 @@
   "name": "Squarespace",
   "category": "website",
   "website": "https://www.squarespace.com",
-  "description": "Website builder with hosting, templates and a domain.",
+  "description": "Make a website from ready-made designs.",
   "coreFeatures": [
     "Pages built from templates",
     "Blog",

@@ -3,7 +3,7 @@
   "name": "Midjourney",
   "category": "photo-design",
   "website": "https://www.midjourney.com",
-  "description": "AI image generation from text prompts.",
+  "description": "Makes pictures from a few words you type.",
   "coreFeatures": [
     "Generate images from a text prompt",
     "Variations and upscaling",

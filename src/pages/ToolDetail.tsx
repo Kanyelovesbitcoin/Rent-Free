@@ -1,22 +1,24 @@
 import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import { fromMonthly, getAlternative, getCategory, getSubscription } from '../lib/data'
-import { formatMoney, yearlyCost } from '../lib/savings'
+import { alternativeYearly, formatMoney, yearlyCost } from '../lib/savings'
 import type { Alternative } from '../lib/schema'
-import { newCatalogItem, resolveItem } from '../lib/selection'
+import { bestSwap, newCatalogItem, resolveItem } from '../lib/selection'
 import { useSelection } from '../state'
 import RemakeStudio from '../components/RemakeStudio'
+import ReplaceMeter from '../components/ReplaceMeter'
+import Plain from '../components/Plain'
 import { AltMeta, Badge, Money, REPO_URL, ToolTile } from '../components/ui'
 import { subjectFromSubscription } from './Remake'
 import NotFound from './NotFound'
 
 const TABS = [
-  { id: 'switch', label: '🔁 Switch' },
-  { id: 'costs', label: '🧾 Costs' },
-  { id: 'remake', label: '✨ Remake with AI' },
+  { id: 'switch', label: '🔁 How to switch' },
+  { id: 'costs', label: '🧾 Prices' },
+  { id: 'remake', label: '✨ Build your own' },
 ] as const
 type TabId = (typeof TABS)[number]['id']
 
-const KIND_LABEL = { software: 'Software', content: 'Content subscription', membership: 'Membership' }
+const KIND_LABEL = { software: 'App', content: 'Shows, music or books', membership: 'Membership' }
 
 export default function ToolDetail() {
   const { id = '' } = useParams()
@@ -32,6 +34,11 @@ export default function ToolDetail() {
   const alts = sub.alternatives.map((a) => getAlternative(a)!).filter(Boolean)
   const item = selection.items.find((i) => i.id === sub.id)
   const yearly = item ? resolveItem(item)?.currentYearly : undefined
+  // For the meter: what you pay (or the basic plan, billed monthly) minus what the best swap costs.
+  const basePlan = sub.plans.find((p) => p.id === sub.defaultPlan)!
+  const payYearly = yearly ?? yearlyCost(basePlan, basePlan.monthlyPrice != null ? 'monthly' : 'annual')
+  const best = bestSwap(sub, payYearly) ?? alts[0] ?? null
+  const bestSavings = best ? payYearly - alternativeYearly(best, payYearly) : 0
 
   return (
     <div>
@@ -90,11 +97,12 @@ export default function ToolDetail() {
 
       {tab === 'switch' && (
         <div className="space-y-6">
+          <ReplaceMeter name={sub.name} alt={best} savings={bestSavings} />
           <BeforeYouCancel name={sub.name} />
           {sub.kind !== 'software' && (
             <p className="rounded-xl border-2 border-line bg-card p-4 text-sm">
-              <strong>Honest note:</strong> you can't open-source {sub.kind === 'content' ? "the movies, music or books themselves" : 'a membership'}. These are the real ways to pay less, plus
-              free tools for the stuff you already own.
+              <strong>The truth:</strong> nobody can give you {sub.kind === 'content' ? 'free copies of these movies, songs or books' : 'this membership for free'}. But here are real ways to pay
+              less, plus free apps for things you already own.
             </p>
           )}
           {alts.map((a, i) => (
@@ -102,10 +110,10 @@ export default function ToolDetail() {
           ))}
           <div className="card flex flex-wrap items-center justify-between gap-3 p-5">
             <p>
-              <strong>None of these fit?</strong> <span className="text-ink-soft">Build your own version with an AI coding agent.</span>
+              <strong>None of these fit?</strong> <span className="text-ink-soft">Build your own version with an AI helper.</span>
             </p>
             <button type="button" className="btn-dark" onClick={() => setParams({ tab: 'remake' }, { replace: true })}>
-              ✨ Remake {sub.name}
+              ✨ Build my own {sub.name}
             </button>
           </div>
         </div>
@@ -182,9 +190,9 @@ function BeforeYouCancel({ name }: { name: string }) {
     <section className="rounded-2xl border-2 border-ink bg-hilite/20 p-5" data-testid="before-cancel">
       <h2 className="font-display text-lg font-extrabold">✋ Before you cancel {name}</h2>
       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
-        <li>Export your data first (files, contacts, notes, playlists, anything you'd miss).</li>
-        <li>Check your plan: annual contracts may not refund, and most cancel at the end of the billing period.</li>
-        <li>Run the new tool alongside the old one for a week before you switch over completely.</li>
+        <li>Export your data first. Save a copy of your files, notes, playlists, or anything you'd miss.</li>
+        <li>Check your plan. If you paid for a whole year, you may not get money back.</li>
+        <li>Use the new app and the old one side by side for a week. Then cancel.</li>
       </ul>
     </section>
   )
@@ -201,7 +209,9 @@ function AlternativeCard({ alt, recommended, replacing }: { alt: Alternative; re
               {alt.name}
               {recommended && <Badge className="border-2 border-ink bg-hilite text-ink">⭐ Pick for me</Badge>}
             </h3>
-            <p className="mt-1 text-ink-soft">{alt.summary}</p>
+            <p className="mt-1 text-ink-soft">
+              <Plain text={alt.summary} />
+            </p>
           </div>
         </div>
         <div className="flex gap-2">
@@ -223,37 +233,44 @@ function AlternativeCard({ alt, recommended, replacing }: { alt: Alternative; re
       </div>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div>
-          <p className="label">What you gain</p>
+          <p className="label">What's good</p>
           <ul className="space-y-1 text-sm">
             {alt.gains.map((g) => (
-              <li key={g}>✅ {g}</li>
+              <li key={g}>
+                ✅ <Plain text={g} />
+              </li>
             ))}
           </ul>
         </div>
         <div>
-          <p className="label">What you give up</p>
+          <p className="label">What's not as good</p>
           <ul className="space-y-1 text-sm">
             {alt.tradeoffs.map((t) => (
-              <li key={t}>⚠️ {t}</li>
+              <li key={t}>
+                ⚠️ <Plain text={t} />
+              </li>
             ))}
           </ul>
         </div>
       </div>
       <details className="mt-4 rounded-xl bg-paper-2 p-4" open={recommended}>
-        <summary className="cursor-pointer font-bold">How to switch from {replacing}</summary>
+        <summary className="cursor-pointer font-bold">Step by step: switch from {replacing}</summary>
         <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm">
           {alt.setupSteps.map((s) => (
-            <li key={s}>{s}</li>
+            <li key={s}>
+              <Plain text={s} />
+            </li>
           ))}
         </ol>
+        <p className="mt-2 text-xs text-ink-soft">Tip: tap any underlined word to see what it means.</p>
         <p className="mt-3 text-xs text-ink-soft">
-          Platforms: {alt.platforms.join(', ')} · License: {alt.license}
+          Works on: {alt.platforms.join(', ')} · <Plain text={`License: ${alt.license}`} />
           {alt.freeTierLimits && <> · {alt.freeTierLimits}</>}
         </p>
       </details>
       {alt.commercialNote && (
         <p className="mt-3 text-xs text-ink-soft" data-testid="commercial-note">
-          <strong className="text-ink">⚖️ License note:</strong> {alt.commercialNote}
+          <strong className="text-ink">⚖️ If you use it for a business:</strong> <Plain text={alt.commercialNote} />
         </p>
       )}
     </article>

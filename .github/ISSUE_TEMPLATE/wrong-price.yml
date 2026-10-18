@@ -1,0 +1,24 @@
+name: "💲 Fix a wrong price"
+description: A price on Rent-Free is out of date. Tell us the right one.
+title: "Wrong price: "
+labels: ["price"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: Which app?
+      placeholder: e.g. Netflix
+    validations:
+      required: true
+  - type: input
+    id: right-price
+    attributes:
+      label: What's the right price now?
+      placeholder: e.g. Standard plan is $19.99 a month
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link where you saw it (the app's own prices page is best)
+      placeholder: https://...

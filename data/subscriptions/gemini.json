@@ -3,7 +3,7 @@
   "name": "Gemini (Google AI Pro)",
   "category": "ai-chat",
   "website": "https://gemini.google.com",
-  "description": "Google's AI assistant, bundled with Google One storage.",
+  "description": "Google's AI helper. It comes with extra Google storage.",
   "coreFeatures": [
     "Chat with an AI model",
     "Upload files and ask questions about them",

@@ -10,7 +10,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 3,
-  "summary": "Self-hosted social media scheduler: queue posts across accounts with a calendar.",
+  "summary": "A free tool to plan and schedule social media posts. You run it yourself.",
   "gains": [
     "No per-channel pricing",
     "Calendar and queue",

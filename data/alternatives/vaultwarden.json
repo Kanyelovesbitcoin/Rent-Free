@@ -10,7 +10,7 @@
   ],
   "difficulty": "weekend",
   "setupHours": 3,
-  "summary": "Lightweight self-hosted server that works with all the official Bitwarden apps.",
+  "summary": "Run your own password server that works with the free Bitwarden apps.",
   "gains": [
     "All premium features for free",
     "Your vault lives on your own server",

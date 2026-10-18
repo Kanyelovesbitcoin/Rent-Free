@@ -3,7 +3,7 @@
   "name": "Adobe Creative Cloud",
   "category": "photo-design",
   "website": "https://www.adobe.com/creativecloud.html",
-  "description": "Photoshop, Lightroom, Premiere, Illustrator and more.",
+  "description": "Apps for editing photos, videos and graphics, like Photoshop and Premiere.",
   "coreFeatures": [
     "Photo editing with layers",
     "Photo library and raw editing",

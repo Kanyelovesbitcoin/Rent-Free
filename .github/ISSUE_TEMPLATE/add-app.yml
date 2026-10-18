@@ -1,0 +1,37 @@
+name: "🆕 Add an app we're missing"
+description: Tell us about a subscription you pay for that isn't on Rent-Free yet. No coding needed.
+title: "Add app: "
+labels: ["add-app"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping! Just fill in what you know. It's okay to leave things blank."
+  - type: input
+    id: name
+    attributes:
+      label: What's the app called?
+      placeholder: e.g. Kajabi
+    validations:
+      required: true
+  - type: input
+    id: price
+    attributes:
+      label: How much does it cost?
+      placeholder: e.g. $29 a month, or $290 a year
+  - type: input
+    id: pricing-page
+    attributes:
+      label: Link to its prices page (if you have it)
+      placeholder: https://...
+  - type: textarea
+    id: what
+    attributes:
+      label: What do you use it for?
+      placeholder: In your own words.
+    validations:
+      required: true
+  - type: textarea
+    id: free-options
+    attributes:
+      label: Do you know a free app that does the same job?
+      placeholder: Optional. Even a name is helpful.

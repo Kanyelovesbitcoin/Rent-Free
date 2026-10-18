@@ -3,7 +3,7 @@
   "name": "Microsoft 365",
   "category": "office",
   "website": "https://www.microsoft.com/microsoft-365",
-  "description": "Word, Excel, PowerPoint, Outlook and 1 TB of OneDrive.",
+  "description": "Word, Excel, PowerPoint, Outlook and extra cloud storage.",
   "coreFeatures": [
     "Word processor",
     "Spreadsheets with formulas",

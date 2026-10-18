@@ -12,7 +12,7 @@
   ],
   "difficulty": "medium",
   "setupHours": 2,
-  "summary": "Full multitrack video editor with built-in speech-to-text for subtitles.",
+  "summary": "A free video editor. Add clips, music, effects and subtitles.",
   "gains": [
     "No watermark, no export limits, no media-hour caps",
     "Built-in Whisper speech-to-text for automatic subtitles",

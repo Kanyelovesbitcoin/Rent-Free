@@ -43,11 +43,11 @@ export interface Tier {
 // The tier follows the best model that fits comfortably, so the label always matches the pick.
 export function tierFor(best: LocalModel | null): Tier {
   const b = best?.paramsB ?? 0
-  if (b < 5) return { id: 'tiny', label: 'Starter (3–4B models)', verdict: 'Good for quick drafts, summaries and simple questions, not heavy reasoning. A great way to try local AI for free.' }
-  if (b < 10) return { id: 'small', label: 'Everyday (7–8B models)', verdict: 'A solid everyday assistant for writing, emails and brainstorming. Keep a paid model (or pay-as-you-go) for hard problems.' }
-  if (b < 25) return { id: 'medium', label: 'Strong (12–21B models)', verdict: 'Genuinely useful daily driver. Most people can drop a $20/mo subscription and use pay-as-you-go for the rare hard task.' }
-  if (b < 60) return { id: 'large', label: 'Power user (27–30B models)', verdict: 'Strong writing, coding help and reasoning. Close to paid models for most everyday work.' }
-  return { id: 'xl', label: 'Workstation (70B+ models)', verdict: 'Near older frontier-model quality, fully private. Slower per word, but very capable.' }
+  if (b < 5) return { id: 'tiny', label: '🐣 Starter AI', verdict: 'Good for short notes, simple questions and quick drafts. Not great for hard problems. A fun, free way to try it.' }
+  if (b < 10) return { id: 'small', label: '🙂 Everyday AI', verdict: 'Good for writing, emails and ideas. For really hard questions, you may still want a paid AI now and then.' }
+  if (b < 25) return { id: 'medium', label: '💪 Strong AI', verdict: 'Really useful every day. Most people could stop paying $20 a month and pay a few cents only for the rare hard question.' }
+  if (b < 60) return { id: 'large', label: '🚀 Power AI', verdict: 'Great at writing, coding and thinking. Close to the paid AIs for most everyday work.' }
+  return { id: 'xl', label: '🦾 Super AI', verdict: 'Very smart and totally private. A bit slower, but very capable.' }
 }
 
 export interface Recommendation {
