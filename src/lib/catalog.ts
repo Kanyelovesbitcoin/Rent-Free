@@ -1,12 +1,13 @@
 import { z } from 'zod'
-import { AlternativeSchema, CategorySchema, LocalModelSchema, SubscriptionSchema } from './schema'
-import type { Alternative, Category, LocalModel, Subscription } from './schema'
+import { AlternativeSchema, ApiSchema, CategorySchema, LocalModelSchema, SubscriptionSchema } from './schema'
+import type { Alternative, Api, Category, LocalModel, Subscription } from './schema'
 
 export interface Catalog {
   categories: Category[]
   subscriptions: Subscription[]
   alternatives: Alternative[]
   localModels: LocalModel[]
+  apis: Api[]
 }
 
 export interface RawFile {
@@ -26,6 +27,8 @@ function formatZod(path: string, err: z.ZodError) {
 export function loadCatalog(input: {
   categories: unknown
   localModels: unknown
+  // Optional so older callers/tests keep working; data/apis.json in the app and validator.
+  apis?: unknown
   subscriptions: RawFile[]
   alternatives: RawFile[]
 }): { catalog: Catalog; errors: string[] } {
@@ -35,6 +38,9 @@ export function loadCatalog(input: {
   if (!cats.success) errors.push(...formatZod('categories.json', cats.error))
   const models = z.array(LocalModelSchema).safeParse(input.localModels)
   if (!models.success) errors.push(...formatZod('local-models.json', models.error))
+  const apiParse = z.array(ApiSchema).safeParse(input.apis ?? [])
+  if (!apiParse.success) errors.push(...formatZod('apis.json', apiParse.error))
+  const apis = apiParse.success ? apiParse.data : []
 
   const parseAll = <T>(files: RawFile[], schema: z.ZodType<T, z.ZodTypeDef, unknown>) =>
     files.flatMap((f) => {
@@ -76,6 +82,7 @@ export function loadCatalog(input: {
   const dupes = (ids: string[]) => ids.filter((x, i) => ids.indexOf(x) !== i)
   for (const d of dupes(categories.map((c) => c.id))) errors.push(`categories.json: duplicate id "${d}"`)
   for (const d of dupes(localModels.map((m) => m.id))) errors.push(`local-models.json: duplicate id "${d}"`)
+  for (const d of dupes(apis.map((a) => a.id))) errors.push(`apis.json: duplicate id "${d}"`)
 
-  return { catalog: { categories, subscriptions, alternatives, localModels }, errors }
+  return { catalog: { categories, subscriptions, alternatives, localModels, apis }, errors }
 }

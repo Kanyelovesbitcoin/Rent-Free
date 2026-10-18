@@ -1,6 +1,7 @@
 import { loadCatalog, type RawFile } from './catalog'
 import categories from '../../data/categories.json'
 import localModels from '../../data/local-models.json'
+import apis from '../../data/apis.json'
 
 // Vite bundles every JSON file in /data at build time. Adding a tool = adding a file; no code changes.
 const toFiles = (mods: Record<string, unknown>, dir: string): RawFile[] =>
@@ -9,12 +10,13 @@ const toFiles = (mods: Record<string, unknown>, dir: string): RawFile[] =>
 const { catalog, errors } = loadCatalog({
   categories,
   localModels,
+  apis,
   subscriptions: toFiles(import.meta.glob('../../data/subscriptions/*.json', { eager: true, import: 'default' }), 'subscriptions'),
   alternatives: toFiles(import.meta.glob('../../data/alternatives/*.json', { eager: true, import: 'default' }), 'alternatives'),
 })
 if (errors.length) console.warn('Rent-Free data problems:\n' + errors.join('\n'))
 
-export const { subscriptions, alternatives, categories: allCategories, localModels: allLocalModels } = catalog
+export const { subscriptions, alternatives, categories: allCategories, localModels: allLocalModels, apis: allApis } = catalog
 export { catalog, errors as dataErrors }
 
 const subById = new Map(subscriptions.map((s) => [s.id, s]))

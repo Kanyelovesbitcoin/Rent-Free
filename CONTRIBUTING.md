@@ -101,6 +101,38 @@ Create `data/alternatives/<id>.json`:
 
 Then add its id to the `alternatives` list of the subscription(s) it replaces.
 
+The first alternative in that list is the default, unless it isn't worth the effort (then the next one is). For ChatGPT, Claude and Gemini we keep **LM Studio** first because it's the easiest for beginners.
+
+## Add a building block (Toolbox)
+
+`data/apis.json` lists free or cheap services people can plug into the apps they build. Add one entry:
+
+```json
+{
+  "id": "resend",
+  "name": "Resend",
+  "category": "email",
+  "what": "Sends emails from your app, like booking confirmations.",
+  "freeTier": "3,000 emails a month (100 a day)",
+  "paidFrom": "$20/mo",
+  "openSource": false,
+  "runsLocally": false,
+  "website": "https://resend.com",
+  "docsUrl": "https://resend.com/docs",
+  "signupSteps": ["Make a free account", "Click API Keys → Create", "Copy the key into your .env file"],
+  "envVars": ["RESEND_API_KEY"],
+  "goodFor": ["confirmations", "reminders"],
+  "sourceUrl": "https://resend.com/pricing",
+  "lastVerified": "2026-10-18"
+}
+```
+
+- `category`: `ai`, `email`, `database`, `login`, `hosting`, `payments`, `storage`, `speech`, `search`, `maps`, `images` or `video`.
+- Keep `what` short and plain (a test checks the reading level).
+- Write the free tier exactly as the pricing page says. If you aren't sure, say less, not more.
+- No affiliate or referral links.
+- Want the Build studio to suggest it? Add a keyword rule in `src/lib/apiSuggest.ts`.
+
 ## Update local AI models
 
 `data/local-models.json` lists open models with their Ollama tag, parameter count, 4-bit download size (`sizeGB`) and what they're good at. New models come out constantly, so PRs are very welcome. Please check the size on the Ollama library page.

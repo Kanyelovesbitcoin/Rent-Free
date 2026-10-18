@@ -49,10 +49,20 @@ export function bestSwap(sub: Subscription, yearly: number): Alternative | null 
   return null
 }
 
+const defaultBilling = (plan: Plan) => (plan.monthlyPrice != null ? 'monthly' : 'annual')
+const defaultYearly = (sub: Subscription) => {
+  const plan = sub.plans.find((p) => p.id === sub.defaultPlan)!
+  return yearlyCost(plan, defaultBilling(plan))
+}
+
+// The swap we'd show first for this app (what tiles and chips describe).
+export function defaultSwap(sub: Subscription): Alternative | null {
+  return bestSwap(sub, defaultYearly(sub)) ?? getAlternative(sub.alternatives[0]) ?? null
+}
+
 export function newCatalogItem(sub: Subscription): CatalogItem {
   const plan = sub.plans.find((p) => p.id === sub.defaultPlan)!
-  const billing = plan.monthlyPrice != null ? 'monthly' : 'annual'
-  return { t: 'c', id: sub.id, plan: plan.id, billing, seats: 1, alt: bestSwap(sub, yearlyCost(plan, billing))?.id ?? null }
+  return { t: 'c', id: sub.id, plan: plan.id, billing: defaultBilling(plan), seats: 1, alt: bestSwap(sub, defaultYearly(sub))?.id ?? null }
 }
 
 export function newCustomItem(fields: Omit<CustomItem, 't' | 'id' | 'alt'>): CustomItem {

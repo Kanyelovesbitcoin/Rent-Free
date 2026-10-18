@@ -4,9 +4,10 @@
 
 Lots of us pay every month for apps like Netflix, Spotify, iCloud, ChatGPT or Canva. Rent-Free helps you:
 
-1. **See what you really pay.** Tap the apps you pay for. We add up the cost for a whole year.
+1. **See what you really pay.** Type the apps you pay for. We add up the cost for a whole year.
 2. **Find free apps that do the same job.** For each one, we show how hard the switch is and if it's worth it.
-3. **Build your own version with AI.** Pick the features you use, and we write the instructions for an AI helper (like Claude Code) that builds the app for you.
+3. **Follow your switch plan.** Easiest wins first. Tick each one off, watch your savings grow, and add reminders to your calendar.
+4. **Build your own version with AI.** Pick the features you use. We hand you a ready-to-go starter kit for an AI helper (like Claude Code or Codex) that builds the app for you.
 
 It's free. No sign-up. Nothing you pick leaves your device.
 
@@ -37,16 +38,48 @@ Nobody can give you free copies of movies or songs. So for those, we show real w
 - **Your library card:** Libby, Kanopy and Hoopla let you borrow ebooks, audiobooks and movies for free.
 - **Your own media app** (like Jellyfin) for movies and music you already own.
 
+## Free ChatGPT on your computer
+
+Paying $20 a month for ChatGPT or Claude? Many computers can run a free AI that never leaves your device. The **Free AI** page asks 2 questions (what computer, how much memory) and tells you which AI fits.
+
+We start everyone on **LM Studio**: one app, no typing commands. Open it, search for the AI we suggest, click Download, then Chat. (Ollama is there too, for people who like the terminal.)
+
 ## Building your own app with AI
 
 When no free app fits, Rent-Free helps you make your own:
 
 1. Pick an app (or describe your own).
 2. Tick the features you actually use.
-3. Pick your AI helper: **Claude Code, Codex, OpenCode, Cursor**, or just Claude.ai / ChatGPT.
-4. Copy the instructions and paste them into your AI helper. It builds the app for you.
+3. Pick your **building blocks**: free services your app plugs into, like email, logins or payments. We suggest the right ones for you.
+4. Pick your AI helper: **Claude Code, Codex, OpenCode, Cursor**, or just Claude.ai / ChatGPT.
+5. Click **Download starter kit**. Unzip it, open the folder in your AI helper, and say: *"Read START-HERE.md and PROMPT.md, then let's build it."*
+
+The starter kit has everything in one folder: the instructions, a sketch of the screen, a memory file for the AI (`CLAUDE.md` or `AGENTS.md`), and a `.env.example` that lists every key your app needs.
 
 We also tell you how big the job is: 🧩 small (like a puzzle), 🧱 medium (like a big LEGO set), 🏠 big (like a treehouse), or 🏰 huge (like a castle). Bigger jobs get more careful, step-by-step instructions.
+
+### Never used an AI coding helper?
+
+Open the **New to AI?** page. It explains, in plain words:
+
+- what Claude Code, Codex, OpenCode and Cursor are, and what each one costs;
+- which one to pick (already pay for ChatGPT Plus? Codex is included. Want $0? Try OpenCode);
+- your first 30 minutes, step by step;
+- how to put your app online, and how to stay safe (never paste passwords, keep keys in `.env`).
+
+### The Toolbox: free building blocks
+
+The **Toolbox** page lists 28 services your app can plug into, each with its free plan, the price after that, and sign-up steps. Some examples:
+
+| Job | Free picks |
+| --- | --- |
+| AI | LM Studio or Ollama (on your computer), OpenRouter, Google AI Studio, Groq |
+| Sending email | Resend, Brevo |
+| Saving data and logins | SQLite, PocketBase, Supabase |
+| Putting it online | Cloudflare Pages, Netlify, Coolify (your own server) |
+| Files, speech, maps, video | Cloudflare R2, Whisper, OpenStreetMap, Jitsi |
+
+Free plans change. Every entry has a source link and the date we checked it.
 
 ---
 
@@ -91,9 +124,12 @@ data/
   alternatives/*.json    # free swaps: how hard, how long, what's good, what's not, step-by-step
   categories.json        # groups like "Streaming" or "Notes"
   local-models.json      # free AI models and how much memory they need
+  apis.json              # Toolbox: free building blocks (free plan, price after, sign-up steps, keys)
 ```
 
 The rules for each file are in [`src/lib/schema.ts`](src/lib/schema.ts). The full guide is in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**Adding a building block:** add an entry to `data/apis.json` with a plain one-line `what`, the `freeTier`, `paidFrom`, `signupSteps`, `envVars` (the key names), a `sourceUrl` and a `lastVerified` date. Then run `npm run validate`. To have the Build studio suggest it, add a keyword rule in `src/lib/apiSuggest.ts`.
 
 ### How we count savings
 

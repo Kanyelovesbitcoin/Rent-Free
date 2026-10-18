@@ -35,9 +35,9 @@
   "sourceUrl": "https://claude.com/pricing",
   "lastVerified": "2026-10-17",
   "alternatives": [
-    "ollama-openwebui",
     "lm-studio",
     "jan",
+    "ollama-openwebui",
     "hybrid-api"
   ],
   "localAI": true,

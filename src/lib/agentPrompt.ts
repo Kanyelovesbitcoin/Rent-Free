@@ -1,4 +1,5 @@
 import { hardParts, type Audience, type Platform, type RunsOn, type Tier } from './complexity'
+import type { Api } from './schema'
 
 export type AgentId = 'claude-code' | 'codex' | 'opencode' | 'cursor' | 'chat'
 export type Stack = 'auto' | 'nextjs' | 'simple' | 'python'
@@ -12,7 +13,9 @@ export interface Agent {
   id: AgentId
   name: string
   memoryFile: string | null
+  cost: string // what it costs a beginner, in plain words
   howToRun: string[]
+  openFolder: string // how to open an existing folder (used in starter kits)
 }
 
 export const AGENTS: Record<AgentId, Agent> = {
@@ -20,6 +23,8 @@ export const AGENTS: Record<AgentId, Agent> = {
     id: 'claude-code',
     name: 'Claude Code',
     memoryFile: 'CLAUDE.md',
+    cost: 'Needs a Claude Pro plan ($20/mo)',
+    openFolder: 'Open the Claude Code desktop app and choose this folder. Or open a terminal in this folder and type: claude',
     howToRun: [
       'Get Claude Code at claude.com/claude-code (it also comes as a desktop app).',
       'Make a new, empty folder for your app and open it in Claude Code (or open a terminal there and type `claude`).',
@@ -31,6 +36,8 @@ export const AGENTS: Record<AgentId, Agent> = {
     id: 'codex',
     name: 'Codex',
     memoryFile: 'AGENTS.md',
+    cost: 'Included with ChatGPT Plus ($20/mo)',
+    openFolder: 'Open the Codex app and pick this folder. Or open a terminal in this folder and type: codex',
     howToRun: [
       'Get Codex from OpenAI (in the ChatGPT app, or type `npm install -g @openai/codex` in a terminal).',
       'Make a new, empty folder for your app and open a terminal there.',
@@ -41,6 +48,8 @@ export const AGENTS: Record<AgentId, Agent> = {
     id: 'opencode',
     name: 'OpenCode',
     memoryFile: 'AGENTS.md',
+    cost: 'Free (with free AI models)',
+    openFolder: 'Open a terminal in this folder and type: opencode',
     howToRun: [
       'Get OpenCode at opencode.ai. It can even use a free AI on your own computer.',
       'Make a new, empty folder for your app and open a terminal there.',
@@ -51,12 +60,16 @@ export const AGENTS: Record<AgentId, Agent> = {
     id: 'cursor',
     name: 'Cursor / other IDE',
     memoryFile: 'AGENTS.md',
+    cost: 'Free plan; Pro is $20/mo',
+    openFolder: 'Open Cursor, click Open Folder, pick this folder, then open the AI chat.',
     howToRun: ['Open a new, empty folder in Cursor (or any AI code editor).', 'Open the AI chat, paste the instructions and press Enter.'],
   },
   chat: {
     id: 'chat',
     name: 'Chat (Claude.ai / ChatGPT)',
     memoryFile: null,
+    cost: 'Free plans work for small apps',
+    openFolder: 'Open Claude.ai or ChatGPT in your web browser.',
     howToRun: [
       'Paste the instructions into Claude.ai or ChatGPT. Add the sketch picture if you have it.',
       "It will give you code to copy into files. For anything bigger than a small build, Claude Code or Codex is easier: it makes the files and runs them for you.",
@@ -75,6 +88,8 @@ export interface RemakeConfig {
   stack: Stack
   style: string
   localData: boolean
+  apiOff: string[] // suggested building blocks the user unticked
+  apiExtra: string[] // building blocks the user added from the toolbox
 }
 
 export interface AgentPromptInput {
@@ -89,6 +104,7 @@ export interface AgentPromptInput {
   config: RemakeConfig
   tier: Tier
   agent: AgentId
+  apis?: Api[] // chosen building-block services
 }
 
 const AUDIENCE: Record<Audience, string> = {
@@ -173,7 +189,8 @@ export function agentPrompt(input: AgentPromptInput): string {
   lines.push('## Context')
   lines.push(
     `I'm replacing a paid subscription (${input.inspiredBy}${input.yearlyCost ? `, about $${Math.round(input.yearlyCost)}/year` : ''}) with my own app. ` +
-      "I'm not a professional developer, so explain decisions in plain English and keep the setup as simple as possible.",
+      "I'm not a professional developer, so explain decisions in plain English and keep the setup as simple as possible. " +
+      'Whenever I need to do something myself (install a tool, sign up for a service, copy a key), give me click-by-click steps.',
   )
   if (input.description) lines.push('', `What ${input.inspiredBy} does: ${input.description}`)
   if (!name) lines.push('', 'First, suggest 3 short, original names for the app (not similar to the original product) and use the one I pick.')
@@ -196,12 +213,28 @@ export function agentPrompt(input: AgentPromptInput): string {
   if (input.remakeNote) lines.push(`- **Important:** ${input.remakeNote}`)
   if (hard.length) lines.push(`- **Tricky parts to plan carefully:** ${hard.join(', ')}. Prefer proven open-source libraries over writing these from scratch.`)
 
+  const apis = input.apis ?? []
+  if (apis.length) {
+    lines.push('', '## Services to use (building blocks)')
+    lines.push("Use these instead of building them yourself. Prefer the free or local option, and don't add other paid services without asking me.")
+    for (const a of apis) {
+      const env = a.envVars.length ? ` Settings: ${a.envVars.map((v) => '`' + v.split('=')[0] + '`').join(', ')}.` : ''
+      lines.push(`- **${a.name}** (${a.category}): ${a.what} Free: ${a.freeTier}. Docs: ${a.docsUrl}.${env}`)
+    }
+    if (apis.some((a) => a.envVars.length)) {
+      lines.push(
+        'Put all keys and settings in a `.env` file (never commit it) and keep a `.env.example` with the same names and empty values. ' +
+          'Before you need a key, walk me through getting it, step by step.',
+      )
+    }
+  }
+
   lines.push('', `## How to work (${tier.label}: ${tier.effort})`)
   workflow(tier, agent, input.baseAlternative).forEach((s, i) => lines.push(`${i + 1}. ${s}`))
 
   lines.push('', '## Definition of done')
   lines.push('- [ ] Every must-have feature works end to end')
-  lines.push('- [ ] Starts with one documented command')
+  lines.push('- [ ] Starts with one documented command, and you told me the exact address to open (like http://localhost:5173)')
   if (tier.id !== 'quick') lines.push('- [ ] Tests for the core logic pass')
   lines.push('- [ ] README covers setup, usage, and backup/export')
   lines.push('- [ ] No secrets in the code; my data can be exported')

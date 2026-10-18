@@ -1,10 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { byPopularity, getAlternative, getSubscription, STARTER_STACKS, fromMonthly } from '../lib/data'
-import { newCatalogItem, resolveItem } from '../lib/selection'
+import { byPopularity, getSubscription, STARTER_STACKS, fromMonthly } from '../lib/data'
+import { defaultSwap, newCatalogItem, resolveItem } from '../lib/selection'
 import { formatMoney, summarize } from '../lib/savings'
 import { useSelection } from '../state'
 import { CountUp, Money, ToolTile } from '../components/ui'
 import { LevelChip } from '../components/ReplaceMeter'
+import QuickAdd from '../components/QuickAdd'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -33,17 +34,21 @@ export default function Home() {
           <p className="mt-6 max-w-xl text-lg text-ink-soft">
             See how much your apps really cost each year. Find free ones that do the same job. Or build your own with an AI helper.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/start" className="btn-primary px-6 py-3.5 text-base">
-              Start: what do I pay for? →
+          <div className="mt-8">
+            <QuickAdd />
+          </div>
+          <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold">
+            <Link to="/start" className="text-money underline">
+              Browse all {byPopularity.length} apps →
             </Link>
-            <Link to="/remake" className="btn-ghost px-6 py-3.5 text-base">
+            <Link to="/remake" className="text-ink-soft underline hover:text-ink">
               ✨ Build my own app
             </Link>
-          </div>
-          <p className="mt-4 text-sm text-ink-soft">
-            Works for the {byPopularity.length} apps people pay for most, and anything else you add. No sign-up. Takes 2 minutes.
+            <Link to="/ai-helpers" className="text-ink-soft underline hover:text-ink">
+              👋 New to AI coding?
+            </Link>
           </p>
+          <p className="mt-2 text-sm text-ink-soft">No sign-up. Takes 2 minutes. What you pick stays on your device.</p>
         </div>
 
         <div className="relative mx-auto w-full max-w-md">
@@ -131,7 +136,7 @@ export default function Home() {
         </div>
         <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {byPopularity.slice(0, 12).map((s) => {
-            const alt = getAlternative(s.alternatives[0])
+            const alt = defaultSwap(s)
             return (
               <Link key={s.id} to={`/tool/${s.id}`} className="card flex min-w-0 items-center gap-3 p-3 transition hover:-translate-y-0.5 hover:border-ink">
                 <ToolTile name={s.name} size={40} />

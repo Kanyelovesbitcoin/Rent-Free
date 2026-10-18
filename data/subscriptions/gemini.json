@@ -29,8 +29,9 @@
   "sourceUrl": "https://one.google.com/about/ai-premium",
   "lastVerified": "2026-10-18",
   "alternatives": [
-    "ollama-openwebui",
     "lm-studio",
+    "jan",
+    "ollama-openwebui",
     "hybrid-api"
   ],
   "kind": "software",

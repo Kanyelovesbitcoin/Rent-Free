@@ -22,6 +22,7 @@ const readDir = (dir: string): RawFile[] =>
 const { catalog, errors: catalogErrors } = loadCatalog({
   categories: readJson('categories.json'),
   localModels: readJson('local-models.json'),
+  apis: readJson('apis.json'),
   subscriptions: readDir('subscriptions'),
   alternatives: readDir('alternatives'),
 })
@@ -34,5 +35,5 @@ if (errors.length) {
 }
 console.log(
   `✓ data OK: ${catalog.subscriptions.length} subscriptions, ${catalog.alternatives.length} alternatives, ` +
-    `${catalog.categories.length} categories, ${catalog.localModels.length} local models`,
+    `${catalog.categories.length} categories, ${catalog.localModels.length} local models, ${catalog.apis.length} APIs`,
 )

@@ -11,21 +11,24 @@
   ],
   "difficulty": "easy",
   "setupHours": 0.5,
-  "summary": "The easiest way to try free AI on your computer. Download one app, pick a model, start chatting.",
+  "summary": "The easiest free AI for your computer. One app: pick an AI, download it, and chat. No typing commands.",
   "gains": [
-    "No terminal needed",
-    "Shows which models fit your computer",
-    "Chat with your documents offline"
+    "No typing commands: everything is buttons",
+    "It tells you which AIs fit your computer",
+    "Private: your chats stay on your computer",
+    "Can also run as a local \"AI server\" for apps you build"
   ],
   "tradeoffs": [
-    "The app itself isn't open source (the models are)",
-    "Same quality limits as any local model"
+    "The app itself is free but not open source (the AIs inside are)",
+    "Not as smart as the newest paid AIs, especially on smaller computers"
   ],
   "setupSteps": [
-    "Download LM Studio from lmstudio.ai",
-    "Open the Discover tab and search for the model the Local AI advisor recommends",
-    "Download it (LM Studio warns you if it is too big for your computer)",
-    "Go to the Chat tab, load the model and start chatting"
+    "Go to lmstudio.ai and click the download button for your computer (Mac, Windows or Linux)",
+    "Open the file you downloaded and install it like any other app",
+    "Open LM Studio. Click the magnifying glass (Discover) on the left",
+    "Search for the AI our Free AI page suggests (for example \"Qwen3 8B\") and click Download",
+    "When it finishes, click Chat on the left, pick the AI at the top, and start typing",
+    "Tip: LM Studio warns you if an AI is too big for your computer, so pick one it says will fit"
   ],
   "commercialNote": "Closed-source app. Check LM Studio's terms for workplace use; the models you run have their own licenses (see the Local AI page)."
 }

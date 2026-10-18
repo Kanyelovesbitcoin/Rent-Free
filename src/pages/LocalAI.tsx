@@ -48,7 +48,7 @@ export default function LocalAI() {
 
   const rec = useMemo(() => recommend({ machine, ramGB, vramGB, useCases }, allLocalModels), [machine, ramGB, vramGB, useCases])
   const apiMonthly = apiMonthlyCost(usage)
-  const apps = ['lm-studio', 'ollama-openwebui', 'jan'].map((id) => getAlternative(id)!).filter(Boolean)
+  const apps = ['lm-studio', 'jan', 'ollama-openwebui'].map((id) => getAlternative(id)!).filter(Boolean)
 
   return (
     <div className="space-y-12">
@@ -195,7 +195,7 @@ export default function LocalAI() {
           {apps.map((a, i) => (
             <div key={a.id} className="card flex flex-col p-5">
               <h3 className="font-semibold">
-                {a.name} {i === 0 && <Badge className="ml-1 border-2 border-ink bg-hilite text-ink">Easiest</Badge>}
+                {a.name} {i === 0 && <Badge className="ml-1 border-2 border-ink bg-hilite text-ink">Easiest: no commands</Badge>}
               </h3>
               <p className="mt-1 flex-1 text-sm text-ink-soft">{a.summary}</p>
               <div className="mt-3">
@@ -305,11 +305,27 @@ function ModelCard({ model, title }: { model: LocalModel; title: string }) {
       <p className="mt-2 text-xs text-ink-soft">
         {model.paramsB}B parameters{model.activeParamsB ? ` (${model.activeParamsB}B active)` : ''} · ~{model.sizeGB} GB download · good for {model.bestFor.join(', ')} · license: {model.license}
       </p>
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <code className="rounded-lg bg-paper-2 px-3 py-2 text-sm">{cmd}</code>
-        <CopyButton text={cmd} label="Copy command" />
+      <ol className="mt-3 space-y-1.5 rounded-xl bg-paper-2 p-3 text-sm">
+        <li>
+          1. Open <strong>LM Studio</strong> (free, see below) and click the 🔍 <strong>Discover</strong> button.
+        </li>
+        <li>
+          2. Search for <strong>"{model.name}"</strong> and click <strong>Download</strong>.
+        </li>
+        <li>
+          3. Click <strong>Chat</strong>, pick it at the top, and say hi. 👋
+        </li>
+      </ol>
+      <div className="mt-2 flex items-center gap-2">
+        <CopyButton text={model.name} label="Copy name to search" toast="Name copied. Paste it in LM Studio's search" />
       </div>
-      <p className="mt-2 text-xs text-ink-soft">In LM Studio or Jan, search for "{model.name}" instead.</p>
+      <details className="mt-3 text-xs text-ink-soft">
+        <summary className="cursor-pointer font-bold">For advanced users: Ollama command</summary>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          <code className="rounded-lg bg-paper-2 px-3 py-2 text-sm text-ink">{cmd}</code>
+          <CopyButton text={cmd} label="Copy command" />
+        </div>
+      </details>
     </div>
   )
 }

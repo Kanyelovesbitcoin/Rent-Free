@@ -108,6 +108,32 @@ export const LocalModelSchema = z.object({
   notes: z.string(),
 })
 
+// A "building block" service people can plug into an app they build (data/apis.json).
+export const ApiCategorySchema = z.enum(['ai', 'email', 'database', 'login', 'hosting', 'payments', 'storage', 'speech', 'search', 'maps', 'images', 'video'])
+export const ApiSchema = z.object({
+  id,
+  name: z.string(),
+  category: ApiCategorySchema,
+  // One plain sentence: what does it do for your app?
+  what: z.string(),
+  freeTier: z.string(),
+  paidFrom: z.string(),
+  openSource: z.boolean(),
+  // Runs on your own computer (no account, no bill).
+  runsLocally: z.boolean(),
+  website: z.string().url(),
+  docsUrl: z.string().url(),
+  signupSteps: z.array(z.string()).min(1),
+  // Settings the app will need, e.g. RESEND_API_KEY. Goes into .env.example.
+  envVars: z.array(z.string()),
+  goodFor: z.array(z.string()).min(1),
+  sourceUrl: z.string().url(),
+  lastVerified: isoDate,
+  note: z.string().optional(),
+})
+export type ApiCategory = z.infer<typeof ApiCategorySchema>
+export type Api = z.infer<typeof ApiSchema>
+
 export type Category = z.infer<typeof CategorySchema>
 export type Plan = z.infer<typeof PlanSchema>
 export type Subscription = z.infer<typeof SubscriptionSchema>

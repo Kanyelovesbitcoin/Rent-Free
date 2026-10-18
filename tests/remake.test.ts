@@ -15,6 +15,8 @@ const defaults = (sub: Subscription): RemakeConfig => ({
   stack: 'auto',
   style: '',
   localData: true,
+  apiOff: [],
+  apiExtra: [],
 })
 const cx = (sub: Subscription, c: RemakeConfig): ComplexityInput => ({
   base: sub.complexity as 1 | 2 | 3 | 4,

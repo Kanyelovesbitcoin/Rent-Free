@@ -74,7 +74,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={show}>
       {children}
-      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-24 z-50 flex justify-center px-4 md:bottom-8">
+      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-36 z-50 flex justify-center px-4 lg:bottom-8">
         {msg && (
           <div key={msg.id} className="pop animate-rise rounded-xl bg-ink px-4 py-2.5 text-sm font-bold text-paper" role="status">
             {msg.text}
@@ -186,7 +186,7 @@ export function Segmented<T extends string>({ value, options, onChange, label }:
 const STEPS = [
   { n: 1, label: 'Pick', to: '/start' },
   { n: 2, label: 'See savings', to: '/results' },
-  { n: 3, label: 'Switch or build your own', to: null },
+  { n: 3, label: 'My plan', to: '/plan' },
 ]
 export function Stepper({ current }: { current: 1 | 2 | 3 }) {
   return (

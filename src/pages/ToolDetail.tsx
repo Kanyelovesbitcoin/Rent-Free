@@ -1,5 +1,5 @@
 import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom'
-import { fromMonthly, getAlternative, getCategory, getSubscription } from '../lib/data'
+import { fromMonthly, getAlternative, getCategory, getSubscription, STARTER_STACKS, byPopularity } from '../lib/data'
 import { alternativeYearly, formatMoney, yearlyCost } from '../lib/savings'
 import type { Alternative } from '../lib/schema'
 import { bestSwap, newCatalogItem, resolveItem } from '../lib/selection'
@@ -181,6 +181,8 @@ export default function ToolDetail() {
       )}
 
       {tab === 'remake' && <RemakeStudio key={sub.id} subject={subjectFromSubscription(sub, yearly)} />}
+
+      <RelatedApps id={sub.id} category={sub.category} />
     </div>
   )
 }
@@ -274,5 +276,29 @@ function AlternativeCard({ alt, recommended, replacing }: { alt: Alternative; re
         </p>
       )}
     </article>
+  )
+}
+
+// "People who pay for this also pay for…" from starter stacks and the same category.
+function RelatedApps({ id, category }: { id: string; category: string }) {
+  const fromStacks = STARTER_STACKS.filter((s) => s.ids.includes(id)).flatMap((s) => s.ids)
+  const sameCat = byPopularity.filter((s) => s.category === category).map((s) => s.id)
+  const ids = [...new Set([...sameCat, ...fromStacks])].filter((x) => x !== id).slice(0, 8)
+  if (!ids.length) return null
+  return (
+    <section className="mt-12 print:hidden" data-testid="related">
+      <h2 className="font-display text-xl font-extrabold">People who pay for this also pay for…</h2>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {ids.map((rid) => {
+          const s = getSubscription(rid)!
+          return (
+            <Link key={rid} to={`/tool/${rid}`} className="card flex items-center gap-2 px-3 py-2 text-sm font-bold hover:border-ink">
+              <ToolTile name={s.name} size={24} />
+              {s.name}
+            </Link>
+          )
+        })}
+      </div>
+    </section>
   )
 }

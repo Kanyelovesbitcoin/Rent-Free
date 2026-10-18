@@ -87,6 +87,12 @@ export default function Results() {
             <p className="text-xs text-ink-soft">to make all the switches</p>
           </div>
         </div>
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <Link to="/plan" className="btn-primary px-5 py-3 text-base" data-testid="make-plan">
+            ✅ Make my switch plan →
+          </Link>
+          <span className="text-sm text-ink-soft">Easiest first, step by step, with calendar reminders.</span>
+        </div>
         <p className="mt-4 text-xs text-ink-soft">These are estimates. Your real bill may be a little different.</p>
       </section>
 
@@ -132,9 +138,14 @@ export default function Results() {
               </label>
             </div>
           )}
-          <Link to="/start" className="btn-ghost">
-            ← Add or edit subscriptions
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/start" className="btn-ghost">
+              ← Add or edit apps
+            </Link>
+            <Link to="/plan" className="btn-primary">
+              ✅ Make my switch plan →
+            </Link>
+          </div>
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">

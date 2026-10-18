@@ -1,5 +1,11 @@
 import { useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { toPng } from 'html-to-image'
 import { AGENTS, agentPrompt, type AgentId, type RemakeConfig, type Stack } from '../lib/agentPrompt'
+import { selectedApis, suggestApis } from '../lib/apiSuggest'
+import { allApis } from '../lib/data'
+import { downloadFile } from '../lib/ics'
+import { starterKitZip } from '../lib/starterKit'
 import { hardParts, tierFor, type Audience, type Platform, type RunsOn } from '../lib/complexity'
 import { useRemakeConfig } from '../lib/remakeStore'
 import { renderWireframe, type WireframeId } from '../lib/wireframes'
@@ -21,6 +27,7 @@ export interface RemakeSubject {
   yearlyCost?: number
   baseAlternative?: string
   userDescription?: string // custom entries: what the user typed when adding it
+  categoryId?: string
 }
 
 const AGENT_ORDER: AgentId[] = ['claude-code', 'codex', 'opencode', 'cursor', 'chat']
@@ -39,6 +46,8 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
       stack: 'auto',
       style: '',
       localData: true,
+      apiOff: [],
+      apiExtra: [],
     }),
     [subject],
   )
@@ -53,6 +62,9 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
   const cxInput = { base: subject.complexity, features: allFeatures, audience: config.audience, runsOn: config.runsOn, platform: config.platform }
   const tier = tierFor(cxInput)
   const hard = hardParts(allFeatures)
+  const suggestions = suggestApis({ features: allFeatures, categoryId: subject.categoryId, audience: config.audience, runsOn: config.runsOn })
+  const apis = selectedApis(suggestions, config.apiOff ?? [], config.apiExtra ?? [], allApis)
+  const [kitBusy, setKitBusy] = useState(false)
   const prompt = agentPrompt({
     inspiredBy: subject.name,
     categoryName: subject.categoryName,
@@ -65,6 +77,7 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
     config,
     tier,
     agent,
+    apis,
   })
   const wireframeHtml = useMemo(() => renderWireframe(subject.wireframe, config.appName || 'Your app'), [subject.wireframe, config.appName])
   const options = [...subject.coreFeatures, ...subject.extraFeatures.filter((f) => !subject.coreFeatures.includes(f))]
@@ -83,6 +96,34 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
     a.click()
     URL.revokeObjectURL(a.href)
     notify('Prompt downloaded')
+  }
+  const toggleApi = (id: string, suggested: boolean) => {
+    const off = config.apiOff ?? []
+    const extra = config.apiExtra ?? []
+    const on = apis.some((a) => a.id === id)
+    if (suggested) set({ apiOff: on ? [...off, id] : off.filter((x) => x !== id) })
+    else set({ apiExtra: on ? extra.filter((x) => x !== id) : [...extra, id] })
+  }
+  const downloadKit = async () => {
+    setKitBusy(true)
+    try {
+      let png: Uint8Array | undefined
+      const body = frame.current?.offsetParent ? frame.current.contentDocument?.body : null
+      if (body) {
+        try {
+          const dataUrl = await toPng(body, { pixelRatio: 2 })
+          png = Uint8Array.from(atob(dataUrl.split(',')[1]), (c) => c.charCodeAt(0))
+        } catch {
+          // The sketch is optional; the HTML version is always included.
+        }
+      }
+      const slug = subject.key.replace(/[^a-z0-9-]/gi, '-').toLowerCase()
+      const zip = starterKitZip({ slug, name: subject.name, prompt, agent, apis, wireframeHtml, wireframePng: png })
+      downloadFile(zip, `rent-free-starter-${slug}.zip`, 'application/zip')
+      notify('Starter kit downloaded. Unzip it and open the folder in your AI helper')
+    } finally {
+      setKitBusy(false)
+    }
   }
 
   return (
@@ -220,9 +261,61 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
           <p className="mt-3 text-xs text-ink-soft">Tick more features and the job gets bigger. Bigger jobs get more careful instructions, so the AI works step by step.</p>
         </div>
 
+        <div className="card p-5" data-testid="building-blocks">
+          <p className="label">3. Building blocks (free services)</p>
+          <p className="text-sm text-ink-soft">
+            Your app doesn't have to build everything from scratch. These services plug right in, like plugging a lamp into the wall. We picked them from your features.
+          </p>
+          <ul className="mt-3 space-y-2">
+            {[...suggestions.map((s) => ({ ...s, suggested: true })), ...(config.apiExtra ?? []).filter((id) => !suggestions.some((s) => s.id === id)).map((id) => ({ id, why: 'You added this.', suggested: false }))].map(({ id, why, suggested }) => {
+              const api = allApis.find((a) => a.id === id)
+              if (!api) return null
+              const on = apis.some((a) => a.id === id)
+              return (
+                <li key={id}>
+                  <label className={`flex cursor-pointer items-start gap-3 rounded-xl border-2 p-3 transition ${on ? 'border-ink bg-money-soft/60' : 'border-line'}`}>
+                    <input type="checkbox" className="mt-1 h-4 w-4 accent-[var(--money)]" checked={on} onChange={() => toggleApi(id, suggested)} aria-label={`Use ${api.name}`} />
+                    <span className="min-w-0">
+                      <span className="flex flex-wrap items-center gap-1.5 font-bold">
+                        {api.name}
+                        {api.runsLocally && <Badge className="bg-paper-2 text-ink-soft">💻 on your computer</Badge>}
+                        {api.openSource && <Badge className="bg-paper-2 text-ink-soft">open source</Badge>}
+                      </span>
+                      <span className="block text-sm text-ink-soft">{why}</span>
+                      <span className="block text-xs text-money-ink">Free: {api.freeTier}</span>
+                    </span>
+                  </label>
+                </li>
+              )
+            })}
+          </ul>
+          <details className="mt-3">
+            <summary className="cursor-pointer text-sm font-bold">+ Add another building block</summary>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {allApis
+                .filter((a) => !suggestions.some((s) => s.id === a.id) && !(config.apiExtra ?? []).includes(a.id))
+                .map((a) => (
+                  <button key={a.id} type="button" className="rounded-full border-2 border-line px-3 py-1 text-xs font-bold hover:border-ink" onClick={() => toggleApi(a.id, false)}>
+                    + {a.name}
+                  </button>
+                ))}
+            </div>
+            <Link to="/toolbox" className="mt-2 inline-block text-xs font-bold text-money underline">
+              What are these? See the toolbox →
+            </Link>
+          </details>
+        </div>
+
         <div className="card p-5">
-          <p className="label">3. Pick your AI helper</p>
-          <p className="mb-3 text-sm text-ink-soft">These apps have an AI that writes the code for you. New to this? Start with Claude Code, or pick Chat to use Claude.ai or ChatGPT.</p>
+          <p className="label">4. Pick your AI helper</p>
+          <Link to="/ai-helpers" className="mb-3 flex items-center gap-3 rounded-xl border-2 border-hilite bg-hilite/15 p-3 text-sm hover:border-ink" data-testid="ai-helpers-banner">
+            <span className="text-2xl" aria-hidden>
+              👋
+            </span>
+            <span>
+              <strong>Never used an AI helper?</strong> Read our 5-minute beginner guide: what Claude Code and Codex are, what they cost, and your first 30 minutes. →
+            </span>
+          </Link>
           <div role="tablist" aria-label="Coding agent" className="flex flex-wrap gap-1.5">
             {AGENT_ORDER.map((id) => (
               <button
@@ -237,6 +330,7 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
               </button>
             ))}
           </div>
+          <p className="mt-2 text-xs font-bold text-ink-soft">💳 {AGENTS[agent].cost}</p>
           <ol className="mt-4 list-decimal space-y-1 pl-5 text-sm text-ink-soft">
             {AGENTS[agent].howToRun.map((s) => (
               <li key={s} dangerouslySetInnerHTML={{ __html: s.replace(/`([^`]+)`/g, '<code class="rounded bg-paper-2 px-1 py-0.5 font-mono text-ink text-xs">$1</code>') }} />
@@ -252,10 +346,20 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
               ⬇ Download .md
             </button>
           </div>
+          <div className="mt-4 rounded-xl border-2 border-ink bg-paper-2 p-4">
+            <p className="font-display text-lg font-extrabold">📦 Easiest way: download the starter kit</p>
+            <p className="mt-1 text-sm text-ink-soft">
+              One folder with the instructions, a "start here" guide, the settings file and the sketch. Unzip it, open the folder in {AGENTS[agent].name}, and say{' '}
+              <em>"Read START-HERE.md and let's build it."</em>
+            </p>
+            <button type="button" className="btn-dark mt-3" onClick={downloadKit} disabled={kitBusy}>
+              {kitBusy ? 'Packing…' : '⬇ Download starter kit (.zip)'}
+            </button>
+          </div>
         </div>
 
         <details className="card p-5">
-          <summary className="cursor-pointer font-display text-lg font-extrabold">4. Add a sketch of the screen (optional)</summary>
+          <summary className="cursor-pointer font-display text-lg font-extrabold">5. Add a sketch of the screen (optional)</summary>
           <p className="mt-1 text-sm text-ink-soft">A simple gray drawing of how the app could look. Download it and drop it into your AI helper with the instructions.</p>
           <iframe ref={frame} title="Wireframe preview" srcDoc={wireframeHtml} sandbox="allow-same-origin" className="mt-3 h-80 w-full rounded-xl border-2 border-line bg-white" />
           <div className="mt-3 flex flex-wrap gap-2">

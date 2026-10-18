@@ -10,6 +10,9 @@ import LocalAI from './pages/LocalAI'
 import Contribute from './pages/Contribute'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
+import Plan from './pages/Plan'
+import Toolbox from './pages/Toolbox'
+import AiHelpers from './pages/AiHelpers'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -21,6 +24,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/start" element={<Picker />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/plan" element={<Plan />} />
+        <Route path="/toolbox" element={<Toolbox />} />
+        <Route path="/ai-helpers" element={<AiHelpers />} />
         <Route path="/tool/:id" element={<ToolDetail />} />
         <Route path="/remake" element={<RemakeIndex />} />
         <Route path="/remake/:id" element={<RemakeTool />} />

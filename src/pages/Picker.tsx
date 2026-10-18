@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { allCategories, byPopularity, fromMonthly, getAlternative, getCategory, getSubscription } from '../lib/data'
-import { newCatalogItem, resolveItem, type CatalogItem, type ResolvedItem } from '../lib/selection'
+import { allCategories, byPopularity, fromMonthly, getCategory, getSubscription } from '../lib/data'
+import { defaultSwap, newCatalogItem, resolveItem, type CatalogItem, type ResolvedItem } from '../lib/selection'
 import { formatMoney } from '../lib/savings'
 import { useSelection } from '../state'
 import ItemEditor from '../components/ItemEditor'
@@ -32,7 +32,7 @@ export default function Picker() {
   }, [query, tab])
 
   return (
-    <div className="pb-28 lg:pb-0">
+    <div className="pb-20 lg:pb-0">
       <Stepper current={1} />
       <PageHeader title={<>What do you <span className="hl">pay for</span>?</>}>Tap every app you pay for. We fill in the price. If you pay a different price, tap it on your receipt to change it.</PageHeader>
 
@@ -76,7 +76,7 @@ export default function Picker() {
                     <span className="block text-xs text-ink-soft">
                       from <span className="money">{formatMoney(fromMonthly(s))}</span>/mo
                     </span>
-                    <LevelChip alt={getAlternative(s.alternatives[0])} />
+                    <LevelChip alt={defaultSwap(s)} />
                   </span>
                 </label>
               )
@@ -123,7 +123,7 @@ export default function Picker() {
       </div>
 
       {/* phone bottom bar */}
-      <div className="fixed inset-x-0 bottom-0 z-20 border-t-2 border-ink bg-card lg:hidden">
+      <div className="fixed inset-x-0 bottom-[60px] z-20 border-t-2 border-ink bg-card lg:hidden">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
           <a href="#receipt" className="text-sm">
             <strong>{selection.items.length}</strong> picked · <span className="money font-bold text-rent">{formatMoney(total)}</span>

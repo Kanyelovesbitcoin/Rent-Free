@@ -1,0 +1,733 @@
+[
+  {
+    "id": "lm-studio-server",
+    "name": "LM Studio (local AI server)",
+    "category": "ai",
+    "what": "Free AI that runs on your own computer. Your app talks to it like it talks to ChatGPT.",
+    "freeTier": "Free. No account. Unlimited.",
+    "paidFrom": "Always free",
+    "openSource": false,
+    "runsLocally": true,
+    "website": "https://lmstudio.ai",
+    "docsUrl": "https://lmstudio.ai/docs/app/api",
+    "signupSteps": [
+      "Install LM Studio and download an AI (see our Free AI page)",
+      "Click the Developer tab, then turn on \"Start server\"",
+      "Your app connects to http://localhost:1234/v1"
+    ],
+    "envVars": [
+      "AI_BASE_URL=http://localhost:1234/v1",
+      "AI_MODEL="
+    ],
+    "goodFor": [
+      "Chat and writing features",
+      "Private apps",
+      "Learning with no bill"
+    ],
+    "sourceUrl": "https://docs.openwebui.com/alternatives/lm-studio.md",
+    "lastVerified": "2026-10-18",
+    "note": "Works with any app built for the OpenAI API. Only works while your computer is on."
+  },
+  {
+    "id": "ollama-api",
+    "name": "Ollama (local AI server)",
+    "category": "ai",
+    "what": "Free AI on your own computer, for people who are okay typing a command or two.",
+    "freeTier": "Free. No account. Unlimited.",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://ollama.com",
+    "docsUrl": "https://docs.ollama.com",
+    "signupSteps": [
+      "Install Ollama from ollama.com",
+      "Type `ollama run qwen3:8b` once to download an AI",
+      "Your app connects to http://localhost:11434/v1"
+    ],
+    "envVars": [
+      "AI_BASE_URL=http://localhost:11434/v1",
+      "AI_MODEL=qwen3:8b"
+    ],
+    "goodFor": [
+      "Chat and writing features",
+      "Private apps"
+    ],
+    "sourceUrl": "https://ollama.com",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "openrouter",
+    "name": "OpenRouter",
+    "category": "ai",
+    "what": "One key that unlocks hundreds of AI models, including some free ones.",
+    "freeTier": "Some free models: about 50 requests a day (more after you add $10 of credit)",
+    "paidFrom": "Pay per use, depends on the model",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://openrouter.ai",
+    "docsUrl": "https://openrouter.ai/docs",
+    "signupSteps": [
+      "Sign up at openrouter.ai",
+      "Go to Keys and click Create Key",
+      "Set a monthly spending limit in Settings"
+    ],
+    "envVars": [
+      "OPENROUTER_API_KEY"
+    ],
+    "goodFor": [
+      "Trying many AIs",
+      "Smart AI only when needed"
+    ],
+    "sourceUrl": "https://www.truefoundry.com/blog/openrouter-free-models-whats-actually-free-and-what-it-costs-you",
+    "lastVerified": "2026-10-18",
+    "note": "Free models come and go, so pick a backup model too."
+  },
+  {
+    "id": "google-ai-studio",
+    "name": "Google AI Studio (Gemini API)",
+    "category": "ai",
+    "what": "Google's Gemini AI for your app, with a free plan to start.",
+    "freeTier": "Free plan with daily limits (see your limits inside AI Studio)",
+    "paidFrom": "Pay per use after you turn on billing",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://aistudio.google.com",
+    "docsUrl": "https://ai.google.dev/gemini-api/docs",
+    "signupSteps": [
+      "Sign in at aistudio.google.com with a Google account",
+      "Click \"Get API key\" and create one"
+    ],
+    "envVars": [
+      "GEMINI_API_KEY"
+    ],
+    "goodFor": [
+      "Chat features",
+      "Reading images and PDFs"
+    ],
+    "sourceUrl": "https://ai.google.dev/gemini-api/docs/rate-limits.md.txt",
+    "lastVerified": "2026-10-18",
+    "note": "On the free plan, Google may use what you send to improve its products."
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "category": "ai",
+    "what": "Very fast AI and speech-to-text, with a free plan to start.",
+    "freeTier": "Free plan with daily limits, no card needed",
+    "paidFrom": "Pay per use",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://groq.com",
+    "docsUrl": "https://console.groq.com/docs",
+    "signupSteps": [
+      "Sign up at console.groq.com",
+      "Click API Keys and create one"
+    ],
+    "envVars": [
+      "GROQ_API_KEY"
+    ],
+    "goodFor": [
+      "Fast chat replies",
+      "Turning audio into text"
+    ],
+    "sourceUrl": "https://eesel.ai/blog/groq-pricing",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "anthropic-api",
+    "name": "Claude API (Anthropic)",
+    "category": "ai",
+    "what": "The Claude AI for your own app. You pay only for what you use.",
+    "freeTier": "No free plan",
+    "paidFrom": "Pay per use (cents for most small apps)",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://console.anthropic.com",
+    "docsUrl": "https://docs.anthropic.com",
+    "signupSteps": [
+      "Sign up at console.anthropic.com",
+      "Add a small amount of credit and set a spending limit",
+      "Create an API key"
+    ],
+    "envVars": [
+      "ANTHROPIC_API_KEY"
+    ],
+    "goodFor": [
+      "Smart writing and thinking",
+      "Hard questions"
+    ],
+    "sourceUrl": "https://www.anthropic.com/pricing",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "openai-api",
+    "name": "OpenAI API",
+    "category": "ai",
+    "what": "The ChatGPT AIs for your own app. You pay only for what you use.",
+    "freeTier": "No free plan",
+    "paidFrom": "Pay per use",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://platform.openai.com",
+    "docsUrl": "https://platform.openai.com/docs",
+    "signupSteps": [
+      "Sign up at platform.openai.com",
+      "Add a small amount of credit and set a spending limit",
+      "Create an API key"
+    ],
+    "envVars": [
+      "OPENAI_API_KEY"
+    ],
+    "goodFor": [
+      "Chat features",
+      "Images and voice"
+    ],
+    "sourceUrl": "https://openai.com/api/pricing/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "resend",
+    "name": "Resend",
+    "category": "email",
+    "what": "Sends emails from your app, like sign-up codes, receipts and reminders.",
+    "freeTier": "3,000 emails a month (100 a day)",
+    "paidFrom": "From about $20 a month",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://resend.com",
+    "docsUrl": "https://resend.com/docs",
+    "signupSteps": [
+      "Sign up at resend.com",
+      "Add your website domain and follow the steps to verify it",
+      "Create an API key"
+    ],
+    "envVars": [
+      "RESEND_API_KEY",
+      "EMAIL_FROM"
+    ],
+    "goodFor": [
+      "Reminders and confirmations",
+      "Login codes"
+    ],
+    "sourceUrl": "https://automationatlas.io/answers/resend-free-tier-explained-2026/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "brevo",
+    "name": "Brevo",
+    "category": "email",
+    "what": "Sends emails and newsletters, with a big free daily allowance.",
+    "freeTier": "300 emails a day",
+    "paidFrom": "Paid plans for more emails",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://www.brevo.com",
+    "docsUrl": "https://developers.brevo.com",
+    "signupSteps": [
+      "Sign up at brevo.com",
+      "Verify your sender email or domain",
+      "Create an API key under SMTP & API"
+    ],
+    "envVars": [
+      "BREVO_API_KEY",
+      "EMAIL_FROM"
+    ],
+    "goodFor": [
+      "Newsletters",
+      "Reminders"
+    ],
+    "sourceUrl": "https://automationatlas.io/answers/brevo-pricing-explained-2026/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "amazon-ses",
+    "name": "Amazon SES",
+    "category": "email",
+    "what": "Very cheap email sending for big lists. Harder to set up.",
+    "freeTier": "Small free allowance for new accounts",
+    "paidFrom": "About $0.10 per 1,000 emails",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://aws.amazon.com/ses/",
+    "docsUrl": "https://docs.aws.amazon.com/ses/",
+    "signupSteps": [
+      "Make an AWS account",
+      "Verify your domain in SES",
+      "Ask AWS to move you out of \"sandbox\" mode so you can email anyone"
+    ],
+    "envVars": [
+      "AWS_ACCESS_KEY_ID",
+      "AWS_SECRET_ACCESS_KEY",
+      "AWS_REGION",
+      "EMAIL_FROM"
+    ],
+    "goodFor": [
+      "Big newsletters",
+      "Lowest cost at scale"
+    ],
+    "sourceUrl": "https://aws.amazon.com/ses/pricing/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "sqlite",
+    "name": "SQLite",
+    "category": "database",
+    "what": "A tiny database that lives in one file inside your app. Nothing to sign up for.",
+    "freeTier": "Free forever",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://sqlite.org",
+    "docsUrl": "https://sqlite.org/docs.html",
+    "signupSteps": [
+      "Nothing to sign up for: your AI helper adds it to the app"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Apps just for you or your family",
+      "Apps on your own computer"
+    ],
+    "sourceUrl": "https://sqlite.org/copyright.html",
+    "lastVerified": "2026-10-18",
+    "note": "Back up the database file to keep your data safe."
+  },
+  {
+    "id": "pocketbase",
+    "name": "PocketBase",
+    "category": "database",
+    "what": "A free database plus logins and file uploads, all in one small app you run yourself.",
+    "freeTier": "Free forever (you run it)",
+    "paidFrom": "Always free; you only pay for your server",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://pocketbase.io",
+    "docsUrl": "https://pocketbase.io/docs/",
+    "signupSteps": [
+      "Download PocketBase for your computer",
+      "Run it and open the admin page in your browser",
+      "Create your first account and tables"
+    ],
+    "envVars": [
+      "POCKETBASE_URL=http://127.0.0.1:8090"
+    ],
+    "goodFor": [
+      "Logins for family or team",
+      "Saving data and files"
+    ],
+    "sourceUrl": "https://pkg.go.dev/github.com/pocketbase/pocketbase@v0.40.3",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "category": "login",
+    "what": "A hosted database with logins, file storage and live updates.",
+    "freeTier": "500 MB database, 1 GB files, 50,000 users a month; pauses after a week with no use",
+    "paidFrom": "$25 a month per project",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://supabase.com",
+    "docsUrl": "https://supabase.com/docs",
+    "signupSteps": [
+      "Sign up at supabase.com",
+      "Click New project and pick a password",
+      "Copy the project URL and anon key from Project Settings → API"
+    ],
+    "envVars": [
+      "SUPABASE_URL",
+      "SUPABASE_ANON_KEY"
+    ],
+    "goodFor": [
+      "Logins",
+      "Sharing data between devices",
+      "Team apps"
+    ],
+    "sourceUrl": "https://automationatlas.io/answers/supabase-free-tier-limits-2026/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase (Google)",
+    "category": "login",
+    "what": "Google's hosted database and logins for apps.",
+    "freeTier": "Free \"Spark\" plan with daily limits",
+    "paidFrom": "Pay per use (\"Blaze\" plan)",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://firebase.google.com",
+    "docsUrl": "https://firebase.google.com/docs",
+    "signupSteps": [
+      "Sign in at firebase.google.com with a Google account",
+      "Create a project and add a web app",
+      "Copy the config settings it shows you"
+    ],
+    "envVars": [
+      "FIREBASE_API_KEY",
+      "FIREBASE_PROJECT_ID"
+    ],
+    "goodFor": [
+      "Logins",
+      "Phone-friendly apps"
+    ],
+    "sourceUrl": "https://firebase.google.com/pricing",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "cloudflare-pages",
+    "name": "Cloudflare Pages",
+    "category": "hosting",
+    "what": "Puts your website online for free, with no limit on visitors.",
+    "freeTier": "Unlimited visitors for simple sites, 500 updates a month; business use allowed",
+    "paidFrom": "Paid plans for bigger apps",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://pages.cloudflare.com",
+    "docsUrl": "https://developers.cloudflare.com/pages/",
+    "signupSteps": [
+      "Sign up at cloudflare.com",
+      "Go to Workers & Pages → Create → connect your GitHub",
+      "Pick your project and click Deploy"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Websites and simple apps",
+      "Business sites"
+    ],
+    "sourceUrl": "https://flaviocopes.com/hosting-free-tiers/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "category": "hosting",
+    "what": "Puts your website online with a few clicks. Great for Next.js apps.",
+    "freeTier": "Free \"Hobby\" plan for personal projects only",
+    "paidFrom": "Pro from $20 a month (needed for business use)",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://vercel.com",
+    "docsUrl": "https://vercel.com/docs",
+    "signupSteps": [
+      "Sign up at vercel.com with GitHub",
+      "Click Add New → Project and pick your project",
+      "Click Deploy"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Personal apps",
+      "Next.js apps"
+    ],
+    "sourceUrl": "https://flaviocopes.com/hosting-free-tiers/",
+    "lastVerified": "2026-10-18",
+    "note": "The free plan is for personal, non-business use."
+  },
+  {
+    "id": "netlify",
+    "name": "Netlify",
+    "category": "hosting",
+    "what": "Puts your website online. Business use is okay on the free plan.",
+    "freeTier": "Free plan with monthly credits",
+    "paidFrom": "Paid plans for more",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://www.netlify.com",
+    "docsUrl": "https://docs.netlify.com",
+    "signupSteps": [
+      "Sign up at netlify.com with GitHub",
+      "Click Add new site → Import an existing project",
+      "Pick your project and click Deploy"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Websites",
+      "Small business sites"
+    ],
+    "sourceUrl": "https://flaviocopes.com/hosting-free-tiers/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "coolify",
+    "name": "Coolify",
+    "category": "hosting",
+    "what": "Your own free \"Vercel\" on a server you rent. Runs many apps in one place.",
+    "freeTier": "Free (you run it)",
+    "paidFrom": "You pay only for your server, about $5–20 a month",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://coolify.io",
+    "docsUrl": "https://coolify.io/docs",
+    "signupSteps": [
+      "Rent a small server (VPS)",
+      "Run the one-line Coolify installer on it",
+      "Open Coolify in your browser and add your apps"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Running all your self-hosted apps",
+      "Apps with a database"
+    ],
+    "sourceUrl": "https://themenonlab.blog/blog/coolify-self-hosted-paas-open-source",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "category": "payments",
+    "what": "Lets your app take card payments safely. You never touch card numbers.",
+    "freeTier": "No monthly fee",
+    "paidFrom": "2.9% + 30¢ per card payment (US)",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://stripe.com",
+    "docsUrl": "https://docs.stripe.com",
+    "signupSteps": [
+      "Sign up at stripe.com (test mode works right away)",
+      "Copy your test keys from Developers → API keys",
+      "Later, finish the business details to take real payments"
+    ],
+    "envVars": [
+      "STRIPE_SECRET_KEY",
+      "STRIPE_PUBLISHABLE_KEY"
+    ],
+    "goodFor": [
+      "Taking payments",
+      "Selling bookings or products"
+    ],
+    "sourceUrl": "https://www.nerdwallet.com/business/software/learn/stripe-fees",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "cloudflare-r2",
+    "name": "Cloudflare R2",
+    "category": "storage",
+    "what": "Stores files like photos and videos for your app. Downloads are free.",
+    "freeTier": "10 GB free every month",
+    "paidFrom": "About 1.5¢ per GB after that, no download fees",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://www.cloudflare.com/developer-platform/products/r2/",
+    "docsUrl": "https://developers.cloudflare.com/r2/",
+    "signupSteps": [
+      "Sign up at cloudflare.com",
+      "Go to R2 and create a bucket",
+      "Create an API token for R2"
+    ],
+    "envVars": [
+      "R2_ACCOUNT_ID",
+      "R2_ACCESS_KEY_ID",
+      "R2_SECRET_ACCESS_KEY",
+      "R2_BUCKET"
+    ],
+    "goodFor": [
+      "Photo and video uploads",
+      "Backups"
+    ],
+    "sourceUrl": "https://blog.51sec.org/2026/01/cloudflare-r2-operations-and-integrate.html",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "backblaze-b2",
+    "name": "Backblaze B2",
+    "category": "storage",
+    "what": "Cheap file storage, great for backups.",
+    "freeTier": "First 10 GB free",
+    "paidFrom": "About $6.95 per TB a month",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://www.backblaze.com/cloud-storage",
+    "docsUrl": "https://www.backblaze.com/docs/cloud-storage",
+    "signupSteps": [
+      "Sign up at backblaze.com",
+      "Create a bucket",
+      "Create an application key"
+    ],
+    "envVars": [
+      "B2_KEY_ID",
+      "B2_APPLICATION_KEY",
+      "B2_BUCKET"
+    ],
+    "goodFor": [
+      "Backups",
+      "Big file libraries"
+    ],
+    "sourceUrl": "https://www.backblaze.com/b2/cloud-storage-pricing.html",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "whisper-local",
+    "name": "Whisper (on your computer)",
+    "category": "speech",
+    "what": "Turns speech into text on your own computer. Free and private.",
+    "freeTier": "Free. Unlimited.",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://github.com/openai/whisper",
+    "docsUrl": "https://github.com/ggml-org/whisper.cpp",
+    "signupSteps": [
+      "Your AI helper can add it to your app (via whisper.cpp or faster-whisper)",
+      "Or use the Buzz app to try it first"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Transcripts and captions",
+      "Voice notes"
+    ],
+    "sourceUrl": "https://github.com/openai/whisper",
+    "lastVerified": "2026-10-18",
+    "note": "Slower on older computers."
+  },
+  {
+    "id": "searxng",
+    "name": "SearXNG",
+    "category": "search",
+    "what": "A free search engine you run yourself. Your app can search the web with it.",
+    "freeTier": "Free (you run it)",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://docs.searxng.org",
+    "docsUrl": "https://docs.searxng.org",
+    "signupSteps": [
+      "Run SearXNG with Docker on your computer or server",
+      "Turn on the JSON format in its settings",
+      "Your app searches through http://localhost:8080"
+    ],
+    "envVars": [
+      "SEARXNG_URL=http://localhost:8080"
+    ],
+    "goodFor": [
+      "AI answers with sources",
+      "Private search"
+    ],
+    "sourceUrl": "https://github.com/searxng/searxng",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "brave-search",
+    "name": "Brave Search API",
+    "category": "search",
+    "what": "Web search results for your app from an independent search engine.",
+    "freeTier": "$5 of free credit each month (about 1,000 searches)",
+    "paidFrom": "$5 per 1,000 searches after that",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://brave.com/search/api/",
+    "docsUrl": "https://api-dashboard.search.brave.com/app/documentation",
+    "signupSteps": [
+      "Sign up for the Brave Search API",
+      "Pick a plan (credit card needed)",
+      "Create an API key"
+    ],
+    "envVars": [
+      "BRAVE_API_KEY"
+    ],
+    "goodFor": [
+      "AI answers with sources"
+    ],
+    "sourceUrl": "https://www.implicator.ai/brave-drops-free-search-api-tier-puts-all-developers-on-metered-billing/",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "openstreetmap",
+    "name": "OpenStreetMap + MapLibre",
+    "category": "maps",
+    "what": "Free world maps for your app, made by volunteers.",
+    "freeTier": "Free",
+    "paidFrom": "Free (heavy use should use a map host)",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://www.openstreetmap.org",
+    "docsUrl": "https://maplibre.org",
+    "signupSteps": [
+      "Nothing to sign up for to start: your AI helper adds MapLibre to the app",
+      "For lots of visitors, use a map host with a free plan"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Store finders",
+      "Trip and event maps"
+    ],
+    "sourceUrl": "https://wiki.osmfoundation.org/wiki/Licence",
+    "lastVerified": "2026-10-18",
+    "note": "Show \"© OpenStreetMap contributors\" on the map."
+  },
+  {
+    "id": "unsplash",
+    "name": "Unsplash API",
+    "category": "images",
+    "what": "Free, beautiful photos your app can show.",
+    "freeTier": "50 requests an hour to start, 5,000 an hour after approval",
+    "paidFrom": "Free",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://unsplash.com/developers",
+    "docsUrl": "https://unsplash.com/documentation",
+    "signupSteps": [
+      "Sign up at unsplash.com/developers",
+      "Create a new app",
+      "Copy the Access Key"
+    ],
+    "envVars": [
+      "UNSPLASH_ACCESS_KEY"
+    ],
+    "goodFor": [
+      "Backgrounds and covers",
+      "Picture search"
+    ],
+    "sourceUrl": "https://help.unsplash.com/en/articles/3887917-when-should-i-apply-for-a-higher-rate-limit",
+    "lastVerified": "2026-10-18",
+    "note": "Give credit to the photographer, as Unsplash asks."
+  },
+  {
+    "id": "jitsi-embed",
+    "name": "Jitsi Meet",
+    "category": "video",
+    "what": "Free video calls you can put inside your app.",
+    "freeTier": "Free",
+    "paidFrom": "Free (self-host for big groups)",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://jitsi.org",
+    "docsUrl": "https://jitsi.github.io/handbook/",
+    "signupSteps": [
+      "Nothing to sign up for to try it: your AI helper can embed a meet.jit.si room",
+      "For your own private server, self-host Jitsi"
+    ],
+    "envVars": [],
+    "goodFor": [
+      "Video calls",
+      "Coaching sessions"
+    ],
+    "sourceUrl": "https://github.com/jitsi/jitsi-meet",
+    "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "livekit",
+    "name": "LiveKit",
+    "category": "video",
+    "what": "Video, voice and live audio for apps. Open source, with a free cloud plan.",
+    "freeTier": "5,000 minutes a month on the free cloud plan",
+    "paidFrom": "Paid plans from $50 a month",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://livekit.io",
+    "docsUrl": "https://docs.livekit.io",
+    "signupSteps": [
+      "Sign up at cloud.livekit.io",
+      "Create a project",
+      "Copy the URL, API key and secret"
+    ],
+    "envVars": [
+      "LIVEKIT_URL",
+      "LIVEKIT_API_KEY",
+      "LIVEKIT_API_SECRET"
+    ],
+    "goodFor": [
+      "Video calls",
+      "Voice AI apps"
+    ],
+    "sourceUrl": "https://agentdeals.dev/vendor/livekit",
+    "lastVerified": "2026-10-18"
+  }
+]

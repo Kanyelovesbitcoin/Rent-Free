@@ -66,6 +66,6 @@ describe('smart defaults', () => {
     expect(newCatalogItem(getSubscription('icloud')!).alt).toBe('syncthing')
     expect(newCatalogItem(getSubscription('netflix')!).alt).toBe('rotate-subscriptions')
     expect(newCatalogItem(getSubscription('calendly')!).alt).toBe('calcom')
-    expect(newCatalogItem(getSubscription('chatgpt')!).alt).toBe('ollama-openwebui')
+    expect(newCatalogItem(getSubscription('chatgpt')!).alt).toBe('lm-studio')
   })
 })

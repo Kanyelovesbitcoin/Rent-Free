@@ -23,6 +23,13 @@ export const GLOSSARY: Record<string, string> = {
   repo: 'A project folder on GitHub that holds all the code.',
   GitHub: 'A free website where people share code and work on projects together.',
   Whisper: 'A free AI that turns speech into text. It can run on your own computer.',
+  localhost: 'Means "this computer". An address like http://localhost:5173 opens an app that is running on your own computer.',
+  'environment variable': 'A setting your app reads when it starts, like a key for a service. Kept in a file called .env.',
+  deploy: 'Putting your app online so other people (or your phone) can open it.',
+  'coding agent': 'An AI that writes, runs and fixes code for you, like Claude Code or Codex.',
+  git: 'A free tool that saves checkpoints of your project, so you can always go back.',
+  commit: 'One saved checkpoint of your project in git.',
+  sandbox: 'A safe space where the AI can only touch your project folder.',
 }
 
 const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length)
