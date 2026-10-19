@@ -1,0 +1,48 @@
+{
+  "id": "doom",
+  "name": "Doom",
+  "genre": "shooter",
+  "openness": "code-out",
+  "dropId": "doom",
+  "popularity": 18,
+  "what": "The famous fast shooter from 1993, still played and modded every day.",
+  "fanProjects": [
+    {
+      "name": "Freedoom",
+      "what": "Free levels, art and sounds that work with Doom engines. With it, you need nothing else to play.",
+      "license": "BSD-3-Clause",
+      "needsYourCopy": false,
+      "website": "https://freedoom.github.io",
+      "howToPlay": [
+        "Download Freedoom.",
+        "Play it with a free engine like UZDoom."
+      ]
+    },
+    {
+      "name": "UZDoom",
+      "what": "A free modern Doom engine with better graphics and mouse controls. Use your own Doom files or Freedoom.",
+      "license": "GPL-3.0",
+      "needsYourCopy": false,
+      "website": "https://github.com/UZDoom/UZDoom",
+      "howToPlay": [
+        "Download UZDoom from GitHub.",
+        "Put your Doom or Freedoom file (a .wad file) next to it and start."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Fast movement and shooting",
+    "Mazes with keys and secret doors",
+    "Different enemies with their own moves",
+    "Short levels with an exit"
+  ],
+  "extraFeatures": [
+    "A level editor",
+    "Play with friends online",
+    "Weapons you pick up"
+  ],
+  "scopeNote": "Our builder makes 2D games best. For a first-person game, start from the released Doom code or a free engine instead.",
+  "legalNote": "Violent games are fine to make, but keep your own monsters, art and level maps.",
+  "sourceUrl": "https://doomwiki.org/wiki/Licences",
+  "lastVerified": "2026-10-19"
+}

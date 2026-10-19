@@ -1,0 +1,24 @@
+{
+  "id": "zork",
+  "name": "Zork",
+  "genre": "text-adventure",
+  "openness": "code-out",
+  "dropId": "zork",
+  "popularity": 20,
+  "what": "The classic 1980 adventure you play by typing, like \"open mailbox\".",
+  "lovedFeatures": [
+    "Type what you want to do, like \"go north\"",
+    "Rooms to explore with puzzles",
+    "Items to pick up and use",
+    "A score for treasures found"
+  ],
+  "extraFeatures": [
+    "A map that draws itself",
+    "Save and load",
+    "Hints"
+  ],
+  "scopeNote": "Text adventures are a great first project: no art needed, just words and puzzles.",
+  "sourceUrl": "https://opensource.microsoft.com/blog/2025/11/20/preserving-code-that-shaped-generations-zork-i-ii-and-iii-go-open-source/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

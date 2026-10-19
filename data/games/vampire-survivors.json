@@ -1,0 +1,23 @@
+{
+  "id": "vampire-survivors",
+  "name": "Vampire Survivors",
+  "genre": "survivor-like",
+  "openness": "closed",
+  "popularity": 4,
+  "what": "Survive huge waves of monsters while your weapons fire on their own.",
+  "lovedFeatures": [
+    "Move with keys or a thumb stick; weapons attack by themselves",
+    "Waves of monsters that grow bigger",
+    "Pick 1 of 3 upgrades when you level up",
+    "A run lasts about 10 minutes"
+  ],
+  "extraFeatures": [
+    "Weapons that combine into stronger ones",
+    "Unlock new heroes between runs",
+    "A boss every few minutes"
+  ],
+  "scopeNote": "A great first game! One map, one hero and three weapons is plenty to start.",
+  "sourceUrl": "https://store.steampowered.com/app/1794680/Vampire_Survivors/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

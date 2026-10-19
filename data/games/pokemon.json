@@ -1,0 +1,23 @@
+{
+  "id": "pokemon",
+  "name": "Pokémon",
+  "genre": "top-down-rpg",
+  "openness": "closed",
+  "popularity": 24,
+  "what": "Catch creatures, train them, and battle other trainers.",
+  "lovedFeatures": [
+    "Walk around a world and meet wild creatures",
+    "Catch creatures and build a team",
+    "Turn-based battles",
+    "Creatures grow and learn new moves"
+  ],
+  "extraFeatures": [
+    "Trade with friends",
+    "Gyms with tough leaders",
+    "A creature book to fill in"
+  ],
+  "legalNote": "Nintendo and The Pokémon Company protect their games very strongly. In 2024 they sued the makers of a creature-catching game. Make your own creatures, names, art and rules.",
+  "sourceUrl": "https://www.pokemon.com",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

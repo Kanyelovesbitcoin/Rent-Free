@@ -30,6 +30,22 @@ export const GLOSSARY: Record<string, string> = {
   git: 'A free tool that saves checkpoints of your project, so you can always go back.',
   commit: 'One saved checkpoint of your project in git.',
   sandbox: 'A safe space where the AI can only touch your project folder.',
+  // Game mode words
+  'source code': 'The written instructions that make a game or app work. Releasing it lets anyone see and change how it works.',
+  decompile: 'Turning a finished game back into code by reverse engineering. Sharing code made this way usually breaks copyright.',
+  decompiled: 'Turned back into code from a finished game. Sharing code made this way usually breaks copyright.',
+  'game engine': 'The part of a game that draws the screen, plays sounds and runs the rules. The art and levels sit on top.',
+  assets: "A game's pictures, music, sounds and levels. Often still owned by the company even when the code is free.",
+  mod: 'A fan-made change to a game, like a new level, character or rule.',
+  mods: 'Fan-made changes to a game, like new levels, characters or rules.',
+  port: 'A version of a game made to run on a different device, like a Steam Deck or a phone.',
+  CC0: 'A "no rules" license. You can use it for anything, even selling, without asking.',
+  'CC BY': 'A license that lets you reuse something as long as you credit the person who made it.',
+  GPL: 'A free license. Anyone can use and change the code, but if they share their version it must stay open source too.',
+  'GPL-3.0': 'A free license. Anyone can use and change the code, but if they share their version it must stay open source too.',
+  'GPL v3': 'A free license. Anyone can use and change the code, but if they share their version it must stay open source too.',
+  MIT: 'A very simple free license. Do almost anything with the code; just keep the original names on it.',
+  'source-available': 'You can see and change the code, but the license has limits, often "no selling". Not truly open source.',
 }
 
 const TERMS = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length)

@@ -1,0 +1,45 @@
+name: "📦 Spotted a game going open source?"
+description: Tell us about a game (or game engine) whose code was just released. No coding needed.
+title: "Source drop: "
+labels: ["source-drop"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks! Just fill in what you know. It's okay to leave things blank, and we'll check the details."
+  - type: input
+    id: name
+    attributes:
+      label: What game or engine is it?
+      placeholder: e.g. Moon Child
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Who released the code?
+      placeholder: e.g. the original team, EA, Microsoft
+  - type: input
+    id: link
+    attributes:
+      label: Link to the news or the code
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: What license is it under (if you know)?
+      placeholder: e.g. MIT, GPL-3.0, "no selling"
+  - type: dropdown
+    id: art
+    attributes:
+      label: Did they release the art and music too?
+      options:
+        - "I don't know"
+        - "Yes, art and music are included"
+        - "No, you need your own copy of the game"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why did they do it? (optional)
+      placeholder: Servers shutting down, an anniversary, for modders…

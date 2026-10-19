@@ -25,6 +25,7 @@ const FORMS = [
   { emoji: '🆕', title: "Add an app we're missing", text: 'Tell us the name, the price, and what you use it for.', template: 'add-app.yml' },
   { emoji: '💲', title: 'Fix a wrong price', text: 'Prices change a lot. Tell us the new one.', template: 'wrong-price.yml' },
   { emoji: '💡', title: 'Share an idea', text: 'A better free app, something confusing, or a new idea.', template: 'idea.yml' },
+  { emoji: '📦', title: 'Spotted a game going open source?', text: 'Tell us which game, who released the code, and a link.', template: 'source-drop.yml' },
 ]
 
 export default function Contribute() {
@@ -34,7 +35,7 @@ export default function Contribute() {
         Rent-Free is made by people like you. You don't need to know how to code. Pick one of these, fill in a short form, and you're done.
       </PageHeader>
 
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {FORMS.map((f) => (
           <a
             key={f.template}

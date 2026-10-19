@@ -180,6 +180,29 @@ export default function Home() {
         </pre>
       </section>
 
+      {/* game mode teaser */}
+      <section className="grid items-center gap-6 rounded-3xl border-2 border-ink p-8 md:grid-cols-[1.4fr_1fr] md:p-10" style={{ background: '#110c22', color: '#f5f3ff', boxShadow: '4px 4px 0 0 #f472b6' }} data-testid="game-mode-teaser">
+        <div>
+          <p className="font-pixel text-sm font-bold" style={{ color: '#f472b6' }}>
+            🎮 NEW: GAME MODE
+          </p>
+          <h2 className="mt-2 font-pixel text-3xl font-extrabold">Open-source the games you love.</h2>
+          <p className="mt-3" style={{ color: '#c4bce6' }}>
+            Lots of game code is going public right now. See what's free, play it the legal way, or make your own open-source version with Claude Code or Codex.
+          </p>
+          <Link to="/games" className="btn mt-6 border-2 font-pixel" style={{ background: '#22d3ee', color: '#110c22', borderColor: '#f5f3ff' }}>
+            ▶ Enter Game mode
+          </Link>
+        </div>
+        <ul className="space-y-2 font-pixel text-sm" aria-hidden>
+          {['🔓 Code is out: Doom, Zork, C&C', '🛠️ Fans rebuilt: OpenTTD, OpenMW', '🧩 Look-alikes: Luanti, SuperTuxKart', '✨ Make your own: Stardew-style farm'].map((t) => (
+            <li key={t} className="rounded-lg px-3 py-2" style={{ background: '#1d1640' }}>
+              {t}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* honesty */}
       <section className="grid gap-6 md:grid-cols-3">
         <h2 className="font-display text-3xl font-extrabold md:col-span-1">We tell you the truth</h2>

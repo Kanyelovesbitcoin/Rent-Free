@@ -1,0 +1,46 @@
+{
+  "id": "command-and-conquer",
+  "name": "Command & Conquer",
+  "genre": "strategy",
+  "openness": "code-out",
+  "dropId": "command-and-conquer",
+  "popularity": 17,
+  "what": "Classic real-time war strategy: build a base, gather resources, and command an army.",
+  "fanProjects": [
+    {
+      "name": "OpenRA",
+      "what": "Fans rebuilt classic Command & Conquer and Red Alert with modern controls and online play. It downloads the free versions of the old game files for you.",
+      "license": "GPL-3.0",
+      "needsYourCopy": false,
+      "website": "https://www.openra.net",
+      "howToPlay": [
+        "Download OpenRA from openra.net.",
+        "Pick Red Alert or Tiberian Dawn, and let it get the free game files."
+      ]
+    },
+    {
+      "name": "GeneralsGameCode",
+      "what": "Fans build C&C Generals and Zero Hour from EA's released code, with fixes for today's computers.",
+      "license": "GPL-3.0",
+      "needsYourCopy": true,
+      "website": "https://github.com/TheSuperHackers/GeneralsGameCode",
+      "howToPlay": [
+        "Own C&C Generals and Zero Hour (in the Ultimate Collection).",
+        "Download the latest weekly build from its GitHub page and follow the README."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Gather resources and build a base",
+    "Train units and command them in real time",
+    "Computer players to beat",
+    "Different sides with their own units"
+  ],
+  "extraFeatures": [
+    "A story campaign with missions",
+    "Play online against friends",
+    "A map editor"
+  ],
+  "sourceUrl": "https://www.ea.com/games/command-and-conquer/news/steam-workshop-support",
+  "lastVerified": "2026-10-19"
+}

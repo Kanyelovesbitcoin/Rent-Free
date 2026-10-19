@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
 import type { RemakeConfig } from './agentPrompt'
 
-// Remake choices are saved per tool in this browser only, so they survive a refresh.
-const key = (id: string) => `rent-free:remake:${id}`
-
-export function useRemakeConfig(id: string, defaults: RemakeConfig) {
-  const [config, setConfig] = useState<RemakeConfig>(() => {
+// Remake (and game builder) choices are saved per tool in this browser only, so they survive a refresh.
+export function useStoredConfig<T extends object>(storageKey: string, defaults: T) {
+  const [config, setConfig] = useState<T>(() => {
     try {
-      const raw = localStorage.getItem(key(id))
+      const raw = localStorage.getItem(storageKey)
       if (raw) return { ...defaults, ...JSON.parse(raw) }
     } catch {
       // ignore: private window / blocked storage
@@ -16,11 +14,13 @@ export function useRemakeConfig(id: string, defaults: RemakeConfig) {
   })
   useEffect(() => {
     try {
-      localStorage.setItem(key(id), JSON.stringify(config))
+      localStorage.setItem(storageKey, JSON.stringify(config))
     } catch {
       // ignore
     }
-  }, [id, config])
+  }, [storageKey, config])
   const reset = () => setConfig(defaults)
   return [config, setConfig, reset] as const
 }
+
+export const useRemakeConfig = (id: string, defaults: RemakeConfig) => useStoredConfig(`rent-free:remake:${id}`, defaults)

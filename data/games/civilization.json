@@ -1,0 +1,44 @@
+{
+  "id": "civilization",
+  "name": "Civilization",
+  "genre": "strategy",
+  "openness": "look-alike",
+  "popularity": 10,
+  "what": "Grow a tiny tribe into a great empire, one turn at a time.",
+  "fanProjects": [
+    {
+      "name": "Unciv",
+      "what": "A free, small take on Civilization V for phones and computers. It uses none of the original's files.",
+      "license": "MPL-2.0",
+      "needsYourCopy": false,
+      "website": "https://github.com/yairm210/Unciv",
+      "howToPlay": [
+        "Get it from the Google Play store, F-Droid, or GitHub for computers.",
+        "Start a small map against 2 computer players."
+      ]
+    },
+    {
+      "name": "Freeciv",
+      "what": "A free classic empire game inspired by the early Civilization games.",
+      "license": "GPL-2.0",
+      "needsYourCopy": false,
+      "website": "https://www.freeciv.org",
+      "howToPlay": [
+        "Download it from freeciv.org, or play in your browser on their site."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Take turns to grow cities",
+    "A tech tree to unlock new things",
+    "Explore a map with hidden tiles",
+    "Computer players to beat"
+  ],
+  "extraFeatures": [
+    "Win by science, culture or war",
+    "Random maps every game",
+    "Play with friends taking turns"
+  ],
+  "sourceUrl": "https://github.com/yairm210/Unciv",
+  "lastVerified": "2026-10-19"
+}

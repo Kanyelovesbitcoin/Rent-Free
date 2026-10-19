@@ -1,0 +1,38 @@
+{
+  "id": "minecraft",
+  "name": "Minecraft",
+  "genre": "block-sandbox",
+  "openness": "look-alike",
+  "popularity": 1,
+  "what": "Dig, build and survive in a world made of blocks.",
+  "fanProjects": [
+    {
+      "name": "Luanti + VoxeLibre",
+      "what": "Luanti (it used to be called Minetest) is a free block game engine. Add the free VoxeLibre game for a very similar feel.",
+      "license": "LGPL-2.1 (VoxeLibre: GPL-3.0)",
+      "needsYourCopy": false,
+      "website": "https://www.luanti.org",
+      "howToPlay": [
+        "Download Luanti from luanti.org.",
+        "Open it, click \"Content\", then \"Browse online content\".",
+        "Install VoxeLibre (or Mineclonia), then start a new world with it."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "A 3D world made of blocks",
+    "Dig blocks and place them",
+    "Craft tools from materials",
+    "Monsters come out at night"
+  ],
+  "extraFeatures": [
+    "An endless random world",
+    "Play together online",
+    "Farm animals",
+    "Mods"
+  ],
+  "scopeNote": "A full block world is an epic job. Start with one small island you can dig and build on.",
+  "legalNote": "Don't use Minecraft's name, block pictures, creatures (like Creepers) or sounds. Make your own.",
+  "sourceUrl": "https://www.luanti.org",
+  "lastVerified": "2026-10-19"
+}

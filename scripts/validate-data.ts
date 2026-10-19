@@ -2,6 +2,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { loadCatalog, type RawFile } from '../src/lib/catalog'
+import { loadGameCatalog } from '../src/lib/gameCatalog'
 
 const dataDir = join(import.meta.dirname, '..', 'data')
 const errors: string[] = []
@@ -28,6 +29,13 @@ const { catalog, errors: catalogErrors } = loadCatalog({
 })
 errors.push(...catalogErrors)
 
+const { catalog: games, errors: gameErrors } = loadGameCatalog({
+  genres: readJson('game-genres.json'),
+  drops: readJson('source-drops.json'),
+  games: readDir('games'),
+})
+errors.push(...gameErrors)
+
 if (errors.length) {
   console.error(`✗ ${errors.length} problem(s) in /data:\n`)
   for (const e of errors) console.error('  - ' + e)
@@ -35,5 +43,6 @@ if (errors.length) {
 }
 console.log(
   `✓ data OK: ${catalog.subscriptions.length} subscriptions, ${catalog.alternatives.length} alternatives, ` +
-    `${catalog.categories.length} categories, ${catalog.localModels.length} local models, ${catalog.apis.length} APIs`,
+    `${catalog.categories.length} categories, ${catalog.localModels.length} local models, ${catalog.apis.length} APIs, ` +
+    `${games.games.length} games, ${games.drops.length} source drops, ${games.genres.length} game genres`,
 )

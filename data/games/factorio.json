@@ -1,0 +1,44 @@
+{
+  "id": "factorio",
+  "name": "Factorio",
+  "genre": "builder-sim",
+  "openness": "look-alike",
+  "popularity": 13,
+  "what": "Build a giant factory with belts and machines that run on their own.",
+  "fanProjects": [
+    {
+      "name": "Mindustry",
+      "what": "A free factory game where your conveyor belts also feed towers that defend your base.",
+      "license": "GPL-3.0",
+      "needsYourCopy": false,
+      "website": "https://github.com/Anuken/Mindustry",
+      "howToPlay": [
+        "Get it free on itch.io (you can donate), or buy it on Steam to support the maker.",
+        "Play the first map in the campaign."
+      ]
+    },
+    {
+      "name": "shapez Community Edition",
+      "what": "A calm factory game about cutting and painting shapes. No enemies.",
+      "license": "GPL-3.0",
+      "needsYourCopy": false,
+      "website": "https://github.com/tobspr-games/shapez-community-edition",
+      "howToPlay": [
+        "Follow the build steps on its GitHub page, or ask your AI helper to help you build it."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Place machines and conveyor belts on a grid",
+    "Mine resources and turn them into new items",
+    "Unlock new machines as you grow",
+    "Save your factory"
+  ],
+  "extraFeatures": [
+    "Enemies that attack your factory",
+    "Trains for long distances",
+    "Play with friends online"
+  ],
+  "sourceUrl": "https://github.com/Anuken/Mindustry",
+  "lastVerified": "2026-10-19"
+}

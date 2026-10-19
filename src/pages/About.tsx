@@ -37,6 +37,11 @@ export default function About() {
           The build helper makes your own, new app with the features you need. Don't copy another app's name, logo, look, words or code. Ideas are free to use; logos
           and copied work are not.
         </Block>
+        <Block title="Game mode">
+          Game names belong to their companies. We only use them to say which game we mean. We only link to code that companies or the original makers released, and to
+          free fan projects. We never link to leaked, cracked or AI-decompiled copies. When you make your own game, copy the fun (rules and ideas), not the stuff (name,
+          characters, art, music, story or code). This is general help, not legal advice.
+        </Block>
         <Block title="Privacy">
           No accounts, no cookies, no tracking. What you pick stays in your own web browser. A share link stores your picks inside the link itself, so we never see them.
           Even our fonts are part of the site, so nothing gets sent to anyone else.

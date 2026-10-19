@@ -1,5 +1,4 @@
 import { useMemo, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { toPng } from 'html-to-image'
 import { AGENTS, agentPrompt, type AgentId, type RemakeConfig, type Stack } from '../lib/agentPrompt'
 import { selectedApis, suggestApis } from '../lib/apiSuggest'
@@ -10,6 +9,7 @@ import { hardParts, tierFor, type Audience, type Platform, type RunsOn } from '.
 import { useRemakeConfig } from '../lib/remakeStore'
 import { renderWireframe, type WireframeId } from '../lib/wireframes'
 import { downloadNodeAsPng } from './SavingsCard'
+import { AgentPicker, BlockList, toggleBlock } from './BuildParts'
 import { Badge, CopyButton, Segmented, useToast } from './ui'
 
 export interface RemakeSubject {
@@ -30,7 +30,6 @@ export interface RemakeSubject {
   categoryId?: string
 }
 
-const AGENT_ORDER: AgentId[] = ['claude-code', 'codex', 'opencode', 'cursor', 'chat']
 const TIER_ORDER = ['quick', 'standard', 'big', 'platform'] as const
 
 export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
@@ -97,13 +96,7 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
     URL.revokeObjectURL(a.href)
     notify('Prompt downloaded')
   }
-  const toggleApi = (id: string, suggested: boolean) => {
-    const off = config.apiOff ?? []
-    const extra = config.apiExtra ?? []
-    const on = apis.some((a) => a.id === id)
-    if (suggested) set({ apiOff: on ? [...off, id] : off.filter((x) => x !== id) })
-    else set({ apiExtra: on ? extra.filter((x) => x !== id) : [...extra, id] })
-  }
+  const toggleApi = (id: string, suggested: boolean) => set(toggleBlock(id, suggested, apis, config.apiOff ?? [], config.apiExtra ?? []))
   const downloadKit = async () => {
     setKitBusy(true)
     try {
@@ -266,76 +259,12 @@ export default function RemakeStudio({ subject }: { subject: RemakeSubject }) {
           <p className="text-sm text-ink-soft">
             Your app doesn't have to build everything from scratch. These services plug right in, like plugging a lamp into the wall. We picked them from your features.
           </p>
-          <ul className="mt-3 space-y-2">
-            {[...suggestions.map((s) => ({ ...s, suggested: true })), ...(config.apiExtra ?? []).filter((id) => !suggestions.some((s) => s.id === id)).map((id) => ({ id, why: 'You added this.', suggested: false }))].map(({ id, why, suggested }) => {
-              const api = allApis.find((a) => a.id === id)
-              if (!api) return null
-              const on = apis.some((a) => a.id === id)
-              return (
-                <li key={id}>
-                  <label className={`flex cursor-pointer items-start gap-3 rounded-xl border-2 p-3 transition ${on ? 'border-ink bg-money-soft/60' : 'border-line'}`}>
-                    <input type="checkbox" className="mt-1 h-4 w-4 accent-[var(--money)]" checked={on} onChange={() => toggleApi(id, suggested)} aria-label={`Use ${api.name}`} />
-                    <span className="min-w-0">
-                      <span className="flex flex-wrap items-center gap-1.5 font-bold">
-                        {api.name}
-                        {api.runsLocally && <Badge className="bg-paper-2 text-ink-soft">💻 on your computer</Badge>}
-                        {api.openSource && <Badge className="bg-paper-2 text-ink-soft">open source</Badge>}
-                      </span>
-                      <span className="block text-sm text-ink-soft">{why}</span>
-                      <span className="block text-xs text-money-ink">Free: {api.freeTier}</span>
-                    </span>
-                  </label>
-                </li>
-              )
-            })}
-          </ul>
-          <details className="mt-3">
-            <summary className="cursor-pointer text-sm font-bold">+ Add another building block</summary>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {allApis
-                .filter((a) => !suggestions.some((s) => s.id === a.id) && !(config.apiExtra ?? []).includes(a.id))
-                .map((a) => (
-                  <button key={a.id} type="button" className="rounded-full border-2 border-line px-3 py-1 text-xs font-bold hover:border-ink" onClick={() => toggleApi(a.id, false)}>
-                    + {a.name}
-                  </button>
-                ))}
-            </div>
-            <Link to="/toolbox" className="mt-2 inline-block text-xs font-bold text-money underline">
-              What are these? See the toolbox →
-            </Link>
-          </details>
+          <BlockList suggestions={suggestions} chosen={apis} extra={config.apiExtra ?? []} onToggle={toggleApi} />
         </div>
 
         <div className="card p-5">
           <p className="label">4. Pick your AI helper</p>
-          <Link to="/ai-helpers" className="mb-3 flex items-center gap-3 rounded-xl border-2 border-hilite bg-hilite/15 p-3 text-sm hover:border-ink" data-testid="ai-helpers-banner">
-            <span className="text-2xl" aria-hidden>
-              👋
-            </span>
-            <span>
-              <strong>Never used an AI helper?</strong> Read our 5-minute beginner guide: what Claude Code and Codex are, what they cost, and your first 30 minutes. →
-            </span>
-          </Link>
-          <div role="tablist" aria-label="Coding agent" className="flex flex-wrap gap-1.5">
-            {AGENT_ORDER.map((id) => (
-              <button
-                key={id}
-                role="tab"
-                aria-selected={agent === id}
-                type="button"
-                onClick={() => setAgent(id)}
-                className={`rounded-xl border-2 px-3 py-1.5 text-sm font-bold transition ${agent === id ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink'}`}
-              >
-                {AGENTS[id].name}
-              </button>
-            ))}
-          </div>
-          <p className="mt-2 text-xs font-bold text-ink-soft">💳 {AGENTS[agent].cost}</p>
-          <ol className="mt-4 list-decimal space-y-1 pl-5 text-sm text-ink-soft">
-            {AGENTS[agent].howToRun.map((s) => (
-              <li key={s} dangerouslySetInnerHTML={{ __html: s.replace(/`([^`]+)`/g, '<code class="rounded bg-paper-2 px-1 py-0.5 font-mono text-ink text-xs">$1</code>') }} />
-            ))}
-          </ol>
+          <AgentPicker agent={agent} onChange={setAgent} />
           <p className="mt-4 text-sm font-bold">
             Your instructions for the AI <span className="font-normal text-ink-soft">(you don't need to read them, just copy and paste)</span>
           </p>

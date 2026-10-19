@@ -11,6 +11,10 @@ export interface StarterKitInput {
   apis: Api[]
   wireframeHtml: string
   wireframePng?: Uint8Array
+  // Game kits and other variants: a different title, folder name and extra files (e.g. GAME.md).
+  heading?: string
+  folderPrefix?: string
+  extraFiles?: Record<string, string>
 }
 
 // The files inside a starter kit. Kept separate from zipping so it's easy to test and read.
@@ -19,8 +23,9 @@ export function starterKitFiles(k: StarterKitInput): Record<string, string | Uin
   const files: Record<string, string | Uint8Array> = {}
   const hasKeys = k.apis.some((a) => a.envVars.length)
 
+  const extras = Object.keys(k.extraFiles ?? {})
   files['START-HERE.md'] = [
-    `# Start here: build your own ${k.name} replacement`,
+    `# ${k.heading ?? `Start here: build your own ${k.name} replacement`}`,
     '',
     'This folder has everything your AI helper needs. You don\'t need to write any code.',
     '',
@@ -41,6 +46,7 @@ export function starterKitFiles(k: StarterKitInput): Record<string, string | Uin
     agent.memoryFile ? `- \`${agent.memoryFile}\`: notes the AI keeps about your project` : '',
     '- `.env.example`: the settings and keys your app needs (if any)',
     '- `wireframe.html` / `wireframe.png`: a simple sketch of the main screen',
+    ...extras.map((f) => `- \`${f}\`: ${EXTRA_FILE_NOTES[f] ?? 'extra notes for this project'}`),
     '',
     '## Tips',
     '',
@@ -56,9 +62,9 @@ export function starterKitFiles(k: StarterKitInput): Record<string, string | Uin
   files['PROMPT.md'] = k.prompt + '\n'
   if (agent.memoryFile) {
     files[agent.memoryFile] = [
-      `# ${k.name} replacement`,
+      `# ${k.heading ? k.name : `${k.name} replacement`}`,
       '',
-      'This project started from a Rent-Free starter kit. The full goals and requirements are in PROMPT.md.',
+      `This project started from a Rent-Free starter kit. The full goals and requirements are in PROMPT.md.${extras.includes('GAME.md') ? ' The game plan is in GAME.md.' : ''}`,
       '',
       '## Notes for the AI',
       '- The owner is not a professional developer. Explain things simply and give click-by-click steps.',
@@ -74,11 +80,18 @@ export function starterKitFiles(k: StarterKitInput): Record<string, string | Uin
   files['.gitignore'] = ['node_modules', '.env', 'dist', '.DS_Store', ''].join('\n')
   files['wireframe.html'] = k.wireframeHtml
   if (k.wireframePng) files['wireframe.png'] = k.wireframePng
+  Object.assign(files, k.extraFiles)
   return files
 }
 
+const EXTRA_FILE_NOTES: Record<string, string> = {
+  'GAME.md': 'your one-page game plan (the AI reads and updates it)',
+  'CREDITS.md': 'where every picture and sound came from',
+  'OPEN-SOURCE-IT.md': 'how to share your game as open source',
+}
+
 export function starterKitZip(k: StarterKitInput): Uint8Array {
-  const folder = `rent-free-starter-${k.slug}`
+  const folder = `${k.folderPrefix ?? 'rent-free-starter'}-${k.slug}`
   const entries: Record<string, Uint8Array> = {}
   for (const [name, content] of Object.entries(starterKitFiles(k))) entries[`${folder}/${name}`] = typeof content === 'string' ? strToU8(content) : content
   return zipSync(entries, { level: 6 })

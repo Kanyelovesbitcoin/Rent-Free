@@ -83,6 +83,29 @@ Free plans change. Every entry has a source link and the date we checked it.
 
 ---
 
+## 🎮 Game mode: open-source the games you love
+
+Lots of game code is going public right now. Game mode (in the menu, or at `/#/games`) helps you enjoy it the legal way.
+
+- **Source drops:** games and engines whose code was just released, newest first. Examples: Worlds Upon the Wind, Unturned, EVE Online's engine, Moon Child, Zork and Command & Conquer. Each one shows its license, whether the art came too, and whether you need your own copy.
+- **Why it's happening, in plain words:**
+  - servers shutting down (the "Stop Killing Games" campaign);
+  - old games breaking on new computers;
+  - mods keeping games alive;
+  - free engines like Godot getting really good;
+  - AI that can rebuild old code much faster.
+- **24 games people love**, each with a "How open is it?" meter. It goes from 🔒 Still closed to 🧩 Free look-alike (like Luanti for Minecraft) to 🛠️ Fans rebuilt it (like OpenMW for Morrowind) to 🔓 Code is out (like Doom).
+- **Make your own version**, level by level:
+  1. Pick a game.
+  2. Tick what you love about it.
+  3. Choose how it plays.
+  4. Do a "boss check" on how big the job is.
+  5. Get a prompt for Claude Code or Codex, or a ready-to-go **quest kit** (.zip).
+  6. Share your game as open source (LICENSE, CREDITS, GitHub, itch.io).
+- **Tinker with released code:** for games whose code is officially out. Get it running on your computer or Steam Deck, make a mod, or fix a bug. The prompt follows the license and never shares the game's files.
+
+**The one rule: copy the fun, not the stuff.** Game rules and ideas can't be owned. A game's name, art, music, story and code can. Our prompts tell the AI to make everything original and to never decompile or copy someone else's game.
+
 ## Want your own copy of the website? (no coding needed)
 
 You can put Rent-Free online for free in about 5 minutes:
@@ -97,6 +120,7 @@ You can put Rent-Free online for free in about 5 minutes:
 - 🆕 [Add an app we're missing](../../issues/new?template=add-app.yml)
 - 💲 [Fix a wrong price](../../issues/new?template=wrong-price.yml)
 - 💡 [Share an idea or a better free app](../../issues/new?template=idea.yml)
+- 📦 [Spotted a game going open source?](../../issues/new?template=source-drop.yml)
 
 Each one is a short form. You'll need a free GitHub account.
 
@@ -125,6 +149,9 @@ data/
   categories.json        # groups like "Streaming" or "Notes"
   local-models.json      # free AI models and how much memory they need
   apis.json              # Toolbox: free building blocks (free plan, price after, sign-up steps, keys)
+  games/*.json           # Game mode: games people love, how open each one is, fan projects
+  source-drops.json      # Game mode: official game/engine code releases (license, art included?, why)
+  game-genres.json       # Game mode: kinds of games, their core loop and starting features
 ```
 
 The rules for each file are in [`src/lib/schema.ts`](src/lib/schema.ts). The full guide is in [CONTRIBUTING.md](CONTRIBUTING.md).

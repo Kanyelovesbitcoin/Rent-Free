@@ -1,0 +1,35 @@
+{
+  "id": "mario-kart",
+  "name": "Mario Kart",
+  "genre": "kart-racer",
+  "openness": "look-alike",
+  "popularity": 2,
+  "what": "Cartoon kart racing with power-ups and friends.",
+  "fanProjects": [
+    {
+      "name": "SuperTuxKart",
+      "what": "A free kart racer with lots of tracks, power-ups, online races and story mode.",
+      "license": "GPL-3.0",
+      "needsYourCopy": false,
+      "website": "https://supertuxkart.net",
+      "howToPlay": [
+        "Download it from supertuxkart.net (Windows, Mac, Linux, Android).",
+        "Pick a driver and a track and race!"
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Drive, drift and boost",
+    "Power-ups you pick up on the track",
+    "Computer players to race against",
+    "A few fun tracks"
+  ],
+  "extraFeatures": [
+    "Split-screen for 2 players on one screen",
+    "Online races with friends",
+    "Battle mode in an arena"
+  ],
+  "legalNote": "Nintendo protects its characters very strongly. Make your own drivers, items, tracks and name.",
+  "sourceUrl": "https://supertuxkart.net",
+  "lastVerified": "2026-10-19"
+}

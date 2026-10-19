@@ -13,6 +13,10 @@ import NotFound from './pages/NotFound'
 import Plan from './pages/Plan'
 import Toolbox from './pages/Toolbox'
 import AiHelpers from './pages/AiHelpers'
+import GamesHome from './pages/games/GamesHome'
+import SourceDrops from './pages/games/SourceDrops'
+import GameDetail from './pages/games/GameDetail'
+import GameBuilder from './pages/games/GameBuilder'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -32,6 +36,11 @@ export default function App() {
         <Route path="/remake/:id" element={<RemakeTool />} />
         <Route path="/build" element={<LegacyBuild />} />
         <Route path="/local-ai" element={<LocalAI />} />
+        <Route path="/games" element={<GamesHome />} />
+        <Route path="/games/drops" element={<SourceDrops />} />
+        <Route path="/games/build" element={<GameBuilder />} />
+        <Route path="/games/build/:id" element={<GameBuilder />} />
+        <Route path="/games/:id" element={<GameDetail />} />
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />

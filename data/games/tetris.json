@@ -1,0 +1,24 @@
+{
+  "id": "tetris",
+  "name": "Tetris",
+  "genre": "falling-blocks",
+  "openness": "closed",
+  "popularity": 5,
+  "what": "Turn falling blocks to fill lines before the board fills up.",
+  "lovedFeatures": [
+    "Pieces that drop, move and turn",
+    "Clear lines for points",
+    "It speeds up as you play",
+    "High score saved on your device"
+  ],
+  "extraFeatures": [
+    "See the next piece",
+    "Hold a piece for later",
+    "Two-player battle mode"
+  ],
+  "scopeNote": "A perfect first game. You can have it working in an afternoon.",
+  "legalNote": "Be extra careful: in 2012 a US court ruled that a game copied too much of how Tetris looks and moves. Change the piece shapes, board size, colors and name, and add your own twist.",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Tetris_Holding,_LLC_v._Xio_Interactive,_Inc.",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

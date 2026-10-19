@@ -1,24 +1,42 @@
-import { useState, type ReactNode } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useState, type ReactNode } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { REPO_URL, ToastProvider } from './ui'
 
-const NAV = [
+type NavItem = { to: string; label: string; end?: boolean }
+type TabItem = NavItem & { emoji: string }
+
+const NAV: NavItem[] = [
   { to: '/start', label: 'Start' },
   { to: '/results', label: 'My savings' },
   { to: '/plan', label: 'My plan' },
   { to: '/remake', label: 'Build your own' },
   { to: '/toolbox', label: 'Toolbox' },
   { to: '/ai-helpers', label: 'New to AI?' },
-  { to: '/local-ai', label: 'Free AI' },
+  { to: '/games', label: '🎮 Games' },
 ]
 
 // Thumb-friendly tabs on phones, so the main steps are always one tap away.
-const TABS = [
+const TABS: TabItem[] = [
   { to: '/start', emoji: '🧾', label: 'Start' },
   { to: '/results', emoji: '💰', label: 'Savings' },
   { to: '/plan', emoji: '✅', label: 'Plan' },
   { to: '/remake', emoji: '✨', label: 'Build' },
+  { to: '/games', emoji: '🎮', label: 'Games' },
+]
+
+// In Game mode the menus switch to game pages, with a clear way back.
+const GAME_NAV: NavItem[] = [
+  { to: '/games', label: 'Games', end: true },
+  { to: '/games/drops', label: 'Source drops' },
+  { to: '/games/build', label: 'Make a game' },
+  { to: '/ai-helpers', label: 'New to AI?' },
+]
+const GAME_TABS: TabItem[] = [
+  { to: '/games', emoji: '🕹️', label: 'Games', end: true },
+  { to: '/games/drops', emoji: '📦', label: 'Drops' },
+  { to: '/games/build', emoji: '🛠️', label: 'Make' },
   { to: '/ai-helpers', emoji: '👋', label: 'Learn' },
+  { to: '/', emoji: '🧾', label: 'Exit', end: true },
 ]
 
 export function Logo() {
@@ -34,6 +52,15 @@ export function Logo() {
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
+  const game = pathname === '/games' || pathname.startsWith('/games/')
+  // The arcade skin lives on <html> so the page background re-skins too (see index.css).
+  useEffect(() => {
+    if (game) document.documentElement.dataset.mode = 'game'
+    else delete document.documentElement.dataset.mode
+  }, [game])
+  const nav = game ? GAME_NAV : NAV
+  const tabs = game ? GAME_TABS : TABS
   const linkCls = ({ isActive }: { isActive: boolean }) =>
     `rounded-lg px-2.5 py-2 text-sm font-bold whitespace-nowrap transition ${isActive ? 'bg-ink text-paper' : 'text-ink-soft hover:text-ink'}`
 
@@ -45,27 +72,44 @@ export default function Layout({ children }: { children: ReactNode }) {
         </a>
         <header className="sticky top-0 z-30 border-b-2 border-line bg-paper/90 backdrop-blur print:hidden">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-            <Link to="/" onClick={() => setOpen(false)} aria-label="Rent-Free home">
-              <Logo />
-            </Link>
-            <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
-              {NAV.map((n) => (
-                <NavLink key={n.to} to={n.to} className={linkCls}>
+            <div className="flex items-center gap-2">
+              <Link to={game ? '/games' : '/'} onClick={() => setOpen(false)} aria-label={game ? 'Game mode home' : 'Rent-Free home'}>
+                <Logo />
+              </Link>
+              {game && (
+                <span className="pixel bg-neon px-2 py-0.5 font-pixel text-xs font-bold text-[#110c22]" data-testid="game-mode-badge">
+                  GAME MODE
+                </span>
+              )}
+            </div>
+            <nav className={`hidden items-center gap-0.5 ${game ? 'lg:flex' : 'xl:flex'}`} aria-label="Main">
+              {nav.map((n) => (
+                <NavLink key={n.to} to={n.to} end={n.end} className={linkCls}>
                   {n.label}
                 </NavLink>
               ))}
-              <a href={REPO_URL} className="btn-ghost ml-2 py-2" target="_blank" rel="noreferrer">
-                ★ GitHub
-              </a>
+              {game ? (
+                <Link to="/" className="btn-ghost ml-2 py-2">
+                  ← Exit Game mode
+                </Link>
+              ) : (
+                <a href={REPO_URL} className="btn-ghost ml-2 py-2" target="_blank" rel="noreferrer">
+                  ★ GitHub
+                </a>
+              )}
             </nav>
-            <button className="btn-ghost px-3 py-2 xl:hidden" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
+            <button className={`btn-ghost px-3 py-2 ${game ? 'lg:hidden' : 'xl:hidden'}`} aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)}>
               {open ? '✕' : '☰ Menu'}
             </button>
           </div>
           {open && (
-            <nav className="grid grid-cols-2 gap-1 border-t-2 border-line px-4 py-3 xl:hidden" aria-label="Menu">
-              {[...NAV, { to: '/contribute', label: 'Help out' }, { to: '/about', label: 'About' }].map((n) => (
-                <NavLink key={n.to} to={n.to} className={linkCls} onClick={() => setOpen(false)}>
+            <nav className={`grid grid-cols-2 gap-1 border-t-2 border-line px-4 py-3 ${game ? 'lg:hidden' : 'xl:hidden'}`} aria-label="Menu">
+              {([
+                ...(game ? [...GAME_NAV, { to: '/', label: '← Exit Game mode', end: true }] : [...NAV, { to: '/local-ai', label: 'Free AI' }]),
+                { to: '/contribute', label: 'Help out' },
+                { to: '/about', label: 'About' },
+              ] as NavItem[]).map((n) => (
+                <NavLink key={n.to} to={n.to} end={n.end} className={linkCls} onClick={() => setOpen(false)}>
                   {n.label}
                 </NavLink>
               ))}
@@ -91,6 +135,12 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <Link to="/ai-helpers" className="hover:text-ink">
                   New to AI coding?
                 </Link>
+                <Link to="/games" className="hover:text-ink">
+                  Game mode
+                </Link>
+                <Link to="/local-ai" className="hover:text-ink">
+                  Free AI
+                </Link>
                 <Link to="/about" className="hover:text-ink">
                   About & disclaimer
                 </Link>
@@ -112,12 +162,17 @@ export default function Layout({ children }: { children: ReactNode }) {
           </div>
         </footer>
 
-        <nav className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-ink bg-card lg:hidden print:hidden" aria-label="Quick tabs" data-testid="tab-bar">
+        <nav
+          className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-ink bg-card lg:hidden print:hidden"
+          aria-label="Quick tabs"
+          data-testid={game ? 'game-tab-bar' : 'tab-bar'}
+        >
           <div className="mx-auto grid max-w-md grid-cols-5">
-            {TABS.map((t) => (
+            {tabs.map((t) => (
               <NavLink
                 key={t.to}
                 to={t.to}
+                end={t.end}
                 className={({ isActive }) => `flex flex-col items-center gap-0.5 py-2 text-[11px] font-bold ${isActive ? 'text-ink' : 'text-ink-soft'}`}
               >
                 {({ isActive }) => (

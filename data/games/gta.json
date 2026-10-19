@@ -1,0 +1,24 @@
+{
+  "id": "gta",
+  "name": "Grand Theft Auto",
+  "genre": "top-down-rpg",
+  "openness": "closed",
+  "popularity": 21,
+  "what": "Drive around a big city, do missions, and cause chaos.",
+  "lovedFeatures": [
+    "Walk around and hop into cars",
+    "Missions across a city",
+    "A city with traffic and people",
+    "Police who chase you"
+  ],
+  "extraFeatures": [
+    "Radio stations",
+    "A big open world",
+    "Play with friends online"
+  ],
+  "scopeNote": "Teams of hundreds made the newest GTA games. But the first two were top-down 2D! Start there: one city block, one car and one mission.",
+  "legalNote": "Keep your own city, characters, name and logo. Don't use AI-rebuilt copies of the real game's code.",
+  "sourceUrl": "https://www.rockstargames.com",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

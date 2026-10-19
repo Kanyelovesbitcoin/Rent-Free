@@ -123,7 +123,7 @@ test('local AI advisor: 16 GB Mac', async ({ page }) => {
 test('no horizontal scroll on any page', async ({ page }) => {
   await page.goto('/')
   await page.getByTestId('stack-creator').click()
-  for (const path of ['/', '/#/start', '/#/results', '/#/tool/descript', '/#/tool/netflix?tab=remake', '/#/remake', '/#/remake/netflix', '/#/local-ai', '/#/contribute', '/#/about', '/#/plan', '/#/toolbox', '/#/ai-helpers']) {
+  for (const path of ['/', '/#/start', '/#/results', '/#/tool/descript', '/#/tool/netflix?tab=remake', '/#/remake', '/#/remake/netflix', '/#/local-ai', '/#/contribute', '/#/about', '/#/plan', '/#/toolbox', '/#/ai-helpers', '/#/games', '/#/games/drops', '/#/games/stardew-valley', '/#/games/build/stardew-valley', '/#/games/build/command-and-conquer?mode=tinker', '/#/games/build']) {
     await page.goto(path)
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
     expect(overflow, path).toBeLessThanOrEqual(0)
@@ -216,4 +216,64 @@ test('toolbox and beginner guide pages', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Meet your AI builder/ })).toBeVisible()
   await expect(page.getByTestId('decide')).toContainText('Codex')
   await expect(page.getByTestId('first-30')).toContainText('localhost')
+})
+
+test('game mode: arcade skin, search a game, build it, download the quest kit', async ({ page }, info) => {
+  await page.goto('/#/games')
+  await expect(page.locator('html')).toHaveAttribute('data-mode', 'game')
+  await expect(page.getByTestId('game-mode-badge')).toBeVisible()
+  if (info.project.name === 'phone') await expect(page.getByTestId('game-tab-bar')).toBeVisible()
+  await page.getByLabel('What game do you love?').fill('Stardew')
+  await page.getByRole('link', { name: /Stardew Valley/ }).first().click()
+  await expect(page).toHaveURL(/#\/games\/stardew-valley$/)
+  await expect(page.getByTestId('open-meter')).toContainText('Still closed')
+  await expect(page.getByTestId('fun-not-stuff')).toBeVisible()
+  await page.getByTestId('make-your-own').getByRole('link', { name: /PRESS START/ }).click()
+
+  await expect(page.getByTestId('quest-bar')).toContainText('LEVEL 2/6')
+  await page.getByTestId('level-love').getByRole('button', { name: /Next level/ }).click()
+  await expect(page.getByTestId('quest-bar')).toContainText('XP 200/600')
+  await page.getByLabel('My twist').fill('You are a cat running a bakery.')
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/cat running a bakery/)
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/Copy the fun, not the stuff/)
+  await expect(page.getByTestId('game-blocks').getByLabel('Use Phaser')).toBeChecked()
+
+  // Going online makes the job bigger and adds an online database.
+  await page.getByTestId('level-play').getByRole('radio', { name: 'Online' }).click()
+  await expect(page.getByTestId('game-blocks').getByLabel('Use Supabase')).toBeChecked()
+  await expect(page.getByTestId('game-tier')).toContainText(/Big game|Epic/)
+
+  const download = page.waitForEvent('download')
+  await page.getByRole('button', { name: /Download quest kit/ }).click()
+  expect((await download).suggestedFilename()).toBe('rent-free-game-stardew-valley.zip')
+
+  // Leaving Game mode puts the normal look back.
+  await page.goto('/#/')
+  await expect(page.locator('html')).not.toHaveAttribute('data-mode', 'game')
+})
+
+test('game mode: source drops explain why, and released code can be tinkered with', async ({ page }) => {
+  await page.goto('/#/games/drops')
+  const cnc = page.getByTestId('drop-command-and-conquer')
+  await expect(cnc).toContainText('GPL-3.0')
+  await expect(cnc.getByTestId('license-badge')).toContainText('Truly open')
+  await expect(cnc).toContainText('You need your own copy')
+  await expect(page.getByTestId('why')).toContainText('Games die when servers turn off')
+  await expect(page.getByTestId('games-faq')).toContainText("Can I just ask an AI to copy a game's code?")
+
+  await cnc.getByRole('link', { name: /Tinker with the code/ }).click()
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Tinker with')
+  await expect(page.getByTestId('level-rules')).toBeVisible()
+  await page.getByTestId('level-goal').getByRole('radio', { name: 'Make a mod' }).click()
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/Make a mod for Command & Conquer/)
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/github\.com\/electronicarts/)
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/Never add the game's files to git/)
+})
+
+test('game mode: my own idea from any genre', async ({ page }) => {
+  await page.goto('/#/games/build?inspired=Wordle')
+  await expect(page.getByLabel('A game that inspires you')).toHaveValue('Wordle')
+  await page.getByRole('radio', { name: /Puzzle game/ }).click()
+  await expect(page.getByTestId('game-tier')).toContainText('Mini-game')
+  await expect(page.getByTestId('game-prompt')).toHaveValue(/^# Make my own open-source puzzle game\n/)
 })

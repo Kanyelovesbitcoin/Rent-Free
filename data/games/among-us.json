@@ -1,0 +1,23 @@
+{
+  "id": "among-us",
+  "name": "Among Us",
+  "genre": "party",
+  "openness": "closed",
+  "popularity": 6,
+  "what": "Do tasks with friends, but one of you is secretly the trickster.",
+  "lovedFeatures": [
+    "Secret roles (someone is the trickster)",
+    "Friends join on their phones with a room code",
+    "Vote out who you think it is",
+    "Quick rounds of 5 to 10 minutes"
+  ],
+  "extraFeatures": [
+    "Little tasks to finish around a map",
+    "Text chat during meetings",
+    "Custom roles"
+  ],
+  "scopeNote": "Online play is the hard part. Start with a \"pass the phone\" version everyone plays on one device.",
+  "sourceUrl": "https://store.steampowered.com/app/945360/Among_Us/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

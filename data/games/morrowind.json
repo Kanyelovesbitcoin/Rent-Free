@@ -1,0 +1,35 @@
+{
+  "id": "morrowind",
+  "name": "The Elder Scrolls III: Morrowind",
+  "genre": "top-down-rpg",
+  "openness": "fans-rebuilt",
+  "popularity": 14,
+  "what": "A huge fantasy world from 2002 where you can go anywhere and be anyone.",
+  "fanProjects": [
+    {
+      "name": "OpenMW",
+      "what": "Fans rebuilt the engine from scratch. It runs Morrowind on today's computers, with fixes and mod support.",
+      "license": "GPL-3.0",
+      "needsYourCopy": true,
+      "website": "https://openmw.org",
+      "howToPlay": [
+        "Own Morrowind (Steam or GOG).",
+        "Download OpenMW and follow its setup to find your game files."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Explore a big world on foot",
+    "Quests from people you meet",
+    "Level up your skills by using them",
+    "Save your game"
+  ],
+  "extraFeatures": [
+    "Join groups like a mages guild",
+    "Make your own spells",
+    "A big open world"
+  ],
+  "scopeNote": "A 3D open world is an epic. Make a small 2D adventure with one town and one dungeon first.",
+  "sourceUrl": "https://openmw.org",
+  "lastVerified": "2026-10-19"
+}

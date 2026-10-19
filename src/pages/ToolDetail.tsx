@@ -95,6 +95,20 @@ export default function ToolDetail() {
         ))}
       </div>
 
+      {sub.category === 'gaming' && (
+        <Link to="/games" className="pop mb-8 flex items-center gap-4 rounded-2xl p-5" style={{ background: '#110c22', color: '#f5f3ff' }} data-testid="game-mode-banner">
+          <span className="text-3xl" aria-hidden>
+            🎮
+          </span>
+          <span>
+            <span className="block font-pixel text-lg font-bold">Try Game mode</span>
+            <span className="block text-sm" style={{ color: '#c4bce6' }}>
+              Free open-source games that play like the ones you pay for, and how to make your own.
+            </span>
+          </span>
+        </Link>
+      )}
+
       {tab === 'switch' && (
         <div className="space-y-6">
           <ReplaceMeter name={sub.name} alt={best} savings={bestSavings} />

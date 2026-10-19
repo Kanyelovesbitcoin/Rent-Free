@@ -1,0 +1,24 @@
+{
+  "id": "flappy-bird",
+  "name": "Flappy Bird",
+  "genre": "platformer",
+  "openness": "closed",
+  "popularity": 22,
+  "what": "Tap to flap through gaps. Simple and very hard.",
+  "lovedFeatures": [
+    "Tap or press a key to flap",
+    "Gaps to fly through that keep coming",
+    "One hit and it is game over",
+    "High score saved on your device"
+  ],
+  "extraFeatures": [
+    "Medals for good scores",
+    "Day and night look",
+    "Different characters to unlock"
+  ],
+  "scopeNote": "The best first game ever. You can have it working in under an hour.",
+  "legalNote": "Don't use the name 'Flappy', the bird or the green pipes. Make your own hero and obstacles.",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Flappy_Bird",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

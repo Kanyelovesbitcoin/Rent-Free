@@ -109,7 +109,23 @@ export const LocalModelSchema = z.object({
 })
 
 // A "building block" service people can plug into an app they build (data/apis.json).
-export const ApiCategorySchema = z.enum(['ai', 'email', 'database', 'login', 'hosting', 'payments', 'storage', 'speech', 'search', 'maps', 'images', 'video'])
+export const ApiCategorySchema = z.enum([
+  'ai',
+  'email',
+  'database',
+  'login',
+  'hosting',
+  'payments',
+  'storage',
+  'speech',
+  'search',
+  'maps',
+  'images',
+  'video',
+  'game-engine',
+  'game-art',
+  'game-sound',
+])
 export const ApiSchema = z.object({
   id,
   name: z.string(),
@@ -133,6 +149,88 @@ export const ApiSchema = z.object({
 })
 export type ApiCategory = z.infer<typeof ApiCategorySchema>
 export type Api = z.infer<typeof ApiSchema>
+
+// ---- Game mode: data/game-genres.json, data/source-drops.json, data/games/*.json ----
+
+// A kind of game people can build (platformer, kart racer…). Feeds the Game builder and its prompt.
+export const GameGenreSchema = z.object({
+  id,
+  name: z.string(),
+  emoji: z.string(),
+  // One plain sentence: what you do over and over. The heart of the game.
+  coreLoop: z.string(),
+  defaultFeatures: z.array(z.string()).min(2),
+  extraFeatures: z.array(z.string()).default([]),
+  // How big a game this usually is: 1 mini-game … 4 epic.
+  base: z.number().int().min(1).max(4),
+  // Which screen sketch the starter kit shows (see src/lib/wireframes/game.ts).
+  sketch: z.enum(['side', 'top-down', 'track', 'cards', 'grid', 'blocks', 'board', 'text']),
+  // Who plays by default in the builder.
+  defaultPlayers: z.enum(['solo', 'couch', 'online']).default('solo'),
+})
+
+// When a company officially publishes a game's (or engine's) code.
+export const SourceDropSchema = z.object({
+  id,
+  title: z.string(),
+  by: z.string(),
+  date: isoDate,
+  kind: z.enum(['game', 'engine']),
+  license: z.string(),
+  // open = anyone can use, change and share it (MIT, GPL…); source-available = look and tinker, but with limits
+  // (often no selling); public-domain = no rules at all (CC0).
+  licenseKind: z.enum(['open', 'source-available', 'public-domain']),
+  includesArt: z.boolean(), // were the pictures, music and levels released too?
+  needsYourCopy: z.boolean(), // do you need to own the game to play it?
+  what: z.string(),
+  why: z.string(),
+  repoUrl: z.string().url().optional(),
+  gameId: id.optional(), // links to data/games/<id>.json
+  howToPlay: z.array(z.string()).default([]),
+  sourceUrl: z.string().url(),
+  lastVerified: isoDate,
+})
+
+// A free project made by fans: a rebuilt engine that uses your files, or a free look-alike.
+export const FanProjectSchema = z.object({
+  name: z.string(),
+  what: z.string(),
+  license: z.string(),
+  needsYourCopy: z.boolean(),
+  website: z.string().url(),
+  howToPlay: z.array(z.string()).default([]),
+})
+
+// How "open" a game already is, from most to least:
+// code-out = the company released the code; fans-rebuilt = fans made a free engine that runs your copy;
+// look-alike = a free open-source game plays a lot like it; closed = nothing yet, so build your own.
+export const OpennessSchema = z.enum(['code-out', 'fans-rebuilt', 'look-alike', 'closed'])
+
+export const GameSchema = z.object({
+  id,
+  name: z.string(),
+  genre: id, // a data/game-genres.json id
+  what: z.string(),
+  openness: OpennessSchema,
+  dropId: id.optional(), // a data/source-drops.json id (needed for code-out)
+  fanProjects: z.array(FanProjectSchema).default([]),
+  // The things people love about it, in their own words. Ticked by default in the builder.
+  lovedFeatures: z.array(z.string()).min(3),
+  extraFeatures: z.array(z.string()).default([]),
+  // An honest warning about size, e.g. "Start with one city block, not a whole city."
+  scopeNote: z.string().optional(),
+  // Extra legal care for this one, e.g. companies known to protect their look.
+  legalNote: z.string().optional(),
+  popularity: z.number().int().positive(),
+  sourceUrl: z.string().url(),
+  lastVerified: isoDate,
+})
+
+export type GameGenre = z.infer<typeof GameGenreSchema>
+export type SourceDrop = z.infer<typeof SourceDropSchema>
+export type FanProject = z.infer<typeof FanProjectSchema>
+export type Openness = z.infer<typeof OpennessSchema>
+export type Game = z.infer<typeof GameSchema>
 
 export type Category = z.infer<typeof CategorySchema>
 export type Plan = z.infer<typeof PlanSchema>

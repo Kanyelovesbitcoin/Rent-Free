@@ -1,0 +1,22 @@
+{
+  "id": "slay-the-spire",
+  "name": "Slay the Spire",
+  "genre": "deckbuilder",
+  "openness": "closed",
+  "popularity": 8,
+  "what": "Climb a tower, fight with cards, and build a stronger deck as you go.",
+  "lovedFeatures": [
+    "Draw a hand of cards and spend energy to play them",
+    "Enemies that show what they will do next",
+    "Add a new card after each win",
+    "A map with paths to choose"
+  ],
+  "extraFeatures": [
+    "Treasures that change the rules",
+    "A shop to remove or buy cards",
+    "Different heroes with their own cards"
+  ],
+  "sourceUrl": "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

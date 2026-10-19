@@ -7,6 +7,7 @@ Thanks for helping people stop paying rent on their software!
 - 🆕 [Add an app we're missing](../../issues/new?template=add-app.yml)
 - 💲 [Fix a wrong price](../../issues/new?template=wrong-price.yml)
 - 💡 [Share an idea or a better free app](../../issues/new?template=idea.yml)
+- 📦 [Spotted a game going open source?](../../issues/new?template=source-drop.yml)
 
 You just need a free GitHub account. We'll turn your form into a real update.
 
@@ -132,6 +133,58 @@ The first alternative in that list is the default, unless it isn't worth the eff
 - Write the free tier exactly as the pricing page says. If you aren't sure, say less, not more.
 - No affiliate or referral links.
 - Want the Build studio to suggest it? Add a keyword rule in `src/lib/apiSuggest.ts`.
+
+## Game mode: add a source drop
+
+When a company releases a game's (or engine's) code, add it to `data/source-drops.json`:
+
+```json
+{
+  "id": "zork",
+  "title": "Zork I, II and III",
+  "by": "Microsoft, Team Xbox and Activision",
+  "date": "2025-11-20",
+  "kind": "game",
+  "license": "MIT",
+  "licenseKind": "open",
+  "includesArt": true,
+  "needsYourCopy": false,
+  "what": "One or two short, plain sentences.",
+  "why": "Why they said they did it.",
+  "repoUrl": "https://github.com/historicalsource/zork1",
+  "gameId": "zork",
+  "howToPlay": ["Step 1", "Step 2"],
+  "sourceUrl": "https://…",
+  "lastVerified": "2026-10-19"
+}
+```
+
+- `licenseKind`:
+  - `open` for MIT, GPL and other OSI licenses;
+  - `public-domain` for CC0;
+  - `source-available` when the license has limits like "no selling".
+- `includesArt`: did the pictures, music and levels come too? `needsYourCopy`: do players need to own the game?
+- Only official releases by the company or the original makers. Never decompiled or leaked code.
+
+## Game mode: add a game
+
+Add `data/games/<id>.json`. See `GameSchema` in `src/lib/schema.ts` and copy an existing file.
+
+- `openness`:
+  - `code-out` needs a `dropId`;
+  - `fans-rebuilt` and `look-alike` need at least one `fanProjects` entry, with its license and whether it needs your own copy;
+  - `closed` means "make your own".
+- `lovedFeatures`: 3–5 things people love, in plain words. They are ticked by default in the builder.
+- `scopeNote`: an honest size warning for huge games. `legalNote`: extra care for companies known to protect their look.
+- Fan projects must be free and open source, and still around.
+
+## Game mode: add a genre
+
+Add an entry to `data/game-genres.json` with:
+- a one-sentence `coreLoop`;
+- 4 `defaultFeatures`;
+- a `base` size (1 mini-game … 4 epic);
+- a `sketch` layout (see `src/lib/wireframes/game.ts`).
 
 ## Update local AI models
 

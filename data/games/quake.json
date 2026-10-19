@@ -1,0 +1,36 @@
+{
+  "id": "quake",
+  "name": "Quake",
+  "genre": "shooter",
+  "openness": "code-out",
+  "dropId": "quake",
+  "popularity": 19,
+  "what": "The 1996 3D shooter that made online play and mods famous.",
+  "fanProjects": [
+    {
+      "name": "LibreQuake",
+      "what": "Free levels, art and sounds for Quake engines, so you can play without the original files. Use it with a free engine like vkQuake.",
+      "license": "BSD-3-Clause",
+      "needsYourCopy": false,
+      "website": "https://github.com/lavenderdotpet/LibreQuake",
+      "howToPlay": [
+        "Download LibreQuake from GitHub.",
+        "Get a free engine like vkQuake or Ironwail and follow the README."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Fast 3D movement and jumping",
+    "Levels with keys and secrets",
+    "Different enemies",
+    "Play against friends"
+  ],
+  "extraFeatures": [
+    "Mods",
+    "Online matches",
+    "Level editor"
+  ],
+  "scopeNote": "3D shooters are epic. Start from the released code or a free engine instead of from zero.",
+  "sourceUrl": "https://en.wikipedia.org/wiki/Quake_engine",
+  "lastVerified": "2026-10-19"
+}

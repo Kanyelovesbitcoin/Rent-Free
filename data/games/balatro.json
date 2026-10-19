@@ -1,0 +1,23 @@
+{
+  "id": "balatro",
+  "name": "Balatro",
+  "genre": "deckbuilder",
+  "openness": "closed",
+  "popularity": 7,
+  "what": "Play poker hands to score big, with jokers that bend the rules.",
+  "lovedFeatures": [
+    "Play poker-style hands to score points",
+    "Beat a score target each round",
+    "Joker cards that change the rules",
+    "A shop between rounds"
+  ],
+  "extraFeatures": [
+    "Special decks to unlock",
+    "Cards that grow stronger over a run",
+    "Daily challenge with the same seed for everyone"
+  ],
+  "scopeNote": "Card games are great for AI helpers: mostly rules and numbers. Start with 10 jokers, not 150.",
+  "sourceUrl": "https://store.steampowered.com/app/2379780/Balatro/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

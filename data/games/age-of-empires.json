@@ -1,0 +1,34 @@
+{
+  "id": "age-of-empires",
+  "name": "Age of Empires",
+  "genre": "strategy",
+  "openness": "look-alike",
+  "popularity": 9,
+  "what": "Build a town, gather resources, and lead armies through history.",
+  "fanProjects": [
+    {
+      "name": "0 A.D.",
+      "what": "A free history strategy game with many real ancient peoples. It left \"alpha\" in 2026 after 16 years.",
+      "license": "GPL-2.0 (art: CC BY-SA 3.0)",
+      "needsYourCopy": false,
+      "website": "https://play0ad.com",
+      "howToPlay": [
+        "Download it from play0ad.com.",
+        "Start with \"Tutorial\", then try a game against the computer."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Gather resources like food, wood and gold",
+    "Build buildings and train units",
+    "Computer players to beat",
+    "A map you explore"
+  ],
+  "extraFeatures": [
+    "Move up through ages to unlock new things",
+    "Play online against friends",
+    "Random maps every game"
+  ],
+  "sourceUrl": "https://play0ad.com",
+  "lastVerified": "2026-10-19"
+}

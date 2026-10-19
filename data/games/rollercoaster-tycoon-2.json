@@ -1,0 +1,34 @@
+{
+  "id": "rollercoaster-tycoon-2",
+  "name": "RollerCoaster Tycoon 2",
+  "genre": "builder-sim",
+  "openness": "fans-rebuilt",
+  "popularity": 11,
+  "what": "Build a theme park, design coasters, and keep guests happy.",
+  "fanProjects": [
+    {
+      "name": "OpenRCT2",
+      "what": "Fans rebuilt the game's engine so it runs great on today's computers, with online play and bigger parks.",
+      "license": "GPL-3.0",
+      "needsYourCopy": true,
+      "website": "https://github.com/OpenRCT2/OpenRCT2",
+      "howToPlay": [
+        "Own RollerCoaster Tycoon 2 (it is often on sale on Steam or GOG).",
+        "Download OpenRCT2 and point it at your game folder the first time it opens."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Place rides, paths and shops on a grid",
+    "Money that goes up and down",
+    "Guests who walk around and have needs",
+    "Save and load your park"
+  ],
+  "extraFeatures": [
+    "Design your own roller coaster",
+    "Goals for each map",
+    "Weather and day/night"
+  ],
+  "sourceUrl": "https://github.com/OpenRCT2/OpenRCT2",
+  "lastVerified": "2026-10-19"
+}

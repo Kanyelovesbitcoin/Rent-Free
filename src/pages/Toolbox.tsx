@@ -18,11 +18,22 @@ const CATEGORIES: { id: ApiCategory; emoji: string; label: string }[] = [
   { id: 'maps', emoji: '🗺️', label: 'Maps' },
   { id: 'images', emoji: '🖼️', label: 'Photos' },
   { id: 'video', emoji: '🎥', label: 'Video calls' },
+  { id: 'game-engine', emoji: '🎮', label: 'Game makers' },
+  { id: 'game-art', emoji: '🎨', label: 'Game art' },
+  { id: 'game-sound', emoji: '🔊', label: 'Game sounds' },
 ]
 
 export default function Toolbox() {
-  const [cat, setCat] = useState<ApiCategory | 'all' | 'free-forever'>('all')
-  const shown = allApis.filter((a) => (cat === 'all' ? true : cat === 'free-forever' ? a.runsLocally || a.paidFrom === 'Always free' : a.category === cat))
+  const [cat, setCat] = useState<ApiCategory | 'all' | 'free-forever' | 'games'>('all')
+  const shown = allApis.filter((a) =>
+    cat === 'all'
+      ? true
+      : cat === 'free-forever'
+        ? a.runsLocally || a.paidFrom === 'Always free'
+        : cat === 'games'
+          ? a.category.startsWith('game-') || a.goodFor.includes('games')
+          : a.category === cat,
+  )
 
   return (
     <div>
@@ -52,7 +63,7 @@ export default function Toolbox() {
       </section>
 
       <div className="-mx-4 mb-6 flex gap-2 overflow-x-auto px-4 pb-1" role="tablist" aria-label="Kinds of services">
-        {[{ id: 'all', emoji: '✨', label: 'All' }, { id: 'free-forever', emoji: '💚', label: 'Free forever' }, ...CATEGORIES].map((c) => (
+        {[{ id: 'all', emoji: '✨', label: 'All' }, { id: 'free-forever', emoji: '💚', label: 'Free forever' }, { id: 'games', emoji: '🕹️', label: 'For games' }, ...CATEGORIES.filter((c) => !c.id.startsWith('game-'))].map((c) => (
           <button
             key={c.id}
             type="button"

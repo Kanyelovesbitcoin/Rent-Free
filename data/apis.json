@@ -729,5 +729,177 @@
     ],
     "sourceUrl": "https://agentdeals.dev/vendor/livekit",
     "lastVerified": "2026-10-18"
+  },
+  {
+    "id": "phaser",
+    "name": "Phaser",
+    "category": "game-engine",
+    "what": "A free tool for making 2D games that run in a web browser. Share your game with just a link.",
+    "freeTier": "Free forever, for anything",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://phaser.io",
+    "docsUrl": "https://docs.phaser.io",
+    "signupSteps": [
+      "Nothing to sign up for.",
+      "Your AI helper installs it into your project for you."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "2D games",
+      "browser games"
+    ],
+    "sourceUrl": "https://phaser.io/download/release/v4.0.0",
+    "lastVerified": "2026-10-19",
+    "note": "Phaser 4 came out in April 2026. MIT license."
+  },
+  {
+    "id": "godot",
+    "name": "Godot",
+    "category": "game-engine",
+    "what": "A free game maker for 2D and 3D games. Make games for Windows, Mac, Linux, phones and the web.",
+    "freeTier": "Free forever, for anything. No fees on sales.",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": true,
+    "website": "https://godotengine.org",
+    "docsUrl": "https://docs.godotengine.org",
+    "signupSteps": [
+      "Download Godot from godotengine.org. No account needed.",
+      "Unzip it and open it. Your AI helper writes the game files."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "2D games",
+      "3D games"
+    ],
+    "sourceUrl": "https://godotengine.org/download/archive/",
+    "lastVerified": "2026-10-19",
+    "note": "MIT license. Version 4.7 is the current stable one."
+  },
+  {
+    "id": "kenney",
+    "name": "Kenney game assets",
+    "category": "game-art",
+    "what": "Thousands of free game pictures, sounds and fonts. You can use them for anything, even games you sell.",
+    "freeTier": "Free (CC0). Giving credit is nice but not needed.",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://kenney.nl/assets",
+    "docsUrl": "https://kenney.nl/support",
+    "signupSteps": [
+      "Go to kenney.nl/assets.",
+      "Pick a pack and click Download. No account needed.",
+      "Unzip it into your game's folder and tell your AI helper."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "art",
+      "sounds"
+    ],
+    "sourceUrl": "https://kenney.nl/support",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "opengameart",
+    "name": "OpenGameArt",
+    "category": "game-art",
+    "what": "A big library of free game art and music made by the community. Each file has its own license.",
+    "freeTier": "Free. Check each file's license (CC0, CC BY, GPL and more).",
+    "paidFrom": "Always free",
+    "openSource": true,
+    "runsLocally": false,
+    "website": "https://opengameart.org",
+    "docsUrl": "https://opengameart.org/content/faq",
+    "signupSteps": [
+      "Search opengameart.org for what you need.",
+      "Check the license on the file's page.",
+      "Write the author and license in your CREDITS.md."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "art",
+      "music"
+    ],
+    "sourceUrl": "https://opengameart.org/content/faq",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "freesound",
+    "name": "Freesound",
+    "category": "game-sound",
+    "what": "Free sound effects made by people all over the world: jumps, coins, doors, rain.",
+    "freeTier": "Free with an account. Each sound is CC0, CC BY, or CC BY-NC (no selling).",
+    "paidFrom": "Always free",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://freesound.org",
+    "docsUrl": "https://freesound.org/help/faq/",
+    "signupSteps": [
+      "Make a free account at freesound.org.",
+      "Search for a sound and check its license.",
+      "Download it and add it to your CREDITS.md."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "sounds"
+    ],
+    "sourceUrl": "https://freesound.org/help/faq/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "itch-io",
+    "name": "itch.io",
+    "category": "hosting",
+    "what": "A free place to share your game. People can play it in their browser or download it.",
+    "freeTier": "Free to upload. You choose how much itch.io gets if you sell (10% by default, 0% is allowed).",
+    "paidFrom": "Always free",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://itch.io",
+    "docsUrl": "https://itch.io/docs/creators/html5",
+    "signupSteps": [
+      "Make a free account at itch.io.",
+      "Click \"Upload new project\".",
+      "For a browser game, upload a ZIP with index.html and tick \"played in the browser\"."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "sharing games"
+    ],
+    "sourceUrl": "https://itch.io/docs/creators/payments",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "github-pages",
+    "name": "GitHub Pages",
+    "category": "hosting",
+    "what": "Puts a website or browser game online for free, straight from your code on GitHub.",
+    "freeTier": "Free for public projects. Up to 1 GB, not for selling things.",
+    "paidFrom": "Always free",
+    "openSource": false,
+    "runsLocally": false,
+    "website": "https://pages.github.com",
+    "docsUrl": "https://docs.github.com/en/pages",
+    "signupSteps": [
+      "Put your game's code on GitHub (your AI helper can walk you through it).",
+      "In the project, open Settings → Pages.",
+      "Pick your main branch and click Save. Your game gets its own link."
+    ],
+    "envVars": [],
+    "goodFor": [
+      "games",
+      "websites"
+    ],
+    "sourceUrl": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits",
+    "lastVerified": "2026-10-19"
   }
 ]

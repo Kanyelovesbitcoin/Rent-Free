@@ -1,0 +1,285 @@
+[
+  {
+    "id": "platformer",
+    "name": "Jump-and-run",
+    "emoji": "🍄",
+    "coreLoop": "Run, jump over gaps and enemies, grab the goodies, and reach the end of the level.",
+    "defaultFeatures": [
+      "Run and jump with tight, fair controls",
+      "A few short levels that get harder",
+      "Coins or stars to collect",
+      "Simple enemies to dodge or stomp"
+    ],
+    "extraFeatures": [
+      "Checkpoints so you don't restart the whole level",
+      "A boss at the end",
+      "Secret areas",
+      "A level editor so players can build their own levels"
+    ],
+    "base": 1,
+    "sketch": "side"
+  },
+  {
+    "id": "kart-racer",
+    "name": "Kart racer",
+    "emoji": "🏎️",
+    "coreLoop": "Race around a track, grab power-ups, and try to finish first.",
+    "defaultFeatures": [
+      "Drive, drift and boost",
+      "A few tracks",
+      "Power-ups you pick up on the track",
+      "Computer players to race against"
+    ],
+    "extraFeatures": [
+      "Split-screen for 2 players on one screen",
+      "Online races with friends",
+      "Pick your driver and kart",
+      "Time trial with your best lap saved"
+    ],
+    "base": 3,
+    "sketch": "track"
+  },
+  {
+    "id": "farming-life",
+    "name": "Farming & cozy life",
+    "emoji": "🌱",
+    "coreLoop": "Plant crops, wait for them to grow, sell them, and spend the money to make your farm better.",
+    "defaultFeatures": [
+      "Plant, water and harvest crops",
+      "Days that end at bedtime, and seasons that change",
+      "A shop to sell crops and buy seeds",
+      "Save your farm and keep playing tomorrow"
+    ],
+    "extraFeatures": [
+      "Fishing mini-game",
+      "Townspeople you can make friends with",
+      "Animals to take care of",
+      "Decorate your house",
+      "Play the same farm with a friend online"
+    ],
+    "base": 2,
+    "sketch": "top-down"
+  },
+  {
+    "id": "survivor-like",
+    "name": "Survive the swarm",
+    "emoji": "🧛",
+    "coreLoop": "Walk around while your weapons fire on their own, survive waves of monsters, and pick a new power each time you level up.",
+    "defaultFeatures": [
+      "Move with keys or a thumb stick; weapons attack by themselves",
+      "Waves of monsters that grow bigger",
+      "Pick 1 of 3 upgrades when you level up",
+      "A run lasts about 10 minutes"
+    ],
+    "extraFeatures": [
+      "Unlock new heroes between runs",
+      "Weapons that combine into stronger ones",
+      "A boss every few minutes",
+      "Leaderboard of best scores"
+    ],
+    "base": 1,
+    "sketch": "top-down"
+  },
+  {
+    "id": "deckbuilder",
+    "name": "Card battler",
+    "emoji": "🃏",
+    "coreLoop": "Play cards from your hand to beat an enemy, then add new cards to your deck and fight the next one.",
+    "defaultFeatures": [
+      "Draw a hand of cards and spend energy to play them",
+      "Enemies that show what they will do next",
+      "Add a new card after each win",
+      "A map with paths to choose"
+    ],
+    "extraFeatures": [
+      "Treasures that change the rules",
+      "A shop to remove or buy cards",
+      "Different heroes with their own cards",
+      "Daily challenge with the same seed for everyone"
+    ],
+    "base": 2,
+    "sketch": "cards"
+  },
+  {
+    "id": "falling-blocks",
+    "name": "Puzzle game",
+    "emoji": "🧩",
+    "coreLoop": "Move and turn pieces or tiles to make matches or fill lines, before the board fills up.",
+    "defaultFeatures": [
+      "Pieces that drop, move and turn",
+      "Clear lines or matches for points",
+      "It speeds up as you play",
+      "High score saved on your device"
+    ],
+    "extraFeatures": [
+      "See the next piece",
+      "Hold a piece for later",
+      "Two-player battle mode",
+      "Daily puzzle"
+    ],
+    "base": 1,
+    "sketch": "grid"
+  },
+  {
+    "id": "shooter",
+    "name": "Action shooter",
+    "emoji": "💥",
+    "coreLoop": "Move fast, aim, and blast enemies before they get you, then find the exit.",
+    "defaultFeatures": [
+      "Move and shoot with keys and mouse (or thumb sticks)",
+      "Rooms or waves of enemies",
+      "Health and ammo pickups",
+      "Short levels with an exit"
+    ],
+    "extraFeatures": [
+      "First-person 3D view",
+      "Different weapons to pick up",
+      "Play against friends online",
+      "A level editor"
+    ],
+    "base": 2,
+    "sketch": "top-down"
+  },
+  {
+    "id": "tower-defense",
+    "name": "Tower defense",
+    "emoji": "🏰",
+    "coreLoop": "Build towers along a path so the monsters walking down it never reach your base.",
+    "defaultFeatures": [
+      "Monsters walk a path in waves",
+      "Place and upgrade towers with coins",
+      "Lose lives when monsters get through",
+      "A few maps"
+    ],
+    "extraFeatures": [
+      "Towers with special powers (slow, splash, poison)",
+      "Speed-up button",
+      "Endless mode",
+      "Monsters that find their own path around your towers"
+    ],
+    "base": 2,
+    "sketch": "grid"
+  },
+  {
+    "id": "top-down-rpg",
+    "name": "Adventure RPG",
+    "emoji": "🗡️",
+    "coreLoop": "Explore, talk to people, fight monsters, get stronger, and finish quests.",
+    "defaultFeatures": [
+      "Walk around a world made of a few areas",
+      "Talk to characters and get quests",
+      "Fight monsters and level up",
+      "Save your game"
+    ],
+    "extraFeatures": [
+      "Items and gear to equip",
+      "A party of heroes",
+      "Puzzles in dungeons",
+      "A big open world",
+      "Your choices change the story"
+    ],
+    "base": 3,
+    "sketch": "top-down"
+  },
+  {
+    "id": "builder-sim",
+    "name": "Build & manage",
+    "emoji": "🎢",
+    "coreLoop": "Build things on a map, keep everything running and everyone happy, and earn money to build bigger.",
+    "defaultFeatures": [
+      "Place buildings, roads or rides on a grid",
+      "Money that goes up and down",
+      "Little people who walk around and have needs",
+      "Save and load your city or park"
+    ],
+    "extraFeatures": [
+      "Goals for each map",
+      "Weather and day/night",
+      "A ride or building editor",
+      "Huge maps with thousands of people"
+    ],
+    "base": 3,
+    "sketch": "grid"
+  },
+  {
+    "id": "strategy",
+    "name": "Strategy game",
+    "emoji": "⚔️",
+    "coreLoop": "Gather resources, build a base or empire, train an army, and outsmart the other side.",
+    "defaultFeatures": [
+      "Gather resources like food, wood and gold",
+      "Build buildings and train units",
+      "Computer players to beat",
+      "A map you explore"
+    ],
+    "extraFeatures": [
+      "Turn-based instead of real-time",
+      "Tech tree to unlock new things",
+      "Play online against friends",
+      "Random maps every game"
+    ],
+    "base": 3,
+    "sketch": "top-down"
+  },
+  {
+    "id": "party",
+    "name": "Party & friends game",
+    "emoji": "🎉",
+    "coreLoop": "Play quick rounds with friends, guess, vote or race, and laugh about it.",
+    "defaultFeatures": [
+      "Quick rounds of 2 to 5 minutes",
+      "Friends join on their phones with a room code",
+      "Score board between rounds",
+      "Works with 3 to 10 players"
+    ],
+    "extraFeatures": [
+      "Secret roles (someone is the trickster)",
+      "Voice or text chat",
+      "Custom questions or prompts",
+      "Play with strangers online"
+    ],
+    "base": 3,
+    "sketch": "board",
+    "defaultPlayers": "online"
+  },
+  {
+    "id": "block-sandbox",
+    "name": "Block-building sandbox",
+    "emoji": "⛏️",
+    "coreLoop": "Explore a world made of blocks, dig them up, and build anything you can imagine.",
+    "defaultFeatures": [
+      "A 3D world made of blocks",
+      "Dig blocks and place them",
+      "Day and night",
+      "Save your world"
+    ],
+    "extraFeatures": [
+      "Crafting tools from materials",
+      "Monsters at night",
+      "Play together online",
+      "An endless random world",
+      "Mods"
+    ],
+    "base": 4,
+    "sketch": "blocks"
+  },
+  {
+    "id": "text-adventure",
+    "name": "Text adventure",
+    "emoji": "📜",
+    "coreLoop": "Read where you are, type what you want to do, and solve puzzles to explore further.",
+    "defaultFeatures": [
+      "Type what you want to do, like \"go north\"",
+      "Rooms to explore with puzzles",
+      "Items to pick up and use",
+      "Save your game"
+    ],
+    "extraFeatures": [
+      "A map that draws itself",
+      "Hints when you're stuck",
+      "Pictures for each room"
+    ],
+    "base": 1,
+    "sketch": "text"
+  }
+]

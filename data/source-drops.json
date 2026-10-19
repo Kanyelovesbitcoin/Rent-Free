@@ -1,0 +1,264 @@
+[
+  {
+    "id": "brutal-framework",
+    "title": "BRUTAL framework",
+    "by": "Ahwoo Ltd (RocketWerkz, the studio of DayZ creator Dean Hall)",
+    "date": "2026-10-15",
+    "kind": "engine",
+    "license": "MIT-based, with credit rules",
+    "licenseKind": "source-available",
+    "includesArt": false,
+    "needsYourCopy": false,
+    "what": "The free toolkit that RimWorld's new engine is built on. Game makers can use it for free. They must show its logo and credits.",
+    "why": "The makers said: \"You are only as independent as your tools are.\" They want small studios to own their tools.",
+    "repoUrl": "https://github.com/ahwootech/BRUTAL",
+    "howToPlay": [
+      "This is a tool for making games, not a game.",
+      "Ask your AI helper to read its README with you if you want to try it."
+    ],
+    "sourceUrl": "https://80.lv/articles/dayz-creator-presents-brutal-a-free-open-source-development-framework",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "worlds-upon-the-wind",
+    "title": "Worlds Upon the Wind",
+    "by": "Max Shawabkeh (solo developer)",
+    "date": "2026-09-14",
+    "kind": "game",
+    "license": "CC0-1.0",
+    "licenseKind": "public-domain",
+    "includesArt": true,
+    "needsYourCopy": false,
+    "what": "A card game made in the free Godot engine. The code and art were given to everyone. The music and sounds were not, because of other people's rights.",
+    "why": "The developer wanted to give other indie game makers a real, finished game to learn from, and to give back.",
+    "repoUrl": "https://github.com/max99x/wutw-public",
+    "howToPlay": [
+      "Install Godot 4.7 (free) from godotengine.org.",
+      "Download the code from GitHub (green \"Code\" button, then \"Download ZIP\").",
+      "Open the folder in Godot and press Play. Or buy it on Steam to support the developer."
+    ],
+    "sourceUrl": "https://www.gamingonlinux.com/2026/09/godot-game-worlds-upon-the-wind-source-code-released/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "unturned",
+    "title": "Unturned (U3 SDK)",
+    "by": "Smartly Dressed Games",
+    "date": "2026-07-07",
+    "kind": "game",
+    "license": "Custom: free mods only, no selling",
+    "licenseKind": "source-available",
+    "includesArt": false,
+    "needsYourCopy": true,
+    "what": "The code for the free zombie survival game, shared on its 12th birthday. Great for learning and making mods. You can't sell what you make.",
+    "why": "So players can build \"a lasting legacy\" for the game, whatever happens to it later. They hope to switch to the MIT license one day.",
+    "repoUrl": "https://github.com/SmartlyDressedGames/U3-SDK",
+    "howToPlay": [
+      "Install Unturned on Steam. It is free.",
+      "The code uses the files from your Steam copy.",
+      "Mods you make must be free."
+    ],
+    "sourceUrl": "https://blog.smartlydressedgames.com/posts/2026-07-07-unturned-source-code-released/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "carbon-engine",
+    "title": "Carbon engine (EVE Online)",
+    "by": "Fenris Creations (the new name of CCP Games)",
+    "date": "2026-07-01",
+    "kind": "engine",
+    "license": "MIT (a few parts Apache-2.0)",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": false,
+    "what": "The engine behind the space game EVE Online, now free for anyone to use. The game itself is not included.",
+    "why": "To make the base of their games \"visible, understandable, and useful to others\", and to work together with the community.",
+    "repoUrl": "https://github.com/carbonengine",
+    "howToPlay": [
+      "This is a tool for making games, not a game.",
+      "Each part has its own folder on GitHub with a README."
+    ],
+    "sourceUrl": "https://www.opensourceforu.com/2026/07/fenris-creations-carbon-game-engine-goes-open-source-on-github/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "arma-cold-war-assault",
+    "title": "Arma: Cold War Assault Remastered",
+    "by": "Bohemia Interactive",
+    "date": "2026-06-22",
+    "kind": "game",
+    "license": "GPL-3.0 (game files under APL-SA)",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": false,
+    "what": "A remastered army game from 2001, shared for its 25th birthday. The code is open. The free demo gives you game files to play with.",
+    "why": "So the fans who kept the game alive for 25 years can study it, fix it, and build new things.",
+    "repoUrl": "https://github.com/BohemiaInteractive/CWR",
+    "howToPlay": [
+      "Get the free demo on Steam for the game files.",
+      "Build the code from GitHub with your AI helper, or just play the demo."
+    ],
+    "sourceUrl": "https://www.gamingonlinux.com/2026/06/arma-cold-war-assault-remastered-out-with-a-demo-and-its-open-source/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "moon-child",
+    "title": "Moon Child (1997)",
+    "by": "Its original makers: Reinier van Vliet, Metin Seven and Ramon Braumuller",
+    "date": "2026-04-19",
+    "kind": "game",
+    "license": "MIT code, CC BY-NC 4.0 art",
+    "licenseKind": "open",
+    "includesArt": true,
+    "needsYourCopy": false,
+    "what": "A classic jump-and-run game from 1997. The team shared the code and the art after the game went viral online. The art is for non-commercial use.",
+    "why": "Fans fell in love with it again, so the original team released it for everyone to enjoy and port.",
+    "howToPlay": [
+      "Get it free from the makers' itch.io page.",
+      "Or try a fan-made modern version, like Moon Child SR on GitHub."
+    ],
+    "sourceUrl": "https://metinseven.itch.io/moon-child-1997-windows-platform-game",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "cocos-4",
+    "title": "COCOS 4 engine",
+    "by": "SUD (owner of Cocos)",
+    "date": "2026-01-05",
+    "kind": "engine",
+    "license": "MIT",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": false,
+    "what": "A popular engine for phone and web games. It became fully free, with all the business limits removed.",
+    "why": "The new owner removed the commercial limits so more people can use it and help improve it.",
+    "repoUrl": "https://github.com/cocos/cocos4",
+    "howToPlay": [
+      "This is a tool for making games, not a game."
+    ],
+    "sourceUrl": "https://itsfoss.com/news/cocos-4-game-engine/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "sbox",
+    "title": "s&box",
+    "by": "Facepunch (the makers of Garry's Mod and Rust)",
+    "date": "2025-11-26",
+    "kind": "engine",
+    "license": "MIT (some files under its own EULA)",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": false,
+    "what": "The code for s&box, a game-making sandbox from the makers of Garry's Mod. A few built files keep their own rules.",
+    "why": "So players and creators can see how it works and help build it.",
+    "repoUrl": "https://github.com/Facepunch/sbox-public",
+    "howToPlay": [
+      "This is mostly a tool for making games and mods."
+    ],
+    "sourceUrl": "https://github.com/Facepunch/sbox-public",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "zork",
+    "title": "Zork I, II and III",
+    "by": "Microsoft, Team Xbox and Activision",
+    "date": "2025-11-20",
+    "kind": "game",
+    "license": "MIT",
+    "licenseKind": "open",
+    "includesArt": true,
+    "needsYourCopy": false,
+    "what": "Some of the first adventure games ever, from 1980. You play by typing, like \"go north\". The code is the whole game, so it is all free now.",
+    "why": "So students, teachers and game makers can study, learn and play. They worked with the Internet Archive to save it.",
+    "repoUrl": "https://github.com/historicalsource/zork1",
+    "gameId": "zork",
+    "howToPlay": [
+      "The code is on GitHub (zork1, zork2 and zork3).",
+      "Ask your AI helper to build it with the free ZILF tool and play it in a free story-game app."
+    ],
+    "sourceUrl": "https://opensource.microsoft.com/blog/2025/11/20/preserving-code-that-shaped-generations-zork-i-ii-and-iii-go-open-source/",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "command-and-conquer",
+    "title": "Command & Conquer (4 classic games)",
+    "by": "EA",
+    "date": "2025-02-27",
+    "kind": "game",
+    "license": "GPL-3.0",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": true,
+    "what": "The code for Tiberian Dawn, Red Alert, Renegade, and Generals with Zero Hour. The art, music and movies are still EA's, so you need your own copy.",
+    "why": "To let fans fix and mod these classic games more deeply. EA added new modding tools and Steam Workshop at the same time.",
+    "repoUrl": "https://github.com/electronicarts/CnC_Generals_Zero_Hour",
+    "gameId": "command-and-conquer",
+    "howToPlay": [
+      "Own the game (the Command & Conquer Ultimate Collection on Steam or the EA app).",
+      "Easiest: play Generals with the fan-made GeneralsGameCode builds, or Red Alert with OpenRA."
+    ],
+    "sourceUrl": "https://www.ea.com/games/command-and-conquer/news/steam-workshop-support",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "duelyst",
+    "title": "Duelyst",
+    "by": "Its former developers and fans",
+    "date": "2023-01-10",
+    "kind": "game",
+    "license": "CC0-1.0",
+    "licenseKind": "public-domain",
+    "includesArt": true,
+    "needsYourCopy": false,
+    "what": "A card battle game that shut down in 2020. Its code and over 600 animated pictures were given to everyone, so fans can run it again.",
+    "why": "The servers were turned off. Sharing everything was the only way to keep the game alive.",
+    "repoUrl": "https://github.com/open-duelyst/duelyst",
+    "howToPlay": [
+      "Look for fan-run servers on the project's GitHub page."
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Duelyst",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "quake",
+    "title": "Quake",
+    "by": "id Software",
+    "date": "1999-12-21",
+    "kind": "game",
+    "license": "GPL-2.0",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": true,
+    "what": "The engine of the famous 1996 shooter. The levels, art and sounds are still owned by the company.",
+    "why": "id Software shared its old engines so people could learn from them and keep them running.",
+    "repoUrl": "https://github.com/id-Software/Quake",
+    "gameId": "quake",
+    "howToPlay": [
+      "Use your own copy of Quake, or the free LibreQuake game files.",
+      "Play with a modern free engine like vkQuake or Ironwail."
+    ],
+    "sourceUrl": "https://en.wikipedia.org/wiki/Quake_engine",
+    "lastVerified": "2026-10-19"
+  },
+  {
+    "id": "doom",
+    "title": "Doom",
+    "by": "id Software",
+    "date": "1999-10-03",
+    "kind": "game",
+    "license": "GPL-2.0",
+    "licenseKind": "open",
+    "includesArt": false,
+    "needsYourCopy": true,
+    "what": "The code of the 1993 classic. It was shared in 1997 and became fully open in 1999. The levels and art are still owned by the company.",
+    "why": "id Software wanted people to learn from it. Fans have kept Doom alive for over 30 years.",
+    "repoUrl": "https://github.com/id-Software/DOOM",
+    "gameId": "doom",
+    "howToPlay": [
+      "Use your own copy of Doom, or the free Freedoom game files.",
+      "Play with a free modern engine like UZDoom."
+    ],
+    "sourceUrl": "https://doomwiki.org/wiki/Licences",
+    "lastVerified": "2026-10-19"
+  }
+]

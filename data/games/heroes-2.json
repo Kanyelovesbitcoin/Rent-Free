@@ -1,0 +1,34 @@
+{
+  "id": "heroes-2",
+  "name": "Heroes of Might and Magic II",
+  "genre": "strategy",
+  "openness": "fans-rebuilt",
+  "popularity": 16,
+  "what": "Lead heroes across a fantasy map and fight turn-based battles.",
+  "fanProjects": [
+    {
+      "name": "fheroes2",
+      "what": "Fans rebuilt the 1996 game so it runs on today's computers and phones. The free demo's files are enough to try it.",
+      "license": "GPL-2.0",
+      "needsYourCopy": true,
+      "website": "https://github.com/ihhub/fheroes2",
+      "howToPlay": [
+        "Download fheroes2 from its GitHub page.",
+        "Use the files from your own copy (GOG), or the free demo to try it."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Move heroes across a map, one turn at a time",
+    "Turn-based battles on a grid",
+    "Build up your castle",
+    "Computer players to beat"
+  ],
+  "extraFeatures": [
+    "Spells and magic items",
+    "A story campaign",
+    "Play with friends taking turns"
+  ],
+  "sourceUrl": "https://github.com/ihhub/fheroes2",
+  "lastVerified": "2026-10-19"
+}

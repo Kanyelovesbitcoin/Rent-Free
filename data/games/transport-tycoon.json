@@ -1,0 +1,34 @@
+{
+  "id": "transport-tycoon",
+  "name": "Transport Tycoon",
+  "genre": "builder-sim",
+  "openness": "fans-rebuilt",
+  "popularity": 12,
+  "what": "Connect towns with trains, trucks, ships and planes, and grow a transport empire.",
+  "fanProjects": [
+    {
+      "name": "OpenTTD",
+      "what": "A free remake that started from the 1995 game. It now has its own free graphics, sounds and music, so you need nothing else.",
+      "license": "GPL-2.0",
+      "needsYourCopy": false,
+      "website": "https://www.openttd.org",
+      "howToPlay": [
+        "Download it from openttd.org, or get it free on Steam.",
+        "Start a new game and build your first bus line between two towns."
+      ]
+    }
+  ],
+  "lovedFeatures": [
+    "Build roads and rails on a map",
+    "Vehicles that carry people and goods",
+    "Money that goes up and down",
+    "Towns that grow when you connect them"
+  ],
+  "extraFeatures": [
+    "Signals for busy rail lines",
+    "Play with friends online",
+    "Random maps every game"
+  ],
+  "sourceUrl": "https://github.com/OpenTTD/OpenTTD",
+  "lastVerified": "2026-10-19"
+}

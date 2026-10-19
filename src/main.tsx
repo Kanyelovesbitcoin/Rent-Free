@@ -7,6 +7,7 @@ import { SelectionProvider } from './state'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/bricolage-grotesque/opsz.css'
 import '@fontsource-variable/jetbrains-mono'
+import '@fontsource-variable/pixelify-sans'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(

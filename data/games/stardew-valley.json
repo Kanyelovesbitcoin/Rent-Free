@@ -1,0 +1,24 @@
+{
+  "id": "stardew-valley",
+  "name": "Stardew Valley",
+  "genre": "farming-life",
+  "openness": "closed",
+  "popularity": 3,
+  "what": "Grow a farm, make friends in town, and live a cozy life.",
+  "lovedFeatures": [
+    "Plant, water and harvest crops",
+    "Days that end at bedtime, and seasons that change",
+    "A shop to sell crops and buy seeds",
+    "Save your farm and keep playing tomorrow"
+  ],
+  "extraFeatures": [
+    "Fishing mini-game",
+    "Townspeople you can make friends with",
+    "Animals to take care of",
+    "Mines with monsters and ore"
+  ],
+  "scopeNote": "One person spent years making Stardew Valley. Start with one field, one shop and one season.",
+  "sourceUrl": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}

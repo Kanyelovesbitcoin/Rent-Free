@@ -1,0 +1,23 @@
+{
+  "id": "animal-crossing",
+  "name": "Animal Crossing",
+  "genre": "farming-life",
+  "openness": "closed",
+  "popularity": 23,
+  "what": "Live on a cozy island, decorate, and make animal friends.",
+  "lovedFeatures": [
+    "Decorate your house and island",
+    "Animal neighbors to talk to",
+    "Collect bugs, fish and fossils",
+    "A real-time clock (it is night when it is night for you)"
+  ],
+  "extraFeatures": [
+    "Shops that change every day",
+    "Visit friends' islands online",
+    "Seasons and holidays"
+  ],
+  "legalNote": "Nintendo protects its characters very strongly. Make your own neighbors, names and art.",
+  "sourceUrl": "https://animal-crossing.com",
+  "lastVerified": "2026-10-19",
+  "fanProjects": []
+}
